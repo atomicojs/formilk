@@ -10,6 +10,7 @@ export function useEventLabel(fromLabel, ignore) {
     composed: true,
     cancelable: true,
   });
+
   useEffect(() => {
     dispatchPreventLabel(fromLabel) && ignore && ignore();
   }, []);

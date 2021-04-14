@@ -1,5 +1,5 @@
-import { c, useProp } from "atomico";
-import { useSwitch } from "../../hooks/use-switch.js";
+import { c } from "atomico";
+import { useSwitch } from "./hooks/use-switch.js";
 
 const style = /*css */ `
     :host{

@@ -3,12 +3,24 @@
   "description": "Design system created with Atomico",
   "version": "0.0.0",
   "exports": {
-    ".": "./src/formilk.js"
+    ".": "./dest/formilk.js",
+    "./theme": "./dest/formilk.css",
+    "./button": "./dest/button.js",
+    "./card": "./dest/card.js",
+    "./icon": "./dest/icon.js",
+    "./input-basic": "./dest/input-basic.js",
+    "./input-checkbox": "./dest/input-checkbox.js",
+    "./input-color": "./dest/input-color.js",
+    "./input-radio": "./dest/input-radio.js",
+    "./input-select": "./dest/input-select.js",
+    "./input-toggle": "./dest/input-toggle.js",
+    "./label": "./dest/label.js"
   },
   "scripts": {
     "types": "tsc",
     "start": "devserver dev src --jsxImportSource atomico --port 8000",
-    "build": "devserver build src/components/**/*.{jsx,js,css} docs --jsxImportSource atomico --minifyCssLiteral --minify"
+    "build": "npm run types && devserver build src/*.{jsx,js,css} dest --jsxImportSource atomico",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@atomico/components": "latest",

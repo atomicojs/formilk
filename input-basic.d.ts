@@ -18,7 +18,7 @@ export namespace inputProps {
         export const reflect: boolean;
     }
 }
-export const Input: import("atomico/types/dom").AtomicoElement<import("atomico").Props<{
+export const InputBasic: import("atomico/types/dom").AtomicoElement<import("atomico").Props<{
     name: StringConstructor;
     type: StringConstructor;
     value: any;

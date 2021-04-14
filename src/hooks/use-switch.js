@@ -1,4 +1,4 @@
-import { h, useEvent, useEffect, useRef, useProp } from "atomico";
+import { h, useEffect, useRef, useProp } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { useParent } from "@atomico/hooks/use-parent";
 import { useEventLabel } from "./use-event-label.js";

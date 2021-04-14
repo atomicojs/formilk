@@ -1,6 +1,6 @@
 import { c, useProp, useRef } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
-import { useEventLabel } from "../../hooks/use-event-label.js";
+import { useEventLabel } from "./hooks/use-event-label.js";
 
 const style = /*css*/ `
   :host{

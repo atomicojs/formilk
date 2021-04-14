@@ -1,7 +1,7 @@
 import { c, useProp, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { useEventLabel } from "../../hooks/use-event-label.js";
+import { useEventLabel } from "./hooks/use-event-label.js";
 
 export const inputStyle = /*css*/ `
     :host{
@@ -79,7 +79,7 @@ export const inputProps = {
   disabled: { type: Boolean, reflect: true },
 };
 
-function input({ type, ...props }) {
+function inputBasic({ type, ...props }) {
   const [, setValue] = useProp("value");
   const refLabel = useRef();
   const refIcon = useRef();
@@ -119,6 +119,6 @@ function input({ type, ...props }) {
   );
 }
 
-input.props = inputProps;
+inputBasic.props = inputProps;
 
-export const Input = c(input);
+export const InputBasic = c(inputBasic);

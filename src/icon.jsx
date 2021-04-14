@@ -1,5 +1,5 @@
 import { c } from "atomico";
-import * as Icons from "./icons.jsx";
+import * as Icons from "./icons/icons.jsx";
 
 const style = /*css*/ `
     :host{
