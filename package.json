@@ -19,7 +19,7 @@
   "scripts": {
     "types": "tsc",
     "start": "devserver dev src --jsxImportSource atomico --port 8000",
-    "build": "npm run types && devserver build src/*.{jsx,js,css} dest --jsxImportSource atomico",
+    "build": "npm run types && devserver build src/*.{jsx,js,css} dest --jsxImportSource atomico --sourcemap",
     "prepare": "npm run build"
   },
   "dependencies": {
