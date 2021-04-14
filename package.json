@@ -1,0 +1,22 @@
+{
+  "name": "formilk",
+  "description": "Design system created with Atomico",
+  "version": "0.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "devserver dev src --jsxImportSource atomico --port 8000",
+    "build": "devserver build src/**/*.html docs --jsxImportSource atomico --minifyCssLiteral --minify"
+  },
+  "dependencies": {
+    "@atomico/components": "latest",
+    "@atomico/hooks": "latest",
+    "@atomico/markdown": "latest",
+    "atomico": "latest"
+  },
+  "devDependencies": {
+    "@devserver/build": "latest",
+    "@devserver/cli": "latest"
+  }
+}

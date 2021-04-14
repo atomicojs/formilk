@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomico - Started</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./components/formilk.css" />
+    <script async type="module" src="./components/formilk.js"></script>
+  </head>
+  <body>
+    <main class="formilk_theme page">
+      <section class="section">
+        <div class="section_content" onsubmit="console.log(event)">
+          <form action="">
+            <h1>Welcome to formilk</h1>
+            <p>
+              Un DS minimalista, creado con el poder de Atomico y amigable con
+              el LightDOM
+            </p>
+            <h2>formilk-input</h2>
+
+            <formilk-input-basic
+              type="text"
+              name="input-1"
+              placeholder="Content..."
+              list="browsers"
+            >
+              <datalist id="browsers">
+                <option value="Edge"></option>
+                <option value="Firefox"></option>
+                <option value="Chrome"></option>
+                <option value="Opera"></option>
+                <option value="Safari"></option>
+              </datalist>
+            </formilk-input-basic>
+
+            <h3>Input Color</h3>
+
+            <formilk-label>
+              <formilk-input-color></formilk-input-color>
+              <span>Color pick</span>
+            </formilk-label>
+
+            <h3>Input slot</h3>
+            <formilk-input-basic
+              type="text"
+              name="input-2"
+              placeholder="Content..."
+            >
+              <span>Your Name?</span>
+            </formilk-input-basic>
+
+            <h3>Input slot=icon</h3>
+            <formilk-input-basic
+              type="text"
+              name="input-3"
+              placeholder="Content..."
+            >
+              <formilk-icon slot="icon" type="user"></formilk-icon>
+            </formilk-input-basic>
+
+            <h3>Input slot=icon + slot</h3>
+            <formilk-input-basic
+              type="text"
+              name="input-4"
+              placeholder="Content..."
+            >
+              <formilk-icon slot="icon" type="user"></formilk-icon>
+              <span>User</span>
+            </formilk-input-basic>
+
+            <h2>input-checkbox</h2>
+            <formilk-input-checkbox name="input-5"></formilk-input-checkbox>
+            <formilk-input-checkbox
+              name="input-6"
+              checked
+            ></formilk-input-checkbox>
+
+            <h2>input-radio</h2>
+            <formilk-input-radio
+              name="input-6"
+              value="1"
+              checked
+            ></formilk-input-radio>
+            <formilk-input-radio name="input-6" value="2"></formilk-input-radio>
+
+            <h2>input-toggle</h2>
+            <formilk-input-toggle name="input-7"></formilk-input-toggle>
+            <formilk-input-toggle name="input-8" checked></formilk-input-toggle>
+
+            <h2>button slot</h2>
+            <formilk-button><strong>Button</strong></formilk-button>
+            <h2>button slot=icon</h2>
+            <formilk-button
+              ><formilk-icon slot="icon" type="closed"></formilk-icon
+            ></formilk-button>
+            <formilk-button
+              ><formilk-icon slot="icon" type="user"></formilk-icon
+            ></formilk-button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
