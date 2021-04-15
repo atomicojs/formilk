@@ -1,7 +1,8 @@
 {
   "name": "formilk",
   "description": "Design system created with Atomico",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "types": "./dest/formilk.d.ts",
   "exports": {
     ".": "./dest/formilk.js",
     "./theme": "./dest/formilk.css",
@@ -26,11 +27,11 @@
     "@atomico/components": "latest",
     "@atomico/hooks": "latest",
     "@atomico/markdown": "latest",
-    "atomico": "latest",
-    "typescript": "^4.2.4"
+    "atomico": "latest"
   },
   "devDependencies": {
     "@devserver/build": "latest",
-    "@devserver/cli": "latest"
+    "@devserver/cli": "latest",
+    "typescript": "^4.2.4"
   }
 }
