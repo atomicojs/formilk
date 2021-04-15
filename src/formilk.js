@@ -1,5 +1,5 @@
 import { Card } from "./card.jsx";
-import { Input } from "./input-basic.jsx";
+import { InputBasic } from "./input-basic.jsx";
 import { InputToggle } from "./input-toggle.jsx";
 import { InputCheckbox } from "./input-checkbox.jsx";
 import { InputRadio } from "./input-radio.jsx";
