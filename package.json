@@ -1,7 +1,7 @@
 {
   "name": "formilk",
   "description": "Design system created with Atomico",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": {
     ".": "./dest/formilk.js",
     "./theme": "./dest/formilk.css",
@@ -19,7 +19,7 @@
   "scripts": {
     "types": "tsc",
     "start": "devserver dev src --jsxImportSource atomico --port 8000",
-    "build": "devserver build src/*.{jsx,js,css} dest --jsxImportSource atomico --sourcemap",
+    "build": "devserver build src/*.{jsx,js,css} dest --jsxImportSource atomico --sourcemap --external atomico,@atomico/*",
     "prepare": "npm run types && npm run build"
   },
   "dependencies": {
