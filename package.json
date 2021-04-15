@@ -2,7 +2,7 @@
   "name": "formilk",
   "description": "Design system created with Atomico",
   "version": "0.0.3",
-  "types": "./dest/formilk.d.ts",
+  "types": "./formilk.d.ts",
   "exports": {
     ".": "./dest/formilk.js",
     "./theme": "./dest/formilk.css",
