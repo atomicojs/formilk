@@ -5,7 +5,7 @@
   "types": "./formilk.d.ts",
   "exports": {
     ".": "./dest/formilk.js",
-    "./theme": "./dest/formilk.css",
+    "./theme.css": "./dest/formilk.css",
     "./button": "./dest/button.js",
     "./card": "./dest/card.js",
     "./icon": "./dest/icon.js",
@@ -19,8 +19,8 @@
   },
   "scripts": {
     "types": "tsc",
-    "start": "devserver dev src --jsxImportSource atomico --port 8000",
-    "build": "devserver build src/*.{jsx,js,css} dest --jsxImportSource atomico --sourcemap --external atomico,@atomico/*",
+    "start": "vite",
+    "build": "vite build",
     "prepare": "npm run types && npm run build"
   },
   "dependencies": {
@@ -30,8 +30,7 @@
     "atomico": "latest"
   },
   "devDependencies": {
-    "@devserver/build": "latest",
-    "@devserver/cli": "latest",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "vite": "^2.1.5"
   }
 }

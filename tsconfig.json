@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["components/**/*"],
   "compilerOptions": {
     "strict": true,
     "jsx": "react-jsx",
