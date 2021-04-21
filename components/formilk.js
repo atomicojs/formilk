@@ -25,4 +25,3 @@ customElements.define("formilk-input-radio", InputRadio);
 customElements.define("formilk-input-color", InputColor);
 customElements.define("formilk-button", Button);
 customElements.define("formilk-label", Label);
-customElements.define("formilk-icon", Icon);

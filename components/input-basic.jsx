@@ -63,22 +63,6 @@ export const inputStyle = /*css*/ `
   }
 `;
 
-export const inputProps = {
-  name: String,
-  type: String,
-  value: null,
-  list: String,
-  pattern: String,
-  min: Number,
-  max: Number,
-  minLength: Number,
-  maxLength: Number,
-  placeholder: String,
-  required: Boolean,
-  checked: Boolean,
-  disabled: { type: Boolean, reflect: true },
-};
-
 function inputBasic({ type, ...props }) {
   const [, setValue] = useProp("value");
   const refLabel = useRef();
@@ -119,6 +103,20 @@ function inputBasic({ type, ...props }) {
   );
 }
 
-inputBasic.props = inputProps;
+export const inputProps = (inputBasic.props = {
+  name: String,
+  type: String,
+  value: null,
+  list: String,
+  pattern: String,
+  min: Number,
+  max: Number,
+  minLength: Number,
+  maxLength: Number,
+  placeholder: String,
+  required: Boolean,
+  checked: Boolean,
+  disabled: { type: Boolean, reflect: true },
+});
 
 export const InputBasic = c(inputBasic);

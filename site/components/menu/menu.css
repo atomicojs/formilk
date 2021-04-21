@@ -1,0 +1,23 @@
+.items {
+  display: grid;
+  grid-template-columns: auto 0.065rem;
+  grid-gap: 1rem;
+}
+
+.items-line {
+  background: var(--doc-menu-line-inactive, rgba(0, 0, 0, 0.25));
+  border-radius: 100px;
+}
+.items-line div {
+  width: 300%;
+  left: 50%;
+  height: var(--h);
+  position: relative;
+  transform: translate(-50%, var(--y));
+  background: var(--doc-menu-line-active, currentColor);
+  transition: 0.3s ease all;
+  border-radius: 1rem;
+}
+.items-item {
+  padding: 0.5rem 0rem;
+}
