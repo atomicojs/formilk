@@ -29,7 +29,7 @@
         "@atomico/components": "latest",
         "@atomico/hooks": "latest",
         "@atomico/markdown": "latest",
-        "@atomico/prepare": "^0.0.1",
+        "@atomico/prepare": "latest",
         "atomico": "latest"
     },
     "devDependencies": {
