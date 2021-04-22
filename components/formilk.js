@@ -1,4 +1,4 @@
-import "./formilk.css";
+import style from "./formilk.css";
 import { Card } from "./card.jsx";
 import { InputBasic } from "./input-basic.jsx";
 import { InputToggle } from "./input-toggle.jsx";

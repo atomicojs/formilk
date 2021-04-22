@@ -1,41 +1,43 @@
 {
-  "name": "formilk",
-  "description": "Design system created with Atomico",
-  "version": "0.0.3",
-  "type": "module",
-  "types": "./formilk.d.ts",
-  "exports": {
-    ".": "./dest/formilk.js",
-    "./theme.css": "./dest/formilk.css",
-    "./button": "./dest/button.js",
-    "./card": "./dest/card.js",
-    "./icon": "./dest/icon.js",
-    "./input-basic": "./dest/input-basic.js",
-    "./input-checkbox": "./dest/input-checkbox.js",
-    "./input-color": "./dest/input-color.js",
-    "./input-radio": "./dest/input-radio.js",
-    "./input-select": "./dest/input-select.js",
-    "./input-toggle": "./dest/input-toggle.js",
-    "./label": "./dest/label.js"
-  },
-  "scripts": {
-    "types": "tsc",
-    "start": "vite",
-    "build": "vite build",
-    "rollup": "rollup -c",
-    "prepare": "npm run types && npm run build"
-  },
-  "dependencies": {
-    "@atomico/components": "latest",
-    "@atomico/hooks": "latest",
-    "@atomico/markdown": "latest",
-    "atomico": "latest"
-  },
-  "devDependencies": {
-    "@atomico/esbuild-jsx-runtime": "^1.0.0",
-    "esbuild": "^0.9.7",
-    "fast-glob": "^3.2.5",
-    "typescript": "^4.2.4",
-    "vite": "^2.1.5"
-  }
+    "name": "formilk",
+    "description": "Design system created with Atomico",
+    "version": "0.0.3",
+    "type": "module",
+    "types": "./formilk.d.ts",
+    "exports": {
+        ".": "./dest/formilk.js",
+        "./theme.css": "./components/formilk.css",
+        "./button": "./dest/button.js",
+        "./card": "./dest/card.js",
+        "./input-basic": "./dest/input-basic.js",
+        "./input-checkbox": "./dest/input-checkbox.js",
+        "./input-color": "./dest/input-color.js",
+        "./input-radio": "./dest/input-radio.js",
+        "./input-select": "./dest/input-select.js",
+        "./input-toggle": "./dest/input-toggle.js",
+        "./label": "./dest/label.js"
+    },
+    "scripts": {
+        "types": "tsc",
+        "start": "vite",
+        "build": "vite build",
+        "rollup": "rollup -c",
+        "clear": "rm *.d.ts",
+        "prepublishOnly": "npm run clear && prepare components/*.jsx --types --exports"
+    },
+    "dependencies": {
+        "@atomico/components": "latest",
+        "@atomico/hooks": "latest",
+        "@atomico/markdown": "latest",
+        "@atomico/prepare": "^0.0.1",
+        "atomico": "latest"
+    },
+    "devDependencies": {
+        "typescript": "^4.2.4",
+        "vite": "^2.1.5"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": false
+    }
 }
