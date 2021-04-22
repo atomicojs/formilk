@@ -2,6 +2,7 @@
   "name": "formilk",
   "description": "Design system created with Atomico",
   "version": "0.0.3",
+  "type": "module",
   "types": "./formilk.d.ts",
   "exports": {
     ".": "./dest/formilk.js",
@@ -21,6 +22,7 @@
     "types": "tsc",
     "start": "vite",
     "build": "vite build",
+    "rollup": "rollup -c",
     "prepare": "npm run types && npm run build"
   },
   "dependencies": {
@@ -30,6 +32,9 @@
     "atomico": "latest"
   },
   "devDependencies": {
+    "@atomico/esbuild-jsx-runtime": "^1.0.0",
+    "esbuild": "^0.9.7",
+    "fast-glob": "^3.2.5",
     "typescript": "^4.2.4",
     "vite": "^2.1.5"
   }
