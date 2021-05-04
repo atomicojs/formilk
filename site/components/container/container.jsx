@@ -7,21 +7,19 @@ import {
     RouterSwitch,
     RouterCase,
     Group,
+    Aside,
+    Article,
+    Hero,
+    Pagination,
 } from "../components.js";
 
-import { pagination } from "./_pagination.jsx";
-import { aside } from "./_aside.jsx";
+// import { pagination } from "../pagination/pagination.jsx";
 
-import styleContainer from "./container.css";
-import styleMarkdown from "./markdown.css";
-import stylePagination from "./pagination.css";
-import styleAside from "./aside.css";
-import styleArticle from "./article.css";
-
-import { getPagination, getSourcePath } from "./utils.js";
+import style from "./container.css";
+import { getPagination, getSourcePath } from "../utils.js";
 import { useRender } from "@atomico/hooks/use-render";
 
-function container() {
+function container({ brand }) {
     const ref = useRef();
     const refSwitch = useRef();
     const slots = useSlot(ref);
@@ -35,55 +33,51 @@ function container() {
 
     const [prev, next] = getPagination(groups, match);
 
+    useRender(() => (
+        <RouterRedirect class="content">
+            {/* {aside({ groups: groups, match })} */}
+            <Aside groups={groups} match={match}>
+                <img slot="brand" src={brand} alt="Logo" />
+            </Aside>
+            <Article>
+                <Hero slot="header">
+                    {meta?.title && <h1 slot="title">{meta?.title}</h1>}
+                </Hero>
+                <RouterSwitch ref={refSwitch} onData={update}>
+                    {groups.map(({ label, sources }) =>
+                        sources.map(
+                            (source) =>
+                                source.load && (
+                                    <RouterCase
+                                        path={getSourcePath(label, source)}
+                                        key={source}
+                                        load={source.load}
+                                    ></RouterCase>
+                                )
+                        )
+                    )}
+                </RouterSwitch>
+                <Pagination
+                    slot="pagination"
+                    next={next}
+                    prev={prev}
+                ></Pagination>
+            </Article>
+            <aside class="aside"></aside>
+        </RouterRedirect>
+    ));
+
     return (
         <host shadowDom onChangeSources={update}>
-            <style>
-                {styleContainer}
-                {styleMarkdown}
-                {stylePagination}
-                {styleAside}
-                {styleArticle}
-            </style>
+            <style>{style}</style>
             <slot ref={ref}></slot>
-            <RouterRedirect>
-                <div class="content">
-                    {aside({ groups: groups, match })}
-                    <article class="article">
-                        {meta && (
-                            <header class="article-header" key="header">
-                                <h1>{meta.title}</h1>
-                            </header>
-                        )}
-                        <div class="article-content" key="content">
-                            <RouterSwitch ref={refSwitch} onData={update}>
-                                {groups.map(({ label, sources }) =>
-                                    sources.map(
-                                        (source) =>
-                                            source.load && (
-                                                <RouterCase
-                                                    path={getSourcePath(
-                                                        label,
-                                                        source
-                                                    )}
-                                                    key={source}
-                                                    load={source.load}
-                                                ></RouterCase>
-                                            )
-                                    )
-                                )}
-                            </RouterSwitch>
-                        </div>
-                        {(prev || next) && pagination({ next, prev })}
-                    </article>
-                    <aside class="aside"></aside>
-                </div>
-            </RouterRedirect>
         </host>
     );
 }
 
 container.props = {
     path: String,
+    brand: String,
 };
 
 export const Container = c(container);

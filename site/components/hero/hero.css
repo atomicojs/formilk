@@ -1,0 +1,18 @@
+:host {
+    min-height: 16rem;
+    display: flex;
+    align-items: flex-end;
+    background: var(
+        --doc-hero-header-bg,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='.5' cy='.5' r='.5'/%3E%3C/svg%3E")
+            repeat 0 0 / auto fixed
+    );
+    padding: var(--doc-hero-padding, 2rem);
+    box-sizing: border-box;
+}
+
+::slotted([slot="title"]) {
+    font-size: 3.125rem;
+    margin: 0px;
+    line-height: 1em;
+}

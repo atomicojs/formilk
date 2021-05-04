@@ -1,7 +1,7 @@
 /**
  *
  * @param {string} label
- * @param {import("../source/source").Source} source
+ * @param {import("./source/source").Source} source
  * @returns
  */
 export const getSourcePath = (label, source) =>

@@ -21,6 +21,7 @@ function menu() {
     return (
         <host shadowDom ref={refHost} onMenuItemChange={update}>
             <style>{style}</style>
+            <slot></slot>
             <div class="items">
                 <div class="items-line" style={`--y:${top}px;--h:${height}px;`}>
                     <div></div>

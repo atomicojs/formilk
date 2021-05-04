@@ -10,8 +10,8 @@ function doc() {
     return (
         <host shadowDom>
             <style>{styleFormilk}</style>
-            <Container class="formilk_theme">
-                <img slot="aside-top" src={logo} alt="Logo" width="120px" />
+            <style>{`h2{color: red}`}</style>
+            <Container class="formilk_theme" brand={logo}>
                 <Group label="Components">
                     <Source label="Button" load={home} path="/"></Source>
                     <Source label="Alert" load={input}></Source>

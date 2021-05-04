@@ -1,14 +1,14 @@
 :host {
     width: 100%;
     height: 100%;
-    background: var(--doc-container-bg, #fff);
+    background: var(--doc-container-bg, #f1f9f9);
     display: block;
     overflow: hidden auto;
     font-family: unset;
     color: var(--doc-container-color, #232323);
 }
 
-.content {
+::slotted(.content) {
     width: 100%;
     min-height: 100%;
     display: grid;
