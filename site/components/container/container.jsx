@@ -19,6 +19,7 @@ import styleAside from "./aside.css";
 import styleArticle from "./article.css";
 
 import { getPagination, getSourcePath } from "./utils.js";
+import { useRender } from "@atomico/hooks/use-render";
 
 function container() {
     const ref = useRef();
