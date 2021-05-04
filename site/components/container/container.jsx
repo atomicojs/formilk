@@ -1,89 +1,88 @@
 import { c, useRef, useUpdate } from "atomico";
-import {
-  RouterRedirect,
-  RouterSwitch,
-  RouterCase,
-} from "@atomico/components/router";
 import { useRouteMatch } from "@atomico/hooks/use-router";
 import { useSlot } from "@atomico/hooks/use-slot";
-import { Group } from "../group/group.jsx";
-import { Menu } from "../menu/menu.jsx";
-import { MenuItem } from "../menu/menu-item.jsx";
+
+import {
+    RouterRedirect,
+    RouterSwitch,
+    RouterCase,
+    Group,
+} from "../components.js";
+
+import { pagination } from "./_pagination.jsx";
+import { aside } from "./_aside.jsx";
+
 import styleContainer from "./container.css";
 import styleMarkdown from "./markdown.css";
+import stylePagination from "./pagination.css";
+import styleAside from "./aside.css";
+import styleArticle from "./article.css";
 
-function container({ path }) {
-  const ref = useRef();
-  const refSwitch = useRef();
-  const slots = useSlot(ref);
-  const update = useUpdate();
-  /**
-   * @type {Group[]}
-   */
-  const groups = slots.filter((child) => child instanceof Group);
-  const match = useRouteMatch();
-  const meta = refSwitch.current?.data?.meta;
-  return (
-    <host shadowDom onChangeSources={update}>
-      <style>
-        {styleContainer}
-        {styleMarkdown}
-      </style>
-      <slot ref={ref}></slot>
-      <RouterRedirect path={path}>
-        <div class="center">
-          <aside class="aside">
-            <header class="aside-header">
-              <slot name="aside-top"></slot>
-            </header>
-            <div class="aside-menu">
-              <Menu>
-                {groups.map(({ label, sources }) =>
-                  sources.map((source) => {
-                    const href =
-                      source.path ||
-                      encodeURI(`/${label}/${source.label}`.toLowerCase());
-                    return (
-                      <MenuItem href={href} active={!!match(href)}>
-                        <strong>{source.label}</strong>
-                      </MenuItem>
-                    );
-                  })
-                )}
-              </Menu>
-            </div>
-          </aside>
-          <article class="article">
-            {meta && (
-              <header class="article-header" key="header">
-                <h1>{meta.title}</h1>
-              </header>
-            )}
-            <div class="article-content" key="content">
-              <RouterSwitch ref={refSwitch} onData={update}>
-                {groups.map(({ label, sources }) =>
-                  sources.map((source) => (
-                    <RouterCase
-                      path={
-                        source.path ||
-                        encodeURI(`/${label}/${source.label}`.toLowerCase())
-                      }
-                      key={source}
-                      load={source.load}
-                    ></RouterCase>
-                  ))
-                )}
-              </RouterSwitch>
-            </div>
-          </article>
-        </div>
-      </RouterRedirect>
-    </host>
-  );
+import { getPagination, getSourcePath } from "./utils.js";
+
+function container() {
+    const ref = useRef();
+    const refSwitch = useRef();
+    const slots = useSlot(ref);
+    const update = useUpdate();
+    /**
+     * @type {Group["Props"][]}
+     */
+    const groups = slots.filter((child) => child instanceof Group);
+    const match = useRouteMatch();
+    const meta = refSwitch.current?.data?.meta;
+
+    const [prev, next] = getPagination(groups, match);
+
+    return (
+        <host shadowDom onChangeSources={update}>
+            <style>
+                {styleContainer}
+                {styleMarkdown}
+                {stylePagination}
+                {styleAside}
+                {styleArticle}
+            </style>
+            <slot ref={ref}></slot>
+            <RouterRedirect>
+                <div class="content">
+                    {aside({ groups: groups, match })}
+                    <article class="article">
+                        {meta && (
+                            <header class="article-header" key="header">
+                                <h1>{meta.title}</h1>
+                            </header>
+                        )}
+                        <div class="article-content" key="content">
+                            <RouterSwitch ref={refSwitch} onData={update}>
+                                {groups.map(({ label, sources }) =>
+                                    sources.map(
+                                        (source) =>
+                                            source.load && (
+                                                <RouterCase
+                                                    path={getSourcePath(
+                                                        label,
+                                                        source
+                                                    )}
+                                                    key={source}
+                                                    load={source.load}
+                                                ></RouterCase>
+                                            )
+                                    )
+                                )}
+                            </RouterSwitch>
+                        </div>
+                        {(prev || next) && pagination({ next, prev })}
+                    </article>
+                    <aside class="aside"></aside>
+                </div>
+            </RouterRedirect>
+        </host>
+    );
 }
 
 container.props = {
-  path: String,
+    path: String,
 };
 
 export const Container = c(container);

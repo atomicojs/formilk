@@ -1,9 +1,10 @@
 import "atomico";
 import md from "@atomico/markdown";
-import { Button, InputBasic } from "../components/formilk.js";
+import html from "atomico/html";
+import "../components/formilk.js";
 
 export const meta = {
-  title: "Every!",
+    title: "Every!",
 };
 
 export default () => md`
@@ -13,7 +14,7 @@ consectetur fugiat ut id laboris aliquip culpa irure incididunt ea do ea aliquip
 <formilk-button></formilk-button>
 ~~~
 
-${(<Button />)}
+${html`<fm-input-basic></fm-input-basic>`}
 
 ## Webcomponents
 

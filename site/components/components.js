@@ -1,7 +1,13 @@
 import {
-  RouterRedirect,
-  RouterSwitch,
-  RouterCase,
+    RouterRedirect,
+    RouterSwitch,
+    RouterCase,
+} from "@atomico/components/router";
+
+export {
+    RouterRedirect,
+    RouterSwitch,
+    RouterCase,
 } from "@atomico/components/router";
 
 import { Container } from "./container/container.jsx";
@@ -27,4 +33,6 @@ customElements.define("doc-container", Container);
 customElements.define("doc-source", Source);
 customElements.define("doc-group", Group);
 customElements.define("doc-menu", Menu);
-customElements.define("doc-menu-item", MenuItem);
+customElements.define("doc-menu-item", MenuItem, {
+    extends: "a",
+});

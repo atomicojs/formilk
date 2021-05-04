@@ -27,10 +27,10 @@
     },
     "dependencies": {
         "@atomico/components": "latest",
+        "@atomico/exports": "latest",
         "@atomico/hooks": "latest",
         "@atomico/markdown": "latest",
-        "@atomico/prepare": "latest",
-        "atomico": "latest"
+        "@uppercod/markdown-inline": "latest"
     },
     "devDependencies": {
         "typescript": "^4.2.4",
