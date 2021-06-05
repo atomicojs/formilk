@@ -1,0 +1,7 @@
+:host {
+    --fm-input-checkbox--radius: 200%;
+}
+
+.checkbox {
+    padding: 0.2rem;
+}

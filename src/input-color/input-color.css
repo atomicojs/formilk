@@ -1,0 +1,24 @@
+:host {
+    display: inline-block;
+}
+::slotted(input) {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    border: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+button {
+    width: 2rem;
+    height: 2rem;
+    padding: 0px;
+    background: var(--value);
+    border: 0.1rem solid var(--fm-input-color--border);
+    display: inline-block;
+    border-radius: var(--fm-input-color--radius);
+    position: relative;
+}

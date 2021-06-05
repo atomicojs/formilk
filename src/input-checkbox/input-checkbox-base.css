@@ -1,0 +1,33 @@
+:host {
+    display: inline-block;
+    margin: 0.5rem 0px;
+}
+
+.checkbox {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0.15rem;
+    cursor: pointer;
+    border: 0.1rem solid var(--fm-input-checkbox--border);
+    border-radius: var(--fm-input-checkbox--radius);
+    background-color: var(--fm-input-checkbox--bgcolor);
+    box-shadow: var(--fm-input--shadow);
+    box-sizing: border-box;
+    display: block;
+    line-height: 1em;
+    box-shadow: var(--fm-input-checkbox--shadow);
+}
+
+.checkbox-state {
+    width: 100%;
+    height: 100%;
+    background-color: var(--fm-input-checkbox--on-unchecked);
+    border-radius: calc(var(--fm-input-checkbox--radius) * 0.75);
+    transform: scale(0.75);
+    transition: 0.25s ease all;
+}
+
+:host([checked]) .checkbox-state {
+    background: var(--fm-input-checkbox--on-checked);
+    transform: scale(1);
+}

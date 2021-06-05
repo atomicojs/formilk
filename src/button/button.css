@@ -1,0 +1,34 @@
+:host {
+    display: inline-block;
+}
+.button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    display: inline-grid;
+    align-items: center;
+    background: var(--fm-button--bgcolor);
+    grid-gap: 0.5rem;
+    color: var(--fm-button--color);
+    box-sizing: border-box;
+    justify-content: center;
+    padding: 0px;
+    border: none;
+    font-size: 0.875rem;
+    border-radius: var(--fm-button--radius);
+    position: relative;
+    cursor: pointer;
+    font-weight: var(--fm-button-weight);
+    letter-spacing: 0.025rem;
+}
+.button-label {
+    padding: var(--fm-button--padding);
+}
+:host(:not([outline])) .button {
+    box-shadow: var(--fm-button--shadow);
+}
+
+:host([outline]) .button {
+    background: transparent;
+    border: 0.1rem solid var(--fm-button--bgcolor);
+    color: var(--fm-button--bgcolor);
+}

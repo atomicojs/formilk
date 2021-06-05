@@ -1,8 +1,0 @@
-:host {
-  cursor: pointer;
-  opacity: 0.5;
-  transition: 0.3s ease all;
-}
-:host([active]) {
-  opacity: 1;
-}
