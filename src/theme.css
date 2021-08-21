@@ -1,36 +1,45 @@
 :root {
-    --fm-color--primary: #404040;
-    --fm-color--disabled: #adadad;
-    --fm-color--contrast: #e0f1ee;
-    --fm-color--danger: #ff5b5b;
-    --fm-color--success: #29d273;
+    --fm-theme--primary: #2c3a41;
+    --fm-theme--primary-contrast: white;
+    --fm-theme--info: #0080ff;
+    --fm-theme--warning: #f9aa33;
+    --fm-theme--warning-shadow: rgb(233, 196, 11, 0.16);
+    --fm-theme--danger: rgb(255, 91, 91);
+    --fm-theme--danger-shadow: rgb(255, 91, 91, 0.2);
+    --fm-theme--success: rgb(24, 212, 124);
+    --fm-theme--success-shadow: rgba(24, 212, 124, 0.1);
+    --fm-theme--checked: var(--fm-theme--primary);
+    --fm-theme--checked-contrast: var(--fm-theme--primary-contrast);
 
     --fm-shadow--danger: 0px 6px 12px rgb(255, 91, 91, 0.35);
     --fm-shadow--success: 0px 6px 12px rgb(41, 210, 115, 0.35);
 
-    --fm-button-weight: 600;
-    --fm-button--bgcolor: var(--fm-color--primary);
-    --fm-button--color: var(--fm-color--contrast);
-    --fm-button--radius: 0.625rem;
-    --fm-button--padding: 0.5rem 1rem;
-    --fm-button--shadow: 0 0.75rem 1.375rem rgba(0, 0, 0, 0.15);
+    --fm-box--background: rgba(255, 255, 255, 0.5);
+    --fm-box--border: 1px solid rgba(255, 255, 255, 0.5);
+    --fm-box--radius: 0.5rem;
+    --fm-box--shadow-size: 0px 6px 22px;
+    --fm-box--shadow-color: rgba(0, 0, 0, 0.05);
+    --fm-box--padding-x: 1rem;
+    --fm-box--padding-y: 0.5rem;
+    --fm-box--font-size: 0.875rem;
+    --fm-box--min-height: 2.5rem;
 
-    --fm-input--radius: var(--fm-button--radius);
-    --fm-input--bgcolor: rgba(255, 255, 255, 0.5);
-    --fm-input--shadow: 0px 0.75rem 1.375rem rgba(0, 0, 0, 0.05);
-    --fm-input--line: var(--fm-color--primary);
+    // --fm-input--radius: var(--fm-button--radius);
+    // --fm-input--bg: rgba(255, 255, 255, 0.5);
+    // --fm-input--shadow: 0px 0.75rem 1.375rem rgba(0, 0, 0, 0.05);
+    // --fm-input--line: var(--fm-color--primary);
 
-    --fm-input-checkbox--border: var(--fm-color--primary);
-    --fm-input-checkbox--bgcolor: var(--fm-input--bgcolor);
-    --fm-input-checkbox--on-unchecked: var(--fm-color--disabled);
-    --fm-input-checkbox--on-checked: var(--fm-color--primary);
-    --fm-input-checkbox--radius: var(--fm-button--radius);
-    --fm-input-checkbox--shadow: var(--fm-input--shadow);
+    // --fm-input-checkbox--border: var(--fm-color--primary);
+    // --fm-input-checkbox--bg: var(--fm-input--bg);
+    // --fm-input-checkbox--on-unchecked: var(--fm-color--disabled);
+    // --fm-input-checkbox--on-checked: var(--fm-color--primary);
+    // --fm-input-checkbox--radius: var(--fm-button--radius);
+    // --fm-input-checkbox--shadow: var(--fm-input--shadow);
 
-    --fm-input-color--border: var(--fm-color--primary);
-    --fm-input-color--radius: var(--fm-button--radius);
+    // --fm-input-color--border: var(--fm-color--primary);
+    // --fm-input-color--radius: var(--fm-button--radius);
 
-    --fm-card--radius: 1rem;
-    --fm-card--bgcolor: rgba(255, 255, 255, 0.5);
-    --fm-card--shadow: 0px 0.75rem 1.375rem rgba(0, 0, 0, 0.02);
+    // --fm-card--radius: 1rem;
+    // --fm-card--bg: rgba(255, 255, 255, 0.5);
+    // --fm-card--shadow: 0px 0.75rem 1.375rem rgba(0, 0, 0, 0.02);
 }

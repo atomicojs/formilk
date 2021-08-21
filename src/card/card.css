@@ -2,9 +2,10 @@
     display: block;
     border-radius: var(--fm-card--radius);
     box-sizing: border-box;
-    background-color: var(--fm-card--bgcolor);
+    background: var(--fm-card--bg);
     box-shadow: var(--fm-card--shadow);
     position: relative;
+    overflow: hidden;
 }
 .header {
     padding: 1rem 2rem 0px;
@@ -32,7 +33,7 @@
 }
 slot[name="action"] {
     display: grid;
-    grid-template-columns: var(--c);
+    grid-template-columns: var(--action-cols);
     grid-gap: 0.5rem;
 }
 .space {

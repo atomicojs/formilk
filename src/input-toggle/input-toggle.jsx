@@ -1,16 +1,17 @@
 import { c } from "atomico";
 import { useSwitch } from "../hooks/use-switch.js";
-import styleBase from "../input-checkbox/input-checkbox-base.css";
 import style from "./input-toggle.css";
+import tokenBox from "../token/box.css";
+import styleBase from "../input-checkbox/input-checkbox.css";
 
 function inputToggle({ name, value }) {
     const [, refContainer, toggle] = useSwitch("checkbox", name, value);
 
     return (
-        <host shadowDom toggle={toggle}>
-            <button class="checkbox" ref={refContainer}>
+        <host onclick shadowDom toggle={toggle}>
+            <button ref={refContainer} class="box">
                 <div class="checkbox-state">
-                    <slot></slot>
+                    <slot name="icon"></slot>
                 </div>
             </button>
         </host>
@@ -27,6 +28,6 @@ inputToggle.props = {
     disabled: { type: Boolean, reflect: true },
 };
 
-inputToggle.styles = [styleBase, style];
+inputToggle.styles = [tokenBox, styleBase, style];
 
 export const InputToggle = c(inputToggle);

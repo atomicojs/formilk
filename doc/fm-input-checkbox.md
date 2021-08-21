@@ -31,11 +31,11 @@ Create a checkbox with effect on the form.
 
 ## Custom properties
 
-| Custom property                     | Type   | Description                                     |
-| ----------------------------------- | ------ | ----------------------------------------------- |
-| `--fm-input-checkbox--bgcolor`      | color  | default background-color for component          |
-| `--fm-input-checkbox--border`       | color  | deafult color for component                     |
-| `--fm-input-checkbox--on-checked`   | color  | default background-color for component[checked] |
-| `--fm-input-checkbox--on-unchecked` | color  | default background-color for component          |
-| `--fm-input-checkbox--shadow`       | shadow | default padding for component                   |
-| `--fm-input-checkbox--radius`       | size   | default border-radius for component             |
+| Custom property                     | Type   | Description                               |
+| ----------------------------------- | ------ | ----------------------------------------- |
+| `--fm-input-checkbox--bg`           | color  | default background for component          |
+| `--fm-input-checkbox--border`       | color  | deafult color for component               |
+| `--fm-input-checkbox--on-checked`   | color  | default background for component[checked] |
+| `--fm-input-checkbox--on-unchecked` | color  | default background for component          |
+| `--fm-input-checkbox--shadow`       | shadow | default padding for component             |
+| `--fm-input-checkbox--radius`       | size   | default border-radius for component       |

@@ -3,17 +3,27 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useEventLabel } from "../hooks/use-event-label.js";
 import style from "./input-basic.css";
+import tokenBox from "../token/box.css";
 
-function inputBasic({ type, ...props }) {
+function inputBasic({ type, theme, ...props }) {
     const [, setValue] = useProp("value");
-    const refLabel = useRef();
-    const refIcon = useRef();
+    const refSlotLabel = useRef();
+    const refSlotIcon = useRef();
     const refInput = useRef();
-    const slotLabel = useSlot(refLabel);
-    const slotIcon = useSlot(refIcon);
+    const slotLabel = useSlot(refSlotLabel);
+    const slotIcon = useSlot(refSlotIcon);
+    const withicon = !!slotIcon.length || null;
+    const withlabel = !!slotLabel.length || null;
 
     useRender(() => (
-        <input type={type} {...props} slot="input" ref={refInput} />
+        <input
+            type={type}
+            {...props}
+            slot="input"
+            ref={refInput}
+            withicon={withicon}
+            withlabel={withlabel}
+        />
     ));
 
     useEventLabel(() => refInput.current.click());
@@ -23,10 +33,12 @@ function inputBasic({ type, ...props }) {
             shadowDom
             checkValidity={() => refInput.current.checkValidity()}
             oninput={() => setValue(refInput.current.value)}
+            withicon={withicon}
+            withlabel={withlabel}
         >
-            <div class="row" onclick={() => refInput.current.focus()}>
-                <div class={`icon ${slotIcon.length ? "" : "hidden"}`}>
-                    <slot ref={refIcon} name="icon"></slot>
+            <div class="box" onclick={() => refInput.current.focus()}>
+                <div class="icon">
+                    <slot ref={refSlotIcon} name="icon"></slot>
                 </div>
                 <div
                     class={`label ${
@@ -36,13 +48,23 @@ function inputBasic({ type, ...props }) {
                             : "hidden"
                     }`}
                 >
-                    <slot ref={refLabel}></slot>
+                    <slot ref={refSlotLabel}></slot>
                 </div>
                 <div class="input">
                     <slot name="input"></slot>
-                    <div class="line"></div>
+                    <div class="line">
+                        <div class="line-fill"></div>
+                    </div>
                 </div>
             </div>
+            {theme && (
+                <style>{
+                    /*css*/ `:host{
+                --shadow-color: var(--fm-theme--${theme}-shadow);
+                --line-background: var(--fm-theme--${theme});
+            }`
+                }</style>
+            )}
         </host>
     );
 }
@@ -61,8 +83,21 @@ inputBasic.props = {
     required: Boolean,
     checked: Boolean,
     disabled: { type: Boolean, reflect: true },
+    theme: {
+        type: String,
+        reflect: true,
+        value: "primary",
+    },
+    withicon: {
+        type: Boolean,
+        reflect: true,
+    },
+    withlabel: {
+        type: Boolean,
+        reflect: true,
+    },
 };
 
-inputBasic.styles = style;
+inputBasic.styles = [tokenBox, style];
 
 export const InputBasic = c(inputBasic);

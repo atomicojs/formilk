@@ -1,3 +1,17 @@
+:host {
+    display: inline-block;
+    color: var(--fm-theme--checked);
+}
+
+:host([checked]) .checkbox-state {
+    opacity: 1;
+}
+
+::slotted([slot="icon"]),
+svg {
+    color: var(--fm-theme--checked-contrast, currentColor);
+}
+
 slot[name="icon"] {
     width: 100%;
     height: 100%;
@@ -6,11 +20,20 @@ slot[name="icon"] {
     justify-content: center;
 }
 
-.icon {
-    display: block;
-    opacity: 0;
+.box {
+    --size: calc(var(--box-min-height) * 0.75);
+    width: var(--size);
+    height: var(--size);
+    padding: 0px;
+    border-color: currentColor;
 }
 
-:host([checked]) .icon {
-    opacity: 1;
+.checkbox-state {
+    --state-size: calc(var(--size) * 0.8);
+    width: var(--state-size);
+    height: var(--state-size);
+    margin: auto;
+    border-radius: calc(var(--box-radius) * 0.75);
+    background: currentColor;
+    opacity: 0;
 }

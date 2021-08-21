@@ -6,6 +6,14 @@ Create an input with effect on form.
 
 ```html preview
 <fm-input-basic placeholder="User or Email"></fm-input-basic>
+<fm-input-basic placeholder="User or Email" theme="warning"></fm-input-basic>
+<fm-input-basic placeholder="User or Email" theme="danger"></fm-input-basic>
+<fm-input-basic placeholder="User or Email" theme="success"></fm-input-basic>
+<style>
+    fm-input-basic {
+        margin: 0.25rem;
+    }
+</style>
 ```
 
 ## Properties
@@ -33,24 +41,29 @@ Create an input with effect on form.
 
 ## Custom properties
 
-| Custom property       | Type   | Description                            |
-| --------------------- | ------ | -------------------------------------- |
-| `--fm-input--bgcolor` | color  | default background-color for component |
-| `--fm-input--radius`  | size   | default border-radius for component    |
-| `--fm-input--shadow`  | shadow | default shadow for component           |
-| `--fm-input--line`    | color  | default color for component            |
+| Custom property      | Type   | Description                         |
+| -------------------- | ------ | ----------------------------------- |
+| `--fm-input--bg`     | color  | default background for component    |
+| `--fm-input--radius` | size   | default border-radius for component |
+| `--fm-input--shadow` | shadow | default shadow for component        |
+| `--fm-input--line`   | color  | default color for component         |
 
 ## Examples
 
-### fm-input-basic > [slot]
+### fm-input-basic with label
 
 ```html preview
-<fm-input-basic>
-    <span>Label</span>
-</fm-input-basic>
+<div style="display:flex; gap:1rem">
+    <fm-input-basic>
+        <span>Label:</span>
+    </fm-input-basic>
+    <fm-button>
+        <span>Submit</span>
+    </fm-button>
+</div>
 ```
 
-### fm-input-basic > [slot=icon]
+### fm-input-basic with icon
 
 Adjust the spaces in the layout to improve the visual of the icon.
 
@@ -66,6 +79,26 @@ Adjust the spaces in the layout to improve the visual of the icon.
             stroke="currentColor"
         ></circle>
     </svg>
+</fm-input-basic>
+```
+
+### fm-input-basic with icon and label
+
+Adjust the spaces in the layout to improve the visual of the icon.
+
+```html preview
+<fm-input-basic>
+    <svg slot="icon" height="1.5rem" viewBox="0 0 22 22">
+        <circle
+            cx="11"
+            cy="11"
+            r="8"
+            stroke-width="2"
+            fill="none"
+            stroke="currentColor"
+        ></circle>
+    </svg>
+    <span>Label</span>
 </fm-input-basic>
 ```
 

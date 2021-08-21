@@ -1,8 +1,9 @@
 import { c, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
+import { useResponsiveState } from "@atomico/hooks/use-responsive-state";
 import style from "./card.css";
 
-function card() {
+function card({ width, height }) {
     const refHeader = useRef();
     const refFooter = useRef();
     const refActions = useRef();
@@ -12,14 +13,18 @@ function card() {
     const slotAction = useSlot(refActions);
     const slotContent = useSlot(refContent);
 
+    const w = useResponsiveState(width);
+    const h = useResponsiveState(height);
+
     return (
         <host shadowDom>
+            <style>{`:host{
+                width: ${w};
+                height: ${h};
+                --action-cols: ${"auto ".repeat(slotAction.length)};
+            }`}</style>
             <div class={`actions ${slotAction.length ? "" : "hidden"}`}>
-                <slot
-                    name="action"
-                    ref={refActions}
-                    style={`--c:${"auto ".repeat(slotAction.length)}`}
-                ></slot>
+                <slot name="action" ref={refActions}></slot>
             </div>
             <div class="media">
                 <slot name="media"></slot>
@@ -56,6 +61,11 @@ function card() {
         </host>
     );
 }
+
+card.props = {
+    width: { type: String, value: "100%" },
+    height: { type: String, value: "auto" },
+};
 
 card.styles = style;
 

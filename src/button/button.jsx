@@ -2,12 +2,14 @@ import { c, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import style from "./button.css";
+import tokenBox from "../token/box.css";
 
-function button({ type, name, value, theme }) {
-    const slotIconRef = useRef();
-    const buttonRef = useRef();
+function button({ type, name, value, theme, disabled }) {
+    const refSlotIcon = useRef();
+    const refSlotContent = useRef();
     const buttonOutRef = useRef();
-    const slotIcon = useSlot(slotIconRef);
+    const slotIcon = useSlot(refSlotIcon);
+    const slotContent = useSlot(refSlotContent);
 
     useRender(
         () => (
@@ -26,20 +28,25 @@ function button({ type, name, value, theme }) {
     return (
         <host shadowDom>
             <button
-                ref={buttonRef}
                 onclick={() => buttonOutRef.current.click()}
-                class={`button ${slotIcon.length ? "" : "button-label"}`}
-                style={
-                    theme && {
-                        "--fm-button--bgcolor": `var(--fm-color--${theme})`,
-                        "--fm-button--color": `var(--fm-color--${theme}-contrast, var(--fm-color--contrast))`,
-                        "--fm-button--shadow": `var(--fm-shadow--${theme}, var(--fm-shadow--primary))`,
-                    }
-                }
+                disabled={disabled}
+                class={`box${slotIcon.length ? " box-icon" : ""}${
+                    slotContent.length ? " box-label" : ""
+                }`}
             >
-                <slot ref={slotIconRef} name="icon"></slot>
-                <slot></slot>
+                <slot ref={refSlotIcon} name="icon"></slot>
+                <slot ref={refSlotContent}></slot>
             </button>
+            {theme && (
+                <style>{
+                    /*css*/ `:host{
+                    --background: var(--fm-theme--${theme});
+                    --color: var(--fm-theme--${theme}-contrast, var(--fm-theme--primary-contrast));
+                    --shadow: var(--fm-theme--${theme}-shadow);
+                    --border: var(--fm-theme--${theme}-border);
+                }`
+                }</style>
+            )}
         </host>
     );
 }
@@ -54,13 +61,14 @@ button.props = {
     theme: {
         type: String,
         reflect: true,
+        value: "primary",
     },
-    outline: {
+    disabled: {
         type: Boolean,
         reflect: true,
     },
 };
 
-button.styles = style;
+button.styles = [tokenBox, style];
 
 export const Button = c(button);
