@@ -30,7 +30,7 @@ function button({ type, name, value, theme, disabled }) {
             <button
                 onclick={() => buttonOutRef.current.click()}
                 disabled={disabled}
-                class={`box${slotIcon.length ? " box-icon" : ""}${
+                class={`box use-border ${slotIcon.length ? " box-icon" : ""}${
                     slotContent.length ? " box-label" : ""
                 }`}
             >

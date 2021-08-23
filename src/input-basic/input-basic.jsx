@@ -36,7 +36,10 @@ function inputBasic({ type, theme, ...props }) {
             withicon={withicon}
             withlabel={withlabel}
         >
-            <div class="box" onclick={() => refInput.current.focus()}>
+            <div
+                class="box use-border"
+                onclick={() => refInput.current.focus()}
+            >
                 <div class="icon">
                     <slot ref={refSlotIcon} name="icon"></slot>
                 </div>

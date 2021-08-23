@@ -1,6 +1,10 @@
 :host {
     display: inline-block;
     color: var(--fm-theme--checked);
+    --checkbox--checked-contrast: var(
+        --fm-theme--checked-contrast,
+        currentColor
+    );
 }
 
 :host([checked]) .checkbox-state {
@@ -9,7 +13,7 @@
 
 ::slotted([slot="icon"]),
 svg {
-    color: var(--fm-theme--checked-contrast, currentColor);
+    color: var(--checkbox--checked-contrast);
 }
 
 slot[name="icon"] {
@@ -25,15 +29,27 @@ slot[name="icon"] {
     width: var(--size);
     height: var(--size);
     padding: 0px;
+}
+
+.box.use-border {
     border-color: currentColor;
 }
 
 .checkbox-state {
-    --state-size: calc(var(--size) * 0.8);
+    --state-scale: 0.8;
+    --state-size: calc((var(--size) * var(--state-scale)));
+    --state-max-size: calc(var(--size) - (var(--box-border-width) * 2));
     width: var(--state-size);
     height: var(--state-size);
+    max-width: var(--state-max-size);
+    max-height: var(--state-max-size);
     margin: auto;
-    border-radius: calc(var(--box-radius) * 0.75);
+    border-radius: calc(var(--box-radius) * var(--state-scale));
     background: currentColor;
     opacity: 0;
+}
+
+.box,
+.checkbox-state {
+    transition: 0.3s ease all;
 }
