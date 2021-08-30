@@ -2,7 +2,7 @@ import { c, useProp, useRef } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { useEventLabel } from "../hooks/use-event-label.js";
 import style from "./input-color.css";
-import tokenBox from "../token/box.css";
+import tokenBox from "../tokens.css";
 
 function color({ disabled, name }) {
     const [value, setValue] = useProp("value");
@@ -24,7 +24,10 @@ function color({ disabled, name }) {
     useEventLabel(() => refInput.current.click());
     return (
         <host shadowDom>
-            <button class="box use-border" style={`--box-background: ${value}`}>
+            <button
+                class="box use-border"
+                style={`--token--background: ${value}`}
+            >
                 <slot></slot>
             </button>
         </host>

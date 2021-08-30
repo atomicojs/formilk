@@ -1,7 +1,7 @@
 import { c } from "atomico";
 import { useSwitch } from "../hooks/use-switch.js";
 import style from "./input-toggle.css";
-import tokenBox from "../token/box.css";
+import tokenBox from "../tokens.css";
 import styleBase from "../input-checkbox/input-checkbox.css";
 
 function inputToggle({ name, value }) {

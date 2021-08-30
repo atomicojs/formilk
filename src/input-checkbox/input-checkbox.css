@@ -1,10 +1,12 @@
 :host {
-    display: inline-block;
+    display: inline-flex;
     color: var(--fm-theme--checked);
     --checkbox--checked-contrast: var(
         --fm-theme--checked-contrast,
         currentColor
     );
+    align-items: center;
+    min-height: var(--token--min-height);
 }
 
 :host([checked]) .checkbox-state {
@@ -25,7 +27,7 @@ slot[name="icon"] {
 }
 
 .box {
-    --size: calc(var(--box-min-height) * 0.75);
+    --size: calc(var(--token--min-height) * 0.75);
     width: var(--size);
     height: var(--size);
     padding: 0px;
@@ -38,13 +40,13 @@ slot[name="icon"] {
 .checkbox-state {
     --state-scale: 0.8;
     --state-size: calc((var(--size) * var(--state-scale)));
-    --state-max-size: calc(var(--size) - (var(--box-border-width) * 2));
+    --state-max-size: calc(var(--size) - (var(--token--border-width) * 2));
     width: var(--state-size);
     height: var(--state-size);
     max-width: var(--state-max-size);
     max-height: var(--state-max-size);
     margin: auto;
-    border-radius: calc(var(--box-radius) * var(--state-scale));
+    border-radius: calc(var(--token--radius) * var(--state-scale));
     background: currentColor;
     opacity: 0;
 }

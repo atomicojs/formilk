@@ -1,0 +1,30 @@
+:host {
+    --token--border-width: var(--fm-box--border-width, 1px);
+    --token--border-color: var(
+        --fm-box--border-color,
+        rgba(255, 255, 255, 0.5)
+    );
+    --token--background: var(--fm-box--background, rgba(255, 255, 255, 0.5));
+    --token--color: var(--color, var(--fm-box--color));
+    --token--radius: var(--radius, var(--fm-box--radius));
+    --token--backdrop: var(--backdrop, var(--fm-box--backdrop));
+    --token--shadow-size: var(--shadow-size, var(--fm-box--shadow-size));
+    --token--shadow-color: var(--shadow-color, var(--fm-box--shadow-color));
+    --token--padding-x: var(--padding-x, var(--fm-box--padding-x));
+    --token--padding-y: var(--padding-x, var(--fm-box--padding-y));
+    --token--min-height: var(--min-height, var(--fm-box--min-height));
+}
+
+.box {
+    background: var(--token--background);
+    color: var(--token--color);
+    border-radius: var(--token--radius);
+    backdrop-filter: var(--token--backdrop);
+    box-shadow: var(--token--shadow-size) var(--token--shadow-color);
+    padding: var(--token--padding-y) var(--token--padding-x);
+    box-sizing: border-box;
+}
+
+.box.use-border {
+    border: var(--token--border-width) solid var(--token--border-color);
+}

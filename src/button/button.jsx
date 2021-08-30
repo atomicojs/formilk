@@ -2,7 +2,7 @@ import { c, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import style from "./button.css";
-import tokenBox from "../token/box.css";
+import tokens from "../tokens.css";
 
 function button({ type, name, value, theme, disabled }) {
     const refSlotIcon = useRef();
@@ -69,6 +69,6 @@ button.props = {
     },
 };
 
-button.styles = [tokenBox, style];
+button.styles = [tokens, style];
 
 export const Button = c(button);

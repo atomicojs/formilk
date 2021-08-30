@@ -10,7 +10,7 @@
 }
 
 .box {
-    --size: calc(var(--box-min-height) * 0.75);
+    --size: calc(var(--token--min-height) * 0.75);
     width: var(--size);
     height: var(--size);
     position: relative;

@@ -2,8 +2,8 @@ import { c, useProp, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useEventLabel } from "../hooks/use-event-label.js";
+import tokenBox from "../tokens.css";
 import style from "./input-basic.css";
-import tokenBox from "../token/box.css";
 
 function inputBasic({ type, theme, ...props }) {
     const [, setValue] = useProp("value");

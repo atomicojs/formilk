@@ -1,0 +1,28 @@
+:host {
+    font-size: 0.875rem;
+    line-height: 1em;
+}
+
+.box {
+    padding: 0;
+    position: relative;
+    min-height: var(--token--min-height);
+}
+
+::slotted(select) {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    font-family: unset;
+    font-size: unset;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    padding: var(--token--padding-y) var(--token--padding-x);
+    appearance: none;
+}
+
+.options {
+    display: none;
+}

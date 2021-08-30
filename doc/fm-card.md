@@ -10,7 +10,13 @@ Create a container as a card
 
     <fm-input-basic><span>User:</span></fm-input-basic>
     <fm-input-basic><span>Password:</span></fm-input-basic>
-    <fm-button>Login</fm-button>
+    <div style="display: flex; justify-content: space-between">
+        <fm-button>Login</fm-button>
+        <fm-label>
+            <fm-input-checkbox> </fm-input-checkbox>
+            remember password
+        </fm-label>
+    </div>
 </fm-card>
 ```
 

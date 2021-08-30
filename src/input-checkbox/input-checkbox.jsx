@@ -1,7 +1,7 @@
 import { c } from "atomico";
 import { useSwitch } from "../hooks/use-switch.js";
 import style from "./input-checkbox.css";
-import tokenBox from "../token/box.css";
+import tokenBox from "../tokens.css";
 
 function checkbox({ name, value }) {
     const [, refContainer] = useSwitch("checkbox", name, value);
