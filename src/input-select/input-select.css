@@ -1,12 +1,6 @@
-:host {
-    font-size: 0.875rem;
-    line-height: 1em;
-}
-
 .token-box {
     padding: 0;
     position: relative;
-    min-height: var(--token--min-height);
 }
 
 ::slotted(select) {
@@ -19,10 +13,20 @@
     box-sizing: border-box;
     position: relative;
     z-index: 2;
-    padding: var(--token--padding-y) var(--token--padding-x);
+    padding: var(--box--padding-y) calc(var(--box--padding-x) * 2)
+        var(--box--padding-y) var(--box--padding-x);
     appearance: none;
+    min-height: var(--box--min-height);
 }
 
 .options {
     display: none;
+}
+
+.icon {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: var(--box--padding-x);
+    transform: translateY(-50%);
 }

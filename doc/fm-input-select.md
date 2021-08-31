@@ -21,7 +21,7 @@ Crea un input toggle con efecto sobre formulario.
     </optgroup>
 </fm-input-select>
 <style>
-    fm-input-toggle {
+    fm-input-select {
         margin: 0.25rem;
     }
 </style>

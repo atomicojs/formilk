@@ -1,0 +1,27 @@
+:host {
+    --box--border-width: var(--fm-box--border-width, 1px);
+    --box--border-color: var(--fm-box--border-color, rgba(255, 255, 255, 0.5));
+    --box--background: var(--fm-box--background, rgba(255, 255, 255, 0.5));
+    --box--color: var(--fm-box--color);
+    --box--radius: var(--fm-box--radius, 0.5rem);
+    --box--backdrop: var(--fm-box--backdrop);
+    --box--shadow-size: var(--fm-box--shadow-size, 0px 6px 22px);
+    --box--shadow-color: var(--fm-box--shadow-color, rgba(0, 0, 0, 0.05));
+    --box--padding-x: var(--fm-box--padding-x, 1rem);
+    --box--padding-y: var(--fm-box--padding-y, 0.5rem);
+    --box--min-height: var(--fm-box--min-height, 2.5rem);
+}
+
+.token-box {
+    background: var(--box--background);
+    color: var(--box--color);
+    border-radius: var(--box--radius);
+    backdrop-filter: var(--box--backdrop);
+    box-shadow: var(--box--shadow-size) var(--box--shadow-color);
+    padding: var(--box--padding-y) var(--box--padding-x);
+    box-sizing: border-box;
+}
+
+.token-box--use-border {
+    border: var(--box--border-width) solid var(--box--border-color);
+}

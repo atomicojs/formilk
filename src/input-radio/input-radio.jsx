@@ -1,14 +1,14 @@
 import { c } from "atomico";
 import { useSwitch } from "../hooks/use-switch.js";
 import style from "./input-radio.css";
-import tokenBox from "../tokens.css";
+import tokensBox from "../tokens/box.css";
 import styleBase from "../input-checkbox/input-checkbox.css";
 
 function radio({ name, value }) {
     const [, refContainer] = useSwitch("radio", name, value);
     return (
         <host shadowDom>
-            <button class="token-box token-use-border" ref={refContainer}>
+            <button class="token-box token-box--use-border" ref={refContainer}>
                 <div class="checkbox-state"></div>
             </button>
         </host>
@@ -25,6 +25,6 @@ radio.props = {
     disabled: { type: Boolean, reflect: true },
 };
 
-radio.styles = [tokenBox, styleBase, style];
+radio.styles = [tokensBox, styleBase, style];
 
 export const InputRadio = c(radio);

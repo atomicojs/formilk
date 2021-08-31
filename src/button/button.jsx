@@ -2,7 +2,8 @@ import { c, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import style from "./button.css";
-import tokens from "../tokens.css";
+import tokensBox from "../tokens/box.css";
+import tokensInput from "../tokens/input.css";
 
 function button({ type, name, value, theme, disabled }) {
     const refSlotIcon = useRef();
@@ -30,7 +31,7 @@ function button({ type, name, value, theme, disabled }) {
             <button
                 onclick={() => buttonOutRef.current.click()}
                 disabled={disabled}
-                class={`token-box token-use-border ${
+                class={`token-input token-box token-box--use-border ${
                     slotIcon.length ? " box-icon" : ""
                 }${slotContent.length ? " box-label" : ""}`}
             >
@@ -40,10 +41,10 @@ function button({ type, name, value, theme, disabled }) {
             {theme && (
                 <style>{
                     /*css*/ `.token-box{
-                    --token--background: var(--theme--${theme});
-                    --token--color: var(--theme--${theme}-contrast, var(--theme--primary-contrast));
-                    --token--shadow: var(--theme--${theme}-shadow);
-                    --token--border: var(--theme--${theme}-border);
+                    --box--background: var(--theme--${theme});
+                    --box--color: var(--theme--${theme}-contrast, var(--theme--primary-contrast));
+                    --box--shadow: var(--theme--${theme}-shadow);
+                    --box--border: var(--theme--${theme}-border);
                 }`
                 }</style>
             )}
@@ -68,6 +69,6 @@ button.props = {
     },
 };
 
-button.styles = [tokens, style];
+button.styles = [tokensBox, tokensInput, style];
 
 export const Button = c(button);

@@ -1,13 +1,13 @@
 import { c } from "atomico";
 import { useSwitch } from "../hooks/use-switch.js";
 import style from "./input-checkbox.css";
-import tokenBox from "../tokens.css";
+import tokensBox from "../tokens/box.css";
 
 function checkbox({ name, value }) {
     const [, refContainer] = useSwitch("checkbox", name, value);
     return (
         <host shadowDom>
-            <button ref={refContainer} class="token-box token-use-border">
+            <button ref={refContainer} class="token-box token-box--use-border">
                 <div class="checkbox-state">
                     <slot name="icon">
                         <svg
@@ -38,6 +38,6 @@ checkbox.props = {
     disabled: { type: Boolean, reflect: true },
 };
 
-checkbox.styles = [tokenBox, style];
+checkbox.styles = [tokensBox, style];
 
 export const InputCheckbox = c(checkbox);

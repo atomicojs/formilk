@@ -2,8 +2,9 @@ import { c, useProp, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useEventLabel } from "../hooks/use-event-label.js";
-import tokenBox from "../tokens.css";
 import style from "./input-basic.css";
+import tokensBox from "../tokens/box.css";
+import tokensInput from "../tokens/input.css";
 
 function inputBasic({ type, theme, ...props }) {
     const [, setValue] = useProp("value");
@@ -37,7 +38,7 @@ function inputBasic({ type, theme, ...props }) {
             withlabel={withlabel}
         >
             <div
-                class="token-box token-use-border"
+                class="token-box token-box--use-border"
                 onclick={() => refInput.current.focus()}
             >
                 <div class="icon">
@@ -63,7 +64,7 @@ function inputBasic({ type, theme, ...props }) {
             {theme && (
                 <style>{
                     /*css*/ `:host{
-                --token--shadow-color: var(--theme--${theme}-shadow);
+                --box--shadow-color: var(--theme--${theme}-shadow);
                 --line-background: var(--theme--${theme});
             }`
                 }</style>
@@ -101,6 +102,6 @@ inputBasic.props = {
     },
 };
 
-inputBasic.styles = [tokenBox, style];
+inputBasic.styles = [tokensBox, tokensInput, style];
 
 export const InputBasic = c(inputBasic);

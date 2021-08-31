@@ -3,7 +3,7 @@
     color: var(--theme--checked);
     --checkbox--checked-contrast: var(--theme--checked-contrast, currentColor);
     align-items: center;
-    min-height: var(--token--min-height);
+    min-height: var(--box--min-height);
 }
 
 :host([checked]) .checkbox-state {
@@ -24,26 +24,26 @@ slot[name="icon"] {
 }
 
 .token-box {
-    --size: calc(var(--token--min-height) * 0.75);
+    --size: calc(var(--box--min-height) * 0.75);
     width: var(--size);
     height: var(--size);
     padding: 0px;
 }
 
-.token-use-border {
-    --token--border-color: currentColor;
+.token-box--use-border {
+    --box--border-color: currentColor;
 }
 
 .checkbox-state {
     --state-scale: 0.8;
     --state-size: calc((var(--size) * var(--state-scale)));
-    --state-max-size: calc(var(--size) - (var(--token--border-width) * 2));
+    --state-max-size: calc(var(--size) - (var(--box--border-width) * 2));
     width: var(--state-size);
     height: var(--state-size);
     max-width: var(--state-max-size);
     max-height: var(--state-max-size);
     margin: auto;
-    border-radius: calc(var(--token--radius) * var(--state-scale));
+    border-radius: calc(var(--box--radius) * var(--state-scale));
     background: currentColor;
     opacity: 0;
 }

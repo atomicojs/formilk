@@ -10,13 +10,13 @@
 }
 
 .token-box {
-    --size: calc(var(--token--min-height) * 0.75);
+    --size: calc(var(--box--min-height) * 0.75);
     width: var(--size);
     height: var(--size);
     position: relative;
     padding: 0;
 }
 
-.token-use-border {
-    --token--border-color: currentColor;
+.token-box--use-border {
+    --box--border-color: currentColor;
 }
