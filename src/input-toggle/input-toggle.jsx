@@ -9,7 +9,7 @@ function inputToggle({ name, value }) {
 
     return (
         <host onclick shadowDom toggle={toggle}>
-            <button ref={refContainer} class="box use-border">
+            <button ref={refContainer} class="token-box token-use-border">
                 <div class="checkbox-state">
                     <slot name="icon"></slot>
                 </div>

@@ -1,10 +1,7 @@
 :host {
     display: inline-flex;
-    color: var(--fm-theme--checked);
-    --checkbox--checked-contrast: var(
-        --fm-theme--checked-contrast,
-        currentColor
-    );
+    color: var(--theme--checked);
+    --checkbox--checked-contrast: var(--theme--checked-contrast, currentColor);
     align-items: center;
     min-height: var(--token--min-height);
 }
@@ -26,15 +23,15 @@ slot[name="icon"] {
     justify-content: center;
 }
 
-.box {
+.token-box {
     --size: calc(var(--token--min-height) * 0.75);
     width: var(--size);
     height: var(--size);
     padding: 0px;
 }
 
-.box.use-border {
-    border-color: currentColor;
+.token-use-border {
+    --token--border-color: currentColor;
 }
 
 .checkbox-state {
@@ -51,7 +48,7 @@ slot[name="icon"] {
     opacity: 0;
 }
 
-.box,
+.token-box,
 .checkbox-state {
     transition: 0.3s ease all;
 }

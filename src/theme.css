@@ -1,46 +1,13 @@
 :root {
-    --fm-theme--primary: #2c3a41;
-    --fm-theme--primary-contrast: white;
-    --fm-theme--info: #0080ff;
-    --fm-theme--warning: #f9aa33;
-    --fm-theme--warning-shadow: rgb(233, 196, 11, 0.16);
-    --fm-theme--danger: rgb(255, 91, 91);
-    --fm-theme--danger-shadow: rgb(255, 91, 91, 0.2);
-    --fm-theme--success: rgb(24, 212, 124);
-    --fm-theme--success-shadow: rgba(24, 212, 124, 0.1);
-    --fm-theme--checked: var(--fm-theme--primary);
-    --fm-theme--checked-contrast: var(--fm-theme--primary-contrast);
-
-    --fm-shadow--danger: 0px 6px 12px rgb(255, 91, 91, 0.35);
-    --fm-shadow--success: 0px 6px 12px rgb(41, 210, 115, 0.35);
-
-    --fm-box--background: rgba(255, 255, 255, 0.5);
-    --fm-box--border-width: 1px;
-    --fm-box--border-color: rgba(255, 255, 255, 0.5);
-    --fm-box--radius: 0.5rem;
-    --fm-box--shadow-size: 0px 6px 22px;
-    --fm-box--shadow-color: rgba(0, 0, 0, 0.05);
-    --fm-box--padding-x: 1rem;
-    --fm-box--padding-y: 0.5rem;
-    --fm-box--font-size: 0.875rem;
-    --fm-box--min-height: 2.5rem;
-
-    // --fm-input--radius: var(--fm-button--radius);
-    // --fm-input--bg: rgba(255, 255, 255, 0.5);
-    // --fm-input--shadow: 0px 0.75rem 1.375rem rgba(0, 0, 0, 0.05);
-    // --fm-input--line: var(--fm-color--primary);
-
-    // --fm-input-checkbox--border: var(--fm-color--primary);
-    // --fm-input-checkbox--bg: var(--fm-input--bg);
-    // --fm-input-checkbox--on-unchecked: var(--fm-color--disabled);
-    // --fm-input-checkbox--on-checked: var(--fm-color--primary);
-    // --fm-input-checkbox--radius: var(--fm-button--radius);
-    // --fm-input-checkbox--shadow: var(--fm-input--shadow);
-
-    // --fm-input-color--border: var(--fm-color--primary);
-    // --fm-input-color--radius: var(--fm-button--radius);
-
-    // --fm-card--radius: 1rem;
-    // --fm-card--bg: rgba(255, 255, 255, 0.5);
-    // --fm-card--shadow: 0px 0.75rem 1.375rem rgba(0, 0, 0, 0.02);
+    --theme--primary: #2c3a41;
+    --theme--primary-contrast: white;
+    --theme--info: #0080ff;
+    --theme--warning: #f9aa33;
+    --theme--warning-shadow: rgb(233, 196, 11, 0.16);
+    --theme--danger: rgb(255, 91, 91);
+    --theme--danger-shadow: rgb(255, 91, 91, 0.2);
+    --theme--success: rgb(24, 212, 124);
+    --theme--success-shadow: rgba(24, 212, 124, 0.1);
+    --theme--checked: var(--theme--primary);
+    --theme--checked-contrast: var(--theme--primary-contrast);
 }

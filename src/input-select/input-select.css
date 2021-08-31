@@ -3,7 +3,7 @@
     line-height: 1em;
 }
 
-.box {
+.token-box {
     padding: 0;
     position: relative;
     min-height: var(--token--min-height);

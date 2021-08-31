@@ -37,7 +37,7 @@ function inputBasic({ type, theme, ...props }) {
             withlabel={withlabel}
         >
             <div
-                class="box use-border"
+                class="token-box token-use-border"
                 onclick={() => refInput.current.focus()}
             >
                 <div class="icon">
@@ -63,8 +63,8 @@ function inputBasic({ type, theme, ...props }) {
             {theme && (
                 <style>{
                     /*css*/ `:host{
-                --shadow-color: var(--fm-theme--${theme}-shadow);
-                --line-background: var(--fm-theme--${theme});
+                --token--shadow-color: var(--theme--${theme}-shadow);
+                --line-background: var(--theme--${theme});
             }`
                 }</style>
             )}

@@ -6,10 +6,10 @@ Create a button with an effect on the form.
 
 ```html preview
 <fm-button>button</fm-button>
+<fm-button theme="primary">button</fm-button>
 <fm-button theme="info">button</fm-button>
 <fm-button theme="success">button</fm-button>
 <fm-button theme="warning">button</fm-button>
-<fm-button theme="danger">button</fm-button>
 <fm-button theme="danger">button</fm-button>
 <fm-button disabled>button</fm-button>
 

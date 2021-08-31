@@ -30,7 +30,7 @@ function select() {
     return (
         <host shadowDom>
             <slot class="options" ref={refSlot}></slot>
-            <div className="box use-border">
+            <div className="token-box toke-use-border">
                 <slot name="input"></slot>
             </div>
         </host>

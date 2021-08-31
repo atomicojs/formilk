@@ -3,7 +3,7 @@
     line-height: 1em;
 }
 
-.box {
+.token-box {
     padding: 0;
     position: relative;
     min-height: var(--token--min-height);
@@ -22,16 +22,16 @@
     padding: var(--token--padding-y) var(--token--padding-x);
 }
 
-.box {
+.token-box {
     display: grid;
     align-items: center;
     grid-template-columns: 0 0 auto;
 }
 
-:host([withlabel]) .box {
+:host([withlabel]) .token-box {
     grid-template-columns: 0 auto auto;
 }
-:host([withicon]) .box {
+:host([withicon]) .token-box {
     grid-template-columns: auto auto auto;
 }
 
@@ -39,12 +39,12 @@
     padding-left: 0.5em;
 }
 
-:host([withicon]:not([withlabel])) .box {
+:host([withicon]:not([withlabel])) .token-box {
     grid-template-columns: auto 0 auto;
 }
 
-:host([withlabel]) .box,
-:host([withicon]) .box {
+:host([withlabel]) .token-box,
+:host([withicon]) .token-box {
     padding-left: var(--token--padding-x);
 }
 

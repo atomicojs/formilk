@@ -8,7 +8,7 @@ function radio({ name, value }) {
     const [, refContainer] = useSwitch("radio", name, value);
     return (
         <host shadowDom>
-            <button class="box use-border" ref={refContainer}>
+            <button class="token-box token-use-border" ref={refContainer}>
                 <div class="checkbox-state"></div>
             </button>
         </host>

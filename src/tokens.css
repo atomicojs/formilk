@@ -5,17 +5,17 @@
         rgba(255, 255, 255, 0.5)
     );
     --token--background: var(--fm-box--background, rgba(255, 255, 255, 0.5));
-    --token--color: var(--color, var(--fm-box--color));
-    --token--radius: var(--radius, var(--fm-box--radius));
-    --token--backdrop: var(--backdrop, var(--fm-box--backdrop));
-    --token--shadow-size: var(--shadow-size, var(--fm-box--shadow-size));
-    --token--shadow-color: var(--shadow-color, var(--fm-box--shadow-color));
-    --token--padding-x: var(--padding-x, var(--fm-box--padding-x));
-    --token--padding-y: var(--padding-x, var(--fm-box--padding-y));
-    --token--min-height: var(--min-height, var(--fm-box--min-height));
+    --token--color: var(--fm-box--color);
+    --token--radius: var(--fm-box--radius, 0.5rem);
+    --token--backdrop: var(--fm-box--backdrop);
+    --token--shadow-size: var(--fm-box--shadow-size, 0px 6px 22px);
+    --token--shadow-color: var(--fm-box--shadow-color, rgba(0, 0, 0, 0.05));
+    --token--padding-x: var(--fm-box--padding-x, 1rem);
+    --token--padding-y: var(--fm-box--padding-y, 0.5rem);
+    --token--min-height: var(--fm-box--min-height, 2.5rem);
 }
 
-.box {
+.token-box {
     background: var(--token--background);
     color: var(--token--color);
     border-radius: var(--token--radius);
@@ -25,6 +25,6 @@
     box-sizing: border-box;
 }
 
-.box.use-border {
+.token-use-border {
     border: var(--token--border-width) solid var(--token--border-color);
 }

@@ -30,20 +30,20 @@ function button({ type, name, value, theme, disabled }) {
             <button
                 onclick={() => buttonOutRef.current.click()}
                 disabled={disabled}
-                class={`box use-border ${slotIcon.length ? " box-icon" : ""}${
-                    slotContent.length ? " box-label" : ""
-                }`}
+                class={`token-box token-use-border ${
+                    slotIcon.length ? " box-icon" : ""
+                }${slotContent.length ? " box-label" : ""}`}
             >
                 <slot ref={refSlotIcon} name="icon"></slot>
                 <slot ref={refSlotContent}></slot>
             </button>
             {theme && (
                 <style>{
-                    /*css*/ `:host{
-                    --background: var(--fm-theme--${theme});
-                    --color: var(--fm-theme--${theme}-contrast, var(--fm-theme--primary-contrast));
-                    --shadow: var(--fm-theme--${theme}-shadow);
-                    --border: var(--fm-theme--${theme}-border);
+                    /*css*/ `.token-box{
+                    --token--background: var(--theme--${theme});
+                    --token--color: var(--theme--${theme}-contrast, var(--theme--primary-contrast));
+                    --token--shadow: var(--theme--${theme}-shadow);
+                    --token--border: var(--theme--${theme}-border);
                 }`
                 }</style>
             )}
@@ -61,7 +61,6 @@ button.props = {
     theme: {
         type: String,
         reflect: true,
-        value: "primary",
     },
     disabled: {
         type: Boolean,

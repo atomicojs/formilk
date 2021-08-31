@@ -1,4 +1,4 @@
-.box {
+.token-box {
     --box-scale: 1.7;
     width: calc(var(--size) * var(--box-scale));
     border-radius: 10vh;
@@ -14,7 +14,7 @@
     transform-origin: left center;
 }
 
-:host([checked]) .box {
+:host([checked]) .token-box {
     background: currentColor;
 }
 

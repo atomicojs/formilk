@@ -9,15 +9,14 @@
     left: 0px;
 }
 
-.box {
+.token-box {
     --size: calc(var(--token--min-height) * 0.75);
     width: var(--size);
     height: var(--size);
     position: relative;
-    border: none;
     padding: 0;
 }
 
-.box.use-border {
-    border-color: currentColor;
+.token-use-border {
+    --token--border-color: currentColor;
 }

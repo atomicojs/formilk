@@ -7,7 +7,7 @@ function checkbox({ name, value }) {
     const [, refContainer] = useSwitch("checkbox", name, value);
     return (
         <host shadowDom>
-            <button ref={refContainer} class="box use-border">
+            <button ref={refContainer} class="token-box token-use-border">
                 <div class="checkbox-state">
                     <slot name="icon">
                         <svg
