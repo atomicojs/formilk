@@ -1,7 +1,6 @@
 import { c, useProp, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { useEventLabel } from "../hooks/use-event-label.js";
 import style from "./input-basic.css";
 import tokensBox from "../tokens/box.css";
 import tokensInput from "../tokens/input.css";
@@ -26,8 +25,6 @@ function inputBasic({ type, theme, ...props }) {
             withlabel={withlabel}
         />
     ));
-
-    useEventLabel(() => refInput.current.click());
 
     return (
         <host

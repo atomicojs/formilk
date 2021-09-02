@@ -6,8 +6,8 @@ Create a radio input with effect on form.
 
 ```html preview
 <form>
-    <fm-input-radio name="radio">slot</fm-input-radio>
-    <fm-input-radio name="radio" checked>slot</fm-input-radio>
+    <fm-input-radio name="radio" value="1">slot</fm-input-radio>
+    <fm-input-radio name="radio" value="2" checked>slot</fm-input-radio>
 </form>
 <style>
     fm-input-radio {

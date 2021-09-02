@@ -5,6 +5,7 @@ import tokensBox from "../tokens/box.css";
 
 function checkbox({ name, value }) {
     const [, refContainer] = useSwitch("checkbox", name, value);
+
     return (
         <host shadowDom>
             <button ref={refContainer} class="token-box token-box--use-border">

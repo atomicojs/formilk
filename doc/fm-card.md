@@ -5,19 +5,29 @@ title: fm-card
 Create a container as a card
 
 ```html preview
-<fm-card>
-    <h2 style="margin: 0px;">Login</h2>
-
-    <fm-input-basic><span>User:</span></fm-input-basic>
-    <fm-input-basic><span>Password:</span></fm-input-basic>
-    <div style="display: flex; justify-content: space-between">
-        <fm-button>Login</fm-button>
-        <fm-label>
-            <fm-input-checkbox> </fm-input-checkbox>
-            remember password
-        </fm-label>
-    </div>
-</fm-card>
+<form>
+    <fm-card>
+        <h2 style="margin: 0px;">Login</h2>
+        <fm-input-basic name="user"><span>User:</span></fm-input-basic>
+        <fm-input-basic name="user"><span>User:</span></fm-input-basic>
+        <fm-input-basic name="password"><span>Password:</span></fm-input-basic>
+        <div style="display: flex; justify-content: space-between">
+            <fm-button>Login</fm-button>
+            <fm-label>
+                <fm-input-checkbox name="checkbox"> </fm-input-checkbox>
+                remember password
+            </fm-label>
+            <label>
+                <fm-input-radio name="radio" value="1"></fm-input-radio>
+                <span>Item 1</span>
+            </label>
+            <label>
+                <fm-input-radio name="radio" value="2"></fm-input-radio>
+                <span>Item 2</span>
+            </label>
+        </div>
+    </fm-card>
+</form>
 ```
 
 ## Slots
