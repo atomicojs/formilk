@@ -1,9 +1,12 @@
 import { c, css } from "atomico";
 import { InputCheckbox } from "../input-checkbox/input-checkbox.jsx";
-import { useCheckbox } from "../input-checkbox/use-checkbox.jsx";
+import { useCheckbox } from "../hooks/use-checkbox.jsx";
+import { useDisabled } from "../hooks/use-disabled.js";
 
 function radio() {
     const refInput = useCheckbox("radio");
+    useDisabled();
+
     return (
         <host shadowDom>
             <button

@@ -1,10 +1,12 @@
 import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput, tokenColors } from "../tokens.js";
+import { useDisabled } from "../hooks/use-disabled.js";
 
 function color({ disabled, name }) {
     const [value, setValue] = useProp("value");
     const refInput = useRef();
+    useDisabled();
 
     useRender(
         () => (
@@ -62,6 +64,7 @@ color.styles = [
             height: var(--size);
             position: relative;
             padding: 0;
+            cursor: pointer;
         }
 
         .input-box--use-border {

@@ -1,9 +1,12 @@
 import { c, css } from "atomico";
 import { tokensInput, tokenColors } from "../tokens.js";
-import { useCheckbox } from "./use-checkbox.jsx";
+import { useCheckbox } from "../hooks/use-checkbox.jsx";
+import { useDisabled } from "../hooks/use-disabled.js";
 
 function checkbox() {
     const refInput = useCheckbox("checkbox");
+    useDisabled();
+
     return (
         <host shadowDom>
             <button
@@ -78,6 +81,7 @@ checkbox.styles = [
             width: var(--size);
             height: var(--size);
             padding: 0px;
+            cursor: pointer;
         }
 
         .input-box--use-border {

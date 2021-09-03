@@ -8,14 +8,21 @@ Create a container as a card
 <form>
     <fm-card>
         <h2 style="margin: 0px;">Login</h2>
-        <fm-input-basic name="user"><span>User:</span></fm-input-basic>
-        <fm-input-basic name="user"><span>User:</span></fm-input-basic>
+        <fieldset disabled>
+            <fm-input-basic name="user"><span>User:</span></fm-input-basic>
+            <fm-input-basic name="user"><span>User:</span></fm-input-basic>
+            <fm-input-switch name="checkbox-2"> </fm-input-switch>
+            <fm-input-select>
+                <option value="1">Item 1</option>
+                <option value="1">Item 2</option>
+                <option value="1">Item 3</option>
+            </fm-input-select>
+        </fieldset>
         <fm-input-basic name="password"><span>Password:</span></fm-input-basic>
         <div style="display: flex; justify-content: space-between">
             <fm-button>Login</fm-button>
             <div>
                 <fm-input-checkbox name="checkbox-1"> </fm-input-checkbox>
-                <fm-input-switch name="checkbox-2"> </fm-input-switch>
                 remember password
             </div>
             <label>

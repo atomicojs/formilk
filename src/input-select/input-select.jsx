@@ -2,11 +2,12 @@ import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput, tokenColors } from "../tokens.js";
+import { useDisabled } from "../hooks/use-disabled.js";
 
 function select() {
     const refSlot = useRef();
     const childNodes = useSlot(refSlot);
-
+    useDisabled();
     /**
      * @type {(HTMLOptionElement|HTMLOptGroupElement)[]}
      */
@@ -55,6 +56,11 @@ function select() {
         </host>
     );
 }
+
+select.props = {
+    name: String,
+    disabled: Boolean,
+};
 
 select.styles = [
     tokensInput,

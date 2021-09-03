@@ -1,6 +1,7 @@
 import { c, useProp, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
+import { useDisabled } from "../hooks/use-disabled.js";
 import { tokensInput, tokenColors } from "../tokens.js";
 
 /**
@@ -31,6 +32,8 @@ function inputBasic({ type, theme, ...props }) {
             withlabel={withlabel}
         />
     ));
+
+    useDisabled();
 
     return (
         <host
