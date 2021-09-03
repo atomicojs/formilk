@@ -1,14 +1,17 @@
-import { c } from "atomico";
-import { useSwitch } from "../hooks/use-switch.js";
-import style from "./input-checkbox.css";
-import tokensBox from "../tokens/box.css";
+import { c, css } from "atomico";
+import { tokensInput, tokenColors } from "../tokens.js";
+import { useCheckbox } from "./use-checkbox.jsx";
 
-function checkbox({ name, value }) {
-    const [, refContainer] = useSwitch("checkbox", name, value);
-
+function checkbox() {
+    const refInput = useCheckbox("checkbox");
     return (
         <host shadowDom>
-            <button ref={refContainer} class="token-box token-box--use-border">
+            <button
+                onclick={() => {
+                    refInput.current.click();
+                }}
+                class="input-box input-box--use-border"
+            >
                 <div class="checkbox-state">
                     <slot name="icon">
                         <svg
@@ -30,7 +33,10 @@ function checkbox({ name, value }) {
 }
 
 checkbox.props = {
-    name: String,
+    name: {
+        type: String,
+        reflect: true,
+    },
     value: {
         type: null,
         value: "on",
@@ -39,6 +45,64 @@ checkbox.props = {
     disabled: { type: Boolean, reflect: true },
 };
 
-checkbox.styles = [tokensBox, style];
+checkbox.styles = [
+    tokensInput,
+    tokenColors,
+    css`
+        :host {
+            display: inline-flex;
+            color: var(--theme--checked);
+            align-items: center;
+            min-height: var(--min-height);
+        }
+
+        :host([checked]) .checkbox-state {
+            opacity: 1;
+        }
+
+        ::slotted([slot="icon"]),
+        svg {
+            color: var(--checked-contrast);
+        }
+
+        slot[name="icon"] {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-box {
+            --size: calc(var(--min-height) * 0.75);
+            width: var(--size);
+            height: var(--size);
+            padding: 0px;
+        }
+
+        .input-box--use-border {
+            --border-color: currentColor;
+        }
+
+        .checkbox-state {
+            --state-scale: 0.8;
+            --state-size: calc((var(--size) * var(--state-scale)));
+            --state-max-size: calc(var(--size) - (var(--border-width) * 2));
+            width: var(--state-size);
+            height: var(--state-size);
+            max-width: var(--state-max-size);
+            max-height: var(--state-max-size);
+            margin: auto;
+            border-radius: calc(var(--radius) * var(--state-scale));
+            background: currentColor;
+            opacity: 0;
+        }
+
+        .input-box,
+        .checkbox-state {
+            transition: 0.3s ease all;
+        }
+    `,
+];
 
 export const InputCheckbox = c(checkbox);

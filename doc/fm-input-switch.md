@@ -5,10 +5,10 @@ title: fm-input-checkbox
 Crea un input toggle con efecto sobre formulario.
 
 ```html preview
-<fm-input-toggle></fm-input-toggle>
-<fm-input-toggle checked></fm-input-toggle>
+<fm-input-switch></fm-input-switch>
+<fm-input-switch checked></fm-input-switch>
 <style>
-    fm-input-toggle {
+    fm-input-switch {
         margin: 0.25rem;
     }
 </style>

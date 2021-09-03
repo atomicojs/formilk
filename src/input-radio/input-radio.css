@@ -1,8 +1,0 @@
-.token-box,
-.checkbox-state {
-    border-radius: 100%;
-}
-
-.checkbox-state {
-    --state-scale: 0.6;
-}

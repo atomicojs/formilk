@@ -5,7 +5,7 @@
     "type": "module",
     "types": "./formilk.d.ts",
     "scripts": {
-        "start": "vite",
+        "start": "vite --force",
         "build": "vite build",
         "exports": "exports src/*/*.jsx --types --exports",
         "prepublishOnly": "npm run exports"

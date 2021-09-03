@@ -1,16 +1,15 @@
-import { c, useRef } from "atomico";
+import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { useEventLabel } from "../hooks/use-event-label.js";
-import style from "./input-select.css";
-import tokensBox from "../tokens/box.css";
-import tokensInput from "../tokens/input.css";
+import { tokensInput, tokenColors } from "../tokens.js";
 
 function select() {
-    const refInput = useRef();
     const refSlot = useRef();
     const childNodes = useSlot(refSlot);
 
+    /**
+     * @type {(HTMLOptionElement|HTMLOptGroupElement)[]}
+     */
     const options = childNodes.filter(
         (child) =>
             child instanceof HTMLOptionElement ||
@@ -32,7 +31,7 @@ function select() {
     return (
         <host shadowDom>
             <slot class="options" ref={refSlot}></slot>
-            <div className="token-box toke-use-border">
+            <div className="input-box input-box--use-border">
                 <div class="icon">
                     <slot name="icon">
                         <svg
@@ -57,6 +56,43 @@ function select() {
     );
 }
 
-select.styles = [tokensBox, tokensInput, style];
+select.styles = [
+    tokensInput,
+    tokenColors,
+    css`
+        .input-box {
+            padding: 0;
+            position: relative;
+        }
+
+        ::slotted(select) {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            font-family: unset;
+            font-size: unset;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+            padding: var(--padding-y) calc(var(--padding-x) * 2)
+                var(--padding-y) var(--padding-x);
+            appearance: none;
+            min-height: var(--min-height);
+        }
+
+        .options {
+            display: none;
+        }
+
+        .icon {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            right: var(--padding-x);
+            transform: translateY(-50%);
+        }
+    `,
+];
 
 export const InputSelect = c(select);

@@ -1,11 +1,17 @@
-import { c, useProp, useRef } from "atomico";
+import { c, useProp, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import style from "./input-basic.css";
-import tokensBox from "../tokens/box.css";
-import tokensInput from "../tokens/input.css";
+import { tokensInput, tokenColors } from "../tokens.js";
 
+/**
+ *
+ * @param {import("atomico").Props<inputBasic.props>} props
+ * @returns
+ */
 function inputBasic({ type, theme, ...props }) {
+    /**
+     * @type {import("atomico").UseProp<string>}
+     */
     const [, setValue] = useProp("value");
     const refSlotLabel = useRef();
     const refSlotIcon = useRef();
@@ -35,7 +41,7 @@ function inputBasic({ type, theme, ...props }) {
             withlabel={withlabel}
         >
             <div
-                class="token-box token-box--use-border"
+                class="input-box input-box--use-border"
                 onclick={() => refInput.current.focus()}
             >
                 <div class="icon">
@@ -60,10 +66,7 @@ function inputBasic({ type, theme, ...props }) {
             </div>
             {theme && (
                 <style>{
-                    /*css*/ `:host{
-                --box--shadow-color: var(--theme--${theme}-shadow);
-                --line-background: var(--theme--${theme});
-            }`
+                    /*css*/ `:host{--line-background: var(--${theme});}`
                 }</style>
             )}
         </host>
@@ -99,6 +102,82 @@ inputBasic.props = {
     },
 };
 
-inputBasic.styles = [tokensBox, tokensInput, style];
+inputBasic.styles = [
+    tokensInput,
+    tokenColors,
+    css`
+        .input-box {
+            padding: 0;
+            position: relative;
+            min-height: var(--min-height);
+        }
+
+        ::slotted(input) {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            font-family: unset;
+            font-size: unset;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+            padding: var(--padding-y) var(--padding-x);
+        }
+
+        .input-box {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 0 0 auto;
+        }
+
+        :host([withlabel]) .input-box {
+            grid-template-columns: 0 auto auto;
+        }
+        :host([withicon]) .input-box {
+            grid-template-columns: auto auto auto;
+        }
+
+        :host([withicon][withlabel]) .label {
+            padding-left: 0.5em;
+        }
+
+        :host([withicon]:not([withlabel])) .input-box {
+            grid-template-columns: auto 0 auto;
+        }
+
+        :host([withlabel]) .input-box,
+        :host([withicon]) .input-box {
+            padding-left: var(--padding-x);
+        }
+
+        ::slotted(input[withicon]),
+        ::slotted(input[withlabel]) {
+            padding-left: 0.5em;
+        }
+
+        .line {
+            width: 100%;
+            height: 0.125rem;
+            padding: 0 var(--padding-x);
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            transform: translateY(100%);
+        }
+        .line-fill {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            background: var(--line-background);
+        }
+
+        .icon {
+            display: flex;
+        }
+    `,
+];
 
 export const InputBasic = c(inputBasic);

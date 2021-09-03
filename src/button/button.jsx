@@ -1,10 +1,13 @@
-import { c, useRef } from "atomico";
+import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import style from "./button.css";
-import tokensBox from "../tokens/box.css";
-import tokensInput from "../tokens/input.css";
+import { tokensInput, tokenColors } from "../tokens.js";
 
+/**
+ *
+ * @param {import("atomico").Props<button.props>} props
+ * @returns
+ */
 function button({ type, name, value, theme, disabled }) {
     const refSlotIcon = useRef();
     const refSlotContent = useRef();
@@ -31,23 +34,19 @@ function button({ type, name, value, theme, disabled }) {
             <button
                 onclick={() => buttonOutRef.current.click()}
                 disabled={disabled}
-                class={`token-input token-box token-box--use-border ${
+                class={`input-box input-box--use-border ${
                     slotIcon.length ? " box-icon" : ""
                 }${slotContent.length ? " box-label" : ""}`}
+                style={
+                    theme && {
+                        "--background": `var(--${theme})`,
+                        "--color": `var(--${theme}-contrast, var(--primary-contrast))`,
+                    }
+                }
             >
                 <slot ref={refSlotIcon} name="icon"></slot>
                 <slot ref={refSlotContent}></slot>
             </button>
-            {theme && (
-                <style>{
-                    /*css*/ `.token-box{
-                    --box--background: var(--theme--${theme});
-                    --box--color: var(--theme--${theme}-contrast, var(--theme--primary-contrast));
-                    --box--shadow: var(--theme--${theme}-shadow);
-                    --box--border: var(--theme--${theme}-border);
-                }`
-                }</style>
-            )}
         </host>
     );
 }
@@ -67,8 +66,61 @@ button.props = {
         type: Boolean,
         reflect: true,
     },
+    size: {
+        type: String,
+        reflect: true,
+    },
 };
 
-button.styles = [tokensBox, tokensInput, style];
+button.styles = [
+    tokensInput,
+    tokenColors,
+    css`
+        button {
+            font-size: unset;
+            font-weight: unset;
+        }
+
+        button:not(:disabled) {
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.25;
+        }
+
+        .input-box {
+            display: grid;
+            grid-gap: 0.5em;
+            align-items: center;
+            justify-content: center;
+            min-width: var(--min-height);
+            min-height: var(--min-height);
+        }
+
+        :host([size="small"]) .input-box {
+            --size: calc(var(--min-height) * 0.75);
+            min-height: var(--size);
+            min-width: var(--size);
+            padding: 0 var(--padding-x);
+        }
+
+        :host([size="small"]) {
+            font-size: 0.75em;
+        }
+
+        ::slotted([slot="icon"]) {
+            display: block;
+        }
+
+        .box-icon:not(.box-label) {
+            padding: 0;
+        }
+
+        .box-icon.box-label {
+            grid-template-columns: auto auto;
+        }
+    `,
+];
 
 export const Button = c(button);

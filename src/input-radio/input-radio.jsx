@@ -1,24 +1,16 @@
-import { c, useRef } from "atomico";
-import { useRender } from "@atomico/hooks/use-render";
-import { useFormValue } from "@atomico/hooks/use-form";
-import style from "./input-radio.css";
-import tokensBox from "../tokens/box.css";
-import styleBase from "../input-checkbox/input-checkbox.css";
+import { c, css } from "atomico";
+import { InputCheckbox } from "../input-checkbox/input-checkbox.jsx";
+import { useCheckbox } from "../input-checkbox/use-checkbox.jsx";
 
-function radio({ name, value }) {
-    const refInput = useRef();
-
-    const [formValue] = useFormValue(name);
-
-    useRender(() => (
-        <input type="radio" name={name} value={value} ref={refInput} />
-    ));
-
+function radio() {
+    const refInput = useCheckbox("radio");
     return (
-        <host shadowDom checked={value === formValue}>
+        <host shadowDom>
             <button
-                class="token-box token-box--use-border"
-                onclick={() => refInput.current.click()}
+                class="input-box input-box--use-border"
+                onclick={(event) => {
+                    refInput.current.click();
+                }}
             >
                 <div class="checkbox-state"></div>
             </button>
@@ -26,16 +18,15 @@ function radio({ name, value }) {
     );
 }
 
-radio.props = {
-    checked: {
-        type: Boolean,
-        reflect: true,
-    },
-    name: String,
-    value: null,
-    disabled: { type: Boolean, reflect: true },
-};
+radio.styles = css`
+    .input-box,
+    .checkbox-state {
+        border-radius: 100%;
+    }
 
-radio.styles = [tokensBox, styleBase, style];
+    .checkbox-state {
+        --state-scale: 0.6;
+    }
+`;
 
-export const InputRadio = c(radio);
+export const InputRadio = c(radio, InputCheckbox);
