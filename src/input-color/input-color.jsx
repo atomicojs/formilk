@@ -1,12 +1,11 @@
-import { c, useProp, useRef } from "atomico";
+import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
-import { useEventLabel } from "../hooks/use-event-label.js";
-import style from "./input-color.css";
-import tokens from "../tokens/box.css";
+import { tokensInput, tokenColors } from "../tokens.js";
 
 function color({ disabled, name }) {
     const [value, setValue] = useProp("value");
     const refInput = useRef();
+
     useRender(
         () => (
             <input
@@ -21,12 +20,11 @@ function color({ disabled, name }) {
         ),
         [name, value]
     );
-    useEventLabel(() => refInput.current.click());
     return (
         <host shadowDom>
             <button
-                class="token-box token-box--use-border"
-                style={`--box--background: ${value}`}
+                class="input-box input-box--use-border"
+                style={`--background: ${value}`}
             >
                 <slot></slot>
             </button>
@@ -43,6 +41,33 @@ color.props = {
     disabled: { type: Boolean, reflect: true },
 };
 
-color.styles = [tokens, style];
+color.styles = [
+    tokensInput,
+    tokenColors,
+    css`
+        ::slotted(input) {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            border: 0px;
+            opacity: 0;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .input-box {
+            --size: calc(var(--min-height) * 0.75);
+            width: var(--size);
+            height: var(--size);
+            position: relative;
+            padding: 0;
+        }
+
+        .input-box--use-border {
+            --border-color: currentColor;
+        }
+    `,
+];
 
 export const InputColor = c(color);
