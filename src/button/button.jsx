@@ -6,7 +6,6 @@ import { tokensInput, tokenColors } from "../tokens.js";
 /**
  *
  * @param {import("atomico").Props<button.props>} props
- * @returns
  */
 function button({ type, name, value, theme, disabled }) {
     const refSlotIcon = useRef();
