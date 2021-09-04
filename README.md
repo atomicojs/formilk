@@ -1,23 +1,9 @@
-# Formilk
+# Formilk (...Project in progress)
 
-Sistema de diseño creado por UpperCod con el objetivo de lograr una estetica unica que sutilmente mescla solidos, degrades y sombras. formilk se creo para ser utilizado sin complejidad y limitantes de interacción.
+![logo](./doc/logo.svg)
 
-## Kit Adobe XD
+<br/>
 
-```html
-<form>
-    <fm-card>
-        <fm-input-basic>User or email</fm-input-basic>
-        <fm-input-basic>Password</fm-input-basic>
-        <fm-button>Submit</fm-button>
-    </fm-card>
-</form>
-```
+Design system created by UpperCod with the aim of achieving a unique aesthetic that subtly mixes solids, gradients and shadows. formilk was created to be used without complexity and interaction limitations.
 
-## Contrubir
-
-### Todo
-
-1. Avatar
-2. Search
-3. Tabs
+![preview](./doc/preview.png)
