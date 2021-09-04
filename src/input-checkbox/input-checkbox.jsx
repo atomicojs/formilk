@@ -53,10 +53,7 @@ checkbox.styles = [
     tokenColors,
     css`
         :host {
-            display: inline-flex;
             color: var(--theme--checked);
-            align-items: center;
-            min-height: var(--min-height);
         }
 
         :host([checked]) .checkbox-state {

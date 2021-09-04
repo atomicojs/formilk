@@ -5,6 +5,7 @@ title: fm-button
 Create a button with an effect on the form.
 
 ```html preview
+<fm-button ghost>button</fm-button>
 <fm-button>button</fm-button>
 <fm-button theme="primary">button</fm-button>
 <fm-button theme="info">button</fm-button>
@@ -14,6 +15,7 @@ Create a button with an effect on the form.
 <fm-button disabled>button</fm-button>
 <hr />
 
+<fm-button ghost size="small">button</fm-button>
 <fm-button size="small">button</fm-button>
 <fm-button size="small" theme="primary">button</fm-button>
 <fm-button size="small" theme="info">button</fm-button>

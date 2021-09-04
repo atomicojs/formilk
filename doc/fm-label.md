@@ -1,12 +1,12 @@
 ---
-title: fm-label
+title: fm-alert
 ---
 
 Associates external state changes to the state of the form.
 
 ```html preview
-<fm-label>
+<fm-alert>
     <fm-input-checkbox></fm-input-checkbox>
     <span>Content</span>
-</fm-label>
+</fm-alert>
 ```

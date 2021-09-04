@@ -5,37 +5,39 @@ title: fm-card
 Create a container as a card
 
 ```html preview
-<form>
-    <fm-card>
-        <h2 style="margin: 0px;">Login</h2>
-        <fieldset disabled>
-            <fm-input-basic name="user"><span>User:</span></fm-input-basic>
-            <fm-input-basic name="user"><span>User:</span></fm-input-basic>
-            <fm-input-switch name="checkbox-2"> </fm-input-switch>
-            <fm-input-select>
-                <option value="1">Item 1</option>
-                <option value="1">Item 2</option>
-                <option value="1">Item 3</option>
-            </fm-input-select>
-        </fieldset>
-        <fm-input-basic name="password"><span>Password:</span></fm-input-basic>
-        <div style="display: flex; justify-content: space-between">
-            <fm-button>Login</fm-button>
-            <div>
-                <fm-input-checkbox name="checkbox-1"> </fm-input-checkbox>
-                remember password
-            </div>
-            <label>
-                <fm-input-radio name="radio" value="1"></fm-input-radio>
-                <span>Item 1</span>
-            </label>
-            <label>
-                <fm-input-radio name="radio" value="2"></fm-input-radio>
-                <span>Item 2</span>
-            </label>
-        </div>
-    </fm-card>
-</form>
+<fm-card width="280px">
+    <iframe
+        width="280px"
+        height="158px"
+        slot="media"
+        src="//player.vimeo.com/video/523970441?title=0&portrait=0&byline=0&autoplay=1&background=1"
+        allowfullscreen="allowfullscreen"
+        frameborder="0"
+    />
+    <h2 slot="header" style="margin: 0px">Elit irure elit labore proident</h2>
+    <p style="margin: 0px">
+        exercitation culpa fugiat occaecat mollit duis nulla laborum
+        exercitation et consectetur id aliquip aliqua occaecat
+    </p>
+    <footer slot="footer">
+        <strong>Tab 1</strong>
+    </footer>
+</fm-card>
+
+<fm-card width="280px">
+    <iframe
+        width="280px"
+        height="158px"
+        slot="media"
+        src="//player.vimeo.com/video/523970441?title=0&portrait=0&byline=0&autoplay=1&background=1"
+        allowfullscreen="allowfullscreen"
+        frameborder="0"
+    />
+    <p style="margin: 0px">
+        exercitation culpa fugiat occaecat mollit duis nulla laborum
+        exercitation et consectetur id aliquip aliqua occaecat
+    </p>
+</fm-card>
 ```
 
 ## Slots
@@ -86,25 +88,5 @@ Create a container as a card
         slot="media"
         src="https://images.unsplash.com/photo-1554797589-7241bb691973?w=376&q=80"
     />
-</fm-card>
-```
-
-### fm-card > video[slot=media]
-
-```html preview
-<fm-card width="280px">
-    <iframe
-        width="280px"
-        height="158px"
-        slot="media"
-        src="//player.vimeo.com/video/523970441?title=0&portrait=0&byline=0&autoplay=1&background=1"
-        allowfullscreen="allowfullscreen"
-        frameborder="0"
-    />
-    <h2 style="margin: 0px">Elit irure elit labore proident</h2>
-    <p>
-        exercitation culpa fugiat occaecat mollit duis nulla laborum
-        exercitation et consectetur id aliquip aliqua occaecat
-    </p>
 </fm-card>
 ```

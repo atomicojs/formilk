@@ -1,5 +1,45 @@
 import { css } from "atomico";
 
+export const tokensCard = css`
+    :host {
+        --border-width: var(--fm--card-border-width, 1px);
+        --border-color: var(--fm--card-border-color, rgba(255, 255, 255, 0.5));
+        --min-height: var(--fm--card-min-height, 2.5rem);
+        --radius: var(--fm--card-radius, 1rem);
+        --padding-y: var(--fm--card-padding-y, 1rem);
+        --padding-x: var(--fm--card-padding--x, 1rem);
+        --background: var(
+            --fm--card-background,
+            linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.5),
+                rgba(255, 255, 255, 0.25)
+            )
+        );
+        --shadow-size: var(--fm--card-shadow-size, 0px 6px 22px);
+        --shadow-color: var(--fm--card-shadow-color, rgba(0, 0, 0, 0.05));
+        --font-size: var(--fm-card--font-size, 0.875rem);
+        --gap: var(--fm-card--gap, 1rem);
+    }
+
+    .card-box {
+        background: var(--background);
+        color: var(--color);
+        border-radius: var(--radius);
+        backdrop-filter: var(--backdrop);
+        padding: var(--padding-y) var(--padding-x);
+        box-sizing: border-box;
+    }
+
+    .card-box--use-border {
+        border: var(--border-width) solid var(--border-color);
+    }
+
+    .card-box--use-shadow {
+        box-shadow: var(--shadow-size) var(--shadow-color);
+    }
+`;
+
 export const tokensInput = css`
     :host {
         --border-width: var(--fm--input-border-width, 1px);
@@ -11,10 +51,11 @@ export const tokensInput = css`
         --background: var(--fm--input-background, rgba(255, 255, 255, 0.5));
         --shadow-size: var(--fm--input-shadow-size, 0px 6px 22px);
         --shadow-color: var(--fm--input-shadow-color, rgba(0, 0, 0, 0.05));
-        --font-size: var(--fm-input--font-size, 0.875rem);
-        display: inline-block;
+        --font-size: var(--fm-input--font-size, 1rem);
+        display: inline-flex;
         font-size: var(--font-size);
         min-height: var(--min-height);
+        align-items: center;
     }
 
     .input-box {

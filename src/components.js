@@ -6,6 +6,7 @@ import { InputRadio } from "./input-radio/input-radio.jsx";
 import { InputColor } from "./input-color/input-color.jsx";
 import { InputSelect } from "./input-select/input-select.jsx";
 import { Button } from "./button/button.jsx";
+import { Alert } from "./alert/alert.jsx";
 
 export { Card } from "./card/card.jsx";
 export { InputBasic } from "./input-basic/input-basic.jsx";
@@ -15,6 +16,7 @@ export { InputRadio } from "./input-radio/input-radio.jsx";
 export { InputColor } from "./input-color/input-color.jsx";
 export { InputSelect } from "./input-select/input-select.jsx";
 export { Button } from "./button/button.jsx";
+export { Alert } from "./alert/alert.jsx";
 
 customElements.define("fm-card", Card);
 customElements.define("fm-input-basic", InputBasic);
@@ -24,4 +26,4 @@ customElements.define("fm-input-radio", InputRadio);
 customElements.define("fm-input-color", InputColor);
 customElements.define("fm-input-select", InputSelect);
 customElements.define("fm-button", Button);
-customElements.define("fm-label", Label);
+customElements.define("fm-alert", Alert);

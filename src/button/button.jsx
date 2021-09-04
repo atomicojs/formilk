@@ -53,6 +53,10 @@ function button({ type, name, value, theme, disabled }) {
 button.props = {
     name: String,
     value: String,
+    ghost: {
+        type: Boolean,
+        reflect: true,
+    },
     type: {
         type: String,
         value: "submit",
@@ -98,10 +102,16 @@ button.styles = [
         }
 
         :host([size="small"]) .input-box {
-            --size: calc(var(--min-height) * 0.75);
+            --size: calc(var(--min-height) * 0.8);
             min-height: var(--size);
             min-width: var(--size);
             padding: 0 var(--padding-x);
+        }
+
+        :host([ghost]) .input-box {
+            background: transparent;
+            border: none;
+            box-shadow: none;
         }
 
         :host([size="small"]) {
