@@ -2,7 +2,7 @@
 title: fm-input-checkbox
 ---
 
-Create a checkbox with effect on the form.
+Creates an `input[type=checkbox]` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
 <fm-input-checkbox>slot</fm-input-checkbox>
@@ -31,11 +31,4 @@ Create a checkbox with effect on the form.
 
 ## Custom properties
 
-| Custom property                     | Type   | Description                               |
-| ----------------------------------- | ------ | ----------------------------------------- |
-| `--fm-input-checkbox--bg`           | color  | default background for component          |
-| `--fm-input-checkbox--border`       | color  | deafult color for component               |
-| `--fm-input-checkbox--on-checked`   | color  | default background for component[checked] |
-| `--fm-input-checkbox--on-unchecked` | color  | default background for component          |
-| `--fm-input-checkbox--shadow`       | shadow | default padding for component             |
-| `--fm-input-checkbox--radius`       | size   | default border-radius for component       |
+Use the [input token system](../tokens/input)

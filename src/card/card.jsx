@@ -1,7 +1,7 @@
 import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResponsiveState } from "@atomico/hooks/use-responsive-state";
-import { tokensCard, tokenColors } from "../tokens.js";
+import { tokensCard, tokenColors } from "../tokens";
 
 function card({ width, height }) {
     const refHeader = useRef();

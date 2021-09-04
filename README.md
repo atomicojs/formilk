@@ -1,48 +1,23 @@
-# Welcome
+# Formilk
 
-## Steps
+Sistema de diseño creado por UpperCod con el objetivo de lograr una estetica unica que sutilmente mescla solidos, degrades y sombras. formilk se creo para ser utilizado sin complejidad y limitantes de interacción.
 
-```bash
-# 1
-npm install
-# 2
-npm start
-# Enjoy!
+## Kit Adobe XD
+
+```html
+<form>
+    <fm-card>
+        <fm-input-basic>User or email</fm-input-basic>
+        <fm-input-basic>Password</fm-input-basic>
+        <fm-button>Submit</fm-button>
+    </fm-card>
+</form>
 ```
 
-## Directory
+## Contrubir
 
-```bash
-/src
-    /components # Directory for webcomponents
-        /atomico-counter # Example of component with Atomico
-            atomico-counter.js
-            atomico-counter.css
-            atomico-counter.md  # component documentation
-    index.html # Html file to serve on the server
-```
+### Todo
 
-> files exported from html are stored processed in `/docs`(Friendly with github pages 😎), you can change this effect by modifying the`scripts` of `package.json`.
-
-## Scripts
-
-### npm start
-
-Create a development server on the `src` directory.
-
-### npm run build
-
-```bash
-npm install -D @devserver/build
-```
-
-**This command only works if the package `@devserver/build` is previously installed**. Export all content associated with the expression `src/**/*.html`.
-
-> If you export your project to a subfolder, be sure to use the `--href [path]` flag to declare that directory.
-
-```js
-useResizeObserver(
-  ref,
-  ({ width, height, x, y, top, right, bottom, left }) => {}
-);
-```
+1. Avatar
+2. Search
+3. Tabs

@@ -1,7 +1,7 @@
 import { c, css } from "atomico";
-import { tokensInput, tokenColors } from "../tokens.js";
-import { useCheckbox } from "../hooks/use-checkbox.jsx";
-import { useDisabled } from "../hooks/use-disabled.js";
+import { tokensInput, tokenColors } from "../tokens";
+import { useCheckbox } from "../hooks/use-checkbox";
+import { useDisabled } from "../hooks/use-disabled";
 
 function checkbox() {
     const refInput = useCheckbox("checkbox");

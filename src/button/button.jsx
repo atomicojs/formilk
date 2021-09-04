@@ -1,7 +1,7 @@
 import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput, tokenColors } from "../tokens.js";
+import { tokensInput, tokenColors } from "../tokens";
 
 /**
  *

@@ -1,7 +1,7 @@
 import { c, css } from "atomico";
-import { useCheckbox } from "../hooks/use-checkbox.jsx";
-import { InputCheckbox } from "../input-checkbox/input-checkbox.jsx";
-import { useDisabled } from "../hooks/use-disabled.js";
+import { useCheckbox } from "../hooks/use-checkbox";
+import { InputCheckbox } from "../input-checkbox/input-checkbox";
+import { useDisabled } from "../hooks/use-disabled";
 
 function inputSwitch() {
     const refInput = useCheckbox("checkbox");

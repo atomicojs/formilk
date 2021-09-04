@@ -2,40 +2,54 @@
 title: Formilk
 ---
 
-> Design system created with Atomico and with a predefined aesthetic that can be easily modified by using Custom Properties or extending the component.
+> Design system created by [UpperCod](https://twitter.com/uppercod) with the aim of achieving a unique aesthetic that subtly mixes gradients, solids and shadows. formilk was created to be used without complexity and interaction limitations.
 
 ## Installation
 
 ```bash
 # NPM
 npm install formilk
-
-# CDN, to start directly in the HTML
-http://jspm.dev/formilk
 ```
 
 ## Usage
 
-### 1. Import css theme
-
-First you must load the file `formilk/theme.css` this preloads all the custom properties that by default are shared between the components.
-
-```css
-@import "formilk/theme.css";
-```
-
-### 2. Import components
+First import the components from NPM.
 
 ```js
-import "formilk"; // Import all components
-
-import { Button } from "formilk"; // Import the customElement Button constructor to be extended
-
-import { Button } from "formilk/components.react"; // Import the wrapper for react
+import "formilk";
 ```
 
-## 3. Ready for HTML and JS
+Finally only instance the components to use from formilk from your HTML or JS.
 
 ```html preview
-<fm-button>My button</fm-button>
+<form>
+    <fm-card>
+        <h1 style="margin:0px">Login</h1>
+        <fm-input-basic>User:</fm-input-basic>
+        <fm-input-basic>Pass:</fm-input-basic>
+        <fm-button theme="primary">submit</fm-button>
+    </fm-card>
+</form>
+```
+
+## Use in React
+
+```js
+import ReactDom from "react-dom";
+import { Card, Button, InputBasic } from "formilk/components.react";
+
+function App() {
+    return (
+        <form>
+            <Card>
+                <h1 style="margin:0px">Login</h1>
+                <InputBasic>User:</InputBasic>
+                <InputBasic>Pass:</InputBasic>
+                <Button theme="primary">submit</Button>
+            </Card>
+        </form>
+    );
+}
+
+ReactDom.render(<App />, document.querySelector("#app"));
 ```

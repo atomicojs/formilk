@@ -2,7 +2,7 @@
 title: fm-alert
 ---
 
-Associates external state changes to the state of the form.
+Create a container as an alert that adapts according to the definition of the slot
 
 ```html preview
 <fm-alert>
@@ -28,7 +28,18 @@ Associates external state changes to the state of the form.
 <style>
     fm-alert {
         display: inline-flex;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 </style>
 ```
+
+## Slots
+
+| Slot       | Type    | Description                                                                                                                  |
+| ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| icon       | Element | Icon element that replaces the default icon, the color of the state can be inherited thanks to the custom property `--theme` |
+| Unassigned | Element | Content                                                                                                                      |
+
+## Custom properties
+
+Use the [card token system](../tokens/card)

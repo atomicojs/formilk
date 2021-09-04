@@ -2,65 +2,62 @@
 title: fm-button
 ---
 
-Create an input with effect on form.
+Creates an `input` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
-<fm-input-basic placeholder="User or Email"></fm-input-basic>
-<fm-input-basic placeholder="User or Email" theme="warning"></fm-input-basic>
-<fm-input-basic placeholder="User or Email" theme="danger"></fm-input-basic>
-<fm-input-basic placeholder="User or Email" theme="success"></fm-input-basic>
+<div>
+    <fm-input-basic placeholder="Placeholder"></fm-input-basic>
+    <fm-input-basic placeholder="Placeholder" theme="warning"></fm-input-basic>
+    <fm-input-basic placeholder="Placeholder" theme="danger"></fm-input-basic>
+    <fm-input-basic placeholder="Placeholder" theme="success"></fm-input-basic>
+</div>
 <style>
     fm-input-basic {
-        margin: 0.25rem;
+        margin: 1rem;
+    }
+    div {
+        display: flex;
+        flex-flow: column nowrap;
     }
 </style>
 ```
 
 ## Properties
 
-| Property  | Type   | Description               |
-| --------- | ------ | ------------------------- |
-| name      | string | Define `input[name]`      |
-| value     | string | Define `input[value]`     |
-| list      | string | Define `input[list]`      |
-| type      | string | Define `input[type]`      |
-| pattern   | string | Define `input[pattern]`   |
-| min       | string | Define `input[min]`       |
-| max       | string | Define `input[max]`       |
-| minLength | string | Define `input[minLength]` |
-| maxLength | string | Define `input[maxLength]` |
-| required  | string | Define `input[required]`  |
-| disabled  | string | Define `input[disabled]`  |
+| Property  | Type   | Description                        |
+| --------- | ------ | ---------------------------------- |
+| name      | string | Define `input[name]`               |
+| type      | string | Define `input[type]`               |
+| value     | string | Define `input[value]`              |
+| list      | string | Define `input[list]`               |
+| pattern   | string | Define `input[pattern]`            |
+| min       | string | Define `input[min]`                |
+| max       | string | Define `input[max]`                |
+| minLength | string | Define `input[minLength]`          |
+| maxLength | string | Define `input[maxLength]`          |
+| required  | string | Define `input[required]`           |
+| disabled  | string | Define `input[disabled]`           |
+| theme     | string | Import a global color from formilk |
 
 ## Slots
 
-| Slot       | Type    | Description                                     |
-| ---------- | ------- | ----------------------------------------------- |
-| icon       | Element | Icono a asociar al espacio reservado para icono |
-| Unassigned | Element | Label de texto al lateral izquierdo del input   |
+| Slot       | Type    | Description                                        |
+| ---------- | ------- | -------------------------------------------------- |
+| icon       | Element | Icon to associate with the space reserved for icon |
+| Unassigned | Element | Text label on the left side of the input           |
 
 ## Custom properties
 
-| Custom property      | Type   | Description                         |
-| -------------------- | ------ | ----------------------------------- |
-| `--fm-input--bg`     | color  | default background for component    |
-| `--fm-input--radius` | size   | default border-radius for component |
-| `--fm-input--shadow` | shadow | default shadow for component        |
-| `--fm-input--line`   | color  | default color for component         |
+Use the [input token system](../tokens/input)
 
 ## Examples
 
 ### fm-input-basic with label
 
 ```html preview
-<div style="display:flex; gap:1rem">
-    <fm-input-basic>
-        <span>Label:</span>
-    </fm-input-basic>
-    <fm-button>
-        <span>Submit</span>
-    </fm-button>
-</div>
+<fm-input-basic>
+    <span>Label:</span>
+</fm-input-basic>
 ```
 
 ### fm-input-basic with icon

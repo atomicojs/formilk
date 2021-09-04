@@ -2,23 +2,23 @@ import { css } from "atomico";
 
 export const tokensCard = css`
     :host {
-        --border-width: var(--fm--card-border-width, 1px);
-        --border-color: var(--fm--card-border-color, rgba(255, 255, 255, 0.5));
-        --min-height: var(--fm--card-min-height, 2.5rem);
-        --radius: var(--fm--card-radius, 1rem);
-        --padding-y: var(--fm--card-padding-y, 1rem);
-        --padding-x: var(--fm--card-padding--x, 1rem);
+        --border-width: var(--fm-card--border-width, 1px);
+        --border-color: var(--fm-card--border-color, rgba(255, 255, 255, 0.5));
+        --min-height: var(--fm-card--min-height, 2.5rem);
+        --radius: var(--fm-card--radius, 1rem);
+        --padding-y: var(--fm-card--padding-y, 1rem);
+        --padding-x: var(--fm-card--padding--x, 1rem);
         --background: var(
-            --fm--card-background,
+            --fm-card--background,
             linear-gradient(
                 45deg,
                 rgba(255, 255, 255, 0.5),
                 rgba(255, 255, 255, 0.25)
             )
         );
-        --shadow-size: var(--fm--card-shadow-size, 0px 6px 22px);
-        --shadow-color: var(--fm--card-shadow-color, rgba(0, 0, 0, 0.05));
-        --font-size: var(--fm-card--font-size, 0.875rem);
+        --shadow-size: var(--fm-card--shadow-size, 0px 6px 22px);
+        --shadow-color: var(--fm-card--shadow-color, rgba(0, 0, 0, 0.05));
+        --font-size: var(--fm-card--font-size, 1rem);
         --gap: var(--fm-card--gap, 1rem);
     }
 
@@ -42,15 +42,15 @@ export const tokensCard = css`
 
 export const tokensInput = css`
     :host {
-        --border-width: var(--fm--input-border-width, 1px);
-        --border-color: var(--fm--input-border-color, rgba(255, 255, 255, 0.5));
-        --min-height: var(--fm--input-min-height, 2.5rem);
-        --radius: var(--fm--input-radius, 0.5rem);
-        --padding-y: var(--fm--input-padding-y, 0.5rem);
-        --padding-x: var(--fm--input-padding--x, 1rem);
-        --background: var(--fm--input-background, rgba(255, 255, 255, 0.5));
-        --shadow-size: var(--fm--input-shadow-size, 0px 6px 22px);
-        --shadow-color: var(--fm--input-shadow-color, rgba(0, 0, 0, 0.05));
+        --border-width: var(--fm-input--border-width, 1px);
+        --border-color: var(--fm-input--border-color, rgba(255, 255, 255, 0.5));
+        --min-height: var(--fm-input--min-height, 2.5rem);
+        --radius: var(--fm-input--radius, 0.5rem);
+        --padding-y: var(--fm-input--padding-y, 0.5rem);
+        --padding-x: var(--fm-input--padding--x, 1rem);
+        --background: var(--fm-input--background, rgba(255, 255, 255, 0.5));
+        --shadow-size: var(--fm-input--shadow-size, 0px 6px 22px);
+        --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.05));
         --font-size: var(--fm-input--font-size, 1rem);
         display: inline-flex;
         font-size: var(--font-size);

@@ -1,8 +1,8 @@
 import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput, tokenColors } from "../tokens.js";
-import { useDisabled } from "../hooks/use-disabled.js";
+import { tokensInput, tokenColors } from "../tokens";
+import { useDisabled } from "../hooks/use-disabled";
 
 function select() {
     const refSlot = useRef();

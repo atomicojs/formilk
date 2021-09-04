@@ -2,7 +2,7 @@
 title: fm-input-checkbox
 ---
 
-Crea un input toggle con efecto sobre formulario.
+Creates a `select` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
 <fm-input-select>
@@ -38,11 +38,4 @@ Crea un input toggle con efecto sobre formulario.
 
 ## Custom properties
 
-| Custom property                     | Type   | Description                               |
-| ----------------------------------- | ------ | ----------------------------------------- |
-| `--fm-input-checkbox--bg`           | color  | default background for component          |
-| `--fm-input-checkbox--border`       | color  | deafult color for component               |
-| `--fm-input-checkbox--on-checked`   | color  | default background for component[checked] |
-| `--fm-input-checkbox--on-unchecked` | color  | default background for component          |
-| `--fm-input-checkbox--shadow`       | shadow | default padding for component             |
-| `--fm-input-checkbox--radius`       | size   | default border-radius for component       |
+Use the [input token system](../tokens/input)

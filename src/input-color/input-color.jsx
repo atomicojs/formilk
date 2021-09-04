@@ -1,7 +1,7 @@
 import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput, tokenColors } from "../tokens.js";
-import { useDisabled } from "../hooks/use-disabled.js";
+import { tokensInput, tokenColors } from "../tokens";
+import { useDisabled } from "../hooks/use-disabled";
 
 function color({ disabled, name }) {
     const [value, setValue] = useProp("value");

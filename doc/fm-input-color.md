@@ -2,7 +2,7 @@
 title: fm-input-checkbox
 ---
 
-Create a button with an effect on the form.
+Creates an `input[type=color]` with effect on forms.
 
 ```html preview
 <fm-input-color value="#02d365"></fm-input-color>
@@ -18,7 +18,4 @@ Create a button with an effect on the form.
 
 ## Custom properties
 
-| Custom property            | Type  | Description                                |
-| -------------------------- | ----- | ------------------------------------------ |
-| `--fm-input-color--border` | color | border-component default color             |
-| `--fm-input-color--radius` | size  | border-default border-radius for component |
+Use the [input token system](../tokens/input)
