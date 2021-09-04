@@ -4,3 +4,4 @@
 /hooks
 /*.d.ts
 /*.js
+/package-lock.json
