@@ -1,6 +1,5 @@
 import pluginMetaUrl from "@uppercod/vite-meta-url";
 import loadCss from "@uppercod/vite-meta-url-load-css";
-
 /**@type {import("vite").UserConfig} */
 
 const config = {
@@ -18,3 +17,5 @@ const config = {
         }),
     ],
 };
+
+export default config;

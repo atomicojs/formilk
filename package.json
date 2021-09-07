@@ -2,7 +2,6 @@
     "name": "formilk",
     "description": "Design system created with Atomico",
     "version": "0.0.4",
-    "type": "module",
     "types": "./formilk.d.ts",
     "scripts": {
         "start": "vite",
@@ -18,13 +17,10 @@
         "atomico": "^1.30.0"
     },
     "devDependencies": {
-        "@uppercod/vite-meta-url": "^1.3.1",
-        "@uppercod/vite-meta-url-load-css": "^1.0.0",
-        "doc-elements": "^1.3.0",
-        "easy-tag-for-liquidjs": "^1.1.0",
-        "liquidjs": "^9.25.1",
-        "typescript": "^4.2.4",
-        "vite": "^2.5.4"
+        "@uppercod/vite-meta-url": "latest",
+        "@uppercod/vite-meta-url-load-css": "latest",
+        "vite": "latest",
+        "typescript": "^4.2.4"
     },
     "prettier": {
         "tabWidth": 4,
