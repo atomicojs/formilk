@@ -42,4 +42,4 @@ Create a container as an alert that adapts according to the definition of the sl
 
 ## Custom properties
 
-Use the [card token system](#/tokens/card)
+Use the [card token system](/tokens/card)

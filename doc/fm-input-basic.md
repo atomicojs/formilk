@@ -48,7 +48,7 @@ Creates an `input` with effect on forms that adapts according to the definition 
 
 ## Custom properties
 
-Use the [input token system](#/tokens/input)
+Use the [input token system](/tokens/input)
 
 ## Examples
 

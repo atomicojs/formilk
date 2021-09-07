@@ -34,4 +34,4 @@ Create a container that adapts according to the definition of the slot
 
 ## Custom properties
 
-Use the [card token system](#/tokens/card)
+Use the [card token system](/tokens/card)
