@@ -6,7 +6,7 @@
     "types": "./formilk.d.ts",
     "scripts": {
         "start": "vite",
-        "build": "vite build --outDir docs --base /formilk",
+        "build": "vite build --outDir docs",
         "exports": "exports src/components.js --types --exports",
         "prepublishOnly": "npm run exports"
     },
