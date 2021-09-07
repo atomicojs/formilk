@@ -28,7 +28,7 @@
         </style>
         <script type="module" src="./src/components.js"></script>
         <script type="module" src="./doc/doc.js"></script>
-        <base href="/formilk" />
+        <base href="{{vite.base}}" />
     </head>
     <body>
         <doc-container>
@@ -42,55 +42,55 @@
                 <doc-source
                     path="#/customization"
                     label="Customization"
-                    load="/doc/customization.md"
+                    load="{% copy '/doc/customization.md' %}"
                 ></doc-source>
                 <doc-source
                     path="#/inheritance"
                     label="Inheritance"
-                    load="/doc/inheritance.md"
+                    load="{% copy '/doc/inheritance.md' %}"
                 ></doc-source>
             </doc-group>
             <doc-group label="Componentes">
                 <doc-source
                     label="fm-button"
                     path="#/components/fm-button"
-                    load="/doc/fm-button.md"
+                    load="{% copy '/doc/fm-button.md' %}"
                 ></doc-source>
                 <doc-source
                     label="fm-input-basic"
                     path="#/components/fm-input-basic"
-                    load="/doc/fm-input-basic.md"
+                    load="{% copy '/doc/fm-input-basic.md' %}"
                 ></doc-source>
                 <doc-source
                     label="fm-input-checkbox"
                     path="#/components/fm-input-checkbox"
-                    load="/doc/fm-input-checkbox.md"
+                    load="{% copy '/doc/fm-input-checkbox.md' %}"
                 ></doc-source>
                 <doc-source
                     label="fm-input-radio"
                     path="#/components/fm-input-radio"
-                    load="/doc/fm-input-radio.md"
+                    load="{% copy '/doc/fm-input-radio.md' %}"
                 ></doc-source>
                 <doc-source
                     label="fm-input-switch"
                     path="#/components/fm-input-switch"
-                    load="/doc/fm-input-switch.md"
+                    load="{% copy '/doc/fm-input-switch.md' %}"
                 ></doc-source>
                 <doc-source
                     label="fm-input-color"
                     path="#/components/fm-input-color"
-                    load="/doc/fm-input-color.md"
+                    load="{% copy '/doc/fm-input-color.md' %}"
                 ></doc-source>
                 <doc-source label="fm-card" load="/doc/fm-card.md"></doc-source>
                 <doc-source
                     label="fm-input-select"
                     path="#/components/fm-input-select"
-                    load="/doc/fm-input-select.md"
+                    load="{% copy '/doc/fm-input-select.md' %}"
                 ></doc-source>
                 <doc-source
                     label="fm-alert"
                     path="#/components/fm-alert"
-                    load="/doc/fm-alert.md"
+                    load="{% copy '/doc/fm-alert.md' %}"
                 ></doc-source>
             </doc-group>
             <doc-group label="Tokens">
