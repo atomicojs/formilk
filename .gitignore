@@ -4,4 +4,5 @@
 /hooks
 /*.d.ts
 /*.js
+!/vite.config.js
 /package-lock.json
