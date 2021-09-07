@@ -32,7 +32,7 @@ function select() {
     return (
         <host shadowDom>
             <slot class="options" ref={refSlot}></slot>
-            <div className="input-box input-box--use-border">
+            <div className="input-box input-box--use-border input-box--full-width">
                 <div class="icon">
                     <slot name="icon">
                         <svg

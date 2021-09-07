@@ -2,13 +2,15 @@
 title: fm-input-checkbox
 ---
 
-Creates an `input[type=checkbox]` with effect on forms that adapts according to the definition of the slot.
+Creates an `input[type=radio]` with effect on forms.
 
 ```html preview
-<fm-input-switch></fm-input-switch>
-<fm-input-switch checked></fm-input-switch>
+<form>
+    <fm-input-radio name="radio" value="1">slot</fm-input-radio>
+    <fm-input-radio name="radio" value="2" checked>slot</fm-input-radio>
+</form>
 <style>
-    fm-input-switch {
+    fm-input-radio {
         margin: 0.25rem;
     }
 </style>
@@ -25,4 +27,4 @@ Creates an `input[type=checkbox]` with effect on forms that adapts according to 
 
 ## Custom properties
 
-Use the [input token system](../tokens/input)
+Use the [input token system](#/tokens/input)

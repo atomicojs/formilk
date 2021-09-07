@@ -25,4 +25,4 @@ Creates an `input[type=checkbox]` with effect on forms that adapts according to 
 
 ## Custom properties
 
-Use the [input token system](../tokens/input)
+Use the [input token system](#/tokens/input)

@@ -71,6 +71,10 @@ export const tokensInput = css`
     .input-box--use-border {
         border: var(--border-width) solid var(--border-color);
     }
+
+    .input-box--full-width {
+        min-width: 100%;
+    }
 `;
 
 export const tokenColors = css`

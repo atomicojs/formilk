@@ -46,7 +46,7 @@ Create a `button` with effect on forms that adapts according to the definition o
 
 ## Custom properties
 
-Use the [input token system](../tokens/input)
+Use the [input token system](#/tokens/input)
 
 ## Examples
 

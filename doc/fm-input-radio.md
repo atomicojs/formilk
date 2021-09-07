@@ -27,4 +27,4 @@ Creates an `input[type=radio]` with effect on forms.
 
 ## Custom properties
 
-Use the [input token system](../tokens/input)
+Use the [input token system](#/tokens/input)

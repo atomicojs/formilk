@@ -44,7 +44,7 @@ function inputBasic({ type, theme, ...props }) {
             withlabel={withlabel}
         >
             <div
-                class="input-box input-box--use-border"
+                class="input-box input-box--use-border input-box--full-width"
                 onclick={() => refInput.current.focus()}
             >
                 <div class="icon">

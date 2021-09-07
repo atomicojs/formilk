@@ -33,7 +33,7 @@ function button({ type, name, value, theme, disabled }) {
             <button
                 onclick={() => buttonOutRef.current.click()}
                 disabled={disabled}
-                class={`input-box input-box--use-border ${
+                class={`input-box input-box--use-border input-box--full-width ${
                     slotIcon.length ? " box-icon" : ""
                 }${slotContent.length ? " box-label" : ""}`}
                 style={

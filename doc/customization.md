@@ -20,6 +20,6 @@ These global tokens without the use of the prefix and namespace and can be assoc
 
 ## Custom properties
 
-1. [Tokens colors](./tokens/colors): Group the color tokens.
-2. [Tokens card](./tokens/card): Groups the card box model tokens.
-3. [Tokens input](./tokens/input): Groups the tokens of the input box model.
+1. [Tokens colors](#/tokens/colors): Group the color tokens.
+2. [Tokens card](#/tokens/card): Groups the card box model tokens.
+3. [Tokens input](#/tokens/input): Groups the tokens of the input box model.
