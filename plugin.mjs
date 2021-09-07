@@ -46,7 +46,7 @@ export const plugin = ({ dev, build, config, ...data } = {}) => {
 
                 await copy(id, vite.outDir + "/" + id);
 
-                return id;
+                return vite.base + id.replace(/\\/g, "/");
             },
         })
     );
