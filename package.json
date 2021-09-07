@@ -24,7 +24,7 @@
         "easy-tag-for-liquidjs": "^1.1.0",
         "liquidjs": "^9.25.1",
         "typescript": "^4.2.4",
-        "vite": "^2.1.5"
+        "vite": "^2.5.4"
     },
     "prettier": {
         "tabWidth": 4,
