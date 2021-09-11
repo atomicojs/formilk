@@ -45,7 +45,7 @@ export function useCheckbox(type) {
                 }}
             />
         );
-    }, [checked]);
+    }, [checked, name, type]);
 
     return refInput;
 }

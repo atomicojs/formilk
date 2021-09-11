@@ -9,7 +9,7 @@ function alert({ theme }) {
     return (
         <host shadowDom>
             <div
-                class="card-box card-box--use-border"
+                class="card-box card-box--border"
                 style={
                     theme && {
                         "--border-color": `var(--theme)`,

@@ -2,10 +2,11 @@ import { c, css } from "atomico";
 import { tokensInput, tokenColors } from "../tokens";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "../hooks/use-disabled";
+import { inputGenericProps } from "../props";
 
 function checkbox() {
     const refInput = useCheckbox("checkbox");
-    useDisabled();
+    const disabled = useDisabled();
 
     return (
         <host shadowDom>
@@ -13,7 +14,8 @@ function checkbox() {
                 onclick={() => {
                     refInput.current.click();
                 }}
-                class="input-box input-box--use-border"
+                class="input-box input-box--border input-box--pointer"
+                disabled={disabled}
             >
                 <div class="checkbox-state">
                     <slot name="icon">
@@ -36,16 +38,12 @@ function checkbox() {
 }
 
 checkbox.props = {
-    name: {
-        type: String,
-        reflect: true,
-    },
+    ...inputGenericProps,
     value: {
         type: null,
         value: "on",
     },
     checked: { type: Boolean, reflect: true },
-    disabled: { type: Boolean, reflect: true },
 };
 
 checkbox.styles = [
@@ -78,10 +76,9 @@ checkbox.styles = [
             width: var(--size);
             height: var(--size);
             padding: 0px;
-            cursor: pointer;
         }
 
-        .input-box--use-border {
+        .input-box--border {
             --border-color: currentColor;
         }
 

@@ -1,13 +1,18 @@
-import { c, useRef, css } from "atomico";
+import { c, useRef, css, useEffect } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput, tokenColors } from "../tokens";
 import { useDisabled } from "../hooks/use-disabled";
+import { inputGenericProps } from "../props";
 
-function select() {
+/**
+ *
+ * @param {import("atomico").Props<select.props>} props
+ */
+function select({ name, placeholder }) {
     const refSlot = useRef();
     const childNodes = useSlot(refSlot);
-    useDisabled();
+    const disabled = useDisabled();
     /**
      * @type {(HTMLOptionElement|HTMLOptGroupElement)[]}
      */
@@ -19,20 +24,25 @@ function select() {
 
     useRender(
         () => (
-            <select slot="input" name="" id="">
+            <select slot="input" name={name} disabled={disabled}>
+                {placeholder && (
+                    <option value="" disabled selected>
+                        {placeholder}
+                    </option>
+                )}
                 {options.map((child) => {
                     const Child = child.cloneNode(true);
                     return <Child />;
                 })}
             </select>
         ),
-        options
+        [disabled, name, placeholder, ...options]
     );
 
     return (
         <host shadowDom>
             <slot class="options" ref={refSlot}></slot>
-            <div className="input-box input-box--use-border input-box--full-width">
+            <div className="input-box input-box--border input-box--full-width">
                 <div class="icon">
                     <slot name="icon">
                         <svg
@@ -58,8 +68,8 @@ function select() {
 }
 
 select.props = {
-    name: String,
-    disabled: Boolean,
+    ...inputGenericProps,
+    placeholder: String,
 };
 
 select.styles = [

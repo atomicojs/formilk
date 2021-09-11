@@ -2,11 +2,12 @@ import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput, tokenColors } from "../tokens";
 import { useDisabled } from "../hooks/use-disabled";
+import { inputGenericProps } from "../props";
 
-function color({ disabled, name }) {
+function color({ name }) {
     const [value, setValue] = useProp("value");
     const refInput = useRef();
-    useDisabled();
+    const disabled = useDisabled();
 
     useRender(
         () => (
@@ -25,8 +26,9 @@ function color({ disabled, name }) {
     return (
         <host shadowDom>
             <button
-                class="input-box input-box--use-border"
+                class="input-box input-box--border input-box--pointer "
                 style={`--background: ${value}`}
+                disabled={disabled}
             >
                 <slot></slot>
             </button>
@@ -35,12 +37,11 @@ function color({ disabled, name }) {
 }
 
 color.props = {
-    name: String,
+    ...inputGenericProps,
     value: {
         type: String,
         value: "#000",
     },
-    disabled: { type: Boolean, reflect: true },
 };
 
 color.styles = [
@@ -64,10 +65,9 @@ color.styles = [
             height: var(--size);
             position: relative;
             padding: 0;
-            cursor: pointer;
         }
 
-        .input-box--use-border {
+        .input-box--border {
             --border-color: currentColor;
         }
     `,

@@ -3,6 +3,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "../hooks/use-disabled";
 import { tokensInput, tokenColors } from "../tokens";
+import { inputGenericProps } from "../props";
 
 /**
  *
@@ -44,7 +45,7 @@ function inputBasic({ type, theme, ...props }) {
             withlabel={withlabel}
         >
             <div
-                class="input-box input-box--use-border input-box--full-width"
+                class="input-box input-box--border input-box--full-width"
                 onclick={() => refInput.current.focus()}
             >
                 <div class="icon">
@@ -77,9 +78,8 @@ function inputBasic({ type, theme, ...props }) {
 }
 
 inputBasic.props = {
-    name: String,
+    ...inputGenericProps,
     type: String,
-    value: null,
     list: String,
     pattern: String,
     min: Number,
@@ -87,7 +87,6 @@ inputBasic.props = {
     minLength: Number,
     maxLength: Number,
     placeholder: String,
-    required: Boolean,
     checked: Boolean,
     disabled: { type: Boolean, reflect: true },
     theme: {

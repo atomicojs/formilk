@@ -20,7 +20,7 @@ function card({ width, height }) {
 
     return (
         <host shadowDom>
-            <div class="card-box card-box--use-border card-box--use-shadow">
+            <div class="card-box card-box--border card-box--shadow">
                 <div class={`actions`}>
                     <slot name="action" ref={refActions}></slot>
                 </div>

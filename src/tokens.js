@@ -31,11 +31,11 @@ export const tokensCard = css`
         box-sizing: border-box;
     }
 
-    .card-box--use-border {
+    .card-box--border {
         border: var(--border-width) solid var(--border-color);
     }
 
-    .card-box--use-shadow {
+    .card-box--shadow {
         box-shadow: var(--shadow-size) var(--shadow-color);
     }
 `;
@@ -58,6 +58,15 @@ export const tokensInput = css`
         align-items: center;
     }
 
+    :host([disabled]) {
+        opacity: 0.5;
+        cursor: unset;
+    }
+
+    :host([disabled]) .input-box--pointer {
+        cursor: unset;
+    }
+
     .input-box {
         background: var(--background);
         color: var(--color);
@@ -68,12 +77,16 @@ export const tokensInput = css`
         box-sizing: border-box;
     }
 
-    .input-box--use-border {
+    .input-box--border {
         border: var(--border-width) solid var(--border-color);
     }
 
     .input-box--full-width {
         min-width: 100%;
+    }
+
+    .input-box--pointer {
+        cursor: pointer;
     }
 `;
 
@@ -88,5 +101,6 @@ export const tokenColors = css`
         --info: var(--fm--warning, #0080ff);
         --checked: var(--primary);
         --checked-contrast: var(--primary-contrast);
+        --disabled: var(--fm--disabled, #d5d8d9);
     }
 `;

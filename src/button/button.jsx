@@ -2,29 +2,42 @@ import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput, tokenColors } from "../tokens";
+import { useDisabled } from "../hooks/use-disabled";
+import { inputGenericProps } from "../props";
 
 /**
  *
  * @param {import("atomico").Props<button.props>} props
  */
-function button({ type, name, value, theme, disabled }) {
+function button({ type, name, value, theme, href }) {
     const refSlotIcon = useRef();
+    const refSecundaryAction = useRef();
     const refSlotContent = useRef();
     const buttonOutRef = useRef();
     const slotIcon = useSlot(refSlotIcon);
+    const slotSecundaryAction = useSlot(refSecundaryAction);
     const slotContent = useSlot(refSlotContent);
+    const disabled = useDisabled();
 
     useRender(
-        () => (
-            <button
-                type="submit"
-                name={name}
-                value={value}
-                ref={buttonOutRef}
-                slot="button"
-                tabindex="-1"
-            ></button>
-        ),
+        () =>
+            href ? (
+                <a
+                    slot="button"
+                    tabindex="-1"
+                    href={href}
+                    ref={buttonOutRef}
+                ></a>
+            ) : (
+                <button
+                    type="submit"
+                    name={name}
+                    value={value}
+                    ref={buttonOutRef}
+                    slot="button"
+                    tabindex="-1"
+                ></button>
+            ),
         [type, name, value]
     );
 
@@ -33,26 +46,32 @@ function button({ type, name, value, theme, disabled }) {
             <button
                 onclick={() => buttonOutRef.current.click()}
                 disabled={disabled}
-                class={`input-box input-box--use-border input-box--full-width ${
-                    slotIcon.length ? " box-icon" : ""
-                }${slotContent.length ? " box-label" : ""}`}
-                style={
-                    theme && {
+                class={`input-box input-box--border input-box--full-width ${
+                    slotIcon.length && !slotContent.length
+                        ? "input-box--square"
+                        : ""
+                }`}
+                style={{
+                    ...(theme && {
                         "--background": `var(--${theme})`,
                         "--color": `var(--${theme}-contrast, var(--primary-contrast))`,
-                    }
-                }
+                    }),
+                    "--cols":
+                        !!slotIcon.length +
+                        !!slotContent.length +
+                        !!slotSecundaryAction.length,
+                }}
             >
                 <slot ref={refSlotIcon} name="icon"></slot>
                 <slot ref={refSlotContent}></slot>
+                <slot ref={refSecundaryAction} name="action"></slot>
             </button>
         </host>
     );
 }
 
 button.props = {
-    name: String,
-    value: String,
+    ...inputGenericProps,
     ghost: {
         type: Boolean,
         reflect: true,
@@ -65,14 +84,11 @@ button.props = {
         type: String,
         reflect: true,
     },
-    disabled: {
-        type: Boolean,
-        reflect: true,
-    },
     size: {
         type: String,
         reflect: true,
     },
+    href: String,
 };
 
 button.styles = [
@@ -88,10 +104,6 @@ button.styles = [
             cursor: pointer;
         }
 
-        button:disabled {
-            opacity: 0.25;
-        }
-
         .input-box {
             display: grid;
             grid-gap: 0.5em;
@@ -99,6 +111,9 @@ button.styles = [
             justify-content: center;
             min-width: var(--min-height);
             min-height: var(--min-height);
+            grid-template-columns: repeat(var(--cols), auto);
+            line-height: 1em;
+            position: relative;
         }
 
         :host([size="small"]) .input-box {
@@ -121,13 +136,8 @@ button.styles = [
         ::slotted([slot="icon"]) {
             display: block;
         }
-
-        .box-icon:not(.box-label) {
-            padding: 0;
-        }
-
-        .box-icon.box-label {
-            grid-template-columns: auto auto;
+        .input-box--square {
+            padding: 0px;
         }
     `,
 ];

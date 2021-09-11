@@ -25,4 +25,6 @@ export function useDisabled() {
             setDisabled(current.disabled);
         }
     }, []);
+
+    return disabled;
 }

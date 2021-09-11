@@ -6,7 +6,7 @@ Create a `button` with effect on forms that adapts according to the definition o
 
 ```html preview
 <div>
-    <fm-button ghost>button</fm-button>
+    <fm-button href="#" ghost> button </fm-button>
     <fm-button>button</fm-button>
     <fm-button theme="primary">button</fm-button>
     <fm-button theme="info">button</fm-button>

@@ -5,7 +5,7 @@ title: fm-input-checkbox
 Creates a `select` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
-<fm-input-select>
+<fm-input-select placeholder="Select item">
     <option value="1">Item 1</option>
     <option value="1">Item 2</option>
     <option value="1">Item 3</option>

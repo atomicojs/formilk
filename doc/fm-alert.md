@@ -6,29 +6,38 @@ Create a container as an alert that adapts according to the definition of the sl
 
 ```html preview
 <fm-alert>
-    Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
-    fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    <p>
+        Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
+        fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    </p>
 </fm-alert>
-
 <fm-alert theme="warning">
-    Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
-    fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    <p>
+        Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
+        fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    </p>
 </fm-alert>
-
 <fm-alert theme="danger">
-    Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
-    fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    <p>
+        Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
+        fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    </p>
 </fm-alert>
-
 <fm-alert theme="info">
-    Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
-    fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    <p>
+        Laute duis ipsum velit id tempor duis ut velit ea officia laboris duis
+        fugiat reprehenderit adipisicing ut Lorem esse exercitation minim aliqua
+    </p>
 </fm-alert>
 
 <style>
     fm-alert {
         display: inline-flex;
         margin-bottom: 1rem;
+        font-size: 14px;
+    }
+    p {
+        margin: 0px;
     }
 </style>
 ```

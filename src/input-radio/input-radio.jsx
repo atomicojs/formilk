@@ -5,15 +5,16 @@ import { useDisabled } from "../hooks/use-disabled";
 
 function radio() {
     const refInput = useCheckbox("radio");
-    useDisabled();
+    const disabled = useDisabled();
 
     return (
         <host shadowDom>
             <button
-                class="input-box input-box--use-border"
+                class="input-box input-box--border input-box--pointer"
                 onclick={(event) => {
                     refInput.current.click();
                 }}
+                disabled={disabled}
             >
                 <div class="checkbox-state"></div>
             </button>

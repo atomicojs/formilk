@@ -5,13 +5,14 @@ import { useDisabled } from "../hooks/use-disabled";
 
 function inputSwitch() {
     const refInput = useCheckbox("checkbox");
-    useDisabled();
+    const disabled = useDisabled();
 
     return (
         <host shadowDom>
             <button
                 onclick={() => refInput.current.click()}
-                class="input-box input-box--use-border"
+                class="input-box input-box--border input-box--pointer"
+                disabled={disabled}
             >
                 <div class="checkbox-state">
                     <slot name="icon"></slot>
