@@ -91,8 +91,7 @@ select.styles = [
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            padding: var(--padding-y) calc(var(--padding-x) * 2)
-                var(--padding-y) var(--padding-x);
+            padding: 0 calc(var(--padding-x) * 2) 0 var(--padding-x);
             appearance: none;
             min-height: var(--min-height);
         }

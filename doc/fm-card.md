@@ -13,7 +13,8 @@ Create a container that adapts according to the definition of the slot
         src="//player.vimeo.com/video/523970441?title=0&portrait=0&byline=0&autoplay=1&background=1"
         allowfullscreen="allowfullscreen"
         frameborder="0"
-    />
+    >
+    </iframe>
     <h2 slot="header" style="margin: 0px">Elit irure elit labore proident</h2>
     <p style="margin: 0px">
         exercitation culpa fugiat occaecat mollit duis nulla laborum

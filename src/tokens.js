@@ -1,94 +1,115 @@
 import { css } from "atomico";
 
-export const tokensCard = css`
+export const tokensSpace = css`
     :host {
-        --border-width: var(--fm-card--border-width, 1px);
-        --border-color: var(--fm-card--border-color, rgba(255, 255, 255, 0.5));
-        --min-height: var(--fm-card--min-height, 2.5rem);
-        --radius: var(--fm-card--radius, 1rem);
-        --padding-y: var(--fm-card--padding-y, 1rem);
-        --padding-x: var(--fm-card--padding--x, 1rem);
-        --background: var(
-            --fm-card--background,
-            linear-gradient(
-                45deg,
-                rgba(255, 255, 255, 0.5),
-                rgba(255, 255, 255, 0.25)
-            )
-        );
-        --shadow-size: var(--fm-card--shadow-size, 0px 6px 22px);
-        --shadow-color: var(--fm-card--shadow-color, rgba(0, 0, 0, 0.05));
-        --font-size: var(--fm-card--font-size, 1rem);
-        --gap: var(--fm-card--gap, 1rem);
-    }
-
-    .card-box {
-        background: var(--background);
-        color: var(--color);
-        border-radius: var(--radius);
-        backdrop-filter: var(--backdrop);
-        padding: var(--padding-y) var(--padding-x);
-        box-sizing: border-box;
-    }
-
-    .card-box--border {
-        border: var(--border-width) solid var(--border-color);
-    }
-
-    .card-box--shadow {
-        box-shadow: var(--shadow-size) var(--shadow-color);
+        --space-y: var(--fm--space-y, 0.625rem);
+        --space-x: var(--fm--space-x, 1.25rem);
+        --space-between: var(--fm--space-inset, 1rem);
+        --space-y÷2: calc(var(--space-y) / 2);
+        --space-x÷2: calc(var(--space-x) / 2);
     }
 `;
 
-export const tokensInput = css`
-    :host {
-        --border-width: var(--fm-input--border-width, 1px);
-        --border-color: var(--fm-input--border-color, rgba(255, 255, 255, 0.5));
-        --min-height: var(--fm-input--min-height, 2.5rem);
-        --radius: var(--fm-input--radius, 0.5rem);
-        --padding-y: var(--fm-input--padding-y, 0.5rem);
-        --padding-x: var(--fm-input--padding--x, 1rem);
-        --background: var(--fm-input--background, rgba(255, 255, 255, 0.5));
-        --shadow-size: var(--fm-input--shadow-size, 0px 6px 22px);
-        --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.05));
-        --font-size: var(--fm-input--font-size, 1rem);
-        display: inline-flex;
-        font-size: var(--font-size);
-        min-height: var(--min-height);
-        align-items: center;
-    }
+export const tokensCard = [
+    tokensSpace,
+    css`
+        :host {
+            --border-width: var(--fm-card--border-width, 1px);
+            --border-color: var(
+                --fm-card--border-color,
+                rgba(255, 255, 255, 0.5)
+            );
+            --min-height: var(--fm-card--min-height, 2.5rem);
+            --radius: var(--fm-card--radius, 1rem);
+            --padding-y: var(--space-y);
+            --padding-x: var(--space-x);
+            --background: var(
+                --fm-card--background,
+                linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 0.5),
+                    rgba(255, 255, 255, 0.25)
+                )
+            );
+            --shadow-size: var(--fm-card--shadow-size, 0px 6px 22px);
+            --shadow-color: var(--fm-card--shadow-color, rgba(0, 0, 0, 0.05));
+            --font-size: var(--fm-card--font-size, 1rem);
+            --gap: var(--space-between);
+        }
 
-    :host([disabled]) {
-        opacity: 0.5;
-        cursor: unset;
-    }
+        .card-box {
+            background: var(--background);
+            color: var(--color);
+            border-radius: var(--radius);
+            backdrop-filter: var(--backdrop);
+            padding: var(--padding-y) var(--padding-x);
+            box-sizing: border-box;
+        }
 
-    :host([disabled]) .input-box--pointer {
-        cursor: unset;
-    }
+        .card-box--border {
+            border: var(--border-width) solid var(--border-color);
+        }
 
-    .input-box {
-        background: var(--background);
-        color: var(--color);
-        border-radius: var(--radius);
-        backdrop-filter: var(--backdrop);
-        box-shadow: var(--shadow-size) var(--shadow-color);
-        padding: var(--padding-y) var(--padding-x);
-        box-sizing: border-box;
-    }
+        .card-box--shadow {
+            box-shadow: var(--shadow-size) var(--shadow-color);
+        }
+    `,
+];
 
-    .input-box--border {
-        border: var(--border-width) solid var(--border-color);
-    }
+export const tokensInput = [
+    tokensSpace,
+    css`
+        :host {
+            --border-width: var(--fm-input--border-width, 1px);
+            --border-color: var(
+                --fm-input--border-color,
+                rgba(255, 255, 255, 0.5)
+            );
+            --min-height: var(--fm-input--min-height, 2.5rem);
+            --radius: var(--fm-input--radius, 0.5rem);
+            --padding-y: var(--space-y);
+            --padding-x: var(--space-x);
+            --background: var(--fm-input--background, rgba(255, 255, 255, 0.5));
+            --shadow-size: var(--fm-input--shadow-size, 0px 6px 22px);
+            --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.05));
+            --font-size: var(--fm-input--font-size, 1rem);
+            display: inline-flex;
+            font-size: var(--font-size);
+            min-height: var(--min-height);
+        }
 
-    .input-box--full-width {
-        min-width: 100%;
-    }
+        :host([disabled]) {
+            opacity: 0.5;
+            cursor: unset;
+        }
 
-    .input-box--pointer {
-        cursor: pointer;
-    }
-`;
+        :host([disabled]) .input-box--pointer {
+            cursor: unset;
+        }
+
+        .input-box {
+            background: var(--background);
+            color: var(--color);
+            border-radius: var(--radius);
+            backdrop-filter: var(--backdrop);
+            box-shadow: var(--shadow-size) var(--shadow-color);
+            padding: var(--padding-y) var(--padding-x);
+            box-sizing: border-box;
+        }
+
+        .input-box--border {
+            border: var(--border-width) solid var(--border-color);
+        }
+
+        .input-box--full-width {
+            min-width: 100%;
+        }
+
+        .input-box--pointer {
+            cursor: pointer;
+        }
+    `,
+];
 
 export const tokenColors = css`
     :host {

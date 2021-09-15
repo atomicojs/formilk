@@ -124,7 +124,7 @@ inputBasic.styles = [
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            padding: var(--padding-y) var(--padding-x);
+            padding: var(--space-y÷2) var(--padding-x);
         }
 
         .input-box {

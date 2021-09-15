@@ -5,7 +5,7 @@
     "types": "./formilk.d.ts",
     "type": "module",
     "scripts": {
-        "start": "vite",
+        "start": "vite --force",
         "build": "vite build --outDir docs",
         "exports": "exports src/components.js --types --exports",
         "prepublishOnly": "npm run exports"
@@ -15,14 +15,14 @@
         "@atomico/exports": "latest",
         "@atomico/hooks": "^3.13.1",
         "@atomico/markdown": "latest",
-        "atomico": "^1.30.0"
+        "atomico": "^1.32.0"
     },
     "devDependencies": {
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
         "doc-elements": "^1.3.0",
-        "vite": "latest",
-        "typescript": "^4.2.4"
+        "typescript": "^4.2.4",
+        "vite": "latest"
     },
     "prettier": {
         "tabWidth": 4,

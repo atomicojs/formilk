@@ -93,7 +93,7 @@ card.styles = [
         }
         .content {
             display: grid;
-            padding: 0px var(--padding-y);
+            padding: 0px var(--padding-x);
             grid-gap: var(--gap);
         }
         .header {
