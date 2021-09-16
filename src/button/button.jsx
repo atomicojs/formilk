@@ -1,7 +1,7 @@
 import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput, tokenColors } from "../tokens";
+import { tokensInput } from "../tokens";
 import { useDisabled } from "../hooks/use-disabled";
 import { inputGenericProps } from "../props";
 
@@ -93,7 +93,6 @@ button.props = {
 
 button.styles = [
     tokensInput,
-    tokenColors,
     css`
         button {
             font-size: unset;

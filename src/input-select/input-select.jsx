@@ -1,7 +1,7 @@
 import { c, useRef, css, useEffect } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput, tokenColors } from "../tokens";
+import { tokensInput } from "../tokens";
 import { useDisabled } from "../hooks/use-disabled";
 import { inputGenericProps } from "../props";
 
@@ -74,7 +74,6 @@ select.props = {
 
 select.styles = [
     tokensInput,
-    tokenColors,
     css`
         .input-box {
             padding: 0;

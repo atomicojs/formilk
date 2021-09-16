@@ -1,4 +1,4 @@
 import { c, css } from "atomico";
-import { tokenColors } from "../tokens";
+import { tokensSpace } from "../tokens";
 
 function avatar() {}

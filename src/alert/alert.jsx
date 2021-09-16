@@ -1,5 +1,5 @@
 import { c, css } from "atomico";
-import { tokensCard, tokenColors } from "../tokens";
+import { tokensCard } from "../tokens";
 
 /**
  *
@@ -50,7 +50,6 @@ alert.props = {
 
 alert.styles = [
     tokensCard,
-    tokenColors,
     css`
         .card-box {
             display: grid;

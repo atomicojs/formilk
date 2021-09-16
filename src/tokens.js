@@ -10,6 +10,23 @@ export const tokensSpace = css`
     }
 `;
 
+export const tokensColor = css`
+    :host {
+        --primary: var(--fm--primary, #2c3a41);
+        --primary-contrast: var(--fm--primary, #fff);
+        --secondary: var(--fm--secondary, black);
+        --split: var(--fm--split, #e0f1ee);
+        --split-contrast: var(--fm--split-contrast, var(--primary));
+        --success: var(--fm--warning, rgb(24, 212, 124));
+        --warning: var(--fm--warning, #f9aa33);
+        --danger: var(--fm--warning, rgb(255, 91, 91));
+        --info: var(--fm--warning, #0080ff);
+        --checked: var(--primary);
+        --checked-contrast: var(--primary-contrast);
+        --disabled: var(--fm--disabled, #d5d8d9);
+    }
+`;
+
 export const tokensCard = [
     tokensSpace,
     css`
@@ -111,17 +128,26 @@ export const tokensInput = [
     `,
 ];
 
-export const tokenColors = css`
-    :host {
-        --primary: var(--fm--primary, #2c3a41);
-        --primary-contrast: var(--fm--primary, #fff);
-        --secondary: var(--fm--secondary, black);
-        --success: var(--fm--warning, rgb(24, 212, 124));
-        --warning: var(--fm--warning, #f9aa33);
-        --danger: var(--fm--warning, rgb(255, 91, 91));
-        --info: var(--fm--warning, #0080ff);
-        --checked: var(--primary);
-        --checked-contrast: var(--primary-contrast);
-        --disabled: var(--fm--disabled, #d5d8d9);
-    }
-`;
+export const tokensNavigation = [
+    tokensSpace,
+    tokensColor,
+    css`
+        :host {
+            --line-height: var(--fm-navigation--line-height, 2px);
+            --background: var(--fm-navigation--background, white);
+        }
+        .navigation-box {
+            display: flex;
+            background: var(--background);
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .navigation-line {
+            width: 100%;
+            height: var(--line-height);
+            position: absolute;
+            left: 0;
+        }
+    `,
+];

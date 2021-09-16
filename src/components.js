@@ -7,7 +7,11 @@ import { InputColor } from "./input-color/input-color";
 import { InputSelect } from "./input-select/input-select";
 import { Button } from "./button/button";
 import { Alert } from "./alert/alert";
-import { Navigation } from "./navigation/navigation";
+import {
+    Navigation,
+    NavigationItem,
+    NavigationDropdown,
+} from "./navigation/navigation";
 
 export { Card } from "./card/card";
 export { InputBasic } from "./input-basic/input-basic";
@@ -18,7 +22,11 @@ export { InputColor } from "./input-color/input-color";
 export { InputSelect } from "./input-select/input-select";
 export { Button } from "./button/button";
 export { Alert } from "./alert/alert";
-export { Navigation } from "./navigation/navigation";
+export {
+    Navigation,
+    NavigationItem,
+    NavigationDropdown,
+} from "./navigation/navigation";
 
 customElements.define("fm-card", Card);
 customElements.define("fm-input-basic", InputBasic);
@@ -30,3 +38,5 @@ customElements.define("fm-input-select", InputSelect);
 customElements.define("fm-button", Button);
 customElements.define("fm-alert", Alert);
 customElements.define("fm-navigation", Navigation);
+customElements.define("fm-navigation-item", NavigationItem);
+customElements.define("fm-navigation-dropdown", NavigationDropdown);

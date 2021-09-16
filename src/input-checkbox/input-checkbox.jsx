@@ -1,5 +1,5 @@
 import { c, css } from "atomico";
-import { tokensInput, tokenColors } from "../tokens";
+import { tokensInput } from "../tokens";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "../hooks/use-disabled";
 import { inputGenericProps } from "../props";
@@ -48,7 +48,7 @@ checkbox.props = {
 
 checkbox.styles = [
     tokensInput,
-    tokenColors,
+
     css`
         :host {
             color: var(--theme--checked);
