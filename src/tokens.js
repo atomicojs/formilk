@@ -29,6 +29,7 @@ export const tokensColor = css`
 
 export const tokensCard = [
     tokensSpace,
+    tokensColor,
     css`
         :host {
             --border-width: var(--fm-card--border-width, 1px);
@@ -75,6 +76,7 @@ export const tokensCard = [
 
 export const tokensInput = [
     tokensSpace,
+    tokensColor,
     css`
         :host {
             --border-width: var(--fm-input--border-width, 1px);
