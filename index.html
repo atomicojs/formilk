@@ -19,11 +19,7 @@
             }
             body {
                 font-family: "Poppins", sans-serif;
-                background: #f1f1f9;
                 font-size: 14px;
-            }
-            :root {
-                --doc-preview--bg: #e0f1ee;
             }
             p {
                 font-size: 14px;
@@ -34,89 +30,104 @@
     </head>
     <body>
         <doc-container>
-            <img src="./doc/logo.svg" alt="logo" width="120px" slot="brand" />
-            <doc-group label="Tutorial">
-                <doc-source
-                    path="/"
-                    label="Welcome"
-                    load="/doc/welcome.md"
-                ></doc-source>
-                <doc-source
-                    path="/customization"
-                    label="Customization"
-                    load="/doc/customization.md"
-                ></doc-source>
-                <doc-source
-                    path="/inheritance"
-                    label="Inheritance"
-                    load="/doc/inheritance.md"
-                ></doc-source>
-            </doc-group>
-            <doc-group label="Componentes">
-                <doc-source
-                    label="fm-button"
-                    path="/components/fm-button"
-                    load="/doc/fm-button.md"
-                ></doc-source>
-                <doc-source
-                    label="fm-input-basic"
-                    path="/components/fm-input-basic"
-                    load="/doc/fm-input-basic.md"
-                ></doc-source>
-                <doc-source
-                    label="fm-input-checkbox"
-                    path="/components/fm-input-checkbox"
-                    load="/doc/fm-input-checkbox.md"
-                ></doc-source>
-                <doc-source
-                    label="fm-input-radio"
-                    path="/components/fm-input-radio"
-                    load="/doc/fm-input-radio.md"
-                ></doc-source>
-                <doc-source
-                    label="fm-input-switch"
-                    path="/components/fm-input-switch"
-                    load="/doc/fm-input-switch.md"
-                ></doc-source>
-                <doc-source
-                    label="fm-input-color"
-                    path="/components/fm-input-color"
-                    load="/doc/fm-input-color.md"
-                ></doc-source>
-                <doc-source label="fm-card" load="/doc/fm-card.md"></doc-source>
-                <doc-source
-                    label="fm-input-select"
-                    path="/components/fm-input-select"
-                    load="/doc/fm-input-select.md"
-                ></doc-source>
-                <doc-source
-                    label="fm-alert"
-                    path="/components/fm-alert"
-                    load="/doc/fm-alert.md"
-                ></doc-source>
-                <doc-source
-                    label="fm-navigation"
-                    path="/components/fm-navigation"
-                    load="/doc/fm-navigation.md"
-                ></doc-source>
-            </doc-group>
-            <doc-group label="Tokens">
-                <doc-source
-                    path="/tokens/colors"
-                    label="Colors"
-                    load="/doc/tokens-colors.md"
-                ></doc-source>
-                <doc-source
-                    path="/tokens/card"
-                    label="Card"
-                    load="/doc/tokens-card.md"
-                ></doc-source>
-                <doc-source
-                    path="/tokens/input"
-                    label="Input"
-                    load="/doc/tokens-input.md"
-                ></doc-source>
-            </doc-group>
+            <doc-header>
+                <img
+                    src="./doc/logo.svg"
+                    alt="logo"
+                    width="120px"
+                    slot="brand"
+                />
+                <a href="https://github.com/atomicojs/formilk" ignore>Github</a>
+                <a href="https://t.co/GOwj7XKrvy?amp=1" ignore>Discord</a>
+            </doc-header>
+            <doc-aside>
+                <doc-group label="Tutorial">
+                    <doc-source
+                        href="/"
+                        label="Welcome"
+                        src="/doc/welcome.md"
+                    ></doc-source>
+                    <doc-source
+                        href="/customization"
+                        label="Customization"
+                        src="/doc/customization.md"
+                    ></doc-source>
+                    <doc-source
+                        href="/inheritance"
+                        label="Inheritance"
+                        src="/doc/inheritance.md"
+                    ></doc-source>
+                </doc-group>
+                <doc-group label="Componentes">
+                    <doc-source
+                        label="fm-button"
+                        href="/components/fm-button"
+                        src="/doc/fm-button.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-input-basic"
+                        href="/components/fm-input-basic"
+                        src="/doc/fm-input-basic.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-input-checkbox"
+                        href="/components/fm-input-checkbox"
+                        src="/doc/fm-input-checkbox.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-input-radio"
+                        href="/components/fm-input-radio"
+                        src="/doc/fm-input-radio.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-input-switch"
+                        href="/components/fm-input-switch"
+                        src="/doc/fm-input-switch.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-input-color"
+                        href="/components/fm-input-color"
+                        src="/doc/fm-input-color.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-card"
+                        src="/doc/fm-card.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-input-select"
+                        href="/components/fm-input-select"
+                        src="/doc/fm-input-select.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-alert"
+                        href="/components/fm-alert"
+                        src="/doc/fm-alert.md"
+                    ></doc-source>
+                    <doc-source
+                        label="fm-navigation"
+                        href="/components/fm-navigation"
+                        src="/doc/fm-navigation.md"
+                    ></doc-source>
+                </doc-group>
+                <doc-group label="Tokens">
+                    <doc-source
+                        href="/tokens/colors"
+                        label="Colors"
+                        src="/doc/tokens-colors.md"
+                    ></doc-source>
+                    <doc-source
+                        href="/tokens/card"
+                        label="Card"
+                        src="/doc/tokens-card.md"
+                    ></doc-source>
+                    <doc-source
+                        href="/tokens/input"
+                        label="Input"
+                        src="/doc/tokens-input.md"
+                    ></doc-source>
+                </doc-group>
+            </doc-aside>
+            <doc-content></doc-content>
         </doc-container>
     </body>
 </html>

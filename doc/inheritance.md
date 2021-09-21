@@ -11,7 +11,7 @@ import { Button } from "formilk";
 class MyButton extends Button {
     static styles() {
         return [
-            ...super.styles,
+            super.styles,
             css`
                 :host {
                     --border: none;
