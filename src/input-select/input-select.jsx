@@ -52,11 +52,9 @@ function select({ name, placeholder }) {
                             viewBox="0 0 10.486 6.242"
                         >
                             <path
-                                id="Trazado_6"
-                                data-name="Trazado 6"
                                 d="M-7.051,242.364l-4.243-4.243a1,1,0,0,1,0-1.414,1,1,0,0,1,1.415,0l3.535,3.535,3.535-3.535a1,1,0,0,1,1.415,0,1,1,0,0,1,0,1.414l-4.243,4.243a1,1,0,0,1-.707.293A1,1,0,0,1-7.051,242.364Z"
                                 transform="translate(11.586 -236.414)"
-                                fill="#2c3a41"
+                                fill="var(--primary)"
                             />
                         </svg>
                     </slot>

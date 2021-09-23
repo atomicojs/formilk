@@ -138,17 +138,12 @@ export const tokensNavigation = [
             --line-height: var(--fm-navigation--line-height, 2px);
             --background: var(--fm-navigation--background, white);
         }
-        .navigation-box {
-            display: flex;
-            background: var(--background);
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-        }
         .navigation-line {
             width: 100%;
             height: var(--line-height);
             position: absolute;
+            bottom: 0;
+            background: var(--split);
             left: 0;
         }
     `,

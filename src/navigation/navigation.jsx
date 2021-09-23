@@ -1,13 +1,30 @@
 import { c, css, useEffect, useRef, useProp, useState } from "atomico";
-import { useSlot } from "@atomico/hooks/use-slot";
 import { tokensNavigation } from "../tokens";
-import { NavigationItem } from "./navigation-item";
 export { NavigationItem } from "./navigation-item";
 export { NavigationDropdown } from "./navigation-dropdown";
 
-const resetStatus = (item) => {
-    if (item) item.status = null;
+/**
+ *
+ * @param {Element} target
+ */
+const getTargetFor = (target) => {
+    while (
+        target &&
+        !target.hasAttribute("for") &&
+        (target = target.parentElement)
+    );
+    return target;
 };
+/**
+ *
+ * @param {Element} target
+ * @param {boolean} [value]
+ */
+const setDisplayed = (target, value) =>
+    target[value ? "setAttribute" : "removeAttribute"](
+        "displayed",
+        value ? "" : null
+    );
 /**
  *
  * @param {import("atomico").Props<navigation.props>}  props
@@ -15,21 +32,16 @@ const resetStatus = (item) => {
 function navigation({ columns }) {
     const refBrand = useRef();
     const refSlots = useRef();
-    const slotBrand = useSlot(refBrand);
-    const slots = useSlot(refSlots);
-    const [item, setItem] = useState();
+    /**
+     * @type {import("atomico").UseProp<Element[]>}
+     */
     const [dropdown, setDropdown] = useProp("dropdown");
-
-    useEffect(() => {
-        const dropdown = slots.filter((node) => node.hasAttribute("for"));
-    }, slots);
-
     return (
         <host
             shadowDom
-            onmouseleave={() => {
-                setItem(resetStatus);
-                setDropdown(null);
+            onmouseleave={(event) => {
+                dropdown.forEach((el) => setDisplayed(el));
+                setDropdown([]);
             }}
         >
             <div class="navigation-box">
@@ -38,34 +50,45 @@ function navigation({ columns }) {
                     class="navigation-nav"
                     style={{ "--columns": columns }}
                     onmouseover={(event) => {
-                        let nextItem = event.target;
+                        const target = getTargetFor(event.target);
+                        dropdown.forEach((el) => setDisplayed(el));
 
-                        while (
-                            nextItem &&
-                            !nextItem.hasAttribute("for") &&
-                            (nextItem = nextItem.parentElement)
-                        );
-
-                        let showSlot = null;
-
-                        if (nextItem) {
-                            nextItem.status = "hover";
-                            showSlot = nextItem.getAttribute("for");
-                        }
-
-                        if (item === nextItem) return;
-
-                        setItem(resetStatus);
-                        setItem(nextItem);
-                        setDropdown(showSlot);
+                        if (target) setDisplayed(target, true);
+                        setDropdown(target ? [target] : []);
                     }}
                 >
-                    <slot name="item" ref={refSlots}></slot>
+                    <slot ref={refSlots}></slot>
                 </div>
                 {dropdown && <div class="navigation-line"></div>}
             </div>
-            <div class="navigation-dropdown" part="dropdown">
-                <slot name={dropdown}></slot>
+            <div class="navigation-dropdowns">
+                {dropdown.map((element, index) => (
+                    <div class="navigation-dropdown">
+                        <slot
+                            onmouseover={(event) => {
+                                const target = getTargetFor(event.target);
+
+                                dropdown
+                                    .slice(index + 1)
+                                    .forEach((el) => setDisplayed(el));
+
+                                if (target) setDisplayed(target, true);
+
+                                const beforeDropdown = dropdown.slice(
+                                    0,
+                                    index + 1
+                                );
+
+                                setDropdown(
+                                    target
+                                        ? [...beforeDropdown, target]
+                                        : beforeDropdown
+                                );
+                            }}
+                            name={element.getAttribute("for")}
+                        ></slot>
+                    </div>
+                ))}
             </div>
         </host>
     );
@@ -76,8 +99,8 @@ navigation.props = {
     position: String,
     columns: Number,
     dropdown: {
-        type: String,
-        reflect: true,
+        type: Array,
+        value: () => [],
     },
 };
 
@@ -89,7 +112,12 @@ navigation.styles = [
             max-width: 100%;
         }
         .navigation-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
             padding: 0 var(--space-x);
+            background: var(--background);
         }
         .navigation-nav {
             display: flex;
@@ -99,9 +127,8 @@ navigation.styles = [
         .navigation-dropdown {
             position: relative;
         }
-        .navigation-line {
-            bottom: 0;
-            background: var(--split);
+        .navigation-dropdown-slot {
+            position: relative;
         }
     `,
 ];

@@ -20,7 +20,7 @@
     "devDependencies": {
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
-        "doc-elements": "^2.0.1",
+        "doc-elements": "^2.0.2",
         "typescript": "^4.2.4",
         "vite": "latest"
     },
