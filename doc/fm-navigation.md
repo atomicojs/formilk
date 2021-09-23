@@ -12,9 +12,16 @@ title: fm-navigation
         <fm-button size="small" ghost>TWITTER</fm-button>
     </fm-navigation-item>
     <fm-navigation-dropdown slot="dropdown-items">
+        <fm-button size="small" ghost for="dropdown-sub-items"
+            ><span>1</span></fm-button
+        >
+        <fm-button size="small" ghost><span>Item 2</span></fm-button>
+        <fm-button size="small" ghost><span>Item 3</span></fm-button>
+    </fm-navigation-dropdown>
+    <fm-navigation-dropdown slot="dropdown-sub-items">
         <fm-button size="small" ghost><span>1</span> </fm-button>
-        <fm-button size="small" ghost>Item 2</fm-button>
-        <fm-button size="small" ghost>Item 3</fm-button>
+        <fm-button size="small" ghost><span>Item 2</span></fm-button>
+        <fm-button size="small" ghost><span>Item 3</span></fm-button>
     </fm-navigation-dropdown>
 </fm-navigation>
 

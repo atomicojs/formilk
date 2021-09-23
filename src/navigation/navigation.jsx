@@ -42,10 +42,12 @@ function navigation({ columns }) {
 
                         while (
                             nextItem &&
-                            !(nextItem instanceof NavigationItem) &&
+                            !nextItem.hasAttribute("for") &&
                             (nextItem = nextItem.parentElement)
                         );
+
                         let showSlot = null;
+
                         if (nextItem) {
                             nextItem.status = "hover";
                             showSlot = nextItem.getAttribute("for");
