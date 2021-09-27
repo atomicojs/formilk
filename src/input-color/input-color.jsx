@@ -59,7 +59,7 @@ color.styles = [
         }
 
         .input-box {
-            --size: calc(var(--min-height) * 0.75);
+            --size: calc(var(--min-size) * 0.75);
             width: var(--size);
             height: var(--size);
             position: relative;

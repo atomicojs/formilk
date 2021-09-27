@@ -110,7 +110,7 @@ inputBasic.styles = [
         .input-box {
             padding: 0;
             position: relative;
-            min-height: var(--min-height);
+            min-height: var(--min-size);
         }
 
         ::slotted(input) {
@@ -123,7 +123,7 @@ inputBasic.styles = [
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            padding: var(--space-y÷2) var(--padding-x);
+            padding: calc(var(--space-y) / 2) var(--space-x);
         }
 
         .input-box {
@@ -149,7 +149,7 @@ inputBasic.styles = [
 
         :host([withlabel]) .input-box,
         :host([withicon]) .input-box {
-            padding-left: var(--padding-x);
+            padding-left: var(--space-x);
         }
 
         ::slotted(input[withicon]),
@@ -160,7 +160,7 @@ inputBasic.styles = [
         .line {
             width: 100%;
             height: 0.125rem;
-            padding: 0 var(--padding-x);
+            padding: 0 var(--space-x);
             box-sizing: border-box;
             position: absolute;
             bottom: 0;

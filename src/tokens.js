@@ -1,26 +1,42 @@
 import { css } from "atomico";
 
+export const tokensSize = css`
+    :host {
+        --min-size: var(--fm--min-size, 2.5rem);
+    }
+`;
+
+export const tokensBorder = css`
+    :host {
+        --radius: var(--fm--radius, 1rem);
+        --border-width: var(--fm--border-width, 1px);
+    }
+`;
+
 export const tokensSpace = css`
     :host {
         --space-y: var(--fm--space-y, 0.625rem);
         --space-x: var(--fm--space-x, 1.25rem);
         --space-between: var(--fm--space-inset, 1rem);
-        --space-y÷2: calc(var(--space-y) / 2);
-        --space-x÷2: calc(var(--space-x) / 2);
     }
 `;
 
 export const tokensColor = css`
     :host {
         --primary: var(--fm--primary, #2c3a41);
+        --primary-light: var(--fm--primary, #2c3a4180);
         --primary-contrast: var(--fm--primary, #fff);
-        --secondary: var(--fm--secondary, black);
+        --secondary: var(--fm--secondary, #000000);
         --split: var(--fm--split, #e0f1ee);
         --split-contrast: var(--fm--split-contrast, var(--primary));
-        --success: var(--fm--warning, rgb(24, 212, 124));
+        --success: var(--fm--success, #18d47c);
+        --success-light: var(--fm--success, #18d47c80);
         --warning: var(--fm--warning, #f9aa33);
-        --danger: var(--fm--warning, rgb(255, 91, 91));
-        --info: var(--fm--warning, #0080ff);
+        --warning-light: var(--fm--warning-light, #f9aa3380);
+        --danger: var(--fm--danger, #ff5b5b);
+        --danger-light: var(--fm--danger-light, #ff5b5b80);
+        --info: var(--fm--info, #0080ff);
+        --info-light: var(--fm--info-light, #0080ff80);
         --checked: var(--primary);
         --checked-contrast: var(--primary-contrast);
         --disabled: var(--fm--disabled, #d5d8d9);
@@ -30,17 +46,14 @@ export const tokensColor = css`
 export const tokensCard = [
     tokensSpace,
     tokensColor,
+    tokensSize,
+    tokensBorder,
     css`
         :host {
-            --border-width: var(--fm-card--border-width, 1px);
             --border-color: var(
                 --fm-card--border-color,
                 rgba(255, 255, 255, 0.5)
             );
-            --min-height: var(--fm-card--min-height, 2.5rem);
-            --radius: var(--fm-card--radius, 1rem);
-            --padding-y: var(--space-y);
-            --padding-x: var(--space-x);
             --background: var(
                 --fm-card--background,
                 linear-gradient(
@@ -60,7 +73,7 @@ export const tokensCard = [
             color: var(--color);
             border-radius: var(--radius);
             backdrop-filter: var(--backdrop);
-            padding: var(--padding-y) var(--padding-x);
+            padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
         }
 
@@ -77,24 +90,21 @@ export const tokensCard = [
 export const tokensInput = [
     tokensSpace,
     tokensColor,
+    tokensSize,
+    tokensBorder,
     css`
         :host {
-            --border-width: var(--fm-input--border-width, 1px);
             --border-color: var(
                 --fm-input--border-color,
                 rgba(255, 255, 255, 0.5)
             );
-            --min-height: var(--fm-input--min-height, 2.5rem);
-            --radius: var(--fm-input--radius, 0.5rem);
-            --padding-y: var(--space-y);
-            --padding-x: var(--space-x);
             --background: var(--fm-input--background, rgba(255, 255, 255, 0.5));
             --shadow-size: var(--fm-input--shadow-size, 0px 6px 22px);
             --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.05));
             --font-size: var(--fm-input--font-size, 1rem);
             display: inline-flex;
             font-size: var(--font-size);
-            min-height: var(--min-height);
+            min-height: var(--min-size);
         }
 
         :host([disabled]) {
@@ -109,10 +119,10 @@ export const tokensInput = [
         .input-box {
             background: var(--background);
             color: var(--color);
-            border-radius: var(--radius);
+            border-radius: calc(var(--radius) / 2);
             backdrop-filter: var(--backdrop);
             box-shadow: var(--shadow-size) var(--shadow-color);
-            padding: var(--padding-y) var(--padding-x);
+            padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
         }
 

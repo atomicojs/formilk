@@ -88,9 +88,9 @@ select.styles = [
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            padding: 0 calc(var(--padding-x) * 2) 0 var(--padding-x);
+            padding: 0 calc(var(--space-x) * 2) 0 var(--space-x);
             appearance: none;
-            min-height: var(--min-height);
+            min-height: var(--min-size);
         }
 
         .options {
@@ -101,7 +101,7 @@ select.styles = [
             display: flex;
             position: absolute;
             top: 50%;
-            right: var(--padding-x);
+            right: var(--space-x);
             transform: translateY(-50%);
         }
     `,

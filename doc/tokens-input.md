@@ -13,7 +13,7 @@ Box model used by the `input` and `button` type components.
 | --fm-input--border-min-height | size       |
 | --fm-input--radius            | size       |
 | --fm-input--padding-y         | size       |
-| --fm-input--padding-x         | size       |
+| --fm-input--space-x           | size       |
 | --fm-input--background        | background |
 | --fm-input--shadow-size       | size       |
 | --fm-input--shadow-color      | color      |

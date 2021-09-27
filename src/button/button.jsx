@@ -16,7 +16,9 @@ function button({ type, name, value, theme, href }) {
     const buttonOutRef = useRef();
     const slotIcon = useSlot(refSlotIcon);
     const slotSecundaryAction = useSlot(refSecundaryAction);
-    const slotContent = useSlot(refSlotContent);
+    const slotContent = useSlot(refSlotContent).filter((el) =>
+        el.textContent.trim()
+    );
     const disabled = useDisabled();
 
     useRender(
@@ -42,15 +44,14 @@ function button({ type, name, value, theme, href }) {
     );
 
     return (
-        <host shadowDom>
+        <host
+            shadowDom
+            shape={slotIcon.length && !slotContent.length ? "square" : null}
+        >
             <button
                 onclick={() => buttonOutRef.current.click()}
                 disabled={disabled}
-                class={`input-box input-box--border input-box--full-width ${
-                    slotIcon.length && !slotContent.length
-                        ? "input-box--square"
-                        : ""
-                }`}
+                class="input-box input-box--border input-box--full-width "
                 style={{
                     ...(theme && {
                         "--background": `var(--${theme})`,
@@ -89,6 +90,10 @@ button.props = {
         reflect: true,
     },
     href: String,
+    shape: {
+        type: String,
+        reflect: true,
+    },
 };
 
 button.styles = [
@@ -104,22 +109,22 @@ button.styles = [
         }
 
         .input-box {
+            --size: var(--min-size);
             display: grid;
             grid-gap: 0.5em;
             align-items: center;
             justify-content: center;
-            min-width: var(--min-height);
-            min-height: var(--min-height);
+            min-width: var(--size);
+            min-height: var(--size);
             grid-template-columns: repeat(var(--cols), auto);
             line-height: 1em;
             position: relative;
         }
 
         :host([size="small"]) .input-box {
-            --size: calc(var(--min-height) * 0.8);
-            min-height: var(--size);
-            min-width: var(--size);
-            padding: 0 var(--padding-x);
+            min-height: calc(var(--size) * 0.8);
+            min-width: calc(var(--size) * 0.8);
+            padding: 0 var(--space-x);
         }
 
         :host([ghost]) .input-box {
@@ -130,12 +135,10 @@ button.styles = [
 
         :host([size="small"]) {
             font-size: 0.75em;
+            align-items: center;
         }
 
-        ::slotted([slot="icon"]) {
-            display: block;
-        }
-        .input-box--square {
+        :host([shape="square"]) .input-box {
             padding: 0px;
         }
     `,

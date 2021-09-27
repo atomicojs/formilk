@@ -82,8 +82,8 @@ card.styles = [
         }
         .actions {
             position: absolute;
-            top: var(--padding-x);
-            right: var(--padding-x);
+            top: var(--space-x);
+            right: var(--space-x);
         }
 
         ::slotted([slot="media"]) {
@@ -92,20 +92,20 @@ card.styles = [
         }
         .content {
             display: grid;
-            padding: 0px var(--padding-x);
+            padding: 0px var(--space-x);
             grid-gap: var(--gap);
         }
         .header {
-            padding: var(--padding-y) var(--padding-x) 0px;
+            padding: var(--space-y) var(--space-x) 0px;
         }
         .hidden {
             display: none;
         }
         .footer {
-            padding: 0px var(--padding-x);
+            padding: 0px var(--space-x);
         }
         .space-down {
-            padding-bottom: var(--padding-y);
+            padding-bottom: var(--space-y);
         }
     `,
 ];

@@ -48,7 +48,7 @@ navigationItem.styles = [
     css`
         .navigation-item {
             display: flex;
-            padding: var(--space-y÷2) 0;
+            padding: calc(var(--space-y) / 2) 0;
             align-items: center;
             position: relative;
         }

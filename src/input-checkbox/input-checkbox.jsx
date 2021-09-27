@@ -52,6 +52,7 @@ checkbox.styles = [
     css`
         :host {
             color: var(--theme--checked);
+            align-items: center;
         }
 
         :host([checked]) .checkbox-state {
@@ -72,7 +73,7 @@ checkbox.styles = [
         }
 
         .input-box {
-            --size: calc(var(--min-height) * 0.75);
+            --size: calc(var(--min-size) * 0.75);
             width: var(--size);
             height: var(--size);
             padding: 0px;
@@ -91,7 +92,7 @@ checkbox.styles = [
             max-width: var(--state-max-size);
             max-height: var(--state-max-size);
             margin: auto;
-            border-radius: calc(var(--radius) * var(--state-scale));
+            border-radius: calc(var(--radius) * 0.33);
             background: currentColor;
             opacity: 0;
         }

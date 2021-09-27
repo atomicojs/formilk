@@ -1,4 +1,6 @@
-import { c, css } from "atomico";
+import { useSlot } from "@atomico/hooks/use-slot";
+import { c, css, useRef } from "atomico";
+import { Icon } from "../icon/icon";
 import { tokensCard } from "../tokens";
 
 /**
@@ -6,32 +8,29 @@ import { tokensCard } from "../tokens";
  * @param {import("atomico").Props<alert.props>} props
  */
 function alert({ theme }) {
+    const refAction = useRef();
+    const slotAction = useSlot(refAction);
     return (
-        <host shadowDom>
+        <host shadowDom withAction={!!slotAction.length}>
             <div
                 class="card-box card-box--border"
                 style={
                     theme && {
-                        "--border-color": `var(--theme)`,
+                        "--border-color": `var(--${theme}-light, var(--theme))`,
                     }
                 }
             >
                 <div class="icon">
                     <slot name="icon">
-                        <svg
-                            width="31.89"
-                            height="27.336"
-                            viewBox="0 0 31.89 27.336"
-                        >
-                            <path
-                                d="M-3350.066-59.292h-21.869a4.937,4.937,0,0,1-4.378-2.585,4.939,4.939,0,0,1,.149-5.083l10.935-17.335A4.973,4.973,0,0,1-3361-86.628a4.975,4.975,0,0,1,4.229,2.333l10.934,17.335a4.937,4.937,0,0,1,.15,5.083A4.937,4.937,0,0,1-3350.066-59.292ZM-3361-72.428a1.86,1.86,0,0,0-1.857,1.858v4.952A1.86,1.86,0,0,0-3361-63.761a1.859,1.859,0,0,0,1.857-1.858v-4.952A1.859,1.859,0,0,0-3361-72.428Zm0-6.19a1.859,1.859,0,0,0-1.857,1.857A1.86,1.86,0,0,0-3361-74.9a1.859,1.859,0,0,0,1.857-1.858A1.859,1.859,0,0,0-3361-78.619Z"
-                                transform="translate(3376.945 86.628)"
-                                fill="var(--theme)"
-                            />
-                        </svg>
+                        <Icon
+                            type="alert"
+                            size="1.5rem"
+                            style="color:var(--theme)"
+                        ></Icon>
                     </slot>
                 </div>
                 <slot></slot>
+                <slot name="action" ref={refAction}></slot>
             </div>
             <style>{
                 /*css*/ `:host{--theme: var(--${theme}, currentColor)}`
@@ -46,18 +45,31 @@ alert.props = {
         reflect: true,
         value: "primary",
     },
+    withAction: {
+        type: Boolean,
+        reflect: true,
+    },
 };
 
 alert.styles = [
     tokensCard,
     css`
         .card-box {
+            min-width: 100%;
             display: grid;
             grid-template-columns: auto 1fr;
             grid-gap: 1em;
+            align-items: center;
         }
         .icon {
-            padding-top: 0.5em;
+            display: flex;
+            align-items: center;
+        }
+        ::slotted(*) {
+            margin: 0px;
+        }
+        :host([with-action]) .card-box {
+            grid-template-columns: auto 1fr auto;
         }
     `,
 ];
