@@ -42,6 +42,11 @@ import { Avatar } from "./avatar/avatar";
 export { Avatar } from "./avatar/avatar";
 customElements.define("fm-avatar", Avatar);
 
+import { Tab, TabGroup } from "./tab/tab";
+export { Tab, TabGroup } from "./tab/tab";
+customElements.define("fm-tab", Tab);
+customElements.define("fm-tab-group", TabGroup);
+
 import { Accordion, AccordionGroup } from "./accordion/accordion";
 export { Accordion, AccordionGroup } from "./accordion/accordion";
 customElements.define("fm-accordion", Accordion);

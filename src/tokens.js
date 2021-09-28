@@ -54,16 +54,9 @@ export const tokensCard = [
                 --fm-card--border-color,
                 rgba(255, 255, 255, 0.5)
             );
-            --background: var(
-                --fm-card--background,
-                linear-gradient(
-                    45deg,
-                    rgba(255, 255, 255, 0.5),
-                    rgba(255, 255, 255, 0.25)
-                )
-            );
-            --shadow-size: var(--fm-card--shadow-size, 0px 6px 22px);
-            --shadow-color: var(--fm-card--shadow-color, rgba(0, 0, 0, 0.05));
+            --background: var(--fm-card--background, rgba(255, 255, 255, 0.25));
+            --shadow-size: var(--fm-card--shadow-size, 0px 22px 44px -22px);
+            --shadow-color: var(--fm-card--shadow-color, rgba(0, 0, 0, 0.25));
             --font-size: var(--fm-card--font-size, 1rem);
             --gap: var(--space-between);
         }
@@ -99,8 +92,8 @@ export const tokensInput = [
                 rgba(255, 255, 255, 0.5)
             );
             --background: var(--fm-input--background, rgba(255, 255, 255, 0.5));
-            --shadow-size: var(--fm-input--shadow-size, 0px 6px 22px);
-            --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.05));
+            --shadow-size: var(--fm-input--shadow-size, 0px 12px 12px -12px);
+            --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.33));
             --font-size: var(--fm-input--font-size, 1rem);
             display: inline-flex;
             font-size: var(--font-size);
@@ -109,11 +102,7 @@ export const tokensInput = [
 
         :host([disabled]) {
             opacity: 0.5;
-            cursor: unset;
-        }
-
-        :host([disabled]) .input-box--pointer {
-            cursor: unset;
+            pointer-events: none;
         }
 
         .input-box {

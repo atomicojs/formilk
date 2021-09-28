@@ -1,7 +1,7 @@
 import { c, css } from "atomico";
 import { InputCheckbox } from "../input-checkbox/input-checkbox";
 import { useCheckbox } from "../hooks/use-checkbox";
-import { useDisabled } from "../hooks/use-disabled";
+import { useDisabled } from "@atomico/hooks/use-disabled";
 
 function radio() {
     const refInput = useCheckbox("radio");
@@ -10,7 +10,7 @@ function radio() {
     return (
         <host shadowDom>
             <button
-                class="input-box input-box--border input-box--pointer"
+                class="input-box input-box--border input-box--pointer "
                 onclick={(event) => {
                     refInput.current.click();
                 }}

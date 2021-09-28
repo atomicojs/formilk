@@ -2,7 +2,7 @@ import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput } from "../tokens";
-import { useDisabled } from "../hooks/use-disabled";
+import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 
 /**
@@ -14,8 +14,8 @@ function button({ type, name, value, theme, href }) {
     const refSecundaryAction = useRef();
     const refSlotContent = useRef();
     const buttonOutRef = useRef();
-    const slotIcon = useSlot(refSlotIcon);
     const slotSecundaryAction = useSlot(refSecundaryAction);
+    const slotIcon = useSlot(refSlotIcon);
     const slotContent = useSlot(refSlotContent).filter((el) =>
         el.textContent.trim()
     );
@@ -38,6 +38,7 @@ function button({ type, name, value, theme, href }) {
                     ref={buttonOutRef}
                     slot="button"
                     tabindex="-1"
+                    disabled={disabled}
                 ></button>
             ),
         [type, name, value]

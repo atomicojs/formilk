@@ -1,7 +1,7 @@
 import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput } from "../tokens";
-import { useDisabled } from "../hooks/use-disabled";
+import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 
 function color({ name }) {

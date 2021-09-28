@@ -19,9 +19,15 @@ Create a container as an alert that adapts according to the definition of the sl
 </fm-alert>
 <fm-alert theme="danger">
     <p>Laute duis ipsum velit id tempor duis ut velit.</p>
+    <fm-button slot="action" theme="danger" size="small">
+        <fm-icon slot="icon" type="closed" size=".75rem">closed</fm-icon>
+    </fm-button>
 </fm-alert>
 <fm-alert theme="info">
     <p>Laute duis ipsum velit id tempor duis ut velit.</p>
+    <fm-button slot="action" theme="info" size="small">
+        <fm-icon slot="icon" type="check" size=".75rem">closed</fm-icon>
+    </fm-button>
 </fm-alert>
 
 <style>

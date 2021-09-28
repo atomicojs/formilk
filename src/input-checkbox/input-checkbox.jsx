@@ -1,7 +1,7 @@
 import { c, css } from "atomico";
 import { tokensInput } from "../tokens";
 import { useCheckbox } from "../hooks/use-checkbox";
-import { useDisabled } from "../hooks/use-disabled";
+import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 
 function checkbox() {
@@ -14,7 +14,7 @@ function checkbox() {
                 onclick={() => {
                     refInput.current.click();
                 }}
-                class="input-box input-box--border input-box--pointer"
+                class="input-box input-box--border input-box--pointer "
                 disabled={disabled}
             >
                 <div class="checkbox-state">

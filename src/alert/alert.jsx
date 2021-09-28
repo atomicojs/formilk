@@ -13,7 +13,7 @@ function alert({ theme }) {
     return (
         <host shadowDom withAction={!!slotAction.length}>
             <div
-                class="card-box card-box--border"
+                class="card-box card-box--border card-box--shadow"
                 style={
                     theme && {
                         "--border-color": `var(--${theme}-light, var(--theme))`,
@@ -30,7 +30,9 @@ function alert({ theme }) {
                     </slot>
                 </div>
                 <slot></slot>
-                <slot name="action" ref={refAction}></slot>
+                <div class="actions">
+                    <slot name="action" ref={refAction}></slot>
+                </div>
             </div>
             <style>{
                 /*css*/ `:host{--theme: var(--${theme}, currentColor)}`
@@ -64,6 +66,11 @@ alert.styles = [
         .icon {
             display: flex;
             align-items: center;
+        }
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         ::slotted(*) {
             margin: 0px;
