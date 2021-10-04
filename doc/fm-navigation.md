@@ -13,18 +13,18 @@ title: fm-navigation
     </fm-navigation-item>
     <fm-navigation-dropdown slot="dropdown-1">
         <fm-navigation-item for="dropdown-2">
-            <fm-button size="small" ghost>1</fm-button>
+            <fm-button size="small" ghost>Item nav 1</fm-button>
         </fm-navigation-item>
         <fm-navigation-item for="dropdown-3">
-            <fm-button size="small" ghost>2</fm-button>
+            <fm-button size="small" ghost>Item nav 2</fm-button>
         </fm-navigation-item>
     </fm-navigation-dropdown>
     <fm-navigation-dropdown slot="dropdown-2">
         <fm-navigation-item for="dropdown-3">
-            <fm-button size="small" ghost>1.1</fm-button>
+            <fm-button size="small" ghost>Item nav 1.1</fm-button>
         </fm-navigation-item>
         <fm-navigation-item>
-            <fm-button size="small" ghost>1.2</fm-button>
+            <fm-button size="small" ghost>Item nav 1.2</fm-button>
         </fm-navigation-item>
     </fm-navigation-dropdown>
     <fm-navigation-dropdown slot="dropdown-3">

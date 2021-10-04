@@ -1,6 +1,7 @@
-import { c, useRef, useMemo, useProp } from "atomico";
+import { c, css, useRef, useMemo, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useParentPath } from "@atomico/hooks/use-parent";
+import { tokensBorder, tokensColor } from "../tokens";
 
 function tabGroup(props) {
     const refTab = useRef();
@@ -45,7 +46,11 @@ function tabGroup(props) {
                 }
             }}
         >
-            <slot name="tab" ref={refTab}></slot>
+            <div class={`tabs ${slotTab.length ? "" : "hidden"}`}>
+                <div class="tabs-items">
+                    <slot name="tab" ref={refTab}></slot>
+                </div>
+            </div>
             <slot name={currentTab?.for || show}></slot>
         </host>
     );
@@ -58,5 +63,22 @@ tabGroup.props = {
     },
     for: null,
 };
+
+tabGroup.styles = [
+    tokensBorder,
+    tokensColor,
+    css`
+        .tabs {
+            border-bottom: calc(var(--border-width) * 2) solid var(--divide);
+        }
+        .tabs-items {
+            display: flex;
+            margin-bottom: calc(var(--border-width) * -2);
+        }
+        .hidden {
+            display: none;
+        }
+    `,
+];
 
 export const TabGroup = c(tabGroup);

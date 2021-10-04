@@ -1,7 +1,7 @@
 import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput } from "../tokens";
 import { useDisabled } from "@atomico/hooks/use-disabled";
+import { tokensInput } from "../tokens";
 import { inputGenericProps } from "../props";
 
 function color({ name }) {
@@ -19,6 +19,7 @@ function color({ name }) {
                 value={value}
                 disabled={disabled}
                 tabindex="-1"
+                slot="input"
             />
         ),
         [name, value]
@@ -26,11 +27,11 @@ function color({ name }) {
     return (
         <host shadowDom>
             <button
-                class="input-box input-box--border input-box--pointer "
+                class="color"
                 style={`--background: ${value}`}
                 disabled={disabled}
             >
-                <slot></slot>
+                <slot name="input"></slot>
             </button>
         </host>
     );
@@ -47,7 +48,7 @@ color.props = {
 color.styles = [
     tokensInput,
     css`
-        ::slotted(input) {
+        ::slotted([slot="input"]) {
             width: 100%;
             height: 100%;
             padding: 0px;
@@ -57,17 +58,14 @@ color.styles = [
             top: 0px;
             left: 0px;
         }
-
-        .input-box {
-            --size: calc(var(--min-size) * 0.75);
-            width: var(--size);
-            height: var(--size);
+        .color {
+            background: var(--background);
+            border: var(--border-width) solid var(--primary);
+            border-radius: calc(var(--radius) / 2);
+            width: var(--min-size);
+            height: var(--min-size);
             position: relative;
-            padding: 0;
-        }
-
-        .input-box--border {
-            --border-color: currentColor;
+            box-shadow: var(--shadow-size) var(--shadow-color);
         }
     `,
 ];

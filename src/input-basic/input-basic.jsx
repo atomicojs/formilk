@@ -44,15 +44,12 @@ function inputBasic({ type, theme, ...props }) {
             withicon={withicon}
             withlabel={withlabel}
         >
-            <div
-                class="input-box input-box--border input-box--full-width"
-                onclick={() => refInput.current.focus()}
-            >
-                <div class="icon">
+            <div class="input" onclick={() => refInput.current.focus()}>
+                <div class="input-icon">
                     <slot ref={refSlotIcon} name="icon"></slot>
                 </div>
                 <div
-                    class={`label ${
+                    class={`input-label ${
                         slotLabel.filter((tag) => tag.localName != "datalist")
                             .length
                             ? ""
@@ -61,18 +58,16 @@ function inputBasic({ type, theme, ...props }) {
                 >
                     <slot ref={refSlotLabel}></slot>
                 </div>
-                <div class="input">
+                <div class="input-slot">
                     <slot name="input"></slot>
-                    <div class="line">
-                        <div class="line-fill"></div>
+                    <div class="input-line">
+                        <div class="input-line-fill"></div>
                     </div>
                 </div>
             </div>
-            {theme && (
-                <style>{
-                    /*css*/ `:host{--line-background: var(--${theme});}`
-                }</style>
-            )}
+            <style>{
+                /*css*/ `:host([theme]){--line-background: var(--${theme});}`
+            }</style>
         </host>
     );
 }
@@ -107,13 +102,23 @@ inputBasic.props = {
 inputBasic.styles = [
     tokensInput,
     css`
-        .input-box {
+        .input {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 0 0 auto;
+            min-width: 100%;
+            min-height: var(--min-size);
             padding: 0;
             position: relative;
-            min-height: var(--min-size);
+            background: var(--background);
+            color: var(--color);
+            border-radius: calc(var(--radius) / 2);
+            backdrop-filter: var(--backdrop);
+            box-shadow: var(--shadow-size) var(--shadow-color);
+            border: var(--border-width) solid var(--borderline);
+            box-sizing: border-box;
         }
-
-        ::slotted(input) {
+        ::slotted([slot="input"]) {
             width: 100%;
             height: 100%;
             background: transparent;
@@ -126,29 +131,23 @@ inputBasic.styles = [
             padding: calc(var(--space-y) / 2) var(--space-x);
         }
 
-        .input-box {
-            display: grid;
-            align-items: center;
-            grid-template-columns: 0 0 auto;
-        }
-
-        :host([withlabel]) .input-box {
+        :host([withlabel]) .input {
             grid-template-columns: 0 auto auto;
         }
-        :host([withicon]) .input-box {
+        :host([withicon]) .input {
             grid-template-columns: auto auto auto;
         }
 
-        :host([withicon][withlabel]) .label {
+        :host([withicon][withlabel]) .input-label {
             padding-left: 0.5em;
         }
 
-        :host([withicon]:not([withlabel])) .input-box {
+        :host([withicon]:not([withlabel])) .input {
             grid-template-columns: auto 0 auto;
         }
 
-        :host([withlabel]) .input-box,
-        :host([withicon]) .input-box {
+        :host([withlabel]) .input,
+        :host([withicon]) .input {
             padding-left: var(--space-x);
         }
 
@@ -157,7 +156,11 @@ inputBasic.styles = [
             padding-left: 0.5em;
         }
 
-        .line {
+        .input-slot {
+            height: 100%;
+        }
+
+        .input-line {
             width: 100%;
             height: 0.125rem;
             padding: 0 var(--space-x);
@@ -168,14 +171,14 @@ inputBasic.styles = [
             z-index: 3;
             transform: translateY(100%);
         }
-        .line-fill {
+        .input-line-fill {
             width: 100%;
             height: 100%;
             border-radius: 1rem;
             background: var(--line-background);
         }
 
-        .icon {
+        .input-icon {
             display: flex;
         }
     `,

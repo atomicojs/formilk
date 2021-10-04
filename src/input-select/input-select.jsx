@@ -1,9 +1,10 @@
-import { c, useRef, css, useEffect } from "atomico";
+import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput } from "../tokens";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
+import { InputBasic } from "../input-basic/input-basic";
 
 /**
  *
@@ -42,8 +43,8 @@ function select({ name, placeholder }) {
     return (
         <host shadowDom>
             <slot class="options" ref={refSlot}></slot>
-            <div className="input-box input-box--border input-box--full-width">
-                <div class="icon">
+            <div class="input">
+                <div class="input-icon">
                     <slot name="icon">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -71,33 +72,19 @@ select.props = {
 };
 
 select.styles = [
-    tokensInput,
+    InputBasic.styles,
     css`
-        .input-box {
-            padding: 0;
-            position: relative;
-        }
-
-        ::slotted(select) {
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border: none;
-            font-family: unset;
-            font-size: unset;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-            padding: 0 calc(var(--space-x) * 2) 0 var(--space-x);
-            appearance: none;
-            min-height: var(--min-size);
-        }
-
         .options {
             display: none;
         }
-
-        .icon {
+        .input {
+            display: flex;
+        }
+        ::slotted([slot="input"]) {
+            padding: 0 calc(var(--space-x) * 2) 0 var(--space-x);
+            appearance: none;
+        }
+        .input-icon {
             display: flex;
             position: absolute;
             top: 50%;

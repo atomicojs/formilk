@@ -18,5 +18,18 @@ Create a container as an alert that adapts according to the definition of the sl
             <section slot="users">[users]</section>
         </fm-tab-group>
     </fm-card>
+
+    <fm-tab-group>
+        <button value="a" selected>1</button>
+        <button value="b">2</button>
+        <button value="c">3</button>
+    </fm-tab-group>
 </div>
+```
+
+```html
+<fm-tab>
+    <fm-tab-group for=".fm-group"></fm-tab-group>
+    <fm-tab-view class="fm-group"></fm-tab-view>
+</fm-tab>
 ```

@@ -10,7 +10,7 @@ function radio() {
     return (
         <host shadowDom>
             <button
-                class="input-box input-box--border input-box--pointer "
+                class="checkbox"
                 onclick={(event) => {
                     refInput.current.click();
                 }}
@@ -23,7 +23,7 @@ function radio() {
 }
 
 radio.styles = css`
-    .input-box,
+    .checkbox,
     .checkbox-state {
         border-radius: 100%;
     }

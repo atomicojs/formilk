@@ -9,7 +9,7 @@ import { inputGenericProps } from "../props";
  *
  * @param {import("atomico").Props<button.props>} props
  */
-function button({ type, name, value, theme, href }) {
+function button({ type, name, value, theme, href, tabindex }) {
     const refSlotIcon = useRef();
     const refSecundaryAction = useRef();
     const refSlotContent = useRef();
@@ -50,24 +50,35 @@ function button({ type, name, value, theme, href }) {
             shape={slotIcon.length && !slotContent.length ? "square" : null}
         >
             <button
-                onclick={() => buttonOutRef.current.click()}
-                disabled={disabled}
-                class="input-box input-box--border input-box--full-width "
-                style={{
-                    ...(theme && {
-                        "--background": `var(--${theme})`,
-                        "--color": `var(--${theme}-contrast, var(--primary-contrast))`,
-                    }),
-                    "--cols":
-                        !!slotIcon.length +
-                        !!slotContent.length +
-                        !!slotSecundaryAction.length,
+                onclick={(event) => {
+                    event.stopImmediatePropagation();
+                    buttonOutRef.current.click();
                 }}
+                disabled={disabled}
+                tabIndex={tabindex}
+                class="button"
             >
                 <slot ref={refSlotIcon} name="icon"></slot>
                 <slot ref={refSlotContent}></slot>
                 <slot ref={refSecundaryAction} name="action"></slot>
             </button>
+            <style>
+                {
+                    /*css*/ `
+                    :host{
+                        --columns:${
+                            !!slotIcon.length +
+                            !!slotContent.length +
+                            !!slotSecundaryAction.length
+                        }
+                    }
+                    :host([theme]){
+                        --background: var(--${theme});
+                        --color: var(--${theme}-contrast, var(--primary-contrast));
+                    }
+                `
+                }
+            </style>
         </host>
     );
 }
@@ -95,40 +106,48 @@ button.props = {
         type: String,
         reflect: true,
     },
+    tabindex: {
+        type: Number,
+        value: 0,
+    },
 };
 
 button.styles = [
     tokensInput,
     css`
-        button {
+        .button {
             font-size: unset;
             font-weight: unset;
-        }
-
-        button:not(:disabled) {
-            cursor: pointer;
-        }
-
-        .input-box {
+            font-family: unset;
             --size: var(--min-size);
+            min-width: 100%;
             display: grid;
             grid-gap: 0.5em;
             align-items: center;
             justify-content: center;
             min-width: var(--size);
             min-height: var(--size);
-            grid-template-columns: repeat(var(--cols), auto);
+            grid-template-columns: repeat(var(--columns), auto);
             line-height: 1em;
             position: relative;
+            background: var(--background);
+            color: var(--color);
+            border-radius: calc(var(--radius) / 2);
+            backdrop-filter: var(--backdrop);
+            box-shadow: var(--shadow-size) var(--shadow-color);
+            padding: var(--space-y) var(--space-x);
+            box-sizing: border-box;
+            border: var(--border-width) solid var(--borderline);
+            cursor: pointer;
         }
 
-        :host([size="small"]) .input-box {
+        :host([size="small"]) .button {
             min-height: calc(var(--size) * 0.8);
             min-width: calc(var(--size) * 0.8);
             padding: 0 var(--space-x);
         }
 
-        :host([ghost]) .input-box {
+        :host([ghost]) .button {
             background: transparent;
             border: none;
             box-shadow: none;
@@ -139,7 +158,7 @@ button.styles = [
             align-items: center;
         }
 
-        :host([shape="square"]) .input-box {
+        :host([shape="square"]) .button {
             padding: 0px;
         }
     `,

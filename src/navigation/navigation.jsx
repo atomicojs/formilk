@@ -59,7 +59,6 @@ function navigation({ columns }) {
                 >
                     <slot ref={refSlots}></slot>
                 </div>
-                {dropdown && <div class="navigation-line"></div>}
             </div>
             <div class="navigation-dropdowns">
                 {dropdown.map((element, index) => (

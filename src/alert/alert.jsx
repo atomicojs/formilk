@@ -13,14 +13,14 @@ function alert({ theme }) {
     return (
         <host shadowDom withAction={!!slotAction.length}>
             <div
-                class="card-box card-box--border card-box--shadow"
+                class="alert"
                 style={
                     theme && {
-                        "--border-color": `var(--${theme}-light, var(--theme))`,
+                        "--borderline": `var(--${theme}-light, var(--theme))`,
                     }
                 }
             >
-                <div class="icon">
+                <div class="alert-icon">
                     <slot name="icon">
                         <Icon
                             type="alert"
@@ -30,7 +30,7 @@ function alert({ theme }) {
                     </slot>
                 </div>
                 <slot></slot>
-                <div class="actions">
+                <div class="alert-actions">
                     <slot name="action" ref={refAction}></slot>
                 </div>
             </div>
@@ -56,18 +56,27 @@ alert.props = {
 alert.styles = [
     tokensCard,
     css`
-        .card-box {
+        .alert {
+            background: var(--background);
+            color: var(--color);
+            border-radius: var(--radius);
+            backdrop-filter: var(--backdrop);
+            padding: var(--space-y) var(--space-x);
+            box-sizing: border-box;
+            border: var(--border-width) solid var(--borderline);
+            box-shadow: var(--shadow-size) var(--shadow-color);
             min-width: 100%;
             display: grid;
             grid-template-columns: auto 1fr;
             grid-gap: 1em;
             align-items: center;
         }
-        .icon {
+
+        .alert-icon {
             display: flex;
             align-items: center;
         }
-        .actions {
+        .alert-actions {
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -75,7 +84,7 @@ alert.styles = [
         ::slotted(*) {
             margin: 0px;
         }
-        :host([with-action]) .card-box {
+        :host([with-action]) .alert {
             grid-template-columns: auto 1fr auto;
         }
     `,

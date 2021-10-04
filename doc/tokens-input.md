@@ -9,7 +9,7 @@ Box model used by the `input` and `button` type components.
 | Custom property               | Type       |
 | ----------------------------- | ---------- |
 | --fm-input--border-width      | size       |
-| --fm-input--border-color      | color      |
+| --fm-input--borderline        | color      |
 | --fm-input--border-min-height | size       |
 | --fm-input--radius            | size       |
 | --fm-input--padding-y         | size       |

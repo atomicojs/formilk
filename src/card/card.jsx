@@ -20,27 +20,26 @@ function card({ width, height }) {
 
     return (
         <host shadowDom>
-            <div class="card-box card-box--border card-box--shadow">
-                <div class={`actions`}>
-                    <slot name="action" ref={refActions}></slot>
-                </div>
-                <header class={`header ${slotHeader.length ? "" : "hidden"}`}>
-                    <slot ref={refHeader} name="header"></slot>
-                </header>
-                <div class="media">
-                    <slot name="media" ref={slotMedia}></slot>
-                </div>
-                <slot
-                    ref={refContent}
-                    class={`content ${slotContent.length ? "" : "hidden"} ${
-                        slotFooter.length ? "" : "space-down"
-                    }`}
-                ></slot>
-                <footer class={`footer ${slotFooter.length ? "" : "hidden"}`}>
-                    <slot ref={refFooter} name="footer"></slot>
-                </footer>
-                <style>{
-                    /*css*/ `
+            <div class="card-actions">
+                <slot name="action" ref={refActions}></slot>
+            </div>
+            <header class={`card-header ${slotHeader.length ? "" : "hidden"}`}>
+                <slot ref={refHeader} name="header"></slot>
+            </header>
+            <div class="card-media">
+                <slot name="media" ref={slotMedia}></slot>
+            </div>
+            <slot
+                ref={refContent}
+                class={`card-content ${slotContent.length ? "" : "hidden"} ${
+                    slotFooter.length ? "" : "card--space-down"
+                }`}
+            ></slot>
+            <footer class={`card-footer ${slotFooter.length ? "" : "hidden"}`}>
+                <slot ref={refFooter} name="footer"></slot>
+            </footer>
+            <style>{
+                /*css*/ `
                         :host{
                             width: ${w};
                             height: ${h};
@@ -57,8 +56,7 @@ function card({ width, height }) {
                             }
                         }
                     `
-                }</style>
-            </div>
+            }</style>
         </host>
     );
 }
@@ -73,38 +71,42 @@ card.styles = [
     css`
         :host {
             display: flex;
-        }
-        .card-box {
-            padding: 0px;
             position: relative;
             display: grid;
             grid-gap: var(--gap);
-        }
-        .actions {
-            position: absolute;
-            top: var(--space-x);
-            right: var(--space-x);
+            background: var(--background);
+            color: var(--color);
+            border-radius: var(--radius);
+            backdrop-filter: var(--backdrop);
+            box-sizing: border-box;
+            border: var(--border-width) solid var(--borderline);
+            box-shadow: var(--shadow-size) var(--shadow-color);
         }
 
         ::slotted([slot="media"]) {
             display: block;
             object-fit: cover;
         }
-        .content {
+        .card-actions {
+            position: absolute;
+            top: var(--space-x);
+            right: var(--space-x);
+        }
+        .card-content {
             display: grid;
             padding: 0px var(--space-x);
             grid-gap: var(--gap);
         }
-        .header {
+        .card-header {
             padding: var(--space-y) var(--space-x) 0px;
         }
         .hidden {
             display: none;
         }
-        .footer {
+        .card-footer {
             padding: 0px var(--space-x);
         }
-        .space-down {
+        .card--space-down {
             padding-bottom: var(--space-y);
         }
     `,

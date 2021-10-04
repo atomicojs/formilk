@@ -11,7 +11,7 @@ function inputSwitch() {
         <host shadowDom>
             <button
                 onclick={() => refInput.current.click()}
-                class="input-box input-box--border input-box--pointer"
+                class="checkbox"
                 disabled={disabled}
             >
                 <div class="checkbox-state">
@@ -23,7 +23,7 @@ function inputSwitch() {
 }
 
 inputSwitch.styles = css`
-    .input-box {
+    .checkbox {
         --scale: 1.7;
         width: calc(var(--size) * var(--scale));
         border-radius: 10vh;
@@ -39,7 +39,7 @@ inputSwitch.styles = css`
         transform-origin: left center;
     }
 
-    :host([checked]) .input-box {
+    :host([checked]) .checkbox {
         background: currentColor;
     }
 

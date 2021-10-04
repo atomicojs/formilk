@@ -27,8 +27,6 @@ export const tokensColor = css`
         --primary-light: var(--fm--primary, #2c3a4180);
         --primary-contrast: var(--fm--primary, #fff);
         --secondary: var(--fm--secondary, #000000);
-        --split: var(--fm--split, #e0f1ee);
-        --split-contrast: var(--fm--split-contrast, var(--primary));
         --success: var(--fm--success, #18d47c);
         --success-light: var(--fm--success, #18d47c80);
         --warning: var(--fm--warning, #f9aa33);
@@ -40,6 +38,10 @@ export const tokensColor = css`
         --checked: var(--primary);
         --checked-contrast: var(--primary-contrast);
         --disabled: var(--fm--disabled, #d5d8d9);
+        --divide: var(--fm--divide, rgba(0, 0, 0, 0.08));
+        --borderline: var(--fm--borderline, rgba(255, 255, 255, 0.5));
+        --layer-1: var(--fm--layer-1, rgba(255, 255, 255, 0.25));
+        --layer-2: var(--fm--layer-2, rgba(255, 255, 255, 0.5));
     }
 `;
 
@@ -50,32 +52,11 @@ export const tokensCard = [
     tokensBorder,
     css`
         :host {
-            --border-color: var(
-                --fm-card--border-color,
-                rgba(255, 255, 255, 0.5)
-            );
-            --background: var(--fm-card--background, rgba(255, 255, 255, 0.25));
+            --background: var(--fm-card--background, var(--layer-1));
             --shadow-size: var(--fm-card--shadow-size, 0px 22px 44px -22px);
             --shadow-color: var(--fm-card--shadow-color, rgba(0, 0, 0, 0.25));
             --font-size: var(--fm-card--font-size, 1rem);
             --gap: var(--space-between);
-        }
-
-        .card-box {
-            background: var(--background);
-            color: var(--color);
-            border-radius: var(--radius);
-            backdrop-filter: var(--backdrop);
-            padding: var(--space-y) var(--space-x);
-            box-sizing: border-box;
-        }
-
-        .card-box--border {
-            border: var(--border-width) solid var(--border-color);
-        }
-
-        .card-box--shadow {
-            box-shadow: var(--shadow-size) var(--shadow-color);
         }
     `,
 ];
@@ -87,11 +68,7 @@ export const tokensInput = [
     tokensBorder,
     css`
         :host {
-            --border-color: var(
-                --fm-input--border-color,
-                rgba(255, 255, 255, 0.5)
-            );
-            --background: var(--fm-input--background, rgba(255, 255, 255, 0.5));
+            --background: var(--fm-input--background, var(--layer-2));
             --shadow-size: var(--fm-input--shadow-size, 0px 12px 12px -12px);
             --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.33));
             --font-size: var(--fm-input--font-size, 1rem);
@@ -99,32 +76,9 @@ export const tokensInput = [
             font-size: var(--font-size);
             min-height: var(--min-size);
         }
-
         :host([disabled]) {
             opacity: 0.5;
             pointer-events: none;
-        }
-
-        .input-box {
-            background: var(--background);
-            color: var(--color);
-            border-radius: calc(var(--radius) / 2);
-            backdrop-filter: var(--backdrop);
-            box-shadow: var(--shadow-size) var(--shadow-color);
-            padding: var(--space-y) var(--space-x);
-            box-sizing: border-box;
-        }
-
-        .input-box--border {
-            border: var(--border-width) solid var(--border-color);
-        }
-
-        .input-box--full-width {
-            min-width: 100%;
-        }
-
-        .input-box--pointer {
-            cursor: pointer;
         }
     `,
 ];
@@ -132,18 +86,11 @@ export const tokensInput = [
 export const tokensNavigation = [
     tokensSpace,
     tokensColor,
+    tokensBorder,
     css`
         :host {
-            --line-height: var(--fm-navigation--line-height, 2px);
-            --background: var(--fm-navigation--background, white);
-        }
-        .navigation-line {
-            width: 100%;
-            height: var(--line-height);
-            position: absolute;
-            bottom: 0;
-            background: var(--split);
-            left: 0;
+            --line-height: calc(var(--border-width) * 2);
+            --background: var(--fm-navigation--background, #fff);
         }
     `,
 ];

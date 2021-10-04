@@ -9,7 +9,6 @@ function navigationItem(props) {
         <host shadowDom>
             <div class="navigation-item">
                 <slot></slot>
-                <div class="navigation-line"></div>
                 {!!props.for && (
                     <div class="navigation-dropbox-icon">
                         <slot name="icon-dropdown">
@@ -51,25 +50,21 @@ navigationItem.styles = [
             padding: calc(var(--space-y) / 2) 0;
             align-items: center;
             position: relative;
-        }
-        .navigation-line {
-            bottom: 0;
-            background: var(--split-contrast);
-            opacity: 0;
-            transition: 0.3s ease all;
+            justify-content: space-between;
+            box-sizing: border-box;
         }
         .navigation-dropbox-icon {
             opacity: 0.25;
             transition: 0.3s ease all;
             display: flex;
-            margin: auto;
-        }
-        :host([displayed]) .navigation-line {
-            opacity: 1;
+            margin: auto 0px;
         }
         :host:hover .navigation-dropbox-icon,
         :host([displayed]) .navigation-dropbox-icon {
             opacity: 1;
+        }
+        :host([displayed]) {
+            font-weight: bold;
         }
     `,
 ];

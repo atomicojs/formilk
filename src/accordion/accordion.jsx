@@ -83,7 +83,7 @@ accordion.styles = [
             width: 100%;
             height: 2px;
             transform-origin: center left;
-            background: var(--split);
+            background: var(--divide);
             transition: 0.6s ease all;
         }
         .accordion-mask {

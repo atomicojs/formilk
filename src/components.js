@@ -42,6 +42,10 @@ import { Avatar } from "./avatar/avatar";
 export { Avatar } from "./avatar/avatar";
 customElements.define("fm-avatar", Avatar);
 
+import { Tooltip } from "./tooltip/tooltip";
+export { Tooltip } from "./tooltip/tooltip";
+customElements.define("fm-tooltip", Tooltip);
+
 import { Tab, TabGroup } from "./tab/tab";
 export { Tab, TabGroup } from "./tab/tab";
 customElements.define("fm-tab", Tab);

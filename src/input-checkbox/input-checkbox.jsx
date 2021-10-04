@@ -14,16 +14,12 @@ function checkbox() {
                 onclick={() => {
                     refInput.current.click();
                 }}
-                class="input-box input-box--border input-box--pointer "
+                class="checkbox"
                 disabled={disabled}
             >
                 <div class="checkbox-state">
                     <slot name="icon">
-                        <svg
-                            class="icon"
-                            width=".7rem"
-                            viewBox="0 0 11.192 8.364"
-                        >
+                        <svg width=".7rem" viewBox="0 0 11.192 8.364">
                             <path
                                 d="M-1530.757,8.778a1,1,0,0,1-.67-.257l-.037-.035-2.829-2.829a1,1,0,0,1,0-1.414,1,1,0,0,1,1.415,0l2.121,2.122L-1525.1.707a1,1,0,0,1,1.414,0,1,1,0,0,1,0,1.414l-6.364,6.364a1,1,0,0,1-.707.293Z"
                                 fill="currentColor"
@@ -59,6 +55,20 @@ checkbox.styles = [
             opacity: 1;
         }
 
+        .checkbox {
+            --size: calc(var(--min-size) * 0.75);
+            --borderline: currentColor;
+            width: var(--size);
+            height: var(--size);
+            padding: 0px;
+            background: var(--background);
+            color: var(--color);
+            border-radius: calc(var(--radius) / 2);
+            backdrop-filter: var(--backdrop);
+            box-shadow: var(--shadow-size) var(--shadow-color);
+            border: var(--border-width) solid var(--borderline);
+        }
+
         ::slotted([slot="icon"]),
         svg {
             color: var(--checked-contrast);
@@ -70,17 +80,6 @@ checkbox.styles = [
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .input-box {
-            --size: calc(var(--min-size) * 0.75);
-            width: var(--size);
-            height: var(--size);
-            padding: 0px;
-        }
-
-        .input-box--border {
-            --border-color: currentColor;
         }
 
         .checkbox-state {
@@ -97,7 +96,7 @@ checkbox.styles = [
             opacity: 0;
         }
 
-        .input-box,
+        .checkbox,
         .checkbox-state {
             transition: 0.3s ease all;
         }
