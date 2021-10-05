@@ -1,74 +1,101 @@
-import { c, css, useRef, useProp, useState } from "atomico";
-import { useClickCoordinates } from "@atomico/hooks/use-click-coordinates";
+import { h, c, css, useRef, useProp, useState } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 
-function tooltip() {
+/**
+ *
+ * @param {import("atomico").Props<tooltip.props>} props
+ */
+function tooltip({ width }) {
     const refSlot = useRef();
     const refSlotTooptip = useRef();
+    const [show, setShow] = useProp("show");
     const [, setPosition] = useProp("position");
     const [inside, setInside] = useState(false);
-
-    useClickCoordinates(refSlot, ({ y, x }) => {
-        const positionX = refSlotTooptip.current.clientWidth + x;
-        const positionY = refSlotTooptip.current.clientHeight + y;
-        setPosition(
-            (window.innerWidth > positionX ? "center" : "right") +
-                " " +
-                (window.innerHeight > positionY ? "bottom" : "top")
-        );
-    });
 
     useListener(
         { current: window },
         "click",
-        inside &&
-            ((event) => {
-                console.log(event);
-                setPosition("");
-            })
+        show && !inside && (() => setShow(false))
     );
 
     return (
         <host
             shadowDom
-            onclick={() => setInside(true)}
-            onmouseout={() => setInside(false)}
+            onmouseover={() => setInside(true)}
+            onmouseleave={() => setInside(false)}
         >
-            <slot ref={refSlot}></slot>
+            <div
+                onclick={(event) => {
+                    const { x, y } =
+                        event.currentTarget.getBoundingClientRect();
+
+                    const {
+                        current: { clientWidth, clientHeight },
+                    } = refSlotTooptip;
+
+                    const { innerWidth, innerHeight } = window;
+
+                    const w2 = clientWidth / 2;
+
+                    setShow(true);
+
+                    setPosition(
+                        (clientWidth + x > innerWidth
+                            ? "right"
+                            : x - w2 > w2
+                            ? "center"
+                            : "left") +
+                            " " +
+                            (innerHeight > clientHeight + y ? "bottom" : "top")
+                    );
+                }}
+            >
+                <slot ref={refSlot}></slot>
+            </div>
             <div class="tooltip">
                 <div class="tooltip-mask" ref={refSlotTooptip}>
                     <slot name="tooltip"></slot>
                 </div>
             </div>
+            <style>{width && `:host{--tooptip-width:${width}};`}</style>
         </host>
     );
 }
 
 tooltip.props = {
+    show: {
+        type: Boolean,
+        reflect: true,
+    },
     position: {
         type: String,
         reflect: true,
     },
+    width: String,
 };
 
 tooltip.styles = css`
     :host {
         position: relative;
         display: inline-block;
+        min-width: 100%;
     }
-    :host([position="center bottom"]) .tooltip {
+    :host([show]) .tooltip {
         visibility: visible;
-        top: 100%;
-        transform: translateX(-50%);
-        left: 50%;
     }
-    :host([position="center top"]) .tooltip {
-        visibility: visible;
+    :host([position~="top"]) .tooltip {
         bottom: 100%;
-        transform: translateX(-50%);
+    }
+    :host([position~="center"]) .tooltip {
+        top: 100%;
         left: 50%;
+        transform: translateX(-50%);
+    }
+    :host([position~="right"]) .tooltip {
+        right: 0px;
     }
     .tooltip {
+        width: var(--tooptip-width, auto);
         position: absolute;
         visibility: hidden;
         z-index: 1;
@@ -76,7 +103,7 @@ tooltip.styles = css`
         border-radius: 0.5rem;
         padding: 1rem;
         box-sizing: border-box;
-        box-shadow: 0px 22px 40px -20px #000000;
+        box-shadow: 0px 12px 40px -20px #000000;
     }
 `;
 
