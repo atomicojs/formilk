@@ -13,7 +13,7 @@
     "dependencies": {
         "@atomico/components": "latest",
         "@atomico/exports": "latest",
-        "@atomico/hooks": "^3.16.2",
+        "@atomico/hooks": "^3.17.0",
         "@atomico/markdown": "latest",
         "atomico": "^1.33.0"
     },
