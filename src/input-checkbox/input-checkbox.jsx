@@ -4,7 +4,7 @@ import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 
-function checkbox() {
+function checkbox({ tabIndex }) {
     const refInput = useCheckbox("checkbox");
     const disabled = useDisabled();
 
@@ -16,6 +16,7 @@ function checkbox() {
                 }}
                 class="checkbox"
                 disabled={disabled}
+                tabIndex={disabled ? -1 : tabIndex}
             >
                 <div class="checkbox-state">
                     <slot name="icon">

@@ -1,12 +1,14 @@
 import { c, css, useProp } from "atomico";
-import { tokensColor, tokensSize, tokensSpace } from "../tokens";
+import { tokensColor, tokensSpace, tokensBorder } from "../tokens";
 export { TabGroup } from "./tab-group";
 
 function tab() {
-    const [show, setShow] = useProp("show");
+    const [, setShow] = useProp("show");
     return (
-        <host shadowDom onclick={() => setShow(true)}>
-            <slot></slot>
+        <host shadowDom>
+            <button class="button" onclick={() => setShow(true)}>
+                <slot></slot>
+            </button>
         </host>
     );
 }
@@ -33,14 +35,19 @@ tab.props = {
 
 tab.styles = [
     tokensSpace,
-    tokensSize,
     tokensColor,
+    tokensBorder,
     css`
-        :host {
+        .button {
             padding: var(--space-y) var(--space-x);
+            border: none;
+            background: transparent;
+            border-bottom: calc(var(--border-width) * 2) solid transparent;
+            font: unset;
+            line-height: 1em;
         }
-        :host([show]) {
-            border-bottom: 2px solid black;
+        :host([show]) .button {
+            border-color: var(--primary);
         }
     `,
 ];

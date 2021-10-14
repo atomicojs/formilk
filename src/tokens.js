@@ -80,6 +80,9 @@ export const tokensInput = [
             opacity: 0.5;
             pointer-events: none;
         }
+        :host([shadow]) {
+            box-shadow: var(--shadow-size) var(--shadow-color);
+        }
     `,
 ];
 

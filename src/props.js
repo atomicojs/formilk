@@ -12,4 +12,8 @@ export const inputGenericProps = {
         reflect: true,
     },
     value: null,
+    shadow: {
+        type: Boolean,
+        reflect: true,
+    },
 };

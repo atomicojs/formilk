@@ -56,7 +56,7 @@ This slot improves the space of the associated content as an icon
 
 ```html preview
 <fm-button>
-    <svg slot="icon" height="1.5rem" viewBox="0 0 22 22">
+    <svg slot="prefix" height="1.5rem" viewBox="0 0 22 22">
         <circle
             cx="11"
             cy="11"
@@ -75,7 +75,7 @@ This slot improves the space of the associated content as an icon
 
 ```html preview
 <fm-button>
-    <svg slot="icon" height="1.5rem" viewBox="0 0 22 22">
+    <svg slot="suffix" height="1.5rem" viewBox="0 0 22 22">
         <circle
             cx="11"
             cy="11"

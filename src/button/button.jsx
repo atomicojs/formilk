@@ -4,18 +4,20 @@ import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput } from "../tokens";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
+import { useReflectEvent } from "../hooks/use-reflect-event";
 
 /**
  *
  * @param {import("atomico").Props<button.props>} props
  */
-function button({ type, name, value, theme, href, tabindex }) {
-    const refSlotIcon = useRef();
-    const refSecundaryAction = useRef();
+function button({ type, name, value, theme, href, tabIndex }) {
+    const refSlotPrefix = useRef();
+    const refSlotSuffix = useRef();
     const refSlotContent = useRef();
-    const buttonOutRef = useRef();
-    const slotSecundaryAction = useSlot(refSecundaryAction);
-    const slotIcon = useSlot(refSlotIcon);
+    const refButtonLightDom = useRef();
+    const refButtonShadowDom = useRef();
+    const slotSuffix = useSlot(refSlotSuffix);
+    const slotPrefix = useSlot(refSlotPrefix);
     const slotContent = useSlot(refSlotContent).filter((el) =>
         el.textContent.trim()
     );
@@ -28,14 +30,14 @@ function button({ type, name, value, theme, href, tabindex }) {
                     slot="button"
                     tabindex="-1"
                     href={href}
-                    ref={buttonOutRef}
+                    ref={refButtonLightDom}
                 ></a>
             ) : (
                 <button
                     type="submit"
                     name={name}
                     value={value}
-                    ref={buttonOutRef}
+                    ref={refButtonLightDom}
                     slot="button"
                     tabindex="-1"
                     disabled={disabled}
@@ -44,32 +46,31 @@ function button({ type, name, value, theme, href, tabindex }) {
         [type, name, value]
     );
 
+    useReflectEvent(refButtonShadowDom, refButtonLightDom, "click");
+
     return (
         <host
             shadowDom
-            shape={slotIcon.length && !slotContent.length ? "square" : null}
+            shape={slotPrefix.length && !slotContent.length ? "square" : null}
         >
             <button
-                onclick={(event) => {
-                    event.stopImmediatePropagation();
-                    buttonOutRef.current.click();
-                }}
                 disabled={disabled}
-                tabIndex={tabindex}
+                tabIndex={tabIndex}
+                ref={refButtonShadowDom}
                 class="button"
             >
-                <slot ref={refSlotIcon} name="icon"></slot>
+                <slot ref={refSlotPrefix} name="prefix"></slot>
                 <slot ref={refSlotContent}></slot>
-                <slot ref={refSecundaryAction} name="action"></slot>
+                <slot ref={refSlotSuffix} name="suffix"></slot>
             </button>
             <style>
                 {
                     /*css*/ `
                     :host{
                         --columns:${
-                            !!slotIcon.length +
+                            !!slotPrefix.length +
                             !!slotContent.length +
-                            !!slotSecundaryAction.length
+                            !!slotSuffix.length
                         }
                     }
                     :host([theme]){
@@ -106,7 +107,7 @@ button.props = {
         type: String,
         reflect: true,
     },
-    tabindex: {
+    tabIndex: {
         type: Number,
         value: 0,
     },
@@ -115,17 +116,16 @@ button.props = {
 button.styles = [
     tokensInput,
     css`
-        .button {
-            font-size: unset;
-            font-weight: unset;
-            font-family: unset;
+        :host {
             --size: var(--min-size);
+        }
+        .button {
+            font: unset;
             min-width: 100%;
             display: grid;
             grid-gap: 0.5em;
             align-items: center;
             justify-content: center;
-            min-width: var(--size);
             min-height: var(--size);
             grid-template-columns: repeat(var(--columns), auto);
             line-height: 1em;
@@ -134,16 +134,23 @@ button.styles = [
             color: var(--color);
             border-radius: calc(var(--radius) / 2);
             backdrop-filter: var(--backdrop);
-            box-shadow: var(--shadow-size) var(--shadow-color);
             padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
             border: var(--border-width) solid var(--borderline);
             cursor: pointer;
         }
 
+        :host([shape="square"]) .button {
+            padding: 0px;
+            min-width: var(--size);
+        }
+
         :host([size="small"]) .button {
             min-height: calc(var(--size) * 0.8);
             min-width: calc(var(--size) * 0.8);
+        }
+
+        :host([size="small"]::not([shape="square"])) {
             padding: 0 var(--space-x);
         }
 
@@ -156,10 +163,6 @@ button.styles = [
         :host([size="small"]) {
             font-size: 0.75em;
             align-items: center;
-        }
-
-        :host([shape="square"]) .button {
-            padding: 0px;
         }
     `,
 ];

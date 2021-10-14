@@ -27,7 +27,9 @@ Finally only instance the components to use from formilk from your HTML or JS.
         <h1 style="margin:0px">Login</h1>
         <fm-input-basic>User:</fm-input-basic>
         <fm-input-basic>Pass:</fm-input-basic>
-        <fm-button theme="primary">submit</fm-button>
+        <fm-button theme="primary" id="button">
+            <span>submit</span>
+        </fm-button>
     </fm-card>
 </form>
 ```

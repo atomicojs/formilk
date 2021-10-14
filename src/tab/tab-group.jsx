@@ -1,7 +1,7 @@
 import { c, css, useRef, useMemo, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useParentPath } from "@atomico/hooks/use-parent";
-import { tokensBorder, tokensColor } from "../tokens";
+import { tokensCard } from "../tokens";
 
 function tabGroup(props) {
     const refTab = useRef();
@@ -10,27 +10,18 @@ function tabGroup(props) {
     const currentTab = slotTab.find((el) => el.show);
 
     const path = useParentPath();
-    const forElements = useMemo(
-        () =>
-            Array.isArray(props.for)
-                ? props.for
-                : props.for
-                ? [
-                      ...new Set(
-                          path.reduce(
-                              (list, el) => [
-                                  ...list,
-                                  ...el.querySelectorAll(props.for),
-                              ],
-                              []
-                          )
-                      ),
-                  ]
-                : [],
-        [props.for]
-    );
+    const forElement = useMemo(() => {
+        if (props.for instanceof Element) {
+            return props.for;
+        } else if (typeof props.for === "string") {
+            for (let i = 0; i < path.length; i++) {
+                let query = path[i].querySelector(`#${props.for}`);
+                if (query) return query;
+            }
+        }
+    }, [props.for]);
 
-    forElements.forEach((el) => (el.show = currentTab?.for || show));
+    if (forElement) forElement.show = currentTab?.for || show;
 
     return (
         <host
@@ -65,9 +56,20 @@ tabGroup.props = {
 };
 
 tabGroup.styles = [
-    tokensBorder,
-    tokensColor,
+    tokensCard,
     css`
+        :host {
+            display: grid;
+            position: relative;
+            grid-gap: var(--gap);
+            background: var(--background);
+            color: var(--color);
+            border-radius: var(--radius);
+            backdrop-filter: var(--backdrop);
+            box-sizing: border-box;
+            border: var(--border-width) solid var(--borderline);
+            box-shadow: var(--shadow-size) var(--shadow-color);
+        }
         .tabs {
             border-bottom: calc(var(--border-width) * 2) solid var(--divide);
         }

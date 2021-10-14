@@ -26,7 +26,7 @@ function card({ width, height }) {
             <header class={`card-header ${slotHeader.length ? "" : "hidden"}`}>
                 <slot ref={refHeader} name="header"></slot>
             </header>
-            <div class="card-media">
+            <div class={`card-media ${slotMedia.length ? "" : "hidden"}`}>
                 <slot name="media" ref={slotMedia}></slot>
             </div>
             <slot
@@ -70,9 +70,8 @@ card.styles = [
     tokensCard,
     css`
         :host {
-            display: flex;
-            position: relative;
             display: grid;
+            position: relative;
             grid-gap: var(--gap);
             background: var(--background);
             color: var(--color);
