@@ -66,7 +66,7 @@ function inputBasic({ type, theme, ...props }) {
                 </div>
             </div>
             <style>{
-                /*css*/ `:host([theme]){--line-background: var(--${theme});}`
+                /*css*/ `:host([theme]){--line-background: var(--theme-${theme});}`
             }</style>
         </host>
     );
@@ -112,10 +112,10 @@ inputBasic.styles = [
             position: relative;
             background: var(--background);
             color: var(--color);
-            border-radius: calc(var(--radius) / 2);
+            border-radius: calc(var(--border-radius) / 2);
             backdrop-filter: var(--backdrop);
             box-shadow: var(--shadow-size) var(--shadow-color);
-            border: var(--border-width) solid var(--borderline);
+            border: var(--border-width) solid var(--theme-borderline);
             box-sizing: border-box;
         }
         ::slotted([slot="input"]) {

@@ -1,5 +1,5 @@
-import { c, css, useEffect, useRef, useProp, useState } from "atomico";
-import { tokensNavigation } from "../tokens";
+import { c, css, useRef, useProp } from "atomico";
+import { tokensNavigation, tokensContainer } from "../tokens";
 export { NavigationItem } from "./navigation-item";
 export { NavigationDropdown } from "./navigation-dropdown";
 
@@ -104,19 +104,27 @@ navigation.props = {
 };
 
 navigation.styles = [
-    tokensNavigation,
+    tokensContainer,
     css`
         :host {
             display: block;
+            position: relative;
+            background: var(--background);
+            color: var(--color);
+            border-radius: var(--border-radius);
+            backdrop-filter: var(--backdrop);
+            border: var(--border-width) solid var(--theme-borderline);
+            box-shadow: var(--shadow-size) var(--shadow-color);
+            box-sizing: border-box;
             max-width: 100%;
         }
+
         .navigation-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: relative;
             padding: 0 var(--space-x);
-            background: var(--background);
         }
         .navigation-nav {
             display: flex;

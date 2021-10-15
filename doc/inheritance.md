@@ -15,7 +15,7 @@ class MyButton extends Button {
             css`
                 :host {
                     --border: none;
-                    --radius: 100px;
+                    --border-radius: 100px;
                 }
                 .input-box:hover {
                     transform: scale(1.5);

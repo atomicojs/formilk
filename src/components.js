@@ -1,6 +1,6 @@
-import { Card } from "./card/card";
-export { Card } from "./card/card";
-customElements.define("fm-card", Card);
+import { Container } from "./container/container";
+export { Container } from "./container/container";
+customElements.define("fm-container", Container);
 
 import { InputBasic } from "./input-basic/input-basic";
 export { InputBasic } from "./input-basic/input-basic";
@@ -46,10 +46,13 @@ import { Tooltip } from "./tooltip/tooltip";
 export { Tooltip } from "./tooltip/tooltip";
 customElements.define("fm-tooltip", Tooltip);
 
-import { Tab, TabGroup } from "./tab/tab";
-export { Tab, TabGroup } from "./tab/tab";
-customElements.define("fm-tab", Tab);
-customElements.define("fm-tab-group", TabGroup);
+import { Tabs } from "./tabs/tabs";
+export { Tabs } from "./tabs/tabs";
+customElements.define("fm-tabs", Tabs);
+
+import { Label } from "./label/label";
+export { Label } from "./label/label";
+customElements.define("fm-label", Label);
 
 import { Accordion, AccordionGroup } from "./accordion/accordion";
 export { Accordion, AccordionGroup } from "./accordion/accordion";
@@ -66,6 +69,7 @@ export {
     NavigationItem,
     NavigationDropdown,
 } from "./navigation/navigation";
+
 customElements.define("fm-navigation", Navigation);
 customElements.define("fm-navigation-item", NavigationItem);
 customElements.define("fm-navigation-dropdown", NavigationDropdown);

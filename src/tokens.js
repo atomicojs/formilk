@@ -8,8 +8,9 @@ export const tokensSize = css`
 
 export const tokensBorder = css`
     :host {
-        --radius: var(--fm--radius, 1rem);
+        --border-radius: var(--fm--border-radius, 1rem);
         --border-width: var(--fm--border-width, 1px);
+        --border-divide-width: var(--fm--border-divide-width, 2px);
     }
 `;
 
@@ -23,40 +24,55 @@ export const tokensSpace = css`
 
 export const tokensColor = css`
     :host {
-        --primary: var(--fm--primary, #2c3a41);
-        --primary-light: var(--fm--primary, #2c3a4180);
-        --primary-contrast: var(--fm--primary, #fff);
-        --secondary: var(--fm--secondary, #000000);
-        --success: var(--fm--success, #18d47c);
-        --success-light: var(--fm--success, #18d47c80);
-        --warning: var(--fm--warning, #f9aa33);
-        --warning-light: var(--fm--warning-light, #f9aa3380);
-        --danger: var(--fm--danger, #ff5b5b);
-        --danger-light: var(--fm--danger-light, #ff5b5b80);
-        --info: var(--fm--info, #0080ff);
-        --info-light: var(--fm--info-light, #0080ff80);
-        --checked: var(--primary);
-        --checked-contrast: var(--primary-contrast);
-        --disabled: var(--fm--disabled, #d5d8d9);
-        --divide: var(--fm--divide, rgba(0, 0, 0, 0.08));
-        --borderline: var(--fm--borderline, rgba(255, 255, 255, 0.5));
-        --layer-1: var(--fm--layer-1, rgba(255, 255, 255, 0.25));
-        --layer-2: var(--fm--layer-2, rgba(255, 255, 255, 0.5));
+        --theme-primary: var(--fm--theme-primary, #2c3a41);
+        --theme-primary-light: var(--fm--theme-primary, #2c3a4180);
+        --theme-primary-contrast: var(--fm--theme-primary, #fff);
+        --theme-secondary: var(--fm--theme-secondary, #000000);
+        --theme-success: var(--fm--theme-success, #18d47c);
+        --theme-success-light: var(--fm--theme-success, #18d47c80);
+        --theme-warning: var(--fm--theme-warning, #f9aa33);
+        --theme-warning-light: var(--fm--theme-warning-light, #f9aa3380);
+        --theme-danger: var(--fm--theme-danger, #ff5b5b);
+        --theme-danger-light: var(--fm--theme-danger-light, #ff5b5b80);
+        --theme-info: var(--fm--theme-info, #0080ff);
+        --theme-info-light: var(--fm--theme-info-light, #0080ff80);
+        --theme-checked: var(--theme-primary);
+        --theme-checked-contrast: var(--theme-primary-contrast);
+        --theme-disabled: var(--fm--theme-disabled, #d5d8d9);
+        --theme-divide: var(--fm--theme-divide, rgba(0, 0, 0, 0.08));
+        --theme-divide-contrast: var(--fm--theme-divide, var(--theme-primary));
+        --theme-borderline: var(
+            --fm--theme-borderline,
+            rgba(255, 255, 255, 0.5)
+        );
+        --theme-container: var(
+            --fm--theme-container,
+            rgba(255, 255, 255, 0.25)
+        );
+        --theme-layer: var(--fm--theme-layer, rgba(255, 255, 255, 0.5));
     }
 `;
 
-export const tokensCard = [
+export const tokensContainer = [
     tokensSpace,
     tokensColor,
     tokensSize,
     tokensBorder,
     css`
         :host {
-            --background: var(--fm-card--background, var(--layer-1));
-            --shadow-size: var(--fm-card--shadow-size, 0px 22px 44px -22px);
-            --shadow-color: var(--fm-card--shadow-color, rgba(0, 0, 0, 0.25));
-            --font-size: var(--fm-card--font-size, 1rem);
-            --gap: var(--space-between);
+            --background: var(
+                --fm-container--background,
+                var(--theme-container)
+            );
+            --shadow-size: var(
+                --fm-container--shadow-size,
+                0px 22px 44px -22px
+            );
+            --shadow-color: var(
+                --fm-container--shadow-color,
+                rgba(0, 0, 0, 0.25)
+            );
+            --font-size: var(--fm-container--font-size, 1em);
         }
     `,
 ];
@@ -68,10 +84,10 @@ export const tokensInput = [
     tokensBorder,
     css`
         :host {
-            --background: var(--fm-input--background, var(--layer-2));
+            --background: var(--fm-input--background, var(--theme-layer));
             --shadow-size: var(--fm-input--shadow-size, 0px 12px 12px -12px);
             --shadow-color: var(--fm-input--shadow-color, rgba(0, 0, 0, 0.33));
-            --font-size: var(--fm-input--font-size, 1rem);
+            --font-size: var(--fm-input--font-size, 1em);
             display: inline-flex;
             font-size: var(--font-size);
             min-height: var(--min-size);
@@ -79,9 +95,6 @@ export const tokensInput = [
         :host([disabled]) {
             opacity: 0.5;
             pointer-events: none;
-        }
-        :host([shadow]) {
-            box-shadow: var(--shadow-size) var(--shadow-color);
         }
     `,
 ];

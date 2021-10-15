@@ -24,12 +24,14 @@ Finally only instance the components to use from formilk from your HTML or JS.
 ```html preview
 <form>
     <fm-card>
-        <h1 style="margin:0px">Login</h1>
-        <fm-input-basic>User:</fm-input-basic>
-        <fm-input-basic>Pass:</fm-input-basic>
-        <fm-button theme="primary" id="button">
-            <span>submit</span>
-        </fm-button>
+        <fm-grid apply-space>
+            <h1 style="margin:0px">Login</h1>
+            <fm-input-basic>User:</fm-input-basic>
+            <fm-input-basic>Pass:</fm-input-basic>
+            <fm-button theme="primary" id="button">
+                <span>submit</span>
+            </fm-button>
+        </fm-grid>
     </fm-card>
 </form>
 ```

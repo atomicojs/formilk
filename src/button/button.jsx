@@ -4,7 +4,7 @@ import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput } from "../tokens";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
-import { useReflectEvent } from "../hooks/use-reflect-event";
+import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 
 /**
  *
@@ -52,13 +52,9 @@ function button({ type, name, value, theme, href, tabIndex }) {
         <host
             shadowDom
             shape={slotPrefix.length && !slotContent.length ? "square" : null}
+            ref={refButtonShadowDom}
         >
-            <button
-                disabled={disabled}
-                tabIndex={tabIndex}
-                ref={refButtonShadowDom}
-                class="button"
-            >
+            <button disabled={disabled} tabIndex={tabIndex} class="button">
                 <slot ref={refSlotPrefix} name="prefix"></slot>
                 <slot ref={refSlotContent}></slot>
                 <slot ref={refSlotSuffix} name="suffix"></slot>
@@ -74,8 +70,8 @@ function button({ type, name, value, theme, href, tabIndex }) {
                         }
                     }
                     :host([theme]){
-                        --background: var(--${theme});
-                        --color: var(--${theme}-contrast, var(--primary-contrast));
+                        --background: var(--theme-${theme});
+                        --color: var(--theme-${theme}-contrast, var(--theme-primary-contrast));
                     }
                 `
                 }
@@ -111,6 +107,14 @@ button.props = {
         type: Number,
         value: 0,
     },
+    active: {
+        type: Boolean,
+        reflect: true,
+    },
+    align: {
+        type: String,
+        reflect: true,
+    },
 };
 
 button.styles = [
@@ -132,12 +136,13 @@ button.styles = [
             position: relative;
             background: var(--background);
             color: var(--color);
-            border-radius: calc(var(--radius) / 2);
+            border-radius: calc(var(--border-radius) / 2);
             backdrop-filter: var(--backdrop);
             padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
-            border: var(--border-width) solid var(--borderline);
+            border: var(--border-width) solid var(--theme-borderline);
             cursor: pointer;
+            box-shadow: var(--shadow-size) var(--shadow-color);
         }
 
         :host([shape="square"]) .button {
@@ -163,6 +168,12 @@ button.styles = [
         :host([size="small"]) {
             font-size: 0.75em;
             align-items: center;
+        }
+        :host([align="left"]) .button {
+            justify-content: flex-start;
+        }
+        :host([align="right"]) .button {
+            justify-content: flex-end;
         }
     `,
 ];

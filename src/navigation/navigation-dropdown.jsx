@@ -35,11 +35,10 @@ navigationDropdown.styles = [
     css`
         .navigation-box {
             position: relative;
-            background: var(--background);
         }
         .navigation-row {
-            display: grid;
             width: 100%;
+            display: grid;
             justify-content: var(--content);
             grid-template-columns: repeat(var(--columns), 1fr);
             grid-gap: var(--space-between);

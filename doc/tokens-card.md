@@ -9,9 +9,9 @@ Box model used by the `card` and `alert` type components.
 | Custom property              | Type       |
 | ---------------------------- | ---------- |
 | --fm-card--border-width      | size       |
-| --fm-card--borderline        | color      |
+| --fm-card--theme-borderline  | color      |
 | --fm-card--border-min-height | size       |
-| --fm-card--radius            | size       |
+| --fm-card--border-radius     | size       |
 | --fm-card--padding-y         | size       |
 | --fm-card--space-x           | size       |
 | --fm-card--background        | background |

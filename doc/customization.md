@@ -15,7 +15,7 @@ These tokens allow to sustain changes at the global level of the design system, 
 These global tokens without the use of the prefix and namespace and can be associated by a selector or the use of the style attribute, example:
 
 ```html preview
-<fm-button style="--radius: 100px">I am rounded</fm-button>
+<fm-button style="--border-radius: 100px">I am rounded</fm-button>
 ```
 
 ## Custom properties

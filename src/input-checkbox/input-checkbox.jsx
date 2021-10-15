@@ -1,19 +1,20 @@
-import { c, css } from "atomico";
+import { c, css, useHost } from "atomico";
 import { tokensInput } from "../tokens";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
+import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 
 function checkbox({ tabIndex }) {
+    const host = useHost();
     const refInput = useCheckbox("checkbox");
     const disabled = useDisabled();
+
+    useReflectEvent(host, refInput, "click");
 
     return (
         <host shadowDom>
             <button
-                onclick={() => {
-                    refInput.current.click();
-                }}
                 class="checkbox"
                 disabled={disabled}
                 tabIndex={disabled ? -1 : tabIndex}
@@ -48,7 +49,7 @@ checkbox.styles = [
 
     css`
         :host {
-            color: var(--theme--checked);
+            color: var(--theme--theme-checked);
             align-items: center;
         }
 
@@ -58,21 +59,21 @@ checkbox.styles = [
 
         .checkbox {
             --size: calc(var(--min-size) * 0.75);
-            --borderline: currentColor;
+            --theme-borderline: currentColor;
             width: var(--size);
             height: var(--size);
             padding: 0px;
             background: var(--background);
             color: var(--color);
-            border-radius: calc(var(--radius) / 2);
+            border-radius: calc(var(--border-radius) / 2);
             backdrop-filter: var(--backdrop);
             box-shadow: var(--shadow-size) var(--shadow-color);
-            border: var(--border-width) solid var(--borderline);
+            border: var(--border-width) solid var(--theme-borderline);
         }
 
         ::slotted([slot="icon"]),
         svg {
-            color: var(--checked-contrast);
+            color: var(--theme-checked-contrast);
         }
 
         slot[name="icon"] {
@@ -92,7 +93,7 @@ checkbox.styles = [
             max-width: var(--state-max-size);
             max-height: var(--state-max-size);
             margin: auto;
-            border-radius: calc(var(--radius) * 0.33);
+            border-radius: calc(var(--border-radius) * 0.33);
             background: currentColor;
             opacity: 0;
         }

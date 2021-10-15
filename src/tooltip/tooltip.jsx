@@ -57,7 +57,7 @@ function tooltip({ width }) {
                     <slot name="tooltip"></slot>
                 </div>
             </div>
-            <style>{width && `:host{--tooptip-width:${width}};`}</style>
+            <style>{width && /*css*/ `:host{--tooptip-width:${width}};`}</style>
         </host>
     );
 }

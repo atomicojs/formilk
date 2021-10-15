@@ -55,7 +55,7 @@ avatar.styles = [
             width: var(--size);
             height: var(--size);
             overflow: hidden;
-            border-radius: calc(var(--radius) / 2);
+            border-radius: calc(var(--border-radius) / 2);
             border: calc(var(--border-width) * 2) solid rgba(255, 255, 255, 0.5);
             background: hsl(0deg 0% 100% / 50%);
         }
