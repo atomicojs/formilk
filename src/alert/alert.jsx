@@ -10,7 +10,7 @@ import { Label } from "../label/label";
 function alert({ theme }) {
     return (
         <host shadowDom>
-            <Label>
+            <Label disableReflect>
                 <slot
                     name="prefix"
                     slot="prefix"

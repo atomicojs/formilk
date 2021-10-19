@@ -1,4 +1,4 @@
-import { c, useRef, css } from "atomico";
+import { c, css, useRef, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { tokensInput } from "../tokens";
@@ -22,6 +22,7 @@ function button({ type, name, value, theme, href, tabIndex }) {
         el.textContent.trim()
     );
     const disabled = useDisabled();
+    const [active, setActive] = useProp("active");
 
     useRender(
         () =>
@@ -54,7 +55,13 @@ function button({ type, name, value, theme, href, tabIndex }) {
             shape={slotPrefix.length && !slotContent.length ? "square" : null}
             ref={refButtonShadowDom}
         >
-            <button disabled={disabled} tabIndex={tabIndex} class="button">
+            <button
+                disabled={disabled}
+                tabIndex={tabIndex}
+                class="button"
+                onmousedown={() => setActive(true)}
+                onmouseup={() => setActive(false)}
+            >
                 <slot ref={refSlotPrefix} name="prefix"></slot>
                 <slot ref={refSlotContent}></slot>
                 <slot ref={refSlotSuffix} name="suffix"></slot>
@@ -127,7 +134,7 @@ button.styles = [
             font: unset;
             min-width: 100%;
             display: grid;
-            grid-gap: 0.5em;
+            grid-gap: var(--space-between);
             align-items: center;
             justify-content: center;
             min-height: var(--size);

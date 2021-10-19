@@ -9,7 +9,7 @@ import { tokensSize, tokensBorder } from "../tokens";
 function avatar({ src, size, transform }) {
     return (
         <host shadowDom>
-            <div class="avatar-mask">
+            <button class="avatar-mask">
                 <div class="avatar-effect">
                     <slot>
                         {src ? (
@@ -19,7 +19,7 @@ function avatar({ src, size, transform }) {
                         )}
                     </slot>
                 </div>
-            </div>
+            </button>
             <style>{
                 /*css*/ `:host{--size:${size};${
                     transform ? `--transform:${transform}` : ""
@@ -58,6 +58,7 @@ avatar.styles = [
             border-radius: calc(var(--border-radius) / 2);
             border: calc(var(--border-width) * 2) solid rgba(255, 255, 255, 0.5);
             background: hsl(0deg 0% 100% / 50%);
+            padding: 0px;
         }
         .avatar-effect {
             width: 100%;

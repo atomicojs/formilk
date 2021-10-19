@@ -1,11 +1,13 @@
-import { h, c, css, useRef, useProp, useState } from "atomico";
+import { c, css, useRef, useHost, useProp, useState, useEffect } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
+import { useChannel } from "@atomico/hooks/use-channel";
 
 /**
  *
  * @param {import("atomico").Props<tooltip.props>} props
  */
-function tooltip({ width }) {
+function tooltip({ width, showWithOver }) {
+    const host = useHost();
     const refSlot = useRef();
     const refSlotTooptip = useRef();
     const [show, setShow] = useProp("show");
@@ -18,40 +20,56 @@ function tooltip({ width }) {
         show && !inside && (() => setShow(false))
     );
 
+    const [parentShowWithOver, setShowWithOver] = useChannel(
+        "ToolTipShowWithOver"
+    );
+
+    showWithOver = parentShowWithOver || showWithOver;
+
+    useEffect(() => setShowWithOver(showWithOver), [showWithOver]);
+
+    const handlerShow = (event) => {
+        event.stopPropagation();
+
+        const { x, y } = host.current.getBoundingClientRect();
+
+        const {
+            current: { clientWidth, clientHeight },
+        } = refSlotTooptip;
+
+        const { innerWidth, innerHeight } = window;
+
+        const w2 = clientWidth / 2;
+
+        setShow(true);
+
+        setPosition(
+            (clientWidth + x > innerWidth
+                ? "right"
+                : x - w2 > w2
+                ? "center"
+                : "left") +
+                " " +
+                (innerHeight > clientHeight + y ? "bottom" : "top")
+        );
+    };
+
+    handlerShow.capture = true;
+
     return (
         <host
             shadowDom
             onmouseover={() => setInside(true)}
-            onmouseleave={() => setInside(false)}
+            onmouseleave={() => {
+                setInside(false);
+                showWithOver && setShow(false);
+            }}
         >
-            <div
-                onclick={(event) => {
-                    const { x, y } =
-                        event.currentTarget.getBoundingClientRect();
-
-                    const {
-                        current: { clientWidth, clientHeight },
-                    } = refSlotTooptip;
-
-                    const { innerWidth, innerHeight } = window;
-
-                    const w2 = clientWidth / 2;
-
-                    setShow(true);
-
-                    setPosition(
-                        (clientWidth + x > innerWidth
-                            ? "right"
-                            : x - w2 > w2
-                            ? "center"
-                            : "left") +
-                            " " +
-                            (innerHeight > clientHeight + y ? "bottom" : "top")
-                    );
-                }}
-            >
-                <slot ref={refSlot}></slot>
-            </div>
+            <slot
+                onclick={handlerShow}
+                onmouseover={showWithOver && handlerShow}
+                ref={refSlot}
+            ></slot>
             <div class="tooltip">
                 <div class="tooltip-mask" ref={refSlotTooptip}>
                     <slot name="tooltip"></slot>
@@ -67,6 +85,10 @@ tooltip.props = {
         type: Boolean,
         reflect: true,
     },
+    showWithOver: {
+        type: Boolean,
+        reflect: true,
+    },
     position: {
         type: String,
         reflect: true,
@@ -77,14 +99,16 @@ tooltip.props = {
 tooltip.styles = css`
     :host {
         position: relative;
-        display: inline-block;
-        min-width: 100%;
+        display: inline-flex;
     }
     :host([show]) .tooltip {
         visibility: visible;
     }
     :host([position~="top"]) .tooltip {
         bottom: 100%;
+    }
+    :host([position~="bottom"]) .tooltip {
+        top: 100%;
     }
     :host([position~="center"]) .tooltip {
         top: 100%;
@@ -94,12 +118,15 @@ tooltip.styles = css`
     :host([position~="right"]) .tooltip {
         right: 0px;
     }
+    ::slotted([slot="tooltip"]) {
+        min-width: 100%;
+    }
     .tooltip {
         width: var(--tooptip-width, auto);
         position: absolute;
         visibility: hidden;
         z-index: 1;
-        background: white;
+        background: var(--theme-current);
         border-radius: 0.5rem;
         padding: 1rem;
         box-sizing: border-box;

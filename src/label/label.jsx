@@ -47,6 +47,10 @@ label.props = {
     disableReflect: {
         type: Boolean,
     },
+    reverse: {
+        type: Boolean,
+        reflect: true,
+    },
 };
 
 label.styles = [
@@ -58,6 +62,14 @@ label.styles = [
             display: grid;
             grid-template-columns: var(--columns);
             grid-gap: var(--space-between);
+        }
+
+        :host([reverse]) .label-action {
+            order: -1;
+        }
+
+        :host([reverse]) .label-prefix {
+            order: 1;
         }
 
         .label-prefix {

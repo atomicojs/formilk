@@ -5,7 +5,7 @@ title: fm-accordion
 Create a container as an alert that adapts according to the definition of the slot
 
 ```html preview
-<fm-card>
+<fm-container>
     <fm-accordion-group>
         <fm-accordion show>
             <strong slot="header">Content 1</strong>
@@ -32,5 +32,5 @@ Create a container as an alert that adapts according to the definition of the sl
             </p>
         </fm-accordion>
     </fm-accordion-group>
-</fm-card>
+</fm-container>
 ```

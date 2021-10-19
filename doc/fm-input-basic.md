@@ -6,7 +6,9 @@ Creates an `input` with effect on forms that adapts according to the definition 
 
 ```html preview
 <div>
-    <fm-input-basic placeholder="Placeholder"></fm-input-basic>
+    <fm-input-basic placeholder="Placeholder">
+        <fm-icon slot="suffix"></fm-icon>
+    </fm-input-basic>
     <fm-input-basic placeholder="Placeholder" theme="warning"></fm-input-basic>
     <fm-input-basic placeholder="Placeholder" theme="danger"></fm-input-basic>
     <fm-input-basic placeholder="Placeholder" theme="success"></fm-input-basic>

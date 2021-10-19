@@ -49,6 +49,8 @@ export const tokensColor = css`
             --fm--theme-container,
             rgba(255, 255, 255, 0.25)
         );
+        --theme-container-contrast: var(--theme-primary);
+        --theme-container-light: var(--theme-borderline);
         --theme-layer: var(--fm--theme-layer, rgba(255, 255, 255, 0.5));
     }
 `;

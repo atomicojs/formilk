@@ -1,3 +1,7 @@
+import { Grid } from "./grid/grid";
+export { Grid } from "./grid/grid";
+customElements.define("fm-grid", Grid);
+
 import { Container } from "./container/container";
 export { Container } from "./container/container";
 customElements.define("fm-container", Container);

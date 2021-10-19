@@ -4,6 +4,7 @@ import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { tokensInput } from "../tokens";
 import { inputGenericProps } from "../props";
+import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 
 /**
  *
@@ -11,52 +12,44 @@ import { inputGenericProps } from "../props";
  * @returns
  */
 function inputBasic({ type, theme, ...props }) {
-    /**
-     * @type {import("atomico").UseProp<string>}
-     */
     const [, setValue] = useProp("value");
     const refSlotLabel = useRef();
-    const refSlotIcon = useRef();
+    const refSlotPrefix = useRef();
+    const refSlotSuffix = useRef();
+    const refLayerLeft = useRef();
+    const refLayerRight = useRef();
     const refInput = useRef();
     const slotLabel = useSlot(refSlotLabel);
-    const slotIcon = useSlot(refSlotIcon);
-    const withicon = !!slotIcon.length || null;
-    const withlabel = !!slotLabel.length || null;
+    const slotPrefix = useSlot(refSlotPrefix);
+    const slotSuffix = useSlot(refSlotSuffix);
+
+    useResizeObserverState(refLayerLeft);
+    useResizeObserverState(refLayerRight);
 
     useRender(() => (
-        <input
-            type={type}
-            {...props}
-            slot="input"
-            ref={refInput}
-            withicon={withicon}
-            withlabel={withlabel}
-        />
+        <input type={type} {...props} slot="input" ref={refInput} />
     ));
 
     useDisabled();
 
     return (
-        <host
-            shadowDom
-            checkValidity={() => refInput.current.checkValidity()}
-            oninput={() => setValue(refInput.current.value)}
-            withicon={withicon}
-            withlabel={withlabel}
-        >
-            <div class="input" onclick={() => refInput.current.focus()}>
-                <div class="input-icon">
-                    <slot ref={refSlotIcon} name="icon"></slot>
-                </div>
-                <div
-                    class={`input-label ${
-                        slotLabel.filter((tag) => tag.localName != "datalist")
-                            .length
-                            ? ""
-                            : "hidden"
-                    }`}
-                >
-                    <slot ref={refSlotLabel}></slot>
+        <host shadowDom oninput={() => setValue(refInput.current.value)}>
+            <div class="input">
+                <div class="input-layer input-layer-left" ref={refLayerLeft}>
+                    <div
+                        class={`input-prefix ${
+                            slotPrefix.length ? "" : "hidden"
+                        }`}
+                    >
+                        <slot ref={refSlotPrefix} name="prefix"></slot>
+                    </div>
+                    <div
+                        class={`input-label ${
+                            slotLabel.length ? "" : "hidden"
+                        }`}
+                    >
+                        <slot ref={refSlotLabel}></slot>
+                    </div>
                 </div>
                 <div class="input-slot">
                     <slot name="input"></slot>
@@ -64,9 +57,32 @@ function inputBasic({ type, theme, ...props }) {
                         <div class="input-line-fill"></div>
                     </div>
                 </div>
+                <div class="input-layer input-layer-right" ref={refLayerRight}>
+                    <div
+                        class={`input-suffix ${
+                            slotSuffix.length ? "" : "hidden"
+                        }`}
+                    >
+                        <slot ref={refSlotSuffix} name="suffix"></slot>
+                    </div>
+                </div>
             </div>
             <style>{
-                /*css*/ `:host([theme]){--line-background: var(--theme-${theme});}`
+                /*css*/ `
+                :host{
+                    --input-layer-left: ${
+                        refLayerLeft.current?.clientWidth
+                            ? `calc(${refLayerLeft.current?.clientWidth}px + var(--space-between) )`
+                            : "0px"
+                    };
+                    --input-layer-right: ${
+                        refLayerRight.current?.clientWidth
+                            ? `calc(${refLayerRight.current?.clientWidth}px + var(--space-between) )`
+                            : "0px"
+                    };
+            }
+                :host([theme]){--line-background: var(--theme-${theme});}
+                `
             }</style>
         </host>
     );
@@ -89,14 +105,6 @@ inputBasic.props = {
         reflect: true,
         value: "primary",
     },
-    withicon: {
-        type: Boolean,
-        reflect: true,
-    },
-    withlabel: {
-        type: Boolean,
-        reflect: true,
-    },
 };
 
 inputBasic.styles = [
@@ -104,10 +112,9 @@ inputBasic.styles = [
     css`
         .input {
             display: grid;
-            align-items: center;
-            grid-template-columns: 0 0 auto;
             min-width: 100%;
             min-height: var(--min-size);
+            align-items: stretch;
             padding: 0;
             position: relative;
             background: var(--background);
@@ -117,7 +124,9 @@ inputBasic.styles = [
             box-shadow: var(--shadow-size) var(--shadow-color);
             border: var(--border-width) solid var(--theme-borderline);
             box-sizing: border-box;
+            grid-gap: var(--space-between);
         }
+
         ::slotted([slot="input"]) {
             width: 100%;
             height: 100%;
@@ -128,36 +137,33 @@ inputBasic.styles = [
             box-sizing: border-box;
             position: relative;
             z-index: 2;
-            padding: calc(var(--space-y) / 2) var(--space-x);
+            padding: calc(var(--space-y) / 2)
+                calc(var(--space-x) + var(--input-layer-right, 0px))
+                calc(var(--space-y) / 2)
+                calc(var(--space-x) + var(--input-layer-left, 0px));
         }
 
-        :host([withlabel]) .input {
-            grid-template-columns: 0 auto auto;
-        }
-        :host([withicon]) .input {
-            grid-template-columns: auto auto auto;
-        }
-
-        :host([withicon][withlabel]) .input-label {
-            padding-left: 0.5em;
-        }
-
-        :host([withicon]:not([withlabel])) .input {
-            grid-template-columns: auto 0 auto;
-        }
-
-        :host([withlabel]) .input,
-        :host([withicon]) .input {
-            padding-left: var(--space-x);
-        }
-
-        ::slotted(input[withicon]),
-        ::slotted(input[withlabel]) {
-            padding-left: 0.5em;
-        }
-
-        .input-slot {
+        .input-layer {
             height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-layer-left {
+            left: var(--space-x);
+        }
+
+        .input-layer-right {
+            right: var(--space-x);
+        }
+
+        .input-prefix,
+        .input-suffix,
+        .input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .input-line {
@@ -171,6 +177,7 @@ inputBasic.styles = [
             z-index: 3;
             transform: translateY(100%);
         }
+
         .input-line-fill {
             width: 100%;
             height: 100%;
@@ -178,8 +185,8 @@ inputBasic.styles = [
             background: var(--line-background);
         }
 
-        .input-icon {
-            display: flex;
+        .hidden {
+            display: none;
         }
     `,
 ];
