@@ -41,8 +41,8 @@ function container({ theme, grid }) {
             <style>{
                 /*css*/ `
                 :host([theme]){
-                    --theme-borderline: var(--${theme}-light);
-                    --theme-status: var(--${theme}, var(--theme-primary));
+                    --color-container-divide: var(--${theme}-divide);
+                    --color-status: var(--${theme}, var(--color-primary));
                 }
                 :host{
                     --items: ${slot.length};
@@ -83,7 +83,7 @@ container.styles = [
             border-radius: var(--border-radius);
             backdrop-filter: var(--backdrop);
             box-sizing: border-box;
-            border: var(--border-width) solid var(--theme-borderline);
+            border: var(--border-width) solid var(--color-container-divide);
             box-shadow: var(--shadow-size) var(--shadow-color);
         }
         ::slotted([apply-space]) {

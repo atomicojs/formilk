@@ -5,7 +5,7 @@ title: fm-button
 Create a `button` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
-<div>
+<fm-box>
     <fm-button href="#" ghost> button </fm-button>
     <fm-button>button</fm-button>
     <fm-button theme="primary">button</fm-button>
@@ -14,16 +14,7 @@ Create a `button` with effect on forms that adapts according to the definition o
     <fm-button theme="warning">button</fm-button>
     <fm-button theme="danger">button</fm-button>
     <fm-button disabled>button</fm-button>
-</div>
-<style>
-    fm-button {
-        margin: 0.5rem;
-    }
-    div {
-        display: flex;
-        flex-flow: column nowrap;
-    }
-</style>
+</fm-box>
 ```
 
 ## Properties

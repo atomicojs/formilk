@@ -14,7 +14,7 @@ function alert({ theme }) {
                 <slot
                     name="prefix"
                     slot="prefix"
-                    style="color: var(--theme-status, currentColor)"
+                    style="color: var(--color-status, currentColor)"
                 >
                     <Icon size="1.5rem" type="alert"></Icon>
                 </slot>
@@ -23,8 +23,8 @@ function alert({ theme }) {
             </Label>
             <style>{
                 /*css*/ `:host([theme]){
-                --theme-status: var(--theme-${theme}, var(--theme-primary));
-                --theme-borderline: var(--theme-${theme}-light);
+                --color-status: var(--color-${theme}, var(--color-primary));
+                --color-container-divide: var(--color-${theme}-divide);
             }`
             }</style>
         </host>
@@ -54,7 +54,7 @@ alert.styles = [
             padding: var(--space-y) var(--space-x);
             border-radius: var(--border-radius);
             backdrop-filter: var(--backdrop);
-            border: var(--border-width) solid var(--theme-borderline);
+            border: var(--border-width) solid var(--color-container-divide);
             box-shadow: var(--shadow-size) var(--shadow-color);
             box-sizing: border-box;
         }

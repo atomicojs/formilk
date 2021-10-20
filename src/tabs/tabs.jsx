@@ -78,7 +78,7 @@ tabs.styles = [
             border-radius: var(--border-radius);
             backdrop-filter: var(--backdrop);
             box-sizing: border-box;
-            border: var(--border-width) solid var(--theme-borderline);
+            border: var(--border-width) solid var(--color-container-divide);
             box-shadow: var(--shadow-size) var(--shadow-color);
         }
         :host([divide="top"]) .tabs-divide {
@@ -98,13 +98,13 @@ tabs.styles = [
         .tabs-divide {
             width: 100%;
             height: var(--border-divide-width);
-            background: var(--theme-divide);
+            background: var(--color-divide);
             overflow: hidden;
         }
         .tabs-divide-mark {
             width: var(--width);
             height: 100%;
-            background: var(--theme-divide-contrast);
+            background: var(--color-divide-contrast);
             transform: translateX(var(--offset));
             transition: 0.3s ease all;
         }

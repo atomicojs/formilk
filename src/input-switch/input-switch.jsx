@@ -47,7 +47,7 @@ inputSwitch.styles = css`
         opacity: 1;
         transform: translateX(var(--x));
         transform-origin: right center;
-        background: var(--theme-checked-contrast);
+        background: var(--color-checked-contrast);
     }
 `;
 

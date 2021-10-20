@@ -77,8 +77,8 @@ function button({ type, name, value, theme, href, tabIndex }) {
                         }
                     }
                     :host([theme]){
-                        --background: var(--theme-${theme});
-                        --color: var(--theme-${theme}-contrast, var(--theme-primary-contrast));
+                        --background: var(--color-${theme});
+                        --color: var(--color-${theme}-contrast, var(--color-primary-contrast));
                     }
                 `
                 }
@@ -129,6 +129,14 @@ button.styles = [
     css`
         :host {
             --size: var(--min-size);
+            --background: var(
+                --color-current-layer,
+                var(--color-container-layer)
+            );
+            --color: var(
+                --color-current-contrast,
+                var(--color-container-contrast)
+            );
         }
         .button {
             font: unset;
@@ -147,7 +155,7 @@ button.styles = [
             backdrop-filter: var(--backdrop);
             padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
-            border: var(--border-width) solid var(--theme-borderline);
+            border: var(--border-width) solid var(--color-current-divide);
             cursor: pointer;
             box-shadow: var(--shadow-size) var(--shadow-color);
         }

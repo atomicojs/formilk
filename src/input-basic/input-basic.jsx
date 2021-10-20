@@ -80,8 +80,8 @@ function inputBasic({ type, theme, ...props }) {
                             ? `calc(${refLayerRight.current?.clientWidth}px + var(--space-between) )`
                             : "0px"
                     };
-            }
-                :host([theme]){--line-background: var(--theme-${theme});}
+                }
+                :host([theme]){--line-background: var(--color-${theme});}
                 `
             }</style>
         </host>
@@ -117,12 +117,12 @@ inputBasic.styles = [
             align-items: stretch;
             padding: 0;
             position: relative;
-            background: var(--background);
-            color: var(--color);
+            background: var(--color-container-layer);
+            color: var(--color-container-contrast);
             border-radius: calc(var(--border-radius) / 2);
             backdrop-filter: var(--backdrop);
             box-shadow: var(--shadow-size) var(--shadow-color);
-            border: var(--border-width) solid var(--theme-borderline);
+            border: var(--border-width) solid var(--color-container-divide);
             box-sizing: border-box;
             grid-gap: var(--space-between);
         }

@@ -1,6 +1,7 @@
 import { c, css, useRef, useHost, useProp, useState, useEffect } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
+import { tokensColor, tokensSpace } from "../tokens";
 
 /**
  *
@@ -96,42 +97,49 @@ tooltip.props = {
     width: String,
 };
 
-tooltip.styles = css`
-    :host {
-        position: relative;
-        display: inline-flex;
-    }
-    :host([show]) .tooltip {
-        visibility: visible;
-    }
-    :host([position~="top"]) .tooltip {
-        bottom: 100%;
-    }
-    :host([position~="bottom"]) .tooltip {
-        top: 100%;
-    }
-    :host([position~="center"]) .tooltip {
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    :host([position~="right"]) .tooltip {
-        right: 0px;
-    }
-    ::slotted([slot="tooltip"]) {
-        min-width: 100%;
-    }
-    .tooltip {
-        width: var(--tooptip-width, auto);
-        position: absolute;
-        visibility: hidden;
-        z-index: 1;
-        background: var(--theme-current);
-        border-radius: 0.5rem;
-        padding: 1rem;
-        box-sizing: border-box;
-        box-shadow: 0px 12px 40px -20px #000000;
-    }
-`;
+tooltip.styles = [
+    tokensColor,
+    tokensSpace,
+    css`
+        :host {
+            position: relative;
+            display: inline-flex;
+        }
+        :host([show]) .tooltip {
+            visibility: visible;
+        }
+        :host([position~="top"]) .tooltip {
+            bottom: 100%;
+        }
+        :host([position~="bottom"]) .tooltip {
+            top: 100%;
+        }
+        :host([position~="center"]) .tooltip {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        :host([position~="right"]) .tooltip {
+            right: 0px;
+        }
+        ::slotted([slot="tooltip"]) {
+            min-width: 100%;
+        }
+        .tooltip {
+            width: var(--tooptip-width, auto);
+            position: absolute;
+            visibility: hidden;
+            z-index: 1;
+            background: var(
+                --color-current-layer,
+                var(--color-container-layer)
+            );
+            border-radius: 0.5rem;
+            padding: var(--space-around);
+            box-sizing: border-box;
+            box-shadow: 0px 12px 40px -20px var(--color-current-shadow, var(--color-container-shadow));
+        }
+    `,
+];
 
 export const Tooltip = c(tooltip);

@@ -9,13 +9,24 @@ cols(1,minmax(auto,grid)) red centered(1fr)
 ```
 
 ```html preview
-<fm-grid
-    grid="repeat(2,1fr) align(center) space radius theme(container) shadow(1)"
+<fm-box
+    model="
+        repeat(2,auto) 
+        width(320px) 
+        content(center,between) 
+        padding 
+        radius 
+        theme(primary) 
+        shadow(1),
+        
+        width(520px)
+        520px
+        "
 >
     <div>
         <strong>Brand</strong>
     </div>
-    <fm-grid grid="repeat(var(--items), auto)">
+    <fm-box model=" repeat(var(--items), auto) ">
         <fm-button ghost>Item</fm-button>
         <fm-tooltip width="200px">
             <fm-avatar></fm-avatar>
@@ -43,6 +54,6 @@ cols(1,minmax(auto,grid)) red centered(1fr)
                 </fm-button>
             </fm-tooltip>
         </fm-tooltip>
-    </fm-grid>
-</fm-grid>
+    </fm-box>
+</fm-box>
 ```

@@ -24,8 +24,8 @@ function checkbox({ tabIndex }) {
                         <svg width=".7rem" viewBox="0 0 11.192 8.364">
                             <path
                                 d="M-1530.757,8.778a1,1,0,0,1-.67-.257l-.037-.035-2.829-2.829a1,1,0,0,1,0-1.414,1,1,0,0,1,1.415,0l2.121,2.122L-1525.1.707a1,1,0,0,1,1.414,0,1,1,0,0,1,0,1.414l-6.364,6.364a1,1,0,0,1-.707.293Z"
-                                fill="currentColor"
                                 transform="translate(1534.586 -0.414)"
+                                fill="currentColor"
                             />
                         </svg>
                     </slot>
@@ -49,7 +49,6 @@ checkbox.styles = [
 
     css`
         :host {
-            color: var(--theme--theme-checked);
             align-items: center;
         }
 
@@ -59,21 +58,20 @@ checkbox.styles = [
 
         .checkbox {
             --size: calc(var(--min-size) * 0.75);
-            --theme-borderline: currentColor;
             width: var(--size);
             height: var(--size);
             padding: 0px;
-            background: var(--background);
-            color: var(--color);
+            background: var(--color-checked);
+            color: var(--color-checked-contrast);
             border-radius: calc(var(--border-radius) / 2);
             backdrop-filter: var(--backdrop);
             box-shadow: var(--shadow-size) var(--shadow-color);
-            border: var(--border-width) solid var(--theme-borderline);
+            border: var(--border-width) solid var(--color-checked-divide);
         }
 
         ::slotted([slot="icon"]),
         svg {
-            color: var(--theme-checked-contrast);
+            color: var(--color-checked-layer);
         }
 
         slot[name="icon"] {
@@ -94,7 +92,7 @@ checkbox.styles = [
             max-height: var(--state-max-size);
             margin: auto;
             border-radius: calc(var(--border-radius) * 0.33);
-            background: currentColor;
+            background: var(--color-checked-contrast);
             opacity: 0;
         }
 

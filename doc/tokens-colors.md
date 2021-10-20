@@ -6,12 +6,12 @@ title: Tokens colors
 
 | Custom property              | Type  |
 | ---------------------------- | ----- |
-| --fm--theme-primary          | color |
-| --fm--theme-primary-contrast | color |
-| --fm--theme-secondary        | color |
-| --fm--theme-success          | color |
-| --fm--theme-warning          | color |
-| --fm--theme-danger           | color |
-| --fm--theme-info             | color |
-| --fm--theme-checked          | color |
-| --fm--theme-checked-contrast | color |
+| --fm--color-primary          | color |
+| --fm--color-primary-contrast | color |
+| --fm--color-secondary        | color |
+| --fm--color-success          | color |
+| --fm--color-warning          | color |
+| --fm--color-danger           | color |
+| --fm--color-info             | color |
+| --fm--color-checked          | color |
+| --fm--color-checked-contrast | color |

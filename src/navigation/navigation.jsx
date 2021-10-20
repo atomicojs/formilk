@@ -113,7 +113,7 @@ navigation.styles = [
             color: var(--color);
             border-radius: var(--border-radius);
             backdrop-filter: var(--backdrop);
-            border: var(--border-width) solid var(--theme-borderline);
+            border: var(--border-width) solid var(--color-container-divide);
             box-shadow: var(--shadow-size) var(--shadow-color);
             box-sizing: border-box;
             max-width: 100%;

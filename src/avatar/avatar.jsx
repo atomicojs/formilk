@@ -1,6 +1,6 @@
 import { c, css } from "atomico";
 import { Icon } from "../icon/icon";
-import { tokensSize, tokensBorder } from "../tokens";
+import { tokensSize, tokensBorder, tokensColor } from "../tokens";
 
 /**
  *
@@ -9,8 +9,8 @@ import { tokensSize, tokensBorder } from "../tokens";
 function avatar({ src, size, transform }) {
     return (
         <host shadowDom>
-            <button class="avatar-mask">
-                <div class="avatar-effect">
+            <button class="avatar-mask" part="avatar-mask">
+                <div class="avatar-inner" part="avatar-inner">
                     <slot>
                         {src ? (
                             <img class="avatar-img" src={src} />
@@ -44,6 +44,7 @@ avatar.props = {
 
 avatar.styles = [
     tokensSize,
+    tokensColor,
     tokensBorder,
     css`
         :host {
@@ -56,11 +57,12 @@ avatar.styles = [
             height: var(--size);
             overflow: hidden;
             border-radius: calc(var(--border-radius) / 2);
-            border: calc(var(--border-width) * 2) solid rgba(255, 255, 255, 0.5);
-            background: hsl(0deg 0% 100% / 50%);
+            border: calc(var(--border-width) * 2) solid
+                var(--color-container-divide);
+            background: var(--color-container-layer);
             padding: 0px;
         }
-        .avatar-effect {
+        .avatar-inner {
             width: 100%;
             height: 100%;
             transform: var(--transform);

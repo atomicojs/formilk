@@ -15,6 +15,7 @@
         "@atomico/exports": "latest",
         "@atomico/hooks": "^3.19.2",
         "@atomico/markdown": "latest",
+        "@uppercod/parse": "*",
         "atomico": "^1.33.0"
     },
     "devDependencies": {

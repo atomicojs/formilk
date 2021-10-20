@@ -60,7 +60,7 @@ color.styles = [
         }
         .color {
             background: var(--background);
-            border: var(--border-width) solid var(--theme-primary);
+            border: var(--border-width) solid var(--color-primary);
             border-radius: calc(var(--border-radius) / 2);
             width: var(--min-size);
             height: var(--min-size);
