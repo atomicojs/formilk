@@ -75,7 +75,7 @@ label.styles = [
         .label-prefix {
             display: flex;
             align-items: center;
-            min-height: var(--min-size);
+            min-height: var(--size-min);
             margin: 0px 0px auto;
         }
         .label-content {

@@ -1,7 +1,7 @@
 import { c, css } from "atomico";
 import { Icon } from "../icon/icon";
-import { tokensContainer } from "../tokens";
 import { Label } from "../label/label";
+import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 
 /**
  *
@@ -14,7 +14,7 @@ function alert({ theme }) {
                 <slot
                     name="prefix"
                     slot="prefix"
-                    style="color: var(--color-status, currentColor)"
+                    style="color:var(--color-fill)"
                 >
                     <Icon size="1.5rem" type="alert"></Icon>
                 </slot>
@@ -23,9 +23,9 @@ function alert({ theme }) {
             </Label>
             <style>{
                 /*css*/ `:host([theme]){
-                --color-status: var(--color-${theme}, var(--color-primary));
-                --color-container-divide: var(--color-${theme}-divide);
-            }`
+                    --color-fill: var(--color-${theme}-fill);
+                    --color-divide: var(--color-${theme}-divide);
+                }`
             }</style>
         </host>
     );
@@ -44,19 +44,20 @@ alert.props = {
 };
 
 alert.styles = [
-    tokensContainer,
+    tokensColor,
+    tokensSpace,
+    tokensBorder,
     css`
         :host {
             display: grid;
             position: relative;
-            background: var(--background);
-            color: var(--color);
             padding: var(--space-y) var(--space-x);
             border-radius: var(--border-radius);
-            backdrop-filter: var(--backdrop);
-            border: var(--border-width) solid var(--color-container-divide);
+            border: var(--border-width) solid
+                var(--color-divide, var(--color-box-divide));
             box-shadow: var(--shadow-size) var(--shadow-color);
             box-sizing: border-box;
+            background: var(--color-layer, var(--color-box-fill));
         }
     `,
 ];

@@ -1,7 +1,6 @@
 import { c, css, useRef, useUpdate } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
-import { tokensContainer } from "../tokens";
 
 function tabs() {
     const refSlotTabs = useRef();
@@ -69,7 +68,6 @@ tabs.props = {
 };
 
 tabs.styles = [
-    tokensContainer,
     css`
         :host {
             display: grid;
@@ -98,7 +96,7 @@ tabs.styles = [
         .tabs-divide {
             width: 100%;
             height: var(--border-divide-width);
-            background: var(--color-divide);
+            background: var(--color-divide-fill);
             overflow: hidden;
         }
         .tabs-divide-mark {

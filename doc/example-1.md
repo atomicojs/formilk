@@ -9,6 +9,10 @@ cols(1,minmax(auto,grid)) red centered(1fr)
 ```
 
 ```html preview
+<fm-box model="theme(box) padding radius">
+    <fm-alert t> ...w </fm-alert>
+</fm-box>
+
 <fm-box
     model="
         repeat(2,auto) 
@@ -28,6 +32,7 @@ cols(1,minmax(auto,grid)) red centered(1fr)
     </div>
     <fm-box model=" repeat(var(--items), auto) ">
         <fm-button ghost>Item</fm-button>
+        <fm-input-basic> Search... </fm-input-basic>
         <fm-tooltip width="200px">
             <fm-avatar></fm-avatar>
             <fm-button slot="tooltip" ghost align="left">

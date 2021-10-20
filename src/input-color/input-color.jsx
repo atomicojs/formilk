@@ -1,8 +1,14 @@
 import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { tokensInput } from "../tokens";
 import { inputGenericProps } from "../props";
+import {
+    tokensSpace,
+    tokensColor,
+    tokensSize,
+    tokensBorder,
+    tokensOpacity,
+} from "../tokens";
 
 function color({ name }) {
     const [value, setValue] = useProp("value");
@@ -46,8 +52,17 @@ color.props = {
 };
 
 color.styles = [
-    tokensInput,
+    tokensSpace,
+    tokensColor,
+    tokensSize,
+    tokensBorder,
+    tokensOpacity,
     css`
+        :host([disabled]) {
+            opacity: var(--opacity-disabled);
+            pointer-events: none;
+        }
+
         ::slotted([slot="input"]) {
             width: 100%;
             height: 100%;
@@ -58,12 +73,13 @@ color.styles = [
             top: 0px;
             left: 0px;
         }
+
         .color {
             background: var(--background);
             border: var(--border-width) solid var(--color-primary);
             border-radius: calc(var(--border-radius) / 2);
-            width: var(--min-size);
-            height: var(--min-size);
+            width: var(--size-min);
+            height: var(--size-min);
             position: relative;
             box-shadow: var(--shadow-size) var(--shadow-color);
         }

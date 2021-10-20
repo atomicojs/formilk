@@ -2,7 +2,7 @@ import { c, useProp, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { tokensInput } from "../tokens";
+import { tokensSpace, tokensColor, tokensSize, tokensBorder } from "../tokens";
 import { inputGenericProps } from "../props";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 
@@ -81,7 +81,9 @@ function inputBasic({ type, theme, ...props }) {
                             : "0px"
                     };
                 }
-                :host([theme]){--line-background: var(--color-${theme});}
+                :host([theme]) .input-line-fill{
+                    --color-divide: var(--color-${theme}-divide);
+                }
                 `
             }</style>
         </host>
@@ -103,26 +105,28 @@ inputBasic.props = {
     theme: {
         type: String,
         reflect: true,
-        value: "primary",
     },
 };
 
 inputBasic.styles = [
-    tokensInput,
+    tokensSpace,
+    tokensColor,
+    tokensSize,
+    tokensBorder,
     css`
         .input {
             display: grid;
             min-width: 100%;
-            min-height: var(--min-size);
+            min-height: var(--size-min);
             align-items: stretch;
             padding: 0;
             position: relative;
-            background: var(--color-container-layer);
-            color: var(--color-container-contrast);
+            background: var(--color-layer, var(--color-box-layer));
+            color: var(--color-contrast, var(--color-box-contrast));
             border-radius: calc(var(--border-radius) / 2);
-            backdrop-filter: var(--backdrop);
             box-shadow: var(--shadow-size) var(--shadow-color);
-            border: var(--border-width) solid var(--color-container-divide);
+            border: var(--border-width) solid
+                var(--color-divide, var(--color-box-divide));
             box-sizing: border-box;
             grid-gap: var(--space-between);
         }
@@ -137,6 +141,7 @@ inputBasic.styles = [
             box-sizing: border-box;
             position: relative;
             z-index: 2;
+            color: unset;
             padding: calc(var(--space-y) / 2)
                 calc(var(--space-x) + var(--input-layer-right, 0px))
                 calc(var(--space-y) / 2)
@@ -182,7 +187,7 @@ inputBasic.styles = [
             width: 100%;
             height: 100%;
             border-radius: 1rem;
-            background: var(--line-background);
+            background: var(--color-divide, currentColor);
         }
 
         .hidden {

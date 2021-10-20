@@ -1,7 +1,6 @@
 import { c, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput } from "../tokens";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 import { InputBasic } from "../input-basic/input-basic";
@@ -74,6 +73,9 @@ select.props = {
 select.styles = [
     InputBasic.styles,
     css`
+        :host {
+            display: inline-flex;
+        }
         .options {
             display: none;
         }

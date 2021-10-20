@@ -2,10 +2,6 @@ import { Box } from "./box/box";
 export { Box } from "./box/box";
 customElements.define("fm-box", Box);
 
-import { Container } from "./container/container";
-export { Container } from "./container/container";
-customElements.define("fm-container", Container);
-
 import { InputBasic } from "./input-basic/input-basic";
 export { InputBasic } from "./input-basic/input-basic";
 customElements.define("fm-input-basic", InputBasic);

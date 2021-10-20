@@ -130,14 +130,11 @@ tooltip.styles = [
             position: absolute;
             visibility: hidden;
             z-index: 1;
-            background: var(
-                --color-current-layer,
-                var(--color-container-layer)
-            );
+            background: var(--color-layer, var(--color-box-layer));
             border-radius: 0.5rem;
             padding: var(--space-around);
             box-sizing: border-box;
-            box-shadow: 0px 12px 40px -20px var(--color-current-shadow, var(--color-container-shadow));
+            box-shadow: 0px 12px 40px -20px var(--color-shadow, var(--color-box-shadow));
         }
     `,
 ];

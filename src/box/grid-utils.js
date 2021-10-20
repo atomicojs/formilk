@@ -38,23 +38,23 @@ export const gap = ([y = 1, x = y]) =>
 export const radius = ([value = 1]) =>
     `border-radius:calc(var(--border-radius) * ${value});`;
 
-export const themeBg = ([theme]) =>
-    `--color-current: var(--color-${theme}, var(--color-primary));`;
+export const themeFill = ([theme]) =>
+    `--color-fill: var(--color-${theme}-fill);`;
 
 export const themeContrast = ([theme]) =>
-    `--color-current-contrast: var(--color-${theme}-contrast, var(--color-primary-contrast));`;
+    `--color-contrast: var(--color-${theme}-contrast);`;
 
 export const themeDivide = ([theme]) =>
-    `--color-current-divide: var(--color-${theme}-divide, var(--color-primary-divide));`;
+    `--color-divide: var(--color-${theme}-divide);`;
 
 export const themeLayer = ([theme]) =>
-    `--color-current-layer: var(--color-${theme}-layer, var(--color-primary-layer));`;
+    `--color-layer: var(--color-${theme}-layer);`;
 
 export const themeShadow = ([theme]) =>
-    `--color-current-shadow: var(--color-${theme}-shadow, var(--color-primary-shadow));`;
+    `--color-shadow: var(--color-${theme}-shadow);`;
 
 export const theme = (theme) =>
-    themeBg(theme) +
+    themeFill(theme) +
     themeContrast(theme) +
     themeDivide(theme) +
     themeLayer(theme) +

@@ -1,9 +1,15 @@
 import { c, css, useHost } from "atomico";
-import { tokensInput } from "../tokens";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { inputGenericProps } from "../props";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
+import { inputGenericProps } from "../props";
+import {
+    tokensSpace,
+    tokensColor,
+    tokensSize,
+    tokensBorder,
+    tokensOpacity,
+} from "../tokens";
 
 function checkbox({ tabIndex }) {
     const host = useHost();
@@ -45,11 +51,19 @@ checkbox.props = {
 };
 
 checkbox.styles = [
-    tokensInput,
-
+    tokensSpace,
+    tokensColor,
+    tokensSize,
+    tokensBorder,
+    tokensOpacity,
     css`
         :host {
             align-items: center;
+        }
+
+        :host([disabled]) {
+            opacity: var(--opacity-disabled);
+            pointer-events: none;
         }
 
         :host([checked]) .checkbox-state {
@@ -57,21 +71,21 @@ checkbox.styles = [
         }
 
         .checkbox {
-            --size: calc(var(--min-size) * 0.75);
+            --size: calc(var(--size-min) * 0.75);
             width: var(--size);
             height: var(--size);
             padding: 0px;
-            background: var(--color-checked);
-            color: var(--color-checked-contrast);
+            background: var(--color-box-layer);
+            color: var(--color-checked-fill);
             border-radius: calc(var(--border-radius) / 2);
             backdrop-filter: var(--backdrop);
-            box-shadow: var(--shadow-size) var(--shadow-color);
-            border: var(--border-width) solid var(--color-checked-divide);
+            box-shadow: var(--shadow);
+            border: var(--border-width) solid var(--color-checked-fill);
         }
 
         ::slotted([slot="icon"]),
         svg {
-            color: var(--color-checked-layer);
+            color: var(--color-checked-contrast);
         }
 
         slot[name="icon"] {
@@ -92,7 +106,7 @@ checkbox.styles = [
             max-height: var(--state-max-size);
             margin: auto;
             border-radius: calc(var(--border-radius) * 0.33);
-            background: var(--color-checked-contrast);
+            background: var(--color-checked-fill);
             opacity: 0;
         }
 

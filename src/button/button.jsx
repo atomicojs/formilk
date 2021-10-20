@@ -1,10 +1,16 @@
 import { c, css, useRef, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
-import { tokensInput } from "../tokens";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { inputGenericProps } from "../props";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
+import { inputGenericProps } from "../props";
+import {
+    tokensBorder,
+    tokensColor,
+    tokensOpacity,
+    tokensSize,
+    tokensSpace,
+} from "../tokens";
 
 /**
  *
@@ -22,7 +28,7 @@ function button({ type, name, value, theme, href, tabIndex }) {
         el.textContent.trim()
     );
     const disabled = useDisabled();
-    const [active, setActive] = useProp("active");
+    const [, setActive] = useProp("active");
 
     useRender(
         () =>
@@ -77,8 +83,8 @@ function button({ type, name, value, theme, href, tabIndex }) {
                         }
                     }
                     :host([theme]){
-                        --background: var(--color-${theme});
-                        --color: var(--color-${theme}-contrast, var(--color-primary-contrast));
+                        --color-fill: var(--color-${theme}-fill);
+                        --color-contrast: var(--color-${theme}-contrast);
                     }
                 `
                 }
@@ -125,18 +131,20 @@ button.props = {
 };
 
 button.styles = [
-    tokensInput,
+    tokensSpace,
+    tokensColor,
+    tokensSize,
+    tokensBorder,
+    tokensOpacity,
     css`
         :host {
-            --size: var(--min-size);
-            --background: var(
-                --color-current-layer,
-                var(--color-container-layer)
-            );
-            --color: var(
-                --color-current-contrast,
-                var(--color-container-contrast)
-            );
+            display: inline-flex;
+            font-size: 1em;
+            min-height: var(--size-min);
+        }
+        :host([disabled]) {
+            opacity: var(--opacity-disabled);
+            pointer-events: none;
         }
         .button {
             font: unset;
@@ -145,29 +153,29 @@ button.styles = [
             grid-gap: var(--space-between);
             align-items: center;
             justify-content: center;
-            min-height: var(--size);
+            min-height: var(--size-min);
             grid-template-columns: repeat(var(--columns), auto);
             line-height: 1em;
             position: relative;
-            background: var(--background);
-            color: var(--color);
+            background: var(--color-fill, var(--color-box-layer));
+            color: var(--color-contrast, var(--color-box-contrast));
             border-radius: calc(var(--border-radius) / 2);
             backdrop-filter: var(--backdrop);
             padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
-            border: var(--border-width) solid var(--color-current-divide);
+            border: var(--border-width) solid var(--color-divide);
             cursor: pointer;
             box-shadow: var(--shadow-size) var(--shadow-color);
         }
 
         :host([shape="square"]) .button {
             padding: 0px;
-            min-width: var(--size);
+            min-width: var(--size-min);
         }
 
         :host([size="small"]) .button {
-            min-height: calc(var(--size) * 0.8);
-            min-width: calc(var(--size) * 0.8);
+            min-height: calc(var(--size-min) * 0.8);
+            min-width: calc(var(--size-min) * 0.8);
         }
 
         :host([size="small"]::not([shape="square"])) {

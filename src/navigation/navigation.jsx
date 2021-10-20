@@ -1,5 +1,4 @@
 import { c, css, useRef, useProp } from "atomico";
-import { tokensNavigation, tokensContainer } from "../tokens";
 export { NavigationItem } from "./navigation-item";
 export { NavigationDropdown } from "./navigation-dropdown";
 
@@ -104,7 +103,6 @@ navigation.props = {
 };
 
 navigation.styles = [
-    tokensContainer,
     css`
         :host {
             display: block;

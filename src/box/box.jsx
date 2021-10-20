@@ -37,10 +37,9 @@ box.styles = [
             grid-gap: var(--space-between);
         }
         :host([model*="theme"]) {
-            background: var(--color-current, transparent);
-            color: var(--color-current-contrast, currentColor);
-            border: var(--border-width) solid
-                var(--color-current-divide, transparent);
+            background: var(--color-fill);
+            color: var(--color-contrast);
+            border: var(--border-width) solid var(--color-divide);
         }
     `,
 ];

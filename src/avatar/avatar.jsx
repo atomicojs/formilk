@@ -34,7 +34,7 @@ avatar.props = {
     size: {
         type: String,
         reflect: true,
-        value: "var(--min-size)",
+        value: "var(--size-min)",
     },
     transform: {
         type: String,
@@ -58,8 +58,8 @@ avatar.styles = [
             overflow: hidden;
             border-radius: calc(var(--border-radius) / 2);
             border: calc(var(--border-width) * 2) solid
-                var(--color-container-divide);
-            background: var(--color-container-layer);
+                var(--color-divide, var(--color-box-divide));
+            background: var(--color-layer, var(--color-box-layer));
             padding: 0px;
         }
         .avatar-inner {
