@@ -1,7 +1,7 @@
 import { c, css, useRef, useHost, useProp, useState, useEffect } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
-import { tokensColor, tokensSpace } from "../tokens";
+import { tokensColor, tokensShadow, tokensSpace } from "../tokens";
 
 /**
  *
@@ -70,10 +70,11 @@ function tooltip({ width, showWithOver }) {
                 onclick={handlerShow}
                 onmouseover={showWithOver && handlerShow}
                 ref={refSlot}
+                name="trigger"
             ></slot>
             <div class="tooltip">
                 <div class="tooltip-mask" ref={refSlotTooptip}>
-                    <slot name="tooltip"></slot>
+                    <slot></slot>
                 </div>
             </div>
             <style>{width && /*css*/ `:host{--tooptip-width:${width}};`}</style>
@@ -98,43 +99,61 @@ tooltip.props = {
 };
 
 tooltip.styles = [
+    tokensShadow,
     tokensColor,
     tokensSpace,
     css`
         :host {
             position: relative;
             display: inline-flex;
+            --color-fill: var(--color-current-layer, var(--color-box-layer));
+            --color-contrast: var(
+                --color-current-contrast,
+                var(--color-box-contrast)
+            );
+            --shadow: var(--shadow-layer);
         }
+
         :host([show]) .tooltip {
             visibility: visible;
         }
+
         :host([position~="top"]) .tooltip {
             bottom: 100%;
         }
+
         :host([position~="bottom"]) .tooltip {
             top: 100%;
         }
+
         :host([position~="center"]) .tooltip {
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
         }
+
         :host([position~="right"]) .tooltip {
             right: 0px;
         }
-        ::slotted([slot="tooltip"]) {
+
+        ::slotted([slot="trigger"]:not([disabled])) {
+            cursor: pointer;
+        }
+
+        ::slotted(:not([slot="trigger"])) {
             min-width: 100%;
         }
+
         .tooltip {
             width: var(--tooptip-width, auto);
             position: absolute;
             visibility: hidden;
             z-index: 1;
-            background: var(--color-layer, var(--color-box-layer));
+            background: var(--color-fill);
             border-radius: 0.5rem;
             padding: var(--space-around);
             box-sizing: border-box;
-            box-shadow: 0px 12px 40px -20px var(--color-shadow, var(--color-box-shadow));
+            box-shadow: var(--shadow);
         }
     `,
 ];

@@ -1,14 +1,14 @@
 ---
-title: fm-input-checkbox
+title: fm-checkbox
 ---
 
 Creates an `input[type=checkbox]` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
-<fm-input-checkbox>slot</fm-input-checkbox>
-<fm-input-checkbox checked>slot</fm-input-checkbox>
+<fm-switch></fm-switch>
+<fm-switch checked></fm-switch>
 <style>
-    fm-input-checkbox {
+    fm-switch {
         margin: 0.25rem;
     }
 </style>
@@ -22,12 +22,6 @@ Creates an `input[type=checkbox]` with effect on forms that adapts according to 
 | value    | string  | Define `input[value]`    |
 | checked  | boolean | Define `input[checked]`  |
 | disabled | boolean | Define `input[disabled]` |
-
-## Slots
-
-| Slot | Type    | Description                                        |
-| ---- | ------- | -------------------------------------------------- |
-| icon | Element | Icon to associate with the space reserved for icon |
 
 ## Custom properties
 

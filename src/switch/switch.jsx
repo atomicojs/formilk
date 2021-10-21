@@ -1,7 +1,7 @@
 import { c, css } from "atomico";
-import { useCheckbox } from "../hooks/use-checkbox";
-import { InputCheckbox } from "../input-checkbox/input-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
+import { useCheckbox } from "../hooks/use-checkbox";
+import { Checkbox } from "../checkbox/checkbox";
 
 function inputSwitch() {
     const refInput = useCheckbox("checkbox");
@@ -40,15 +40,15 @@ inputSwitch.styles = css`
     }
 
     :host([checked]) .checkbox {
-        background: currentColor;
+        background: var(--color-divide);
     }
 
     :host([checked]) .checkbox-state {
         opacity: 1;
         transform: translateX(var(--x));
         transform-origin: right center;
-        background: var(--color-checked-contrast);
+        background: var(--color-contrast);
     }
 `;
 
-export const InputSwitch = c(inputSwitch, InputCheckbox);
+export const Switch = c(inputSwitch, Checkbox);

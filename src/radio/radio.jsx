@@ -1,7 +1,7 @@
 import { c, css } from "atomico";
-import { InputCheckbox } from "../input-checkbox/input-checkbox";
-import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
+import { Checkbox } from "../checkbox/checkbox";
+import { useCheckbox } from "../hooks/use-checkbox";
 
 function radio() {
     const refInput = useCheckbox("radio");
@@ -33,4 +33,4 @@ radio.styles = css`
     }
 `;
 
-export const InputRadio = c(radio, InputCheckbox);
+export const Radio = c(radio, Checkbox);

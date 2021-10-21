@@ -44,10 +44,19 @@ avatar.props = {
 
 avatar.styles = [
     tokensSize,
-    tokensColor,
     tokensBorder,
+    tokensColor,
     css`
         :host {
+            --color-fill: var(--color-current-layer, var(--color-box-fill));
+            --color-divide: var(
+                --color-current-divide,
+                var(--color-box-divide)
+            );
+            --color-contrast: var(
+                --color-current-contrast,
+                var(--color-box-contrast)
+            );
             display: inline-flex;
             align-items: center;
             justify-items: center;
@@ -56,11 +65,11 @@ avatar.styles = [
             width: var(--size);
             height: var(--size);
             overflow: hidden;
-            border-radius: calc(var(--border-radius) / 2);
-            border: calc(var(--border-width) * 2) solid
-                var(--color-divide, var(--color-box-divide));
-            background: var(--color-layer, var(--color-box-layer));
+            border-radius: var(--border-radius);
+            border: calc(var(--border-width) * 2) solid var(--color-divide);
+            background: var(--color-fill);
             padding: 0px;
+            cursor: unset;
         }
         .avatar-inner {
             width: 100%;

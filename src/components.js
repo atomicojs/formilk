@@ -1,30 +1,34 @@
+import { Grid } from "./grid/grid";
+export { Grid } from "./grid/grid";
+customElements.define("fm-grid", Grid);
+
 import { Box } from "./box/box";
 export { Box } from "./box/box";
 customElements.define("fm-box", Box);
 
-import { InputBasic } from "./input-basic/input-basic";
-export { InputBasic } from "./input-basic/input-basic";
-customElements.define("fm-input-basic", InputBasic);
+import { Input } from "./input/input";
+export { Input } from "./input/input";
+customElements.define("fm-input", Input);
 
-import { InputSwitch } from "./input-switch/input-switch";
-export { InputSwitch } from "./input-switch/input-switch";
-customElements.define("fm-input-switch", InputSwitch);
+import { Checkbox } from "./checkbox/checkbox";
+export { Checkbox } from "./checkbox/checkbox";
+customElements.define("fm-checkbox", Checkbox);
 
-import { InputCheckbox } from "./input-checkbox/input-checkbox";
-export { InputCheckbox } from "./input-checkbox/input-checkbox";
-customElements.define("fm-input-checkbox", InputCheckbox);
+import { Switch } from "./switch/switch";
+export { Switch } from "./switch/switch";
+customElements.define("fm-switch", Switch);
 
-import { InputRadio } from "./input-radio/input-radio";
-export { InputRadio } from "./input-radio/input-radio";
-customElements.define("fm-input-radio", InputRadio);
+import { Radio } from "./radio/radio";
+export { Radio } from "./radio/radio";
+customElements.define("fm-radio", Radio);
 
 import { InputColor } from "./input-color/input-color";
 export { InputColor } from "./input-color/input-color";
 customElements.define("fm-input-color", InputColor);
 
-import { InputSelect } from "./input-select/input-select";
-export { InputSelect } from "./input-select/input-select";
-customElements.define("fm-input-select", InputSelect);
+import { Select } from "./select/select";
+export { Select } from "./select/select";
+customElements.define("fm-input-select", Select);
 
 import { Button } from "./button/button";
 export { Button } from "./button/button";

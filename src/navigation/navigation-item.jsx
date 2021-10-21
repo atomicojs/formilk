@@ -1,5 +1,4 @@
 import { c, css } from "atomico";
-import { tokensNavigation } from "../tokens";
 /**
  *
  * @param {import("atomico").Props<navigationItem.props>} props
@@ -43,7 +42,6 @@ navigationItem.props = {
 };
 
 navigationItem.styles = [
-    tokensNavigation,
     css`
         .navigation-item {
             display: flex;

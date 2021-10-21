@@ -1,5 +1,4 @@
 import { c, css, useRef } from "atomico";
-import { tokensNavigation } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 
 function navigationDropdown({ content }) {
@@ -31,7 +30,6 @@ navigationDropdown.props = {
 };
 
 navigationDropdown.styles = [
-    tokensNavigation,
     css`
         .navigation-box {
             position: relative;

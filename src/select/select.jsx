@@ -3,7 +3,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
-import { InputBasic } from "../input-basic/input-basic";
+import { Input } from "../input/input";
 
 /**
  *
@@ -71,7 +71,7 @@ select.props = {
 };
 
 select.styles = [
-    InputBasic.styles,
+    Input.styles,
     css`
         :host {
             display: inline-flex;
@@ -96,4 +96,4 @@ select.styles = [
     `,
 ];
 
-export const InputSelect = c(select);
+export const Select = c(select);

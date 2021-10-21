@@ -3,7 +3,7 @@ import * as gridUtils from "./grid-utils";
 
 const cache = {};
 
-export function getUtils(utils) {
+export function getUtils(utils, selector) {
     if (cache[utils]) return cache[utils];
     return (cache[utils] = parseCssParams(utils).reduce((css, utils) => {
         const [last] = utils.at(-1);
@@ -13,7 +13,7 @@ export function getUtils(utils) {
             css +
             `${
                 isMedia ? `@media (min-width: ${last}){` : ""
-            }:host{${utils.reduce(
+            }${selector}{${utils.reduce(
                 (css, [util, params]) =>
                     css + (util in gridUtils ? gridUtils[util](params) : ""),
                 ""

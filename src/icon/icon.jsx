@@ -43,7 +43,7 @@ icon.styles = css`
         margin: auto;
     }
     path {
-        fill: var(--color-contrast, currentColor);
+        fill: var(--color-status, currentColor);
     }
 `;
 

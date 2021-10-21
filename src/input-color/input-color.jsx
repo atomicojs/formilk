@@ -4,10 +4,10 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 import {
     tokensSpace,
-    tokensColor,
     tokensSize,
     tokensBorder,
     tokensOpacity,
+    tokensColor,
 } from "../tokens";
 
 function color({ name }) {
@@ -76,8 +76,8 @@ color.styles = [
 
         .color {
             background: var(--background);
-            border: var(--border-width) solid var(--color-primary);
-            border-radius: calc(var(--border-radius) / 2);
+            border: var(--border-width) solid var(--color-box-divide);
+            border-radius: var(--border-radius);
             width: var(--size-min);
             height: var(--size-min);
             position: relative;

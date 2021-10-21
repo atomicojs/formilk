@@ -5,10 +5,11 @@ import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { inputGenericProps } from "../props";
 import {
     tokensSpace,
-    tokensColor,
     tokensSize,
     tokensBorder,
     tokensOpacity,
+    tokensColor,
+    tokensShadow,
 } from "../tokens";
 
 function checkbox({ tabIndex }) {
@@ -52,13 +53,22 @@ checkbox.props = {
 
 checkbox.styles = [
     tokensSpace,
-    tokensColor,
     tokensSize,
     tokensBorder,
     tokensOpacity,
+    tokensColor,
+    tokensShadow,
     css`
         :host {
+            --color-fill: var(--color-checkbox-fill);
+            --color-divide: var(--color-checkbox-divide);
+            --color-contrast: var(--color-checkbox-contrast);
+            --shadow: var(--shadow-action);
             align-items: center;
+        }
+
+        :host([shadow]) {
+            box-shadow: var(--shadow);
         }
 
         :host([disabled]) {
@@ -75,17 +85,15 @@ checkbox.styles = [
             width: var(--size);
             height: var(--size);
             padding: 0px;
-            background: var(--color-box-layer);
-            color: var(--color-checked-fill);
-            border-radius: calc(var(--border-radius) / 2);
+            background: var(--color-fill);
+            border-radius: var(--border-radius);
             backdrop-filter: var(--backdrop);
-            box-shadow: var(--shadow);
-            border: var(--border-width) solid var(--color-checked-fill);
+            border: var(--border-width) solid var(--color-divide);
         }
 
         ::slotted([slot="icon"]),
         svg {
-            color: var(--color-checked-contrast);
+            color: var(--color-contrast);
         }
 
         slot[name="icon"] {
@@ -105,8 +113,8 @@ checkbox.styles = [
             max-width: var(--state-max-size);
             max-height: var(--state-max-size);
             margin: auto;
-            border-radius: calc(var(--border-radius) * 0.33);
-            background: var(--color-checked-fill);
+            border-radius: calc(var(--border-radius) * 0.75);
+            background: var(--color-divide);
             opacity: 0;
         }
 
@@ -117,4 +125,4 @@ checkbox.styles = [
     `,
 ];
 
-export const InputCheckbox = c(checkbox);
+export const Checkbox = c(checkbox);

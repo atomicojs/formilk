@@ -1,20 +1,23 @@
 ---
-title: fm-button
+title: fm-input
 ---
 
 Creates an `input` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
 <div>
-    <fm-input-basic placeholder="Placeholder">
-        <fm-icon slot="suffix"></fm-icon>
-    </fm-input-basic>
-    <fm-input-basic placeholder="Placeholder" theme="warning"></fm-input-basic>
-    <fm-input-basic placeholder="Placeholder" theme="danger"></fm-input-basic>
-    <fm-input-basic placeholder="Placeholder" theme="success"></fm-input-basic>
+    <fm-input placeholder="Placeholder">
+        <fm-icon size="10px" slot="suffix"></fm-icon>
+    </fm-input>
+    <fm-input placeholder="Placeholder" status="info">
+        <fm-icon size="10px" slot="suffix"></fm-icon>
+    </fm-input>
+    <fm-input placeholder="Placeholder" status="warning"></fm-input>
+    <fm-input placeholder="Placeholder" status="danger"></fm-input>
+    <fm-input placeholder="Placeholder" status="success"></fm-input>
 </div>
 <style>
-    fm-input-basic {
+    fm-input {
         margin: 1rem;
     }
     div {
@@ -54,20 +57,20 @@ Use the [input token system](/tokens/input)
 
 ## Examples
 
-### fm-input-basic with label
+### fm-input with label
 
 ```html preview
-<fm-input-basic>
+<fm-input>
     <span>Label:</span>
-</fm-input-basic>
+</fm-input>
 ```
 
-### fm-input-basic with icon
+### fm-input with icon
 
 Adjust the spaces in the layout to improve the visual of the icon.
 
 ```html preview
-<fm-input-basic>
+<fm-input>
     <svg slot="icon" height="1.5rem" viewBox="0 0 22 22">
         <circle
             cx="11"
@@ -78,15 +81,15 @@ Adjust the spaces in the layout to improve the visual of the icon.
             stroke="currentColor"
         ></circle>
     </svg>
-</fm-input-basic>
+</fm-input>
 ```
 
-### fm-input-basic with icon and label
+### fm-input with icon and label
 
 Adjust the spaces in the layout to improve the visual of the icon.
 
 ```html preview
-<fm-input-basic>
+<fm-input>
     <svg slot="icon" height="1.5rem" viewBox="0 0 22 22">
         <circle
             cx="11"
@@ -98,15 +101,15 @@ Adjust the spaces in the layout to improve the visual of the icon.
         ></circle>
     </svg>
     <span>Label</span>
-</fm-input-basic>
+</fm-input>
 ```
 
-### fm-input-basic[list]
+### fm-input[list]
 
 Allows the use of lists
 
 ```html preview
-<fm-input-basic list="browsers">
+<fm-input list="browsers">
     <span>Browser?</span>
     <datalist id="browsers">
         <option value="Edge"></option>
@@ -115,5 +118,5 @@ Allows the use of lists
         <option value="Opera"></option>
         <option value="Safari"></option>
     </datalist>
-</fm-input-basic>
+</fm-input>
 ```

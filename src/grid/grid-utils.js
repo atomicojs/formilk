@@ -30,7 +30,9 @@ export const margin = ([y = 1, x = y]) =>
     `padding:calc(var(--space-y) * ${y}) calc(var(--space-x) * ${x});`;
 
 export const padding = ([y = 1, x = y]) =>
-    `padding:calc(var(--space-y) * ${y}) calc(var(--space-x) * ${x});`;
+    y == "around" || y == "between"
+        ? `padding: var(--space-${y});`
+        : `padding:calc(var(--space-y) * ${y}) calc(var(--space-x) * ${x});`;
 
 export const gap = ([y = 1, x = y]) =>
     `grid-gap:calc(var(--space-between) * ${y}) calc(var(--space-between) * ${x}) !important;`;
@@ -38,26 +40,6 @@ export const gap = ([y = 1, x = y]) =>
 export const radius = ([value = 1]) =>
     `border-radius:calc(var(--border-radius) * ${value});`;
 
-export const themeFill = ([theme]) =>
-    `--color-fill: var(--color-${theme}-fill);`;
-
-export const themeContrast = ([theme]) =>
-    `--color-contrast: var(--color-${theme}-contrast);`;
-
-export const themeDivide = ([theme]) =>
-    `--color-divide: var(--color-${theme}-divide);`;
-
-export const themeLayer = ([theme]) =>
-    `--color-layer: var(--color-${theme}-layer);`;
-
-export const themeShadow = ([theme]) =>
-    `--color-shadow: var(--color-${theme}-shadow);`;
-
-export const theme = (theme) =>
-    themeFill(theme) +
-    themeContrast(theme) +
-    themeDivide(theme) +
-    themeLayer(theme) +
-    themeShadow(theme);
-
 export const cols = ([columns]) => `grid-template-columns:${columns};`;
+
+export const overflow = ([overflow = "auto"]) => `overflow:${overflow};`;

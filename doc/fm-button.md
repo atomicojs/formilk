@@ -5,16 +5,15 @@ title: fm-button
 Create a `button` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
-<fm-box>
+<fm-grid>
     <fm-button href="#" ghost> button </fm-button>
     <fm-button>button</fm-button>
-    <fm-button theme="primary">button</fm-button>
-    <fm-button theme="info">button</fm-button>
-    <fm-button theme="success">button</fm-button>
-    <fm-button theme="warning">button</fm-button>
-    <fm-button theme="danger">button</fm-button>
+    <fm-button status="info">button</fm-button>
+    <fm-button status="success">button</fm-button>
+    <fm-button status="warning">button</fm-button>
+    <fm-button status="danger">button</fm-button>
     <fm-button disabled>button</fm-button>
-</fm-box>
+</fm-grid>
 ```
 
 ## Properties

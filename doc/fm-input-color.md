@@ -1,5 +1,5 @@
 ---
-title: fm-input-checkbox
+title: fm-checkbox
 ---
 
 Creates an `input[type=color]` with effect on forms.

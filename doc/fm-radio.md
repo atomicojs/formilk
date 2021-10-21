@@ -1,16 +1,16 @@
 ---
-title: fm-input-checkbox
+title: fm-checkbox
 ---
 
 Creates an `input[type=radio]` with effect on forms.
 
 ```html preview
 <form>
-    <fm-input-radio name="radio" value="1">slot</fm-input-radio>
-    <fm-input-radio name="radio" value="2" checked>slot</fm-input-radio>
+    <fm-radio name="radio" value="1">slot</fm-radio>
+    <fm-radio name="radio" value="2" checked>slot</fm-radio>
 </form>
 <style>
-    fm-input-radio {
+    fm-radio {
         margin: 0.25rem;
     }
 </style>

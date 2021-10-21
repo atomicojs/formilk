@@ -7,7 +7,7 @@ Create a container as an alert that adapts according to the definition of the sl
 ```html preview
 <fm-label>
     Label
-    <fm-input-checkbox slot="action"></fm-input-checkbox>
+    <fm-checkbox slot="action"></fm-checkbox>
 </fm-label>
 <style>
     fm-label {

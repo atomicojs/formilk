@@ -2,16 +2,22 @@ import { c, useProp, useRef, css } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { tokensSpace, tokensColor, tokensSize, tokensBorder } from "../tokens";
+import {
+    tokensSpace,
+    tokensSize,
+    tokensBorder,
+    tokensColor,
+    tokensShadow,
+} from "../tokens";
 import { inputGenericProps } from "../props";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 
 /**
  *
- * @param {import("atomico").Props<inputBasic.props>} props
+ * @param {import("atomico").Props<input.props>} props
  * @returns
  */
-function inputBasic({ type, theme, ...props }) {
+function input({ type, status, ...props }) {
     const [, setValue] = useProp("value");
     const refSlotLabel = useRef();
     const refSlotPrefix = useRef();
@@ -81,8 +87,8 @@ function inputBasic({ type, theme, ...props }) {
                             : "0px"
                     };
                 }
-                :host([theme]) .input-line-fill{
-                    --color-divide: var(--color-${theme}-divide);
+                :host([status]) {
+                    --color-status: var(--color-status-${status});
                 }
                 `
             }</style>
@@ -90,7 +96,7 @@ function inputBasic({ type, theme, ...props }) {
     );
 }
 
-inputBasic.props = {
+input.props = {
     ...inputGenericProps,
     type: String,
     list: String,
@@ -102,18 +108,34 @@ inputBasic.props = {
     placeholder: String,
     checked: Boolean,
     disabled: { type: Boolean, reflect: true },
-    theme: {
+    status: {
         type: String,
         reflect: true,
     },
 };
 
-inputBasic.styles = [
+input.styles = [
     tokensSpace,
-    tokensColor,
     tokensSize,
     tokensBorder,
+    tokensColor,
+    tokensShadow,
     css`
+        :host {
+            --color-fill: var(--color-current-layer, var(--color-input-fill));
+            --color-divide: var(--color-input-divide);
+            --color-contrast: var(
+                --color-current-contrast,
+                var(--color-input-contrast)
+            );
+            --color-status: var(--color-input-status);
+            --shadow: var(--shadow-action);
+        }
+
+        :host([shadow]) {
+            box-shadow: var(--shadow);
+        }
+
         .input {
             display: grid;
             min-width: 100%;
@@ -121,12 +143,10 @@ inputBasic.styles = [
             align-items: stretch;
             padding: 0;
             position: relative;
-            background: var(--color-layer, var(--color-box-layer));
-            color: var(--color-contrast, var(--color-box-contrast));
-            border-radius: calc(var(--border-radius) / 2);
-            box-shadow: var(--shadow-size) var(--shadow-color);
-            border: var(--border-width) solid
-                var(--color-divide, var(--color-box-divide));
+            background: var(--color-fill);
+            color: var(--color-contrast);
+            border-radius: var(--border-radius);
+            border: var(--border-width) solid var(--color-divide);
             box-sizing: border-box;
             grid-gap: var(--space-between);
         }
@@ -187,7 +207,7 @@ inputBasic.styles = [
             width: 100%;
             height: 100%;
             border-radius: 1rem;
-            background: var(--color-divide, currentColor);
+            background: var(--color-status);
         }
 
         .hidden {
@@ -196,4 +216,4 @@ inputBasic.styles = [
     `,
 ];
 
-export const InputBasic = c(inputBasic);
+export const Input = c(input);

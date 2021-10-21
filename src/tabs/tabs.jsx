@@ -1,6 +1,7 @@
 import { c, css, useRef, useUpdate } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
+import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 
 function tabs() {
     const refSlotTabs = useRef();
@@ -68,23 +69,12 @@ tabs.props = {
 };
 
 tabs.styles = [
+    tokensSpace,
+    tokensBorder,
+    tokensColor,
     css`
-        :host {
-            display: grid;
-            background: var(--background);
-            color: var(--color);
-            border-radius: var(--border-radius);
-            backdrop-filter: var(--backdrop);
-            box-sizing: border-box;
-            border: var(--border-width) solid var(--color-container-divide);
-            box-shadow: var(--shadow-size) var(--shadow-color);
-        }
         :host([divide="top"]) .tabs-divide {
             order: -1;
-        }
-
-        ::slotted([apply-space]) {
-            padding: var(--space-y) var(--space-x);
         }
 
         .tabs-header {

@@ -6,17 +6,18 @@ import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { inputGenericProps } from "../props";
 import {
     tokensBorder,
-    tokensColor,
     tokensOpacity,
     tokensSize,
     tokensSpace,
+    tokensColor,
+    tokensShadow,
 } from "../tokens";
 
 /**
  *
  * @param {import("atomico").Props<button.props>} props
  */
-function button({ type, name, value, theme, href, tabIndex }) {
+function button({ type, name, value, status, href, tabIndex }) {
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
     const refSlotContent = useRef();
@@ -68,9 +69,12 @@ function button({ type, name, value, theme, href, tabIndex }) {
                 onmousedown={() => setActive(true)}
                 onmouseup={() => setActive(false)}
             >
-                <slot ref={refSlotPrefix} name="prefix"></slot>
-                <slot ref={refSlotContent}></slot>
-                <slot ref={refSlotSuffix} name="suffix"></slot>
+                <div class="button-layer"></div>
+                <div class="button-row">
+                    <slot ref={refSlotPrefix} name="prefix"></slot>
+                    <slot ref={refSlotContent}></slot>
+                    <slot ref={refSlotSuffix} name="suffix"></slot>
+                </div>
             </button>
             <style>
                 {
@@ -82,9 +86,9 @@ function button({ type, name, value, theme, href, tabIndex }) {
                             !!slotSuffix.length
                         }
                     }
-                    :host([theme]){
-                        --color-fill: var(--color-${theme}-fill);
-                        --color-contrast: var(--color-${theme}-contrast);
+                    :host([status]){
+                        --color-fill: var(--color-status-${status});
+                        --color-contrast: var(--color-status-contrast);
                     }
                 `
                 }
@@ -95,6 +99,7 @@ function button({ type, name, value, theme, href, tabIndex }) {
 
 button.props = {
     ...inputGenericProps,
+    tokensColor,
     ghost: {
         type: Boolean,
         reflect: true,
@@ -103,7 +108,7 @@ button.props = {
         type: String,
         value: "submit",
     },
-    theme: {
+    status: {
         type: String,
         reflect: true,
     },
@@ -132,20 +137,33 @@ button.props = {
 
 button.styles = [
     tokensSpace,
-    tokensColor,
     tokensSize,
     tokensBorder,
     tokensOpacity,
+    tokensColor,
+    tokensShadow,
     css`
         :host {
+            --color-fill: var(--color-button-fill);
+            --color-divide: var(--color-button-divide);
+            --color-contrast: var(--color-button-contrast);
+            --color-active: var(--color-button-active);
+            --color-hover: var(--color-button-hover);
+            --shadow: var(--shadow-action);
             display: inline-flex;
             font-size: 1em;
             min-height: var(--size-min);
         }
+
         :host([disabled]) {
             opacity: var(--opacity-disabled);
             pointer-events: none;
         }
+
+        :host([shadow]) {
+            box-shadow: var(--shadow);
+        }
+
         .button {
             font: unset;
             min-width: 100%;
@@ -157,15 +175,36 @@ button.styles = [
             grid-template-columns: repeat(var(--columns), auto);
             line-height: 1em;
             position: relative;
-            background: var(--color-fill, var(--color-box-layer));
+            background: var(--color-fill);
             color: var(--color-contrast, var(--color-box-contrast));
-            border-radius: calc(var(--border-radius) / 2);
+            border-radius: var(--border-radius);
             backdrop-filter: var(--backdrop);
             padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
             border: var(--border-width) solid var(--color-divide);
             cursor: pointer;
-            box-shadow: var(--shadow-size) var(--shadow-color);
+        }
+
+        .button-layer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: calc(var(--border-radius) * 0.85);
+            background: transparent;
+        }
+
+        .button-row {
+            position: relative;
+        }
+
+        :host(:hover:not([ghost])) .button-layer {
+            background: var(--color-hover);
+        }
+
+        :host([active]:not([ghost])) .button-layer {
+            background: var(--color-active);
         }
 
         :host([shape="square"]) .button {
@@ -186,6 +225,7 @@ button.styles = [
             background: transparent;
             border: none;
             box-shadow: none;
+            color: currentColor;
         }
 
         :host([size="small"]) {
