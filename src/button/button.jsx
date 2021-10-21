@@ -167,12 +167,8 @@ button.styles = [
         .button {
             font: unset;
             min-width: 100%;
-            display: grid;
-            grid-gap: var(--space-between);
-            align-items: center;
-            justify-content: center;
+
             min-height: var(--size-min);
-            grid-template-columns: repeat(var(--columns), auto);
             line-height: 1em;
             position: relative;
             background: var(--color-fill);
@@ -196,6 +192,11 @@ button.styles = [
         }
 
         .button-row {
+            display: grid;
+            grid-gap: var(--space-between);
+            grid-template-columns: repeat(var(--columns), auto);
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
 
