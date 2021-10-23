@@ -5,12 +5,12 @@ title: fm-checkbox
 Creates a `select` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
-<fm-input-select placeholder="Select item">
+<fm-select placeholder="Select item">
     <option value="1">Item 1</option>
     <option value="1">Item 2</option>
     <option value="1">Item 3</option>
-</fm-input-select>
-<fm-input-select>
+</fm-select>
+<fm-select>
     <optgroup label="Swedish Cars">
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
@@ -19,9 +19,9 @@ Creates a `select` with effect on forms that adapts according to the definition 
         <option value="mercedes">Mercedes</option>
         <option value="audi">Audi</option>
     </optgroup>
-</fm-input-select>
+</fm-select>
 <style>
-    fm-input-select {
+    fm-select {
         margin: 0.25rem;
     }
 </style>

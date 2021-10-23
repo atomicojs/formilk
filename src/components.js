@@ -28,7 +28,7 @@ customElements.define("fm-input-color", InputColor);
 
 import { Select } from "./select/select";
 export { Select } from "./select/select";
-customElements.define("fm-input-select", Select);
+customElements.define("fm-select", Select);
 
 import { Button } from "./button/button";
 export { Button } from "./button/button";
