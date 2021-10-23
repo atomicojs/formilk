@@ -1,3 +1,7 @@
+import { Theme } from "./theme/theme";
+export { Theme } from "./theme/theme";
+customElements.define("fm-theme", Theme);
+
 import { Grid } from "./grid/grid";
 export { Grid } from "./grid/grid";
 customElements.define("fm-grid", Grid);

@@ -2,6 +2,10 @@
 title: Tokens colors
 ---
 
+```html inject
+<fm-theme></fm-theme>
+```
+
 ### Custom properties
 
 | Custom property              | Type  |

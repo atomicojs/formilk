@@ -48,4 +48,6 @@ export const radius = ([value = 1]) =>
 
 export const cols = ([columns]) => `grid-template-columns:${columns};`;
 
+export const rows = ([rows]) => `grid-template-rows:${rows};`;
+
 export const overflow = ([overflow = "auto"]) => `overflow:${overflow};`;

@@ -35,25 +35,3 @@ Finally only instance the components to use from formilk from your HTML or JS.
     </form>
 </fm-box>
 ```
-
-## Use in React
-
-```js
-import ReactDom from "react-dom";
-import { Card, Button, InputBasic } from "formilk/components.react";
-
-function App() {
-    return (
-        <form>
-            <Card>
-                <h1 style="margin:0px">Login</h1>
-                <InputBasic>User:</InputBasic>
-                <InputBasic>Pass:</InputBasic>
-                <Button theme="primary">submit</Button>
-            </Card>
-        </form>
-    );
-}
-
-ReactDom.render(<App />, document.querySelector("#app"));
-```

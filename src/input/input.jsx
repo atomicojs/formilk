@@ -73,9 +73,8 @@ function input({ type, status, ...props }) {
                     </div>
                 </div>
             </div>
-            <style>{
-                /*css*/ `
-                :host{
+            <style>{`
+                :host {
                     --input-layer-left: ${
                         refLayerLeft.current?.clientWidth
                             ? `calc(${refLayerLeft.current?.clientWidth}px + var(--space-between) )`
@@ -90,8 +89,7 @@ function input({ type, status, ...props }) {
                 :host([status]) {
                     --color-status: var(--color-status-${status});
                 }
-                `
-            }</style>
+            `}</style>
         </host>
     );
 }
@@ -193,7 +191,7 @@ input.styles = [
 
         .input-line {
             width: 100%;
-            height: 0.125rem;
+            height: var(--border-width);
             padding: 0 var(--space-x);
             box-sizing: border-box;
             position: absolute;
