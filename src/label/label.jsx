@@ -89,6 +89,9 @@ label.styles = [
         .hidden {
             display: none;
         }
+        ::slotted([slot="action"]) {
+            cursor: pointer;
+        }
     `,
 ];
 

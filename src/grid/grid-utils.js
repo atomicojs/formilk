@@ -26,6 +26,12 @@ export const content = ([y, x]) =>
 export const repeat = ([length, type]) =>
     `grid-template-columns:repeat(${length},${type});`;
 
+export const autoFill = ([min, max = "1fr"]) =>
+    repeat(["auto-fill", `minmax(${min},${max})`]);
+
+export const autoFit = ([min, max = "1fr"]) =>
+    repeat(["auto-fit", `minmax(${min},${max})`]);
+
 export const margin = ([y = 1, x = y]) =>
     `padding:calc(var(--space-y) * ${y}) calc(var(--space-x) * ${x});`;
 

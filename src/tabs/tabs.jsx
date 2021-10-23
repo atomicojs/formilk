@@ -3,7 +3,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 
-function tabs() {
+function tabs({ active }) {
     const refSlotTabs = useRef();
     const refTabs = useRef();
     const slotTabs = useSlot(refSlotTabs);
@@ -20,9 +20,10 @@ function tabs() {
     );
 
     const currentTab = tabs.find(({ target }) => target.active);
+    const currentActive = currentTab?.target?.value || active;
 
     return (
-        <host shadowDom>
+        <host shadowDom active={currentActive}>
             <div class="tabs-header">
                 <div className="tabs-items" ref={refTabs}>
                     <slot
@@ -63,6 +64,10 @@ function tabs() {
 
 tabs.props = {
     divide: {
+        type: String,
+        reflect: true,
+    },
+    active: {
         type: String,
         reflect: true,
     },

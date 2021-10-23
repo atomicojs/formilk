@@ -5,16 +5,14 @@ title: fm-icon
 Exclusive icons from formilk code.
 
 ```html preview
-<fm-icon type="check"></fm-icon>
-<fm-icon type="down"></fm-icon>
-<fm-icon type="alert"></fm-icon>
-<fm-icon type="closed"></fm-icon>
-<fm-icon type="avatar"></fm-icon>
-<style>
-    fm-icon {
-        margin: 1rem;
-    }
-</style>
+<fm-grid>
+    <fm-icon type="check"></fm-icon>
+    <fm-icon type="down"></fm-icon>
+    <fm-icon type="alert"></fm-icon>
+    <fm-icon type="closed"></fm-icon>
+    <fm-icon type="avatar"></fm-icon>
+    <fm-grid></fm-grid
+></fm-grid>
 ```
 
 ## Replace formilk icons

@@ -89,6 +89,7 @@ checkbox.styles = [
             border-radius: var(--border-radius);
             backdrop-filter: var(--backdrop);
             border: var(--border-width) solid var(--color-divide);
+            cursor: unset;
         }
 
         ::slotted([slot="icon"]),

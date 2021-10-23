@@ -233,10 +233,10 @@ button.styles = [
             font-size: 0.75em;
             align-items: center;
         }
-        :host([align="left"]) .button {
+        :host([align="left"]) .button-row {
             justify-content: flex-start;
         }
-        :host([align="right"]) .button {
+        :host([align="right"]) .button-row {
             justify-content: flex-end;
         }
     `,

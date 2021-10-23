@@ -1,21 +1,19 @@
-import { c, css } from "atomico";
+import { c, css, useHost } from "atomico";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { Checkbox } from "../checkbox/checkbox";
 import { useCheckbox } from "../hooks/use-checkbox";
+import { useReflectEvent } from "../hooks/use-reflect-event";
 
 function radio() {
+    const host = useHost();
     const refInput = useCheckbox("radio");
     const disabled = useDisabled();
 
+    useReflectEvent(host, refInput, "click");
+
     return (
         <host shadowDom>
-            <button
-                class="checkbox"
-                onclick={(event) => {
-                    refInput.current.click();
-                }}
-                disabled={disabled}
-            >
+            <button class="checkbox" disabled={disabled}>
                 <div class="checkbox-state"></div>
             </button>
         </host>
