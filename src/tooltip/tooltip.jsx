@@ -70,7 +70,7 @@ function tooltip({ width, showWithOver }) {
                 onclick={handlerShow}
                 onmouseover={showWithOver && handlerShow}
                 ref={refSlot}
-                name="trigger"
+                name="action"
             ></slot>
             <div class="tooltip">
                 <div class="tooltip-mask" ref={refSlotTooptip}>
@@ -104,14 +104,14 @@ tooltip.styles = [
     tokensSpace,
     css`
         :host {
-            position: relative;
-            display: inline-flex;
             --color-fill: var(--color-current-layer, var(--color-box-layer));
             --color-contrast: var(
                 --color-current-contrast,
                 var(--color-box-contrast)
             );
             --shadow: var(--shadow-layer);
+            position: relative;
+            display: inline-flex;
         }
 
         :host([show]) .tooltip {
@@ -136,16 +136,21 @@ tooltip.styles = [
             right: 0px;
         }
 
-        ::slotted([slot="trigger"]:not([disabled])) {
+        ::slotted([slot="action"]:not([disabled])) {
             cursor: pointer;
         }
 
-        ::slotted(:not([slot="trigger"])) {
+        ::slotted(*) {
+            min-width: var(--tooltip-current-width);
+        }
+
+        ::slotted(:not([slot="action"])) {
             min-width: 100%;
         }
 
         .tooltip {
             width: var(--tooptip-width, auto);
+            --tooltip-current-width: 100%;
             position: absolute;
             visibility: hidden;
             z-index: 1;

@@ -19,7 +19,7 @@ Create a container as an alert that adapts according to the definition of the sl
         </div>
 
         <fm-tooltip width="200px">
-            <fm-avatar slot="trigger"></fm-avatar>
+            <fm-avatar slot="action"></fm-avatar>
             <fm-button ghost align="left">
                 <fm-icon size=".8rem" slot="prefix"></fm-icon> Edit profile
             </fm-button>
@@ -27,7 +27,7 @@ Create a container as an alert that adapts according to the definition of the sl
                 <fm-icon size=".8rem" slot="prefix"></fm-icon> Disconnect
             </fm-button>
             <fm-tooltip>
-                <fm-button slot="trigger" ghost align="left">
+                <fm-button slot="action" ghost align="left">
                     <fm-icon type="avatar" size=".8rem" slot="prefix"></fm-icon>
                     More options
                 </fm-button>
