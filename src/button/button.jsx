@@ -214,8 +214,8 @@ button.styles = [
         }
 
         :host([size="small"]) .button {
-            min-height: calc(var(--size-min) * 0.8);
-            min-width: calc(var(--size-min) * 0.8);
+            min-height: calc(var(--size-min) * var(--size-small));
+            min-width: calc(var(--size-min) * var(--size-small));
         }
 
         :host([size="small"]::not([shape="square"])) {
@@ -230,7 +230,7 @@ button.styles = [
         }
 
         :host([size="small"]) {
-            font-size: 0.75em;
+            font-size: calc(1em * var(--size-small));
             align-items: center;
         }
         :host([align="left"]) .button-row {

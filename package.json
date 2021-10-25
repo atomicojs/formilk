@@ -7,7 +7,7 @@
     "scripts": {
         "start": "vite --force",
         "build": "vite build --outDir docs",
-        "exports": "exports src/components.js --types --exports",
+        "exports": "exports src/components.js --types --exports --main components",
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
@@ -15,7 +15,7 @@
         "@atomico/exports": "latest",
         "@atomico/hooks": "^3.19.2",
         "@atomico/markdown": "latest",
-        "@uppercod/parse": "^0.1.0",
+        "@uppercod/parse": "^0.3.0",
         "atomico": "^1.33.0"
     },
     "devDependencies": {

@@ -1,30 +1,21 @@
 import { c } from "atomico";
-import { Input } from "../input/input";
-import { InputColor } from "../input-color/input-color";
-import { Grid } from "../grid/grid";
 import { tokens } from "../tokens";
 
 function theme() {
     return (
         <host shadowDom>
-            {Object.values(tokens).map(({ title }) => (
+            {Object.values(tokens).map(({ title, detail, children }) => (
                 <section>
-                    <h1>{title}</h1>
-                    <Grid model="repeat(5,120px) gap(,.5) rows(30px)">
-                        <Input type="number" size="small">
-                            <span slot="suffix">px</span>
-                        </Input>
-                        <Input type="number">
-                            <span slot="suffix">px</span>
-                        </Input>
-                        <Input type="number">
-                            <span slot="suffix">px</span>
-                        </Input>
-                        <Input type="number">
-                            <span slot="suffix">px</span>
-                        </Input>
-                        <InputColor></InputColor>
-                    </Grid>
+                    <h2>{title}</h2>
+                    {detail && <p>{detail}</p>}
+                    <ul>
+                        {children.map(([prop, value, detail]) => (
+                            <li>
+                                {detail && <p>{detail}</p>}
+                                <strong>{prop}</strong>:<code> {value}</code>
+                            </li>
+                        ))}
+                    </ul>
                 </section>
             ))}
         </host>
