@@ -74,10 +74,7 @@ export const tokensColor = css`
         color-button-contrast: #fff;
         color-button-divide: transparent;
         `}
-        /**
-         * components with input format, eg
-         * input and select
-         */
+
         ${tokenize`
         @title: Colors input;
         color-input-fill: var(--color-box-layer);
@@ -85,18 +82,14 @@ export const tokensColor = css`
         color-input-divide: transparent;
         color-input-status: currentColor;
         `}
-        /**
-         *
-         */
+
         ${tokenize`
         @title: Colors checkbox, radio and switch;
         color-checkbox-fill: var(--color-input-fill);
         color-checkbox-divide: var(--color-button-fill);
         color-checkbox-contrast: var(--color-button-contrast);
         `}
-        /**
-         *
-         */
+
         ${tokenize`
         @title: Colors divide;
         color-divide-fill: rgba(0, 0, 0, 0.1);
