@@ -1,6 +1,7 @@
 import { c, css, useRef, useProp } from "atomico";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
-import { tokensColor, tokensSpace } from "../tokens";
+import { tokensColor, tokensSpace, tokensTransition } from "../tokens";
+import { Divide } from "../divide/divide";
 export { AccordionGroup } from "./accordion-group";
 
 /**
@@ -26,7 +27,7 @@ function accordion() {
                         <slot name="header"></slot>
                     </div>
                 </button>
-                <div class="accordion-split"></div>
+                <Divide class="accordion-split"></Divide>
             </div>
             <div
                 class="accordion-mask"
@@ -62,6 +63,7 @@ accordion.props = {
 accordion.styles = [
     tokensSpace,
     tokensColor,
+    tokensTransition,
     css`
         :host {
             width: 100%;
@@ -80,16 +82,13 @@ accordion.styles = [
             position: relative;
         }
         .accordion-split {
-            width: 100%;
-            height: 2px;
-            transform-origin: center left;
-            background: var(--color-divide-fill);
-            transition: 0.6s ease all;
+            transform-origin: left center;
+            transition: var(--transition-x2);
         }
         .accordion-mask {
             width: 100%;
             overflow: hidden;
-            transition: 0.3s ease all;
+            transition: var(--transition-x1);
         }
 
         ::slotted(*) {

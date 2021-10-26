@@ -2,6 +2,7 @@ import { c, css, useRef, useUpdate } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
+import { Divide } from "../divide/divide";
 
 function tabs({ active }) {
     const refSlotTabs = useRef();
@@ -47,15 +48,13 @@ function tabs({ active }) {
                         name="tab"
                     ></slot>
                 </div>
-                <div class="tabs-divide">
-                    <div
-                        class="tabs-divide-mark"
-                        style={
-                            currentTab &&
-                            `--width: ${currentTab.target.clientWidth}px;--offset: ${currentTab.offset}px`
-                        }
-                    ></div>
-                </div>
+                <Divide
+                    style={
+                        currentTab
+                            ? `--mark-width: ${currentTab.target.clientWidth}px; --mark-offset: ${currentTab.offset}px;`
+                            : ""
+                    }
+                ></Divide>
             </div>
             {currentTab && <slot name={currentTab.target.value}></slot>}
         </host>
@@ -87,19 +86,6 @@ tabs.styles = [
             position: relative;
             display: flex;
             flex-flow: column nowrap;
-        }
-        .tabs-divide {
-            width: 100%;
-            height: var(--border-divide-width);
-            background: var(--color-divide-fill);
-            overflow: hidden;
-        }
-        .tabs-divide-mark {
-            width: var(--width);
-            height: 100%;
-            background: var(--color-divide-contrast);
-            transform: translateX(var(--offset));
-            transition: 0.3s ease all;
         }
     `,
 ];

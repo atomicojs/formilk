@@ -10,6 +10,10 @@ import { Box } from "./box/box";
 export { Box } from "./box/box";
 customElements.define("fm-box", Box);
 
+import { Divide } from "./divide/divide";
+export { Divide } from "./divide/divide";
+customElements.define("fm-divide", Divide);
+
 import { Input } from "./input/input";
 export { Input } from "./input/input";
 customElements.define("fm-input", Input);

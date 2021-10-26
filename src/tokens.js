@@ -27,8 +27,8 @@ export const tokensShadow = css`
         @title: Box shadow;
         @type: shadow;
         shadow-box: 0px 22px 44px -22px rgb(0, 0, 0, 0.33);
-        shadow-action: 0px 12px 12px -12px black;
-        shadow-layer: 0px 12px 40px -20px black;
+        shadow-action: 0px 12px 12px -12px rgb(0, 0, 0, 0.33);
+        shadow-layer: 0px 12px 40px -20px rgb(0, 0, 0, 0.33);
         `}
     }
 `;
@@ -92,7 +92,7 @@ export const tokensColor = css`
 
         ${tokenize`
         @title: Colors divide;
-        color-divide-fill: rgba(0, 0, 0, 0.1);
+        color-divide-fill: currentColor;
         color-divide-contrast: currentColor;
         `}
 
@@ -112,6 +112,17 @@ export const tokensOpacity = css`
         ${tokenize`
         @title: Opacity;
         opacity-disabled: 0.5;
+        opacity-divide: 0.15;
+        `}
+    }
+`;
+
+export const tokensTransition = css`
+    :host {
+        ${tokenize`
+        @title: Transitions;
+        transition-x1: .3s ease all;
+        transition-x2: .6s ease all;
         `}
     }
 `;
