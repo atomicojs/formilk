@@ -80,6 +80,7 @@ accordion.styles = [
             align-items: center;
             padding: var(--space-y) 0;
             position: relative;
+            color: currentColor;
         }
         .accordion-split {
             transform-origin: left center;

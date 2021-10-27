@@ -29,11 +29,6 @@ function accordionGroup({ disableAutoToggle }) {
 
 accordionGroup.props = {
     disableAutoToggle: Boolean,
-    applySpace: {
-        type: Boolean,
-        reflect: true,
-        value: true,
-    },
 };
 
 export const AccordionGroup = c(accordionGroup);

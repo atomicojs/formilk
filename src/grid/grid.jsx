@@ -1,4 +1,4 @@
-import { c, css, useRef } from "atomico";
+import { c, css, render, useRef } from "atomico";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";
@@ -6,22 +6,16 @@ import { getUtils } from "./utils";
 /**
  *  @param {import("atomico").Props<grid.props>} props
  */
-function grid({ model, forNested }) {
+function grid({ model }) {
     const refSlot = useRef();
     const slot = useSlot(refSlot).filter((el) => el instanceof Element);
-    const selector = forNested ? "::slotted(*)" : ":host";
+
     return (
         <host shadowDom>
             <slot ref={refSlot} />
             <style>
-                {
-                    /*css */ `${selector}{
-                    display: grid;
-                    grid-gap: var(--space-between);
-                    --items: ${slot.length}
-                }`
-                }
-                {model && getUtils(model, selector)}
+                {`:host{--items: ${slot.length}}`}
+                {model && getUtils(model, ":host")}
             </style>
         </host>
     );
@@ -32,12 +26,22 @@ grid.props = {
         type: String,
         reflect: true,
     },
-    forNested: {
-        type: Boolean,
-        reflect: true,
-    },
 };
 
-grid.styles = [tokensColor, tokensSpace, tokensBorder];
+grid.styles = [
+    tokensColor,
+    tokensSpace,
+    tokensBorder,
+    css`
+        :host {
+            display: grid;
+            gap: var(--gap-rows, var(--space-between))
+                var(--gap-cols, var(--space-between));
+        }
+        ::slotted(*) {
+            margin: 0px;
+        }
+    `,
+];
 
 export const Grid = c(grid);

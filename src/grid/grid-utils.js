@@ -17,8 +17,6 @@ export const grid = () => `display:grid;`;
 
 export const inline = () => `display:inline-grid!important;`;
 
-export const color = ([theme]) => `color: var(--color-${theme})!important;`;
-
 export const content = ([y, x]) =>
     (y ? `align-items:${gridPosition[y]};` : "") +
     (x ? `justify-content:${gridPosition[x]};` : "");
@@ -32,16 +30,27 @@ export const autoFill = ([min, max = "1fr"]) =>
 export const autoFit = ([min, max = "1fr"]) =>
     repeat(["auto-fit", `minmax(${min},${max})`]);
 
-export const margin = ([y = 1, x = y]) =>
-    `padding:calc(var(--space-y) * ${y}) calc(var(--space-x) * ${x});`;
+export const margin = (params) =>
+    padding(params).replace("padding:", "margin:");
 
-export const padding = ([y = 1, x = y]) =>
-    y == "around" || y == "between"
-        ? `padding: var(--space-${y});`
-        : `padding:calc(var(--space-y) * ${y}) calc(var(--space-x) * ${x});`;
+export const padding = (params) => {
+    params = !params.length ? [1, 1] : params;
+    return `padding:${params
+        .map((value, i) =>
+            value === "between"
+                ? "var(--gap, var(--space-between))"
+                : value === "around"
+                ? "var(--space-around)"
+                : /\d/.test(value)
+                ? `calc(var(--space-${i % 2 ? "x" : "y"}) * ${value || 1})`
+                : value
+        )
+        .join(" ")} ;`;
+};
 
 export const gap = ([y = 1, x = y]) =>
-    `grid-gap:calc(var(--space-between) * ${y}) calc(var(--space-between) * ${x}) !important;`;
+    `--gap-rows : calc(var(--space-between) * ${y});
+    --gap-cols: calc(var(--space-between) * ${x});`;
 
 export const radius = ([value = 1]) =>
     `border-radius:calc(var(--border-radius) * ${value});`;
