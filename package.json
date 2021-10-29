@@ -15,12 +15,12 @@
         "atomico": "^1.33.0"
     },
     "devDependencies": {
+        "@atomico/exports": "latest",
+        "@atomico/markdown": "latest",
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
         "doc-elements": "^2.0.2",
-        "@atomico/markdown": "latest",
         "typescript": "^4.2.4",
-        "@atomico/exports": "latest",
         "vite": "^2.6.13"
     },
     "prettier": {
