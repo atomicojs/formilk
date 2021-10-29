@@ -3,7 +3,7 @@ const gridPosition = {
     left: "flex-start",
     right: "flex-end",
     top: "flex-start",
-    left: "flex-end",
+    bottom: "flex-end",
     around: "space-around",
     between: "space-between",
     stretch: "space-stretch",
