@@ -1,11 +1,11 @@
 {
     "name": "formilk",
     "description": "Design system created with Atomico",
-    "version": "0.0.4",
+    "version": "0.1.0",
     "types": "./formilk.d.ts",
     "type": "module",
     "scripts": {
-        "start": "vite --force",
+        "start": "vite",
         "build": "vite build --outDir docs",
         "exports": "exports src/components.js --types --exports --main components",
         "prepublishOnly": "npm run exports"
