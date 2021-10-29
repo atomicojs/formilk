@@ -24,15 +24,11 @@ create a container to group content based on tabs
 
 ## Properties
 
-| Property       | Type                                      | Description                                                    |
-| -------------- | ----------------------------------------- | -------------------------------------------------------------- |
-| positionDivide | "top" or "bottom"                         | defines the position divide of the tabs                        |
-| position       | "top" or "bottom"                         | defines the position of the tabs                               |
-| value          | string                                    | Define `button[value]`                                         |
-| type           | string                                    | Define `button[type]`                                          |
-| disabled       | boolean                                   | Define `button[disabled]`                                      |
-| status         | "info", "success", "warning" or ""danger" | Import a color theme from the formilk custom properties system |
-| size           | "small" or "normal"                       | Change representation size                                     |
+| Property       | Type              | Description                             |
+| -------------- | ----------------- | --------------------------------------- |
+| positionDivide | "top" or "bottom" | defines the position divide of the tabs |
+| position       | "top" or "bottom" | defines the position of the tabs        |
+| active         | string            | active slot to show                     |
 
 ## Example [position] and [position-divide]
 

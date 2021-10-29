@@ -1,18 +1,15 @@
 ---
-title: fm-accordion
+title: Micro app
 ---
 
-Create a container as an alert that adapts according to the definition of the slot
-
 ```html preview
-<fm-grid model="width(320px)">
+<fm-grid model="width(280px)">
     <fm-box
         model="
         repeat(2,auto)
         content(center,between)
         padding
-        radius
-        shadow(1)"
+        radius"
     >
         <div>
             <strong>Brand</strong>

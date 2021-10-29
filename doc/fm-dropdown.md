@@ -2,7 +2,7 @@
 title: fm-dropdown
 ---
 
-Create a container as an alert that adapts according to the definition of the slot
+Create a dropdown
 
 ## Default
 
@@ -35,7 +35,22 @@ Create a container as an alert that adapts according to the definition of the sl
 </fm-dropdown>
 ```
 
-## Show with over
+## Properties
+
+| Property     | Type    | Description                                                                 |
+| ------------ | ------- | --------------------------------------------------------------------------- |
+| show         | boolean | defines the position divide of the tabs                                     |
+| showWithOver | boolean | defines the position of the tabs                                            |
+| position     | string  | the value is defined automatically, according to the window space           |
+| width        | string  | defines the width of the dropbox, this is inherited to all nested dropboxes |
+
+## Custom properties
+
+```html inject
+<fm-theme select="#colors-box, shadow-layer, space-around"></fm-theme>
+```
+
+## [show-with-over]
 
 ```html preview
 <fm-dropdown width="200px" show-with-over>

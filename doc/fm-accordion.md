@@ -35,3 +35,12 @@ Create a container as an alert that adapts according to the definition of the sl
     </fm-accordion-group>
 </fm-box>
 ```
+
+## fm-accordion
+
+### Properties
+
+| Property     | Type             | Description                                                     |
+| ------------ | ---------------- | --------------------------------------------------------------- |
+| show         | boolean          | avoid reflecting the click event                                |
+| iconPosition | "start" or "end" | default "start", associates an icon according to the show state |

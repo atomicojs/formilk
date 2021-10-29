@@ -1,7 +1,6 @@
 import { c, css, useRef, useUpdate } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
-import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 import { Divide } from "../divide/divide";
 
 function tabs({ active }) {
@@ -77,41 +76,36 @@ tabs.props = {
     },
 };
 
-tabs.styles = [
-    tokensSpace,
-    tokensBorder,
-    tokensColor,
-    css`
-        :host {
-            display: flex;
-            flex-flow: column nowrap;
-            min-height: 100%;
-        }
+tabs.styles = css`
+    :host {
+        display: flex;
+        flex-flow: column nowrap;
+        min-height: 100%;
+    }
 
-        :host([position-divide="top"]) .tabs-divide {
-            order: -1;
-        }
+    :host([position-divide="top"]) .tabs-divide {
+        order: -1;
+    }
 
-        :host([position="bottom"]) {
-            flex-flow: column-reverse nowrap;
-        }
+    :host([position="bottom"]) {
+        flex-flow: column-reverse nowrap;
+    }
 
-        .tabs-items {
-            display: flex;
-            overflow-x: auto;
-        }
+    .tabs-items {
+        display: flex;
+        overflow-x: auto;
+    }
 
-        .tabs-header {
-            width: 100%;
-            position: relative;
-            display: flex;
-            flex-flow: column nowrap;
-        }
-        ::slotted(:not([slot="tab"])) {
-            height: 100%;
-            overflow: auto;
-        }
-    `,
-];
+    .tabs-header {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    ::slotted(:not([slot="tab"])) {
+        height: 100%;
+        overflow: auto;
+    }
+`;
 
 export const Tabs = c(tabs);

@@ -2,7 +2,9 @@
 title: Formilk
 ---
 
-> Design system created by [UpperCod](https://twitter.com/uppercod) with the aim of achieving a unique aesthetic that subtly mixes gradients, solids and shadows. formilk was created to be used without complexity and interaction limitations.
+> Design system designed and created by [UpperCod](https://twitter.com/uppercod) with the aim of having a unique aesthetic, formilk was created to be used without complexity and interaction limitations.
+
+Formilk does not leverage typography (titles and texts), it is a stack of utility components that are managed through custom-properties, so creating variations is really easy.
 
 ## Installation
 
