@@ -58,9 +58,9 @@ import { Avatar } from "./avatar/avatar";
 export { Avatar } from "./avatar/avatar";
 customElements.define("fm-avatar", Avatar);
 
-import { Tooltip } from "./tooltip/tooltip";
-export { Tooltip } from "./tooltip/tooltip";
-customElements.define("fm-tooltip", Tooltip);
+import { Dropdown } from "./dropdown/dropdown";
+export { Dropdown } from "./dropdown/dropdown";
+customElements.define("fm-dropdown", Dropdown);
 
 import { Tabs } from "./tabs/tabs";
 export { Tabs } from "./tabs/tabs";

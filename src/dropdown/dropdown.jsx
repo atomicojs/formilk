@@ -5,9 +5,9 @@ import { tokensColor, tokensShadow, tokensSpace } from "../tokens";
 
 /**
  *
- * @param {import("atomico").Props<tooltip.props>} props
+ * @param {import("atomico").Props<dropdown.props>} props
  */
-function tooltip({ width, showWithOver }) {
+function dropdown({ width, showWithOver }) {
     const host = useHost();
     const refSlot = useRef();
     const refSlotTooptip = useRef();
@@ -22,7 +22,7 @@ function tooltip({ width, showWithOver }) {
     );
 
     const [parentShowWithOver, setShowWithOver] = useChannel(
-        "ToolTipShowWithOver"
+        "DropdownShowWithOver"
     );
 
     showWithOver = parentShowWithOver || showWithOver;
@@ -72,8 +72,8 @@ function tooltip({ width, showWithOver }) {
                 ref={refSlot}
                 name="action"
             ></slot>
-            <div class="tooltip">
-                <div class="tooltip-mask" ref={refSlotTooptip}>
+            <div class="dropdown">
+                <div class="dropdown-mask" ref={refSlotTooptip}>
                     <slot></slot>
                 </div>
             </div>
@@ -82,7 +82,7 @@ function tooltip({ width, showWithOver }) {
     );
 }
 
-tooltip.props = {
+dropdown.props = {
     show: {
         type: Boolean,
         reflect: true,
@@ -98,7 +98,7 @@ tooltip.props = {
     width: String,
 };
 
-tooltip.styles = [
+dropdown.styles = [
     tokensShadow,
     tokensColor,
     tokensSpace,
@@ -114,25 +114,25 @@ tooltip.styles = [
             display: inline-flex;
         }
 
-        :host([show]) .tooltip {
+        :host([show]) .dropdown {
             visibility: visible;
         }
 
-        :host([position~="top"]) .tooltip {
+        :host([position~="top"]) .dropdown {
             bottom: 100%;
         }
 
-        :host([position~="bottom"]) .tooltip {
+        :host([position~="bottom"]) .dropdown {
             top: 100%;
         }
 
-        :host([position~="center"]) .tooltip {
+        :host([position~="center"]) .dropdown {
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        :host([position~="right"]) .tooltip {
+        :host([position~="right"]) .dropdown {
             right: 0px;
         }
 
@@ -141,16 +141,16 @@ tooltip.styles = [
         }
 
         ::slotted(*) {
-            min-width: var(--tooltip-current-width);
+            min-width: var(--dropdown-current-width);
         }
 
         ::slotted(:not([slot="action"])) {
             min-width: 100%;
         }
 
-        .tooltip {
+        .dropdown {
             width: var(--tooptip-width, auto);
-            --tooltip-current-width: 100%;
+            --dropdown-current-width: 100%;
             position: absolute;
             visibility: hidden;
             z-index: 1;
@@ -163,4 +163,4 @@ tooltip.styles = [
     `,
 ];
 
-export const Tooltip = c(tooltip);
+export const Dropdown = c(dropdown);

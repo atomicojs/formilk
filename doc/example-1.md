@@ -18,7 +18,7 @@ Create a container as an alert that adapts according to the definition of the sl
             <strong>Brand</strong>
         </div>
 
-        <fm-tooltip width="200px">
+        <fm-dropdown width="200px">
             <fm-avatar slot="action"></fm-avatar>
             <fm-button ghost align="left">
                 <fm-icon size=".8rem" slot="prefix"></fm-icon> Edit profile
@@ -26,7 +26,7 @@ Create a container as an alert that adapts according to the definition of the sl
             <fm-button ghost align="left">
                 <fm-icon size=".8rem" slot="prefix"></fm-icon> Disconnect
             </fm-button>
-            <fm-tooltip>
+            <fm-dropdown>
                 <fm-button slot="action" ghost align="left">
                     <fm-icon type="avatar" size=".8rem" slot="prefix"></fm-icon>
                     More options
@@ -42,8 +42,8 @@ Create a container as an alert that adapts according to the definition of the sl
                     <fm-icon size=".8rem" slot="prefix"></fm-icon>
                     Remove
                 </fm-button>
-            </fm-tooltip>
-        </fm-tooltip>
+            </fm-dropdown>
+        </fm-dropdown>
     </fm-box>
     <fm-box>
         <fm-tabs>
