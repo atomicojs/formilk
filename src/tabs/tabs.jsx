@@ -49,6 +49,7 @@ function tabs({ active }) {
                     ></slot>
                 </div>
                 <Divide
+                    class="tabs-divide  "
                     style={
                         currentTab
                             ? `--mark-width: ${currentTab.target.clientWidth}px; --mark-offset: ${currentTab.offset}px;`
@@ -62,7 +63,11 @@ function tabs({ active }) {
 }
 
 tabs.props = {
-    divide: {
+    positionDivide: {
+        type: String,
+        reflect: true,
+    },
+    position: {
         type: String,
         reflect: true,
     },
@@ -77,8 +82,18 @@ tabs.styles = [
     tokensBorder,
     tokensColor,
     css`
-        :host([divide="top"]) .tabs-divide {
+        :host {
+            display: flex;
+            flex-flow: column nowrap;
+            min-height: 100%;
+        }
+
+        :host([position-divide="top"]) .tabs-divide {
             order: -1;
+        }
+
+        :host([position="bottom"]) {
+            flex-flow: column-reverse nowrap;
         }
 
         .tabs-items {
@@ -91,7 +106,10 @@ tabs.styles = [
             position: relative;
             display: flex;
             flex-flow: column nowrap;
-            overflow: hidden;
+        }
+        ::slotted(:not([slot="tab"])) {
+            height: 100%;
+            overflow: auto;
         }
     `,
 ];

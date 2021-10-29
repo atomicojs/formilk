@@ -66,11 +66,14 @@ Create a container as an alert that adapts according to the definition of the sl
 
 ## Slots
 
-| Slot       | Type    | Description                                                                                                                   |
-| ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| icon       | Element | Icon element that replaces the default icon, the color of the state can be inherited thanks to the custom property `--status` |
-| Unassigned | Element | Content                                                                                                                       |
+| Slot       | Type    | Description                   |
+| ---------- | ------- | ----------------------------- |
+| prefix     | Element | Reserved space before content |
+| suffix     | Element | Reserved space after content  |
+| Unassigned | Element | Content                       |
 
 ## Custom properties
 
-Use the [card token system](/tokens/card)
+```html inject
+<fm-theme select="space-y, space-x, #colors-box, #colors-status"></fm-theme>
+```

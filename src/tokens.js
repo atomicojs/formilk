@@ -84,7 +84,7 @@ export const tokensColor = css`
         `}
 
         ${tokenize`
-        @title: Colors checkbox, radio and switch;
+        @title: Colors checkbox;
         color-checkbox-fill: var(--color-input-fill);
         color-checkbox-divide: var(--color-button-fill);
         color-checkbox-contrast: var(--color-button-contrast);

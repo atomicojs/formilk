@@ -4,7 +4,6 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { inputGenericProps } from "../props";
 import {
-    tokensSpace,
     tokensSize,
     tokensBorder,
     tokensOpacity,
@@ -52,7 +51,6 @@ checkbox.props = {
 };
 
 checkbox.styles = [
-    tokensSpace,
     tokensSize,
     tokensBorder,
     tokensOpacity,

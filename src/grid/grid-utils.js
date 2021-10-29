@@ -9,9 +9,11 @@ const gridPosition = {
     stretch: "space-stretch",
 };
 
-export const width = ([width]) => `width:${width};`;
+export const size = ([w, h = w]) => width([w]) + height([h]);
 
-export const height = ([width]) => `height:${width};`;
+export const width = ([value]) => `width:${value};`;
+
+export const height = ([value]) => `height:${value};`;
 
 export const grid = () => `display: grid;`;
 

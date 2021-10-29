@@ -27,4 +27,8 @@ Creates an `input[type=radio]` with effect on forms.
 
 ## Custom properties
 
-Use the [input token system](/tokens/input)
+```html inject
+<fm-theme
+    select="size-min, shadow-action, border-radius, opacity-disabled, #colors-checkbox"
+></fm-theme>
+```

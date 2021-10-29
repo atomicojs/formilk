@@ -29,13 +29,17 @@ Creates a `select` with effect on forms that adapts according to the definition 
 
 ## Properties
 
-| Property | Type    | Description              |
-| -------- | ------- | ------------------------ |
-| name     | string  | Define `input[name]`     |
-| value    | string  | Define `input[value]`    |
-| checked  | boolean | Define `input[checked]`  |
-| disabled | boolean | Define `input[disabled]` |
+| Property | Type    | Description               |
+| -------- | ------- | ------------------------- |
+| name     | string  | Define `select[name]`     |
+| required | boolean | Define `select[value]`    |
+| shadow   | boolean | add token shadow-action   |
+| disabled | boolean | Define `select[disabled]` |
 
 ## Custom properties
 
-Use the [input token system](/tokens/input)
+```html inject
+<fm-theme
+    select="size-min, size-small, shadow-action, border-radius, space-x, space-y, #colors-input"
+></fm-theme>
+```

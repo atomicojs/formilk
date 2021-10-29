@@ -25,7 +25,9 @@ function input({ type, status, ...props }) {
     const refLayerLeft = useRef();
     const refLayerRight = useRef();
     const refInput = useRef();
-    const slotLabel = useSlot(refSlotLabel);
+    const slotLabel = useSlot(refSlotLabel).filter((el) =>
+        el instanceof Text ? el.textContent.trim() : true
+    );
     const slotPrefix = useSlot(refSlotPrefix);
     const slotSuffix = useSlot(refSlotSuffix);
 
@@ -85,6 +87,7 @@ function input({ type, status, ...props }) {
                             ? `calc(${refLayerRight.current?.clientWidth}px + var(--space-between) )`
                             : "0px"
                     };
+                    --columns-label: ${slotLabel.length};
                 }
                 :host([status]) {
                     --color-status: var(--color-status-${status});
@@ -184,9 +187,14 @@ input.styles = [
         .input-prefix,
         .input-suffix,
         .input-label {
-            display: flex;
+            display: grid;
             align-items: center;
             justify-content: center;
+            grid-gap: var(--space-between);
+        }
+
+        .input-label {
+            grid-template-columns: repeat(var(--columns-label), auto);
         }
 
         .input-line {
