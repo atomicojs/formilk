@@ -10,6 +10,10 @@ import { Box } from "./box/box";
 export { Box } from "./box/box";
 customElements.define("fm-box", Box);
 
+import { Placeholder } from "./placeholder/placeholder";
+export { Placeholder } from "./placeholder/placeholder";
+customElements.define("fm-placeholder", Placeholder);
+
 import { Divide } from "./divide/divide";
 export { Divide } from "./divide/divide";
 customElements.define("fm-divide", Divide);

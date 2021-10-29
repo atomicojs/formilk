@@ -4,7 +4,7 @@ title: Custumization
 
 ## Tokens
 
-Formilk uses a technique designed by [UpperCod] (https://twitter.com/uppercod) to contain instance and global tokens.
+Formilk uses a technique designed by [UpperCod](https://twitter.com/uppercod) to contain instance and global tokens.
 
 ### Global tokens
 

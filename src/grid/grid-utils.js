@@ -13,9 +13,11 @@ export const width = ([width]) => `width:${width};`;
 
 export const height = ([width]) => `height:${width};`;
 
-export const grid = () => `display:grid;`;
+export const grid = () => `display: grid;`;
 
-export const inline = () => `display:inline-grid!important;`;
+export const none = () => `display: none!important;`;
+
+export const inline = () => `display: inline-grid;`;
 
 export const content = ([y, x]) =>
     (y ? `align-items:${gridPosition[y]};` : "") +
@@ -33,12 +35,11 @@ export const autoFit = ([min, max = "1fr"]) =>
 export const margin = (params) =>
     padding(params).replace("padding:", "margin:");
 
-export const padding = (params) => {
-    params = !params.length ? [1, 1] : params;
-    return `padding:${params
+export const padding = ([top = 1, right, bottom = top, left = right]) =>
+    `padding:${[top, right, bottom, left]
         .map((value, i) =>
             value === "between"
-                ? "var(--gap, var(--space-between))"
+                ? "var(--space-between)"
                 : value === "around"
                 ? "var(--space-around)"
                 : /\d/.test(value)
@@ -46,11 +47,9 @@ export const padding = (params) => {
                 : value
         )
         .join(" ")} ;`;
-};
 
 export const gap = ([y = 1, x = y]) =>
-    `--gap-rows : calc(var(--space-between) * ${y});
-    --gap-cols: calc(var(--space-between) * ${x});`;
+    `grid-gap : calc(var(--space-between) * ${y}) calc(var(--space-between) * ${x}) !important;`;
 
 export const radius = ([value = 1]) =>
     `border-radius:calc(var(--border-radius) * ${value});`;

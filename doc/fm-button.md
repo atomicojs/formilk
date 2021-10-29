@@ -18,25 +18,30 @@ Create a `button` with effect on forms that adapts according to the definition o
 
 ## Properties
 
-| Property | Type                         | Description                                                    |
-| -------- | ---------------------------- | -------------------------------------------------------------- |
-| name     | string                       | Define `button[name]`                                          |
-| value    | string                       | Define `button[value]`                                         |
-| type     | string                       | Define `button[type]`                                          |
-| disabled | boolean                      | Define `button[disabled]`                                      |
-| theme    | string                       | Import a color theme from the formilk custom properties system |
-| size     | "small", "large" or "normal" | Change representation size                                     |
+| Property | Type                                     | Description                                                    |
+| -------- | ---------------------------------------- | -------------------------------------------------------------- |
+| name     | string                                   | Define `button[name]`                                          |
+| value    | string                                   | Define `button[value]`                                         |
+| type     | string                                   | Define `button[type]`                                          |
+| disabled | boolean                                  | Define `button[disabled]`                                      |
+| status   | "info", "danger", "warning" or "success" | Import a color theme from the formilk custom properties system |
+| size     | "small" or "normal"                      | Change representation size                                     |
 
 ## Slots
 
-| Slot       | Type    | Description                 |
-| ---------- | ------- | --------------------------- |
-| icon       | Element | Space reserved for the icon |
-| Unassigned | Element | General content             |
+| Slot       | Type    | Description                      |
+| ---------- | ------- | -------------------------------- |
+| prefix     | Element | reserved space before content    |
+| Unassigned | Element | General content                  |
+| suffix     | Element | space reserved for after content |
 
 ## Custom properties
 
-Use the [input token system](/tokens/input)
+```html inject
+<fm-theme
+    select="size-min, size-small, shadow-action, border-radius, space-x, space-y, #colors-button, #colors-status"
+></fm-theme>
+```
 
 ## Examples
 

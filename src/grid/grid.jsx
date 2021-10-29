@@ -35,9 +35,12 @@ grid.styles = [
     css`
         :host {
             display: grid;
-            gap: var(--gap-rows, var(--space-between))
-                var(--gap-cols, var(--space-between));
+            grid-gap: var(--space-between);
         }
+        :host(:not([model*="gap"])) {
+            --grid-gap: var(--space-between);
+        }
+
         ::slotted(*) {
             margin: 0px;
         }

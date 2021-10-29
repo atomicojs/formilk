@@ -81,11 +81,17 @@ tabs.styles = [
             order: -1;
         }
 
+        .tabs-items {
+            display: flex;
+            overflow-x: auto;
+        }
+
         .tabs-header {
             width: 100%;
             position: relative;
             display: flex;
             flex-flow: column nowrap;
+            overflow: hidden;
         }
     `,
 ];

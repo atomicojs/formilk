@@ -7,12 +7,19 @@ Exclusive icons from formilk code.
 ```html preview
 <fm-grid>
     <fm-icon type="check"></fm-icon>
+    <fm-icon type="up"></fm-icon>
+    <fm-icon type="right"></fm-icon>
     <fm-icon type="down"></fm-icon>
+    <fm-icon type="left"></fm-icon>
     <fm-icon type="alert"></fm-icon>
     <fm-icon type="closed"></fm-icon>
     <fm-icon type="avatar"></fm-icon>
-    <fm-grid></fm-grid
-></fm-grid>
+    <fm-icon type="lock"></fm-icon>
+    <fm-icon type="menu"></fm-icon>
+    <fm-icon type="image"></fm-icon>
+    <fm-icon type="video"></fm-icon>
+    <fm-icon type="audio"></fm-icon>
+</fm-grid>
 ```
 
 ## Replace formilk icons
