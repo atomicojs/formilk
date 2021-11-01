@@ -121,8 +121,13 @@ export const tokensTransition = css`
     :host {
         ${tokenize`
         @title: Transitions;
-        transition-x1: .3s ease all;
-        transition-x2: .6s ease all;
+        transition-ease: ease;
+        transition-s0: .2s;
+        transition-s1: .3s;
+        transition-s2: .6s;
+        transition-x0: var(--transition-s0) var(--transition-ease) all;
+        transition-x1: var(--transition-s1) var(--transition-ease) all;
+        transition-x2: var(--transition-s2) var(--transition-ease) all;
         `}
     }
 `;

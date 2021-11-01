@@ -1,13 +1,43 @@
-import { c, css, useHost } from "atomico";
+import { c, css, useHost, useRef, useUpdate } from "atomico";
+import { useSlot } from "@atomico/hooks/use-slot";
+import { usePromise } from "@atomico/hooks/use-promise";
 
-function icon({ type, size }) {
+const globalIcon = {};
+
+function icon({ type, size, define }) {
     const {
         current: { constructor },
     } = useHost();
 
+    const refDefine = useRef();
+
+    const slotDefine = useSlot(refDefine).filter(
+        (el) => el instanceof SVGElement
+    );
+
+    const [icon] = usePromise(
+        async () => {
+            const alias = define || type;
+            if (alias && !globalIcon[alias]) {
+                let resolve;
+                globalIcon[alias] = new Promise((r) => (resolve = r));
+                globalIcon[alias].resolve = resolve;
+            }
+
+            if (define && slotDefine.length) {
+                const [Icon] = slotDefine;
+                globalIcon[alias].resolve(<Icon />);
+            }
+
+            return globalIcon[alias];
+        },
+        !constructor[type] || define,
+        slotDefine
+    );
+
     return (
         <host shadowDom>
-            {constructor[type]}
+            {constructor[type] || icon}
             <style>
                 {size &&
                     /*css*/ `
@@ -16,6 +46,7 @@ function icon({ type, size }) {
                 }
             `}
             </style>
+            {define && <slot ref={refDefine}></slot>}
         </host>
     );
 }
@@ -27,6 +58,10 @@ icon.props = {
         value: "check",
     },
     size: {
+        type: String,
+        reflect: true,
+    },
+    define: {
         type: String,
         reflect: true,
     },
@@ -44,6 +79,9 @@ icon.styles = css`
     }
     path {
         fill: var(--color-status, var(--color-current-contrast, currentColor));
+    }
+    :host([define]) {
+        display: none;
     }
 `;
 

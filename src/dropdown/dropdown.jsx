@@ -1,7 +1,12 @@
 import { c, css, useRef, useHost, useProp, useState, useEffect } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
-import { tokensColor, tokensShadow, tokensSpace } from "../tokens";
+import {
+    tokensColor,
+    tokensShadow,
+    tokensSpace,
+    tokensTransition,
+} from "../tokens";
 
 /**
  *
@@ -72,8 +77,8 @@ function dropdown({ width, showWithOver }) {
                 ref={refSlot}
                 name="action"
             ></slot>
-            <div class="dropdown">
-                <div class="dropdown-mask" ref={refSlotTooptip}>
+            <div class="dropdown-mask">
+                <div class="dropdown" ref={refSlotTooptip}>
                     <slot></slot>
                 </div>
             </div>
@@ -102,6 +107,7 @@ dropdown.styles = [
     tokensShadow,
     tokensColor,
     tokensSpace,
+    tokensTransition,
     css`
         :host {
             --color-fill: var(--color-current-layer, var(--color-box-layer));
@@ -114,25 +120,36 @@ dropdown.styles = [
             display: inline-flex;
         }
 
-        :host([show]) .dropdown {
-            visibility: visible;
+        .dropdown-mask {
+            position: absolute;
+            transform: scale(0);
+            z-index: 1;
+            transition-delay: var(--transition-s0);
         }
 
-        :host([position~="top"]) .dropdown {
+        :host([show]) .dropdown-mask {
+            transform: scale(1);
+            transition-delay: 0s;
+        }
+
+        :host([position~="top"]) .dropdown-mask {
             bottom: 100%;
         }
 
-        :host([position~="bottom"]) .dropdown {
+        :host([position~="bottom"]) .dropdown-mask {
             top: 100%;
         }
 
-        :host([position~="center"]) .dropdown {
-            top: 100%;
+        :host([position~="center"]) .dropdown-mask {
             left: 50%;
+            transform: translateX(-50%) scale(0);
+        }
+
+        :host([show][position~="center"]) .dropdown-mask {
             transform: translateX(-50%);
         }
 
-        :host([position~="right"]) .dropdown {
+        :host([position~="right"]) .dropdown-mask {
             right: 0px;
         }
 
@@ -148,17 +165,31 @@ dropdown.styles = [
             min-width: 100%;
         }
 
+        :host([position~="top"]) {
+            --move-y: 10%;
+        }
+
+        :host([position~="bottom"]) {
+            --move-y: -10%;
+        }
+
+        :host([show]) .dropdown {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .dropdown {
             width: var(--tooptip-width, auto);
             --dropdown-current-width: 100%;
-            position: absolute;
-            visibility: hidden;
             z-index: 1;
             background: var(--color-fill);
             border-radius: 0.5rem;
             padding: var(--space-around);
             box-sizing: border-box;
             box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition-x0);
+            transform: translateY(var(--move-y));
         }
     `,
 ];
