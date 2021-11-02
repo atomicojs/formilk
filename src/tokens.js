@@ -2,7 +2,10 @@ import { css } from "atomico";
 import { createParseCssTokens } from "@uppercod/parse/parse-css-tokens";
 import options from "./options";
 
-const cssTokens = createParseCssTokens(options);
+const cssTokens = createParseCssTokens({
+    ...options,
+    prefix: options.prefix + "--",
+});
 
 export const tokens = cssTokens.tokens;
 

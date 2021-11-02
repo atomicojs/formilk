@@ -1,1 +1,1 @@
-export default { prefix: "fm--" };
+export default { prefix: "fm" };
