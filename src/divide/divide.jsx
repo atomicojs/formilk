@@ -3,19 +3,30 @@ import {
     tokensBorder,
     tokensColor,
     tokensOpacity,
+    tokensSpace,
     tokensTransition,
 } from "../tokens";
 
 function divide() {
     return (
         <host shadowDom>
-            <div class="divide-layer divide-fill"></div>
-            <div class="divide-layer divide-mark"></div>
+            <div class="divide">
+                <div class="divide-layer divide-fill"></div>
+                <div class="divide-layer divide-mark"></div>
+            </div>
         </host>
     );
 }
 
+divide.props = {
+    space: {
+        type: String,
+        reflect: true,
+    },
+};
+
 divide.styles = [
+    tokensSpace,
     tokensBorder,
     tokensColor,
     tokensOpacity,
@@ -24,6 +35,21 @@ divide.styles = [
         :host {
             --color-fill: var(--color-divide-fill);
             --color-contrast: var(--color-divide-contrast);
+            display: block;
+        }
+
+        :host([space="top"]) {
+            padding-top: var(--space-between);
+        }
+
+        :host([space="bottom"]) {
+            padding-bottom: var(--space-between);
+        }
+        :host([space]:not([space="bottom"]):not([space="top"])) {
+            padding: var(--space-between) 0;
+        }
+
+        .divide {
             display: block;
             position: relative;
             height: var(--border-divide-width);
