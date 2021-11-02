@@ -35,7 +35,7 @@ inputSwitch.styles = css`
         border-radius: 10vh;
         position: relative;
         transform: translateX(calc(var(--x) * -1));
-        opacity: 0.25;
+        opacity: var(--opacity-switch-off);
         transform-origin: left center;
     }
 

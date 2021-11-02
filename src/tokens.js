@@ -116,6 +116,7 @@ export const tokensOpacity = css`
         @title: Opacity;
         opacity-disabled: 0.5;
         opacity-divide: 0.15;
+        opacity-switch-off: 0.25;
         `}
     }
 `;
