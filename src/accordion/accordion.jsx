@@ -2,7 +2,6 @@ import { c, css, useRef, useProp } from "atomico";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { tokensColor, tokensSpace, tokensTransition } from "../tokens";
 import { Divide } from "../divide/divide";
-import { define } from "../define";
 export { AccordionGroup } from "./accordion-group";
 
 /**
