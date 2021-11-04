@@ -34,4 +34,4 @@ accordionGroup.props = {
 
 export const AccordionGroup = c(accordionGroup);
 
-customElements.define("accordion-group");
+customElements.define("accordion-group", AccordionGroup);
