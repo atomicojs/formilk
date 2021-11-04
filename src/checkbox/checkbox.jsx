@@ -10,6 +10,7 @@ import {
     tokensColor,
     tokensShadow,
 } from "../tokens";
+import customElements from "../custom-elements";
 
 function checkbox({ tabIndex }) {
     const host = useHost();
@@ -125,3 +126,5 @@ checkbox.styles = [
 ];
 
 export const Checkbox = c(checkbox);
+
+customElements.define("checkbox", Checkbox);

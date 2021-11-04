@@ -1,4 +1,5 @@
 import { c, css, useRef, useProp } from "atomico";
+import customElements from "../custom-elements";
 export { NavigationItem } from "./navigation-item";
 export { NavigationDropdown } from "./navigation-dropdown";
 
@@ -139,3 +140,5 @@ navigation.styles = [
 ];
 
 export const Navigation = c(navigation);
+
+customElements.define("navigation", Navigation);

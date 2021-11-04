@@ -1,4 +1,5 @@
 import { c, css } from "atomico";
+import customElements from "../custom-elements";
 /**
  *
  * @param {import("atomico").Props<navigationItem.props>} props
@@ -68,3 +69,5 @@ navigationItem.styles = [
 ];
 
 export const NavigationItem = c(navigationItem);
+
+customElements.define("navigation-item", NavigationItem);

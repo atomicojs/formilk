@@ -1,4 +1,5 @@
 import { c, css } from "atomico";
+import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { tokensSize, tokensBorder, tokensColor } from "../tokens";
 
@@ -90,3 +91,5 @@ avatar.styles = [
 ];
 
 export const Avatar = c(avatar);
+
+customElements.define("avatar", Avatar);

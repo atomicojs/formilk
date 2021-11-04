@@ -3,6 +3,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useCurrentValue } from "@atomico/hooks/use-current-value";
 import { tokensSize, tokensSpace } from "../tokens";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -96,3 +97,5 @@ label.styles = [
 ];
 
 export const Label = c(label);
+
+customElements.define("label", Label);

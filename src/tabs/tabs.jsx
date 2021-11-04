@@ -2,6 +2,7 @@ import { c, css, useRef, useUpdate } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { Divide } from "../divide/divide";
+import customElements from "../custom-elements";
 
 function tabs({ active }) {
     const refSlotTabs = useRef();
@@ -109,3 +110,5 @@ tabs.styles = css`
 `;
 
 export const Tabs = c(tabs);
+
+customElements.define("tabs", Tabs);

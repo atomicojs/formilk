@@ -4,6 +4,7 @@ import { Icon } from "../icon/icon";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { addListener } from "@atomico/hooks/use-listener";
 import { useResponsiveState } from "@atomico/hooks/use-responsive-state";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -121,3 +122,5 @@ placeholder.styles = [
 ];
 
 export const Placeholder = c(placeholder);
+
+customElements.define("placeholder", Placeholder);

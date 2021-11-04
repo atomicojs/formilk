@@ -2,6 +2,7 @@ import { c, css, render, useRef } from "atomico";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";
+import customElements from "../custom-elements";
 
 /**
  *  @param {import("atomico").Props<grid.props>} props
@@ -48,3 +49,5 @@ grid.styles = [
 ];
 
 export const Grid = c(grid);
+
+customElements.define("grid", Grid);

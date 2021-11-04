@@ -1,4 +1,5 @@
 import { css } from "atomico";
+import customElements from "../custom-elements";
 import { Grid } from "../grid/grid";
 import { tokensShadow } from "../tokens";
 
@@ -30,3 +31,5 @@ export class Box extends Grid {
         ];
     }
 }
+
+customElements.define("box", Box);

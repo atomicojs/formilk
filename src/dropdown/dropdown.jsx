@@ -7,6 +7,7 @@ import {
     tokensSpace,
     tokensTransition,
 } from "../tokens";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -195,3 +196,5 @@ dropdown.styles = [
 ];
 
 export const Dropdown = c(dropdown);
+
+customElements.define("dropdown", Dropdown);

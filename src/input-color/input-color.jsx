@@ -9,6 +9,7 @@ import {
     tokensOpacity,
     tokensColor,
 } from "../tokens";
+import customElements from "../custom-elements";
 
 function color({ name }) {
     const [value, setValue] = useProp("value");
@@ -87,3 +88,5 @@ color.styles = [
 ];
 
 export const InputColor = c(color);
+
+customElements.define("color", InputColor);

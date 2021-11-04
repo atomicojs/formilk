@@ -3,6 +3,7 @@ import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { tokensColor, tokensSpace, tokensTransition } from "../tokens";
 import { Divide } from "../divide/divide";
 export { AccordionGroup } from "./accordion-group";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -111,3 +112,5 @@ accordion.styles = [
 ];
 
 export const Accordion = c(accordion);
+
+customElements.define("accordion", Accordion);

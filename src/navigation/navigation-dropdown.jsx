@@ -1,5 +1,6 @@
 import { c, css, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
+import customElements from "../custom-elements";
 
 function navigationDropdown({ content }) {
     const refSlot = useRef();
@@ -51,3 +52,5 @@ navigationDropdown.styles = [
 ];
 
 export const NavigationDropdown = c(navigationDropdown);
+
+customElements.define("navigation-dropdown", NavigationDropdown);

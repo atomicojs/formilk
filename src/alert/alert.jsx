@@ -1,4 +1,5 @@
 import { c, css } from "atomico";
+import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { Label } from "../label/label";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
@@ -81,3 +82,5 @@ alert.styles = [
 ];
 
 export const Alert = c(alert);
+
+customElements.define("alert", Alert);

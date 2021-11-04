@@ -12,6 +12,7 @@ import {
     tokensColor,
     tokensShadow,
 } from "../tokens";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -243,3 +244,5 @@ button.styles = [
 ];
 
 export const Button = c(button);
+
+customElements.define("button", Button);

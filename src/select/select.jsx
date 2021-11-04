@@ -4,6 +4,7 @@ import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 import { Input } from "../input/input";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -97,3 +98,5 @@ select.styles = [
 ];
 
 export const Select = c(select);
+
+customElements.define("select", Select);

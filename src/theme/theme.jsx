@@ -1,4 +1,5 @@
 import { c } from "atomico";
+import customElements from "../custom-elements";
 import { tokens } from "../tokens";
 
 function theme({ select }) {
@@ -39,3 +40,5 @@ theme.props = {
 };
 
 export const Theme = c(theme);
+
+customElements.define("theme", Theme);

@@ -1,4 +1,5 @@
 import { c, css } from "atomico";
+import customElements from "../custom-elements";
 import {
     tokensBorder,
     tokensColor,
@@ -78,3 +79,5 @@ divide.styles = [
 ];
 
 export const Divide = c(divide);
+
+customElements.define("divide", Divide);

@@ -3,6 +3,7 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { Checkbox } from "../checkbox/checkbox";
+import customElements from "../custom-elements";
 
 function inputSwitch() {
     const host = useHost();
@@ -52,3 +53,5 @@ inputSwitch.styles = css`
 `;
 
 export const Switch = c(inputSwitch, Checkbox);
+
+customElements.define("switch", Switch);

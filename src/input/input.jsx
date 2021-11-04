@@ -11,6 +11,7 @@ import {
 } from "../tokens";
 import { inputGenericProps } from "../props";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -223,3 +224,5 @@ input.styles = [
 ];
 
 export const Input = c(input);
+
+customElements.define("input", Input);

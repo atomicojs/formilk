@@ -1,6 +1,7 @@
 import { c, css, useHost, useRef, useUpdate } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { usePromise } from "@atomico/hooks/use-promise";
+import customElements from "../custom-elements";
 
 const globalIcon = {};
 
@@ -232,3 +233,5 @@ export const Icon = c(
         );
     }
 );
+
+customElements.define("icon", Icon);

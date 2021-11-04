@@ -1,5 +1,6 @@
 import { c, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
+import customElements from "../custom-elements";
 
 /**
  *
@@ -32,3 +33,5 @@ accordionGroup.props = {
 };
 
 export const AccordionGroup = c(accordionGroup);
+
+customElements.define("accordion-group");
