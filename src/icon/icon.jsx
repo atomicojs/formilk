@@ -1,4 +1,4 @@
-import { c, css, useHost, useRef, useUpdate } from "atomico";
+import { c, css, useHost, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { usePromise } from "@atomico/hooks/use-promise";
 import customElements from "../custom-elements";
@@ -75,7 +75,7 @@ icon.styles = css`
         justify-items: center;
     }
     svg {
-        width: var(--size, 1rem);
+        width: var(--size, 1em);
         margin: auto;
     }
     path {

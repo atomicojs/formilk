@@ -13,7 +13,7 @@ import customElements from "../custom-elements";
  *
  * @param {import("atomico").Props<dropdown.props>} props
  */
-function dropdown({ width, showWithOver }) {
+function dropdown({ width, showWithOver, offset }) {
     const host = useHost();
     const refSlot = useRef();
     const refSlotTooptip = useRef();
@@ -36,6 +36,16 @@ function dropdown({ width, showWithOver }) {
     useEffect(() => setShowWithOver(showWithOver), [showWithOver]);
 
     const handlerShow = (event) => {
+        let { target } = event;
+
+        while (target) {
+            if (target.hasAttribute("dropdown-ignore")) {
+                return;
+            }
+            if (target === host.current) break;
+            target = target.parentElement;
+        }
+
         event.stopPropagation();
 
         const { x, y } = host.current.getBoundingClientRect();
@@ -83,7 +93,10 @@ function dropdown({ width, showWithOver }) {
                     <slot></slot>
                 </div>
             </div>
-            <style>{width && /*css*/ `:host{--tooptip-width:${width}};`}</style>
+            <style>
+                {width && `:host{--tooptip-width:${width}};`}
+                {offset && `:host{--tooptip-offset:${offset}};`}
+            </style>
         </host>
     );
 }
@@ -102,6 +115,14 @@ dropdown.props = {
         reflect: true,
     },
     width: String,
+    widthFull: {
+        type: Boolean,
+        reflect: true,
+    },
+    offset: {
+        type: String,
+        value: "0px",
+    },
 };
 
 dropdown.styles = [
@@ -126,11 +147,16 @@ dropdown.styles = [
             transform: scale(0);
             z-index: 1;
             transition-delay: var(--transition-s0);
+            padding: var(--tooptip-offset) 0px;
         }
 
         :host([show]) .dropdown-mask {
             transform: scale(1);
             transition-delay: 0s;
+        }
+
+        :host([width-full]) .dropdown-mask {
+            min-width: 100%;
         }
 
         :host([position~="top"]) .dropdown-mask {

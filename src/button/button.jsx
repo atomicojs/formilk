@@ -21,11 +21,15 @@ import customElements from "../custom-elements";
 function button({ type, name, value, status, href, tabIndex }) {
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
+    const refSlotPrefixOutBox = useRef();
+    const refSlotSuffixOutBox = useRef();
     const refSlotContent = useRef();
     const refButtonLightDom = useRef();
     const refButtonShadowDom = useRef();
-    const slotSuffix = useSlot(refSlotSuffix);
     const slotPrefix = useSlot(refSlotPrefix);
+    const slotSuffix = useSlot(refSlotSuffix);
+    const slotPrefixOutBox = useSlot(refSlotPrefixOutBox);
+    const slotSuffixOutBox = useSlot(refSlotSuffixOutBox);
     const slotContent = useSlot(refSlotContent).filter((el) =>
         el.textContent.trim()
     );
@@ -71,22 +75,42 @@ function button({ type, name, value, status, href, tabIndex }) {
                 onmouseup={() => setActive(false)}
             >
                 <div class="button-layer"></div>
-                <div class="button-row">
-                    <slot ref={refSlotPrefix} name="prefix"></slot>
-                    <slot ref={refSlotContent}></slot>
-                    <slot ref={refSlotSuffix} name="suffix"></slot>
+                <div
+                    class="button-row"
+                    style={`--columns:${
+                        !!slotPrefixOutBox.length +
+                        1 +
+                        !!slotSuffixOutBox.length
+                    };${
+                        slotPrefixOutBox.length
+                            ? "margin-left: var(--space-outbox);"
+                            : ""
+                    }${
+                        slotSuffixOutBox.length
+                            ? "margin-right: var(--space-outbox);"
+                            : ""
+                    }`}
+                >
+                    <slot ref={refSlotPrefixOutBox} name="prefix-outbox"></slot>
+                    <div
+                        class="button-row"
+                        style={`--columns:${
+                            !!slotPrefix.length +
+                            !!slotContent.length +
+                            !!slotSuffix.length
+                        }`}
+                    >
+                        <slot ref={refSlotPrefix} name="prefix"></slot>
+                        <slot ref={refSlotContent}></slot>
+                        <slot ref={refSlotSuffix} name="suffix"></slot>
+                    </div>
+                    <slot ref={refSlotSuffixOutBox} name="suffix-outbox"></slot>
                 </div>
             </button>
             <style>
                 {
                     /*css*/ `
-                    :host{
-                        --columns:${
-                            !!slotPrefix.length +
-                            !!slotContent.length +
-                            !!slotSuffix.length
-                        }
-                    }
+
                     :host([status]){
                         --color-fill: var(--color-status-${status});
                         --color-contrast: var(--color-status-contrast);
@@ -102,6 +126,10 @@ button.props = {
     ...inputGenericProps,
     tokensColor,
     ghost: {
+        type: Boolean,
+        reflect: true,
+    },
+    circle: {
         type: Boolean,
         reflect: true,
     },
@@ -151,6 +179,7 @@ button.styles = [
             --color-active: var(--color-button-active);
             --color-hover: var(--color-button-hover);
             --shadow: var(--shadow-action);
+            --space-outbox: calc(var(--space-x) / -2);
             display: inline-flex;
             font-size: 1em;
             min-height: var(--size-min);
@@ -165,10 +194,13 @@ button.styles = [
             box-shadow: var(--shadow);
         }
 
+        :host([circle]) {
+            --border-radius: 100px;
+        }
+
         .button {
             font: unset;
             min-width: 100%;
-
             min-height: var(--size-min);
             line-height: 1em;
             position: relative;
@@ -215,12 +247,17 @@ button.styles = [
         }
 
         :host([size="small"]) .button {
-            min-height: calc(var(--size-min) * var(--size-small));
-            min-width: calc(var(--size-min) * var(--size-small));
+            --current-size-small: calc(var(--size-min) * var(--size-small));
+            min-height: var(--current-size-small);
+            min-width: var(--current-size-small);
         }
 
-        :host([size="small"]::not([shape="square"])) {
-            padding: 0 var(--space-x);
+        :host([size="small"]:not([shape="square"])) .button {
+            padding: 0 calc(var(--space-x) * var(--size-small));
+        }
+
+        :host([size="small"]) .button-row {
+            grid-gap: calc(var(--space-between) * var(--size-small));
         }
 
         :host([ghost]) .button {
@@ -234,9 +271,11 @@ button.styles = [
             font-size: calc(1em * var(--size-small));
             align-items: center;
         }
+
         :host([align="left"]) .button-row {
             justify-content: flex-start;
         }
+
         :host([align="right"]) .button-row {
             justify-content: flex-end;
         }

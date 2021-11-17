@@ -28,7 +28,7 @@ function checkbox({ tabIndex }) {
             >
                 <div class="checkbox-state">
                     <slot name="icon">
-                        <svg width=".7rem" viewBox="0 0 11.192 8.364">
+                        <svg width="50%" viewBox="0 0 11.192 8.364">
                             <path
                                 d="M-1530.757,8.778a1,1,0,0,1-.67-.257l-.037-.035-2.829-2.829a1,1,0,0,1,0-1.414,1,1,0,0,1,1.415,0l2.121,2.122L-1525.1.707a1,1,0,0,1,1.414,0,1,1,0,0,1,0,1.414l-6.364,6.364a1,1,0,0,1-.707.293Z"
                                 transform="translate(1534.586 -0.414)"
@@ -49,6 +49,10 @@ checkbox.props = {
         value: "on",
     },
     checked: { type: Boolean, reflect: true },
+    size: {
+        type: String,
+        reflect: true,
+    },
 };
 
 checkbox.styles = [
@@ -63,7 +67,11 @@ checkbox.styles = [
             --color-divide: var(--color-checkbox-divide);
             --color-contrast: var(--color-checkbox-contrast);
             --shadow: var(--shadow-action);
+            --scale: var(--size-small);
+            --scale-state: 0.8;
+            --size: calc(var(--size-min) * var(--scale));
             align-items: center;
+            display: inline-flex;
         }
 
         :host([shadow]) {
@@ -80,7 +88,6 @@ checkbox.styles = [
         }
 
         .checkbox {
-            --size: calc(var(--size-min) * 0.75);
             width: var(--size);
             height: var(--size);
             padding: 0px;
@@ -105,8 +112,7 @@ checkbox.styles = [
         }
 
         .checkbox-state {
-            --state-scale: 0.8;
-            --state-size: calc((var(--size) * var(--state-scale)));
+            --state-size: calc((var(--size) * var(--scale-state)));
             --state-max-size: calc(var(--size) - (var(--border-width) * 2));
             width: var(--state-size);
             height: var(--state-size);
@@ -121,6 +127,11 @@ checkbox.styles = [
         .checkbox,
         .checkbox-state {
             transition: 0.3s ease all;
+        }
+
+        :host([size="small"]) {
+            --scale: var(--size-small) * var(--size-small);
+            --scale-state: 1;
         }
     `,
 ];

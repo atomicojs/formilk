@@ -9,6 +9,7 @@ Create a container as an alert that adapts according to the definition of the sl
     <h1 style="margin: 0px">Accordion</h1>
     <fm-accordion-group>
         <fm-accordion show>
+            <span slot="prefix">Prefix</span>
             <strong slot="header">Content 1</strong>
             <p>
                 Laute duis ipsum velit id tempor duis ut velit ea officia

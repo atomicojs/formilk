@@ -4,6 +4,7 @@ import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
 import { Input } from "../input/input";
+import { Icon } from "../icon/icon";
 import customElements from "../custom-elements";
 
 /**
@@ -46,18 +47,10 @@ function select({ name, placeholder }) {
             <div class="input">
                 <div class="input-icon">
                     <slot name="icon">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="10.486"
-                            height="6.242"
-                            viewBox="0 0 10.486 6.242"
-                        >
-                            <path
-                                d="M-7.051,242.364l-4.243-4.243a1,1,0,0,1,0-1.414,1,1,0,0,1,1.415,0l3.535,3.535,3.535-3.535a1,1,0,0,1,1.415,0,1,1,0,0,1,0,1.414l-4.243,4.243a1,1,0,0,1-.707.293A1,1,0,0,1-7.051,242.364Z"
-                                transform="translate(11.586 -236.414)"
-                                fill="var(--color-primary)"
-                            />
-                        </svg>
+                        <Icon
+                            type="down"
+                            size="calc(1em * var(--size-small))"
+                        ></Icon>
                     </slot>
                 </div>
                 <slot name="input"></slot>

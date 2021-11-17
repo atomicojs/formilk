@@ -24,6 +24,10 @@ function inputSwitch() {
 }
 
 inputSwitch.styles = css`
+    :host,
+    :host([size="small"]) {
+        --scale-state: 0.6;
+    }
     .checkbox {
         --scale: 1.7;
         width: calc(var(--size) * var(--scale));
@@ -31,7 +35,6 @@ inputSwitch.styles = css`
     }
 
     .checkbox-state {
-        --state-scale: 0.6;
         --x: calc((var(--size) * var(--scale) - var(--size)) / 2);
         border-radius: 10vh;
         position: relative;

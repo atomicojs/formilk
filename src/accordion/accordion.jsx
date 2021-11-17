@@ -14,16 +14,14 @@ function accordion() {
     const refSlot = useRef();
     const rect = useResizeObserverState(refSlot);
     const [show, setShow] = useProp("show");
+
     return (
         <host shadowDom>
-            <div class="accordion-header" renderOnce>
+            <div class="accordion-header">
                 <button
                     class="accordion-toggle"
                     onclick={() => setShow((show) => !show)}
                 >
-                    <div class="accordion-icon">
-                        <slot name={show ? "icon-show" : "icon-hide"}></slot>
-                    </div>
                     <div>
                         <slot name="header"></slot>
                     </div>
@@ -70,6 +68,7 @@ accordion.styles = [
             width: 100%;
             display: block;
         }
+
         .accordion-toggle {
             width: 100%;
             background: transparent;
@@ -82,11 +81,14 @@ accordion.styles = [
             padding: var(--space-y) 0;
             position: relative;
             color: currentColor;
+            grid-gap: var(--space-between);
         }
+
         .accordion-split {
             transform-origin: left center;
             transition: var(--transition-x2);
         }
+
         .accordion-mask {
             width: 100%;
             overflow: hidden;
@@ -96,17 +98,24 @@ accordion.styles = [
         ::slotted(*) {
             margin: 0px;
         }
+
         ::slotted([slot="header"]) {
             width: 100%;
         }
-        :host([icon-position="end"]) .accordion-icon {
+
+        :host([icon-position="end"]) .accordion-prefix {
             order: 1;
             margin-left: auto;
         }
+
         :host([show]) .accordion-split,
         :host(:not([split])) .accordion-split {
             transform: scaleX(0);
             opacity: 0;
+        }
+
+        .hidden {
+            display: none;
         }
     `,
 ];

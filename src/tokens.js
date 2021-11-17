@@ -19,7 +19,7 @@ export const tokensSize = css`
         @prop: Defines the minimum size for actions (input, button and others);
         size-min: 2.5rem;
         @prop: defines the scale to use when defining size as small;
-        size-small: 0.85;
+        size-small: 0.75;
         `}
     }
 `;
@@ -76,6 +76,7 @@ export const tokensColor = css`
         color-button-hover: rgba(255, 255, 255, 0.25);
         color-button-contrast: #fff;
         color-button-divide: transparent;
+        color-button-layer: rgba(255, 255, 255, 0.25);
         `}
 
         ${tokenize`

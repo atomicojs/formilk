@@ -34,6 +34,11 @@ export { Tabs } from "./tabs/tabs";
 
 export { Label } from "./label/label";
 
+export {
+    SelectDropdown,
+    SelectDropdownOption,
+} from "./select-dropdown/select-dropdown";
+
 export { Accordion, AccordionGroup } from "./accordion/accordion";
 
 export {

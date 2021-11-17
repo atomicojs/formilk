@@ -22,13 +22,13 @@ function radio() {
 }
 
 radio.styles = css`
+    :host,
+    :host([size="small"]) {
+        --scale-state: 0.6 !important;
+    }
     .checkbox,
     .checkbox-state {
         border-radius: 100%;
-    }
-
-    .checkbox-state {
-        --state-scale: 0.6;
     }
 `;
 
