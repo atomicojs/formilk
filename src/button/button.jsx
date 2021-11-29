@@ -181,7 +181,7 @@ button.styles = [
             --shadow: var(--shadow-action);
             --space-outbox: calc(var(--space-x) / -2);
             display: inline-flex;
-            font-size: 1em;
+            font-size: var(--size-font);
             min-height: var(--size-min);
         }
 
@@ -268,7 +268,7 @@ button.styles = [
         }
 
         :host([size="small"]) {
-            font-size: calc(1em * var(--size-small));
+            font-size: calc(var(--size-font) * var(--size-small));
             align-items: center;
         }
 
