@@ -1,4 +1,4 @@
-import { c, useRef, css } from "atomico";
+import { c, useRef, css, useUpdate, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
@@ -6,44 +6,51 @@ import { inputGenericProps } from "../props";
 import { Input } from "../input/input";
 import { Icon } from "../icon/icon";
 import customElements from "../custom-elements";
+export { SelectOption } from "./select-option";
 
 /**
  *
  * @param {import("atomico").Props<select.props>} props
  */
 function select({ name, placeholder }) {
-    const refSlot = useRef();
-    const childNodes = useSlot(refSlot);
+    const refSlotOption = useRef();
+    const slotOption = useSlot(refSlotOption);
     const disabled = useDisabled();
-    /**
-     * @type {(HTMLOptionElement|HTMLOptGroupElement)[]}
-     */
-    const options = childNodes.filter(
-        (child) =>
-            child instanceof HTMLOptionElement ||
-            child instanceof HTMLOptGroupElement
-    );
+    const update = useUpdate();
+    const [value, setValue] = useProp("value");
 
-    useRender(
-        () => (
-            <select slot="input" name={name} disabled={disabled}>
-                {placeholder && (
-                    <option value="" disabled selected>
-                        {placeholder}
+    useRender(() => (
+        <select
+            slot="input"
+            name={name}
+            disabled={disabled}
+            onchange={({ target: { value } }) => setValue(value)}
+        >
+            {placeholder && (
+                <option value="" disabled selected>
+                    {placeholder}
+                </option>
+            )}
+            {slotOption.map(function option(child) {
+                return child.options.length ? (
+                    <optgroup label={child.label}>
+                        {child.options.map(option)}
+                    </optgroup>
+                ) : (
+                    <option
+                        value={child.value}
+                        selected={value === child.value || child.selected}
+                    >
+                        {child.label || child.value}
                     </option>
-                )}
-                {options.map((child) => {
-                    const Child = child.cloneNode(true);
-                    return <Child />;
-                })}
-            </select>
-        ),
-        [disabled, name, placeholder, ...options]
-    );
+                );
+            })}
+        </select>
+    ));
 
     return (
-        <host shadowDom>
-            <slot class="options" ref={refSlot}></slot>
+        <host shadowDom onOptionChange={update}>
+            <slot name="option" ref={refSlotOption}></slot>
             <div class="input">
                 <div class="input-icon">
                     <slot name="icon">
