@@ -18,7 +18,7 @@ export { Radio } from "./radio/radio";
 
 export { InputColor } from "./input-color/input-color";
 
-export { Select } from "./select/select";
+export { Select, SelectOption } from "./select/select";
 
 export { Button } from "./button/button";
 
