@@ -274,10 +274,12 @@ button.styles = [
 
         :host([align="left"]) .button-row {
             justify-content: flex-start;
+            text-align: left;
         }
 
         :host([align="right"]) .button-row {
             justify-content: flex-end;
+            text-align: right;
         }
     `,
 ];
