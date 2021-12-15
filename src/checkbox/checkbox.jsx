@@ -49,10 +49,6 @@ checkbox.props = {
         value: "on",
     },
     checked: { type: Boolean, reflect: true },
-    size: {
-        type: String,
-        reflect: true,
-    },
 };
 
 checkbox.styles = [

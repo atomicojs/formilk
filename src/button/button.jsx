@@ -141,10 +141,6 @@ button.props = {
         type: String,
         reflect: true,
     },
-    size: {
-        type: String,
-        reflect: true,
-    },
     href: String,
     shape: {
         type: String,
