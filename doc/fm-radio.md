@@ -1,5 +1,5 @@
 ---
-title: fm-checkbox
+title: fm-radio
 ---
 
 Creates an `input[type=radio]` with effect on forms.

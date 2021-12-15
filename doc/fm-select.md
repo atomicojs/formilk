@@ -1,5 +1,5 @@
 ---
-title: fm-checkbox
+title: fm-select
 ---
 
 Creates a `select` with effect on forms that adapts according to the definition of the slot.

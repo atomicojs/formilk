@@ -1,5 +1,5 @@
 ---
-title: fm-search
+title: fm-select-dropdown(experimental)
 ---
 
 reflects the click event to the component defined as slot action

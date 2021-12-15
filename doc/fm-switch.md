@@ -1,5 +1,5 @@
 ---
-title: fm-checkbox
+title: fm-switch
 ---
 
 Creates an `input[type=checkbox]` with effect on forms that adapts according to the definition of the slot.
