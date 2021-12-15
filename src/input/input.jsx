@@ -110,6 +110,10 @@ input.props = {
     placeholder: String,
     checked: Boolean,
     disabled: { type: Boolean, reflect: true },
+    narrow: {
+        type: Boolean,
+        reflect: true,
+    },
     status: {
         type: String,
         reflect: true,
@@ -132,6 +136,13 @@ input.styles = [
             );
             --color-status: var(--color-input-status);
             --shadow: var(--shadow-action);
+            --padding-line: var(--space-x);
+            --padding: calc(var(--space-y) / 2)
+                calc(var(--space-x) + var(--input-layer-right, 0px))
+                calc(var(--space-y) / 2)
+                calc(var(--space-x) + var(--input-layer-left, 0px));
+
+            font-size: var(--size-font);
         }
 
         :host([shadow]) {
@@ -164,10 +175,7 @@ input.styles = [
             position: relative;
             z-index: 2;
             color: unset;
-            padding: calc(var(--space-y) / 2)
-                calc(var(--space-x) + var(--input-layer-right, 0px))
-                calc(var(--space-y) / 2)
-                calc(var(--space-x) + var(--input-layer-left, 0px));
+            padding: var(--padding);
         }
 
         .input-layer {
@@ -201,7 +209,7 @@ input.styles = [
         .input-line {
             width: 100%;
             height: var(--border-width);
-            padding: 0 var(--space-x);
+            padding: 0 var(--padding-line);
             box-sizing: border-box;
             position: absolute;
             bottom: 0;
@@ -219,6 +227,20 @@ input.styles = [
 
         .hidden {
             display: none;
+        }
+
+        :host([narrow]) {
+            --space-x: 0;
+        }
+
+        :host([size="small"]) .input {
+            font-size: calc(var(--size-font) * var(--size-small));
+            min-height: calc(var(--size-min) * var(--size-small));
+            --current-scale-x: calc(var(--space-x) * var(--size-small));
+            --padding-line: var(--current-scale-x);
+            --padding: 0
+                calc(var(--current-scale-x) + var(--input-layer-right, 0px)) 0
+                calc(var(--current-scale-x) + var(--input-layer-left, 0px));
         }
     `,
 ];
