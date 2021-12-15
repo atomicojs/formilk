@@ -91,7 +91,7 @@ select.styles = [
             display: flex;
             position: absolute;
             top: 50%;
-            right: var(--space-x);
+            right: var(--space-between);
             transform: translateY(-50%);
         }
     `,
