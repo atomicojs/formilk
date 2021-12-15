@@ -16,4 +16,8 @@ export const inputGenericProps = {
         type: Boolean,
         reflect: true,
     },
+    size: {
+        type: String,
+        reflect: true,
+    },
 };
