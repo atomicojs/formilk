@@ -121,8 +121,8 @@ select.styles = [
                 0px var(--input-space-x);
             --line-opacity: var(--opacity-disabled);
             --line-opacity: 0;
-            --font-scale: var(--size-font);
-            font-size: var(--font-scale);
+            --input-font-size: var(--size-font);
+            font-size: var(--input-font-size);
             display: inline-flex;
         }
         :host([shadow]) {
@@ -186,7 +186,7 @@ select.styles = [
             display: none;
         }
         :host([size="small"]) {
-            --font-scale: calc(var(--size-font) * var(--size-small));
+            --input-font-size: calc(var(--size-font) * var(--size-small));
             --input-height: calc(var(--size-min) * var(--size-small));
             --input-space-x: calc(var(--space-x) * var(--size-small));
             --input-space-between: calc(

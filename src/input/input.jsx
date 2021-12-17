@@ -141,10 +141,11 @@ input.styles = [
             );
             --color-status: var(--color-input-status);
             --shadow: var(--shadow-action);
-            --padding-line: var(--space-x);
-            --padding: 0 var(--space-x);
-            --opacity-line: var(--opacity-disabled);
-            font-size: var(--size-font);
+            --input-space-x: var(--space-x);
+            --input-padding: 0 var(--input-space-x);
+            --input-height: var(--size-min);
+            --line-opacity: var(--opacity-disabled);
+            font-size: var(--input-font-size);
         }
         :host([shadow]) {
             box-shadow: var(--shadow);
@@ -152,9 +153,9 @@ input.styles = [
         .input {
             display: grid;
             min-width: 100%;
-            min-height: var(--size-min);
+            min-height: var(--input-height);
             align-items: center;
-            padding: var(--padding);
+            padding: var(--input-padding);
             position: relative;
             background: var(--color-fill);
             color: var(--color-contrast);
@@ -181,14 +182,14 @@ input.styles = [
         .input-line {
             width: 100%;
             height: var(--border-width);
-            padding: 0 var(--padding-line);
+            padding: 0 var(--input-space-x);
             box-sizing: border-box;
             position: absolute;
             bottom: 0;
             left: 0;
             z-index: 3;
             transform: translateY(100%);
-            opacity: var(--opacity-line);
+            opacity: var(--line-opacity);
             transition: var(--transition-x0);
         }
         .input-line-fill {
@@ -200,18 +201,16 @@ input.styles = [
         .hidden {
             display: none;
         }
-        :host([size="small"]) .input {
-            font-size: calc(var(--size-font) * var(--size-small));
-            min-height: calc(var(--size-min) * var(--size-small));
-            --current-scale-x: calc(var(--space-x) * var(--size-small));
-            --padding-line: var(--current-scale-x);
-            --padding: 0 calc(var(--current-scale-x));
+        :host([size="small"]) {
+            --input-font-size: calc(var(--size-font) * var(--size-small));
+            --input-height: calc(var(--size-min) * var(--size-small));
+            --input-space-x: calc(var(--space-x) * var(--size-small));
         }
         :host([narrow]) {
             --space-x: 0;
         }
         :host([focused]) {
-            --opacity-line: 1;
+            --line-opacity: 1;
         }
         :host([ghost]) {
             --color-fill: transparent;

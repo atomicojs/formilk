@@ -7,7 +7,7 @@ Creates an `input` with effect on forms that adapts according to the definition 
 ```html preview
 <div>
     <strong>Default</strong>
-    <fm-input placeholder="Placeholder"> </fm-input>
+    <fm-input size="small" placeholder="Placeholder"> </fm-input>
     <strong>Status</strong>
     <fm-input placeholder="Placeholder" status="info">
         <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
