@@ -1,4 +1,4 @@
-import { c, useProp, useRef, css } from "atomico";
+import { c, useProp, useRef, css, useHost } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
@@ -8,10 +8,12 @@ import {
     tokensBorder,
     tokensColor,
     tokensShadow,
+    tokensOpacity,
+    tokensTransition,
 } from "../tokens";
 import { inputGenericProps } from "../props";
-import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import customElements from "../custom-elements";
+import { serialize } from "../utils";
 
 /**
  *
@@ -20,11 +22,12 @@ import customElements from "../custom-elements";
  */
 function input({ type, status, ...props }) {
     const [, setValue] = useProp("value");
+    const [, setFocus] = useProp("focused");
     const refSlotLabel = useRef();
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
-    const refLayerLeft = useRef();
-    const refLayerRight = useRef();
+    const host = useHost();
+
     const refInput = useRef();
     const slotLabel = useSlot(refSlotLabel).filter((el) =>
         el instanceof Text ? el.textContent.trim() : true
@@ -32,63 +35,60 @@ function input({ type, status, ...props }) {
     const slotPrefix = useSlot(refSlotPrefix);
     const slotSuffix = useSlot(refSlotSuffix);
 
-    useResizeObserverState(refLayerLeft);
-    useResizeObserverState(refLayerRight);
-
     useRender(() => (
-        <input type={type} {...props} slot="input" ref={refInput} />
+        <input
+            onfocus={() => setFocus(true)}
+            onblur={() => setFocus(false)}
+            type={type}
+            {...props}
+            slot="input"
+            ref={refInput}
+        />
     ));
 
     useDisabled();
 
     return (
-        <host shadowDom oninput={() => setValue(refInput.current.value)}>
+        <host
+            shadowDom
+            oninput={() => setValue(refInput.current.value)}
+            onclick={({ target }) => {
+                while (target && target != host.current) {
+                    if (target.hasAttribute("focusable")) return;
+                    target = target.parentElement;
+                }
+                refInput.current.focus();
+            }}
+        >
             <div class="input">
-                <div class="input-layer input-layer-left" ref={refLayerLeft}>
-                    <div
-                        class={`input-prefix ${
-                            slotPrefix.length ? "" : "hidden"
-                        }`}
-                    >
-                        <slot ref={refSlotPrefix} name="prefix"></slot>
-                    </div>
-                    <div
-                        class={`input-label ${
-                            slotLabel.length ? "" : "hidden"
-                        }`}
-                    >
-                        <slot ref={refSlotLabel}></slot>
-                    </div>
-                </div>
-                <div class="input-slot">
-                    <slot name="input"></slot>
-                    <div class="input-line">
-                        <div class="input-line-fill"></div>
-                    </div>
-                </div>
-                <div class="input-layer input-layer-right" ref={refLayerRight}>
-                    <div
-                        class={`input-suffix ${
-                            slotSuffix.length ? "" : "hidden"
-                        }`}
-                    >
-                        <slot ref={refSlotSuffix} name="suffix"></slot>
-                    </div>
+                <slot
+                    ref={refSlotPrefix}
+                    name="prefix"
+                    class={serialize(!slotPrefix.length && "hidden")}
+                ></slot>
+                <slot
+                    ref={refSlotLabel}
+                    class={serialize(!slotLabel.length && "hidden")}
+                ></slot>
+                <slot name="input"></slot>
+                <slot
+                    ref={refSlotSuffix}
+                    name="suffix"
+                    class={serialize(!slotSuffix.length && "hidden")}
+                ></slot>
+                <div class="input-line">
+                    <div class="input-line-fill"></div>
                 </div>
             </div>
             <style>{`
                 :host {
-                    --input-layer-left: ${
-                        refLayerLeft.current?.clientWidth
-                            ? `calc(${refLayerLeft.current?.clientWidth}px + var(--space-between) )`
-                            : "0px"
-                    };
-                    --input-layer-right: ${
-                        refLayerRight.current?.clientWidth
-                            ? `calc(${refLayerRight.current?.clientWidth}px + var(--space-between) )`
-                            : "0px"
-                    };
                     --columns-label: ${slotLabel.length};
+                    --columns: ${serialize(
+                        slotPrefix.length && "auto",
+                        slotLabel.length && "auto",
+                        "1fr",
+                        slotSuffix.length && "auto"
+                    )};
                 }
                 :host([status]) {
                     --color-status: var(--color-status-${status});
@@ -109,13 +109,16 @@ input.props = {
     maxLength: Number,
     placeholder: String,
     checked: Boolean,
-    disabled: { type: Boolean, reflect: true },
+    status: {
+        type: String,
+        reflect: true,
+    },
     narrow: {
         type: Boolean,
         reflect: true,
     },
-    status: {
-        type: String,
+    ghost: {
+        type: Boolean,
         reflect: true,
     },
 };
@@ -126,6 +129,8 @@ input.styles = [
     tokensBorder,
     tokensColor,
     tokensShadow,
+    tokensOpacity,
+    tokensTransition,
     css`
         :host {
             --color-fill: var(--color-current-layer, var(--color-input-fill));
@@ -137,24 +142,19 @@ input.styles = [
             --color-status: var(--color-input-status);
             --shadow: var(--shadow-action);
             --padding-line: var(--space-x);
-            --padding: calc(var(--space-y) / 2)
-                calc(var(--space-x) + var(--input-layer-right, 0px))
-                calc(var(--space-y) / 2)
-                calc(var(--space-x) + var(--input-layer-left, 0px));
-
+            --padding: 0 var(--space-x);
+            --opacity-line: var(--opacity-disabled);
             font-size: var(--size-font);
         }
-
         :host([shadow]) {
             box-shadow: var(--shadow);
         }
-
         .input {
             display: grid;
             min-width: 100%;
             min-height: var(--size-min);
-            align-items: stretch;
-            padding: 0;
+            align-items: center;
+            padding: var(--padding);
             position: relative;
             background: var(--color-fill);
             color: var(--color-contrast);
@@ -162,8 +162,8 @@ input.styles = [
             border: var(--border-width) solid var(--color-divide);
             box-sizing: border-box;
             grid-gap: var(--space-between);
+            grid-template-columns: var(--columns);
         }
-
         ::slotted([slot="input"]) {
             width: 100%;
             height: 100%;
@@ -175,37 +175,9 @@ input.styles = [
             position: relative;
             z-index: 2;
             color: unset;
-            padding: var(--padding);
+            outline: none;
+            padding: 0px;
         }
-
-        .input-layer {
-            height: 100%;
-            position: absolute;
-            display: flex;
-            align-items: center;
-        }
-
-        .input-layer-left {
-            left: var(--space-x);
-        }
-
-        .input-layer-right {
-            right: var(--space-x);
-        }
-
-        .input-prefix,
-        .input-suffix,
-        .input-label {
-            display: grid;
-            align-items: center;
-            justify-content: center;
-            grid-gap: var(--space-between);
-        }
-
-        .input-label {
-            grid-template-columns: repeat(var(--columns-label), auto);
-        }
-
         .input-line {
             width: 100%;
             height: var(--border-width);
@@ -216,31 +188,33 @@ input.styles = [
             left: 0;
             z-index: 3;
             transform: translateY(100%);
+            opacity: var(--opacity-line);
+            transition: var(--transition-x0);
         }
-
         .input-line-fill {
             width: 100%;
             height: 100%;
             border-radius: 1rem;
             background: var(--color-status);
         }
-
         .hidden {
             display: none;
         }
-
-        :host([narrow]) {
-            --space-x: 0;
-        }
-
         :host([size="small"]) .input {
             font-size: calc(var(--size-font) * var(--size-small));
             min-height: calc(var(--size-min) * var(--size-small));
             --current-scale-x: calc(var(--space-x) * var(--size-small));
             --padding-line: var(--current-scale-x);
-            --padding: 0
-                calc(var(--current-scale-x) + var(--input-layer-right, 0px)) 0
-                calc(var(--current-scale-x) + var(--input-layer-left, 0px));
+            --padding: 0 calc(var(--current-scale-x));
+        }
+        :host([narrow]) {
+            --space-x: 0;
+        }
+        :host([focused]) {
+            --opacity-line: 1;
+        }
+        :host([ghost]) {
+            --color-fill: transparent;
         }
     `,
 ];

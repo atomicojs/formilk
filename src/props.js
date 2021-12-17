@@ -20,4 +20,13 @@ export const inputGenericProps = {
         type: String,
         reflect: true,
     },
+    focused: {
+        type: Boolean,
+        reflect: true,
+    },
+    focusable: {
+        type: Boolean,
+        reflect: true,
+        value: true,
+    },
 };

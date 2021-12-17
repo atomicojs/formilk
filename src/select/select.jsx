@@ -3,7 +3,15 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { inputGenericProps } from "../props";
-import { Input } from "../input/input";
+import {
+    tokensSpace,
+    tokensSize,
+    tokensBorder,
+    tokensColor,
+    tokensShadow,
+    tokensOpacity,
+    tokensTransition,
+} from "../tokens";
 import { Icon } from "../icon/icon";
 import customElements from "../custom-elements";
 export { SelectOption } from "./select-option";
@@ -18,6 +26,7 @@ function select({ name, placeholder }) {
     const disabled = useDisabled();
     const update = useUpdate();
     const [value, setValue] = useProp("value");
+    const [, setFocus] = useProp("focused");
 
     useRender(() => (
         <select
@@ -25,6 +34,8 @@ function select({ name, placeholder }) {
             name={name}
             disabled={disabled}
             onchange={({ target: { value } }) => setValue(value)}
+            onfocus={() => setFocus(true)}
+            onblur={() => setFocus(false)}
         >
             {placeholder && (
                 <option value="" disabled selected>
@@ -52,15 +63,16 @@ function select({ name, placeholder }) {
         <host shadowDom onOptionChange={update}>
             <slot name="option" ref={refSlotOption}></slot>
             <div class="input">
-                <div class="input-icon">
-                    <slot name="icon">
-                        <Icon
-                            type="down"
-                            size="calc(1em * var(--size-small))"
-                        ></Icon>
-                    </slot>
-                </div>
+                <Icon
+                    class="input-icon"
+                    type="down"
+                    size="var(--icon-size)"
+                ></Icon>
+
                 <slot name="input"></slot>
+                <div class="input-line">
+                    <div class="input-line-fill"></div>
+                </div>
             </div>
         </host>
     );
@@ -69,30 +81,126 @@ function select({ name, placeholder }) {
 select.props = {
     ...inputGenericProps,
     placeholder: String,
+    narrow: {
+        type: Boolean,
+        reflect: true,
+    },
+    ghost: {
+        type: Boolean,
+        reflect: true,
+    },
 };
 
 select.styles = [
-    Input.styles,
+    tokensSpace,
+    tokensSize,
+    tokensBorder,
+    tokensColor,
+    tokensShadow,
+    tokensOpacity,
+    tokensTransition,
     css`
         :host {
+            --color-fill: var(--color-current-layer, var(--color-input-fill));
+            --color-divide: var(--color-input-divide);
+            --color-contrast: var(
+                --color-current-contrast,
+                var(--color-input-contrast)
+            );
+            --color-status: var(--color-input-status);
+            --shadow: var(--shadow-action);
+            --icon-size: calc(1em * var(--size-small));
+            --input-height: var(--size-min);
+            --input-space-x: var(--space-x);
+            --input-space-between: var(--space-between);
+            --input-padding: 0
+                calc(
+                    var(--input-space-x) + var(--icon-size) +
+                        var(--input-space-between)
+                )
+                0px var(--input-space-x);
+            --line-opacity: var(--opacity-disabled);
+            --line-opacity: 0;
+            --font-scale: var(--size-font);
+            font-size: var(--font-scale);
             display: inline-flex;
         }
-        .options {
-            display: none;
+        :host([shadow]) {
+            box-shadow: var(--shadow);
         }
         .input {
-            display: flex;
+            display: grid;
+            min-width: 100%;
+            min-height: var(--input-height);
+            align-items: center;
+            position: relative;
+            background: var(--color-fill);
+            color: var(--color-contrast);
+            border-radius: var(--border-radius);
+            border: var(--border-width) solid var(--color-divide);
+            box-sizing: border-box;
+            grid-gap: var(--space-between);
         }
         ::slotted([slot="input"]) {
-            padding: 0 calc(var(--space-x) * 2) 0 var(--space-x);
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            font-family: unset;
+            font-size: unset;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+            color: unset;
+            outline: none;
+            padding: 0px;
             appearance: none;
+            padding: var(--input-padding);
+        }
+        .input-line {
+            width: 100%;
+            height: var(--border-width);
+            padding: 0 var(--input-space-x);
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            transform: translateY(100%);
+            opacity: var(--line-opacity);
+            transition: var(--transition-x0);
+        }
+        .input-line-fill {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            background: var(--color-status);
         }
         .input-icon {
-            display: flex;
             position: absolute;
+            right: var(--input-space-x);
             top: 50%;
-            right: var(--space-between);
             transform: translateY(-50%);
+        }
+        .hidden {
+            display: none;
+        }
+        :host([size="small"]) {
+            --font-scale: calc(var(--size-font) * var(--size-small));
+            --input-height: calc(var(--size-min) * var(--size-small));
+            --input-space-x: calc(var(--space-x) * var(--size-small));
+            --input-space-between: calc(
+                var(--space-between) * var(--size-small)
+            );
+        }
+        :host([narrow]) {
+            --input-space-x: 0px;
+        }
+        :host([ghost]) {
+            --color-fill: transparent;
+        }
+        :host([focused]) {
+            --line-opacity: 1;
         }
     `,
 ];

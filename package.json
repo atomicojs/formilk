@@ -4,7 +4,7 @@
     "version": "0.5.1",
     "type": "module",
     "scripts": {
-        "start": "vite",
+        "start": "vite --force",
         "build": "vite build --outDir docs",
         "exports": "exports  src/components.js src/options.js src/tokens.js \"src/*/*.jsx\" --types --exports --main components",
         "prepublishOnly": "npm run exports"
@@ -12,7 +12,7 @@
     "dependencies": {
         "@atomico/hooks": "^3.22.0",
         "@uppercod/parse": "^0.4.0",
-        "atomico": "^1.34.0"
+        "atomico": "^1.34.1"
     },
     "devDependencies": {
         "@atomico/exports": "latest",

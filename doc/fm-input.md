@@ -6,19 +6,47 @@ Creates an `input` with effect on forms that adapts according to the definition 
 
 ```html preview
 <div>
-    <fm-input placeholder="Placeholder">
-        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
-    </fm-input>
+    <strong>Default</strong>
+    <fm-input placeholder="Placeholder"> </fm-input>
+    <strong>Status</strong>
     <fm-input placeholder="Placeholder" status="info">
         <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
     </fm-input>
-    <fm-input placeholder="Placeholder" status="warning"></fm-input>
-    <fm-input placeholder="Placeholder" status="danger"></fm-input>
-    <fm-input placeholder="Placeholder" status="success"></fm-input>
+    <fm-input placeholder="Placeholder" status="warning">
+        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
+    </fm-input>
+    <fm-input placeholder="Placeholder" status="danger">
+        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
+    </fm-input>
+    <fm-input placeholder="Placeholder" status="success">
+        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
+    </fm-input>
+    <strong>Composition with other inputs</strong>
+    <fm-input placeholder="Size" type="number">
+        <fm-select
+            size="small"
+            slot="suffix"
+            placeholder="px"
+            narrow
+            style="height:100%"
+        >
+            <fm-select-option value="px"></fm-select-option>
+            <fm-select-option value="%"></fm-select-option>
+            <fm-select-option value="em"></fm-select-option>
+            <fm-select-option value="rem"></fm-select-option>
+        </fm-select>
+    </fm-input>
+    <fm-input placeholder="Size" type="number">
+        <fm-button size="small" slot="suffix">
+            <fm-icon slot="prefix" type="config"></fm-icon>
+        </fm-button>
+    </fm-input>
+    <strong>Ghost and narrow style</strong>
+    <fm-input placeholder="Placeholder" ghost narrow></fm-input>
 </div>
 <style>
     fm-input {
-        margin: 1rem;
+        margin: 1rem 0rem;
     }
     div {
         display: flex;
