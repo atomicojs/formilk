@@ -74,6 +74,9 @@ tabs.props = {
     active: {
         type: String,
         reflect: true,
+        event: {
+            type: "ChangeTab",
+        },
     },
 };
 
