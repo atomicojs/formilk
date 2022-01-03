@@ -25,11 +25,6 @@ export function useCheckbox(type) {
      */
     const refInput = useRef();
 
-    useFormListener("change", (event) => {
-        const { currentTarget } = event;
-        setChecked(new FormData(currentTarget).get(name) === value);
-    });
-
     useFormListener("reset", () => setChecked(false));
 
     useRender(() => {

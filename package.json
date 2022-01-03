@@ -10,9 +10,9 @@
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
-        "@atomico/hooks": "^3.22.0",
+        "@atomico/hooks": "^3.25.1",
         "@uppercod/parse": "^0.4.0",
-        "atomico": "^1.34.1"
+        "atomico": "^1.37.0"
     },
     "devDependencies": {
         "@atomico/exports": "latest",

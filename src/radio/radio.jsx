@@ -1,14 +1,15 @@
 import { c, css, useHost } from "atomico";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { Checkbox } from "../checkbox/checkbox";
-import { useCheckbox } from "../hooks/use-checkbox";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
+import { useFormInputRadio } from "@atomico/hooks/use-form";
 import customElements from "../custom-elements";
 
-function radio() {
+function radio({ value }) {
     const host = useHost();
-    const refInput = useCheckbox("radio");
+    // const refInput = useCheckbox("radio");
     const disabled = useDisabled();
+    const refInput = useFormInputRadio(<input value={value} />);
 
     useReflectEvent(host, refInput, "click");
 
