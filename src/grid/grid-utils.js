@@ -11,9 +11,13 @@ const gridPosition = {
 
 export const size = ([w, h = w]) => width([w]) + height([h]);
 
-export const width = ([value]) => `width:${value};`;
+export const width = ([value]) => `width: ${value};`;
 
-export const height = ([value]) => `height:${value};`;
+export const height = ([value]) => `height: ${value};`;
+
+export const minWidth = ([value]) => `min-width: ${value};`;
+
+export const maxHeight = ([value]) => `max-height: ${value};`;
 
 export const grid = () => `display: grid;`;
 
