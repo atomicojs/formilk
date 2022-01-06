@@ -24,7 +24,7 @@ function tabs({ active }) {
     const currentActive = currentTab?.target?.value || active;
 
     return (
-        <host shadowDom active={currentActive}>
+        <host shadowDom active={currentActive} currentTab={currentTab?.target}>
             <div class="tabs-header">
                 <div className="tabs-items" ref={refTabs}>
                     <slot
@@ -74,6 +74,8 @@ tabs.props = {
     active: {
         type: String,
         reflect: true,
+    },
+    currentTab: {
         event: {
             type: "ChangeTab",
         },
