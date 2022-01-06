@@ -6,6 +6,8 @@ Exclusive icons from formilk code.
 
 ```html preview
 <fm-grid>
+    <fm-icon type="search"></fm-icon>
+    <fm-icon type="eye"></fm-icon>
     <fm-icon type="check"></fm-icon>
     <fm-icon type="up"></fm-icon>
     <fm-icon type="right"></fm-icon>
