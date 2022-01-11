@@ -22,6 +22,8 @@ export const tokensSize = css`
         size-small: 0.75;
         @prop: defines the scale unit for the font;
         size-font: 1rem;
+        size-font-small: 0.885em;
+        size-font-spacing: unset;
         `}
     }
 `;

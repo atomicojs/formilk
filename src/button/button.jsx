@@ -176,8 +176,9 @@ button.styles = [
             --color-hover: var(--color-button-hover);
             --shadow: var(--shadow-action);
             --space-outbox: calc(var(--space-x) / -2);
+            ---size-font: var(--size-font);
+            font-size: var(---size-font);
             display: inline-flex;
-            font-size: var(--size-font);
             min-height: var(--size-min);
         }
 
@@ -208,6 +209,7 @@ button.styles = [
             box-sizing: border-box;
             border: var(--border-width) solid var(--color-divide);
             cursor: pointer;
+            letter-spacing: unset;
         }
 
         .button-layer {
@@ -264,7 +266,7 @@ button.styles = [
         }
 
         :host([size="small"]) {
-            font-size: calc(var(--size-font) * var(--size-small));
+            ---size-font: var(--size-font-small);
             align-items: center;
         }
 

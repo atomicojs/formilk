@@ -139,13 +139,14 @@ input.styles = [
                 --color-current-contrast,
                 var(--color-input-contrast)
             );
+            --line-opacity: var(--opacity-disabled);
             --color-status: var(--color-input-status);
             --shadow: var(--shadow-action);
-            --input-space-x: var(--space-x);
-            --input-padding: 0 var(--input-space-x);
-            --input-height: var(--size-min);
-            --line-opacity: var(--opacity-disabled);
-            font-size: var(--input-font-size);
+            ---space-x: var(--space-x);
+            ---padding: 0 var(---space-x);
+            ---height: var(--size-min);
+            ---font-size: var(--size-font);
+            font-size: var(---font-size);
         }
         :host([shadow]) {
             box-shadow: var(--shadow);
@@ -153,9 +154,9 @@ input.styles = [
         .input {
             display: grid;
             min-width: 100%;
-            min-height: var(--input-height);
+            min-height: var(---height);
             align-items: center;
-            padding: var(--input-padding);
+            padding: var(---padding);
             position: relative;
             background: var(--color-fill);
             color: var(--color-contrast);
@@ -178,11 +179,12 @@ input.styles = [
             color: unset;
             outline: none;
             padding: 0px;
+            letter-spacing: unset;
         }
         .input-line {
             width: 100%;
             height: var(--border-width);
-            padding: 0 var(--input-space-x);
+            padding: 0 var(---space-x);
             box-sizing: border-box;
             position: absolute;
             bottom: 0;
@@ -202,9 +204,9 @@ input.styles = [
             display: none;
         }
         :host([size="small"]) {
-            --input-font-size: calc(var(--size-font) * var(--size-small));
-            --input-height: calc(var(--size-min) * var(--size-small));
-            --input-space-x: calc(var(--space-x) * var(--size-small));
+            ---font-size: var(--size-font-small);
+            ---height: calc(var(--size-min) * var(--size-small));
+            ---space-x: calc(var(--space-x) * var(--size-small));
         }
         :host([narrow]) {
             --space-x: 0;

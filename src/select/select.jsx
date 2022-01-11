@@ -110,19 +110,16 @@ select.styles = [
             --color-status: var(--color-input-status);
             --shadow: var(--shadow-action);
             --icon-size: calc(1em * var(--size-small));
-            --input-height: var(--size-min);
-            --input-space-x: var(--space-x);
-            --input-space-between: var(--space-between);
-            --input-padding: 0
-                calc(
-                    var(--input-space-x) + var(--icon-size) +
-                        var(--input-space-between)
-                )
-                0px var(--input-space-x);
             --line-opacity: var(--opacity-disabled);
             --line-opacity: 0;
-            --input-font-size: var(--size-font);
-            font-size: var(--input-font-size);
+            ---height: var(--size-min);
+            ---space-x: var(--space-x);
+            ---space-between: var(--space-between);
+            ---padding: 0
+                calc(var(---space-x) + var(--icon-size) + var(---space-between))
+                0px var(---space-x);
+            ---size-font: var(--size-font);
+            font-size: var(---size-font);
             display: inline-flex;
         }
         :host([shadow]) {
@@ -131,7 +128,7 @@ select.styles = [
         .input {
             display: grid;
             min-width: 100%;
-            min-height: var(--input-height);
+            min-height: var(---height);
             align-items: center;
             position: relative;
             background: var(--color-fill);
@@ -155,12 +152,13 @@ select.styles = [
             outline: none;
             padding: 0px;
             appearance: none;
-            padding: var(--input-padding);
+            padding: var(---padding);
+            letter-spacing: unset;
         }
         .input-line {
             width: 100%;
             height: var(--border-width);
-            padding: 0 var(--input-space-x);
+            padding: 0 var(---space-x);
             box-sizing: border-box;
             position: absolute;
             bottom: 0;
@@ -178,7 +176,7 @@ select.styles = [
         }
         .input-icon {
             position: absolute;
-            right: var(--input-space-x);
+            right: var(---space-x);
             top: 50%;
             transform: translateY(-50%);
         }
@@ -186,15 +184,13 @@ select.styles = [
             display: none;
         }
         :host([size="small"]) {
-            --input-font-size: calc(var(--size-font) * var(--size-small));
-            --input-height: calc(var(--size-min) * var(--size-small));
-            --input-space-x: calc(var(--space-x) * var(--size-small));
-            --input-space-between: calc(
-                var(--space-between) * var(--size-small)
-            );
+            ---size-font: var(--size-font-small);
+            ---height: calc(var(--size-min) * var(--size-small));
+            ---space-x: calc(var(--space-x) * var(--size-small));
+            ---space-between: calc(var(--space-between) * var(--size-small));
         }
         :host([narrow]) {
-            --input-space-x: 0px;
+            ---space-x: 0px;
         }
         :host([ghost]) {
             --color-fill: transparent;
