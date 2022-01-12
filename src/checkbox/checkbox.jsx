@@ -2,7 +2,7 @@ import { c, css, useHost } from "atomico";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
-import { inputGenericProps } from "../props";
+import { InputGenericProps } from "../props";
 import {
     tokensSize,
     tokensBorder,
@@ -38,7 +38,7 @@ function checkbox({ tabIndex }) {
 }
 
 checkbox.props = {
-    ...inputGenericProps,
+    ...InputGenericProps,
     value: {
         type: null,
         value: "on",

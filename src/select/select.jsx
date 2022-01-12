@@ -2,7 +2,7 @@ import { c, useRef, css, useUpdate, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { inputGenericProps } from "../props";
+import { InputGenericProps } from "../props";
 import {
     tokensSpace,
     tokensSize,
@@ -80,7 +80,7 @@ function select({ name, placeholder }) {
 }
 
 select.props = {
-    ...inputGenericProps,
+    ...InputGenericProps,
     placeholder: String,
     narrow: {
         type: Boolean,

@@ -1,7 +1,7 @@
 import { c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { inputGenericProps } from "../props";
+import { InputGenericProps } from "../props";
 import {
     tokensSpace,
     tokensSize,
@@ -45,7 +45,7 @@ function color({ name }) {
 }
 
 color.props = {
-    ...inputGenericProps,
+    ...InputGenericProps,
     value: {
         type: String,
         value: "#000",

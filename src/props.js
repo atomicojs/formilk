@@ -1,32 +1,17 @@
-export const inputGenericProps = {
-    name: {
-        type: String,
-        reflect: true,
-    },
-    required: {
-        type: Boolean,
-        reflect: true,
-    },
-    disabled: {
-        type: Boolean,
-        reflect: true,
-    },
+export const GenericBoolean = { type: Boolean, reflect: true };
+
+export const GenericString = { type: String, reflect: true };
+
+export const InputGenericProps = {
+    name: GenericString,
+    required: GenericBoolean,
+    disabled: GenericBoolean,
     value: null,
-    shadow: {
-        type: Boolean,
-        reflect: true,
-    },
-    size: {
-        type: String,
-        reflect: true,
-    },
-    focused: {
-        type: Boolean,
-        reflect: true,
-    },
+    shadow: GenericBoolean,
+    size: GenericString,
+    focused: GenericBoolean,
     focusable: {
-        type: Boolean,
-        reflect: true,
+        ...GenericBoolean,
         value: true,
     },
 };

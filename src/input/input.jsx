@@ -12,7 +12,7 @@ import {
     tokensTransition,
     tokensFont,
 } from "../tokens";
-import { inputGenericProps } from "../props";
+import { InputGenericProps } from "../props";
 import customElements from "../custom-elements";
 import { serialize } from "../utils";
 
@@ -100,7 +100,7 @@ function input({ type, status, ...props }) {
 }
 
 input.props = {
-    ...inputGenericProps,
+    ...InputGenericProps,
     type: String,
     list: String,
     pattern: String,

@@ -11,7 +11,7 @@ import {
 } from "../tokens";
 import { Button } from "../button/button";
 import { Icon } from "../icon/icon";
-import { inputGenericProps } from "../props";
+import { InputGenericProps } from "../props";
 export { SelectDropdownOption } from "./select-dropdown-option";
 
 /**
@@ -86,7 +86,7 @@ function selectDropdown({ multiple, required }) {
 }
 
 selectDropdown.props = {
-    ...inputGenericProps,
+    ...InputGenericProps,
     multiple: {
         type: Boolean,
         reflect: true,
