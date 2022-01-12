@@ -1,4 +1,4 @@
-import { c, css, render, useRef } from "atomico";
+import { c, css, useRef } from "atomico";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";

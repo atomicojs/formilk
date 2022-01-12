@@ -5,15 +5,20 @@ title: fm-radio
 Creates an `input[type=radio]` with effect on forms.
 
 ```html preview
-<form>
-    <fm-radio name="radio" value="1">slot</fm-radio>
-    <fm-radio name="radio" value="2" checked>slot</fm-radio>
-</form>
-<style>
-    fm-radio {
-        margin: 0.25rem;
-    }
-</style>
+<fm-grid>
+    <h3>Normal radios</h3>
+    <fm-grid model="cols(auto auto auto)">
+        <fm-radio>slot</fm-radio>
+        <fm-radio checked>slot</fm-radio>
+        <fm-radio disabled checked>slot</fm-radio>
+    </fm-grid>
+    <h3>Small radios</h3>
+    <fm-grid model="cols(auto auto auto)">
+        <fm-radio size="small">slot</fm-radio>
+        <fm-radio size="small" checked>slot</fm-radio>
+        <fm-radio size="small" disabled>slot</fm-radio>
+    </fm-grid>
+</fm-grid>
 ```
 
 ## Properties

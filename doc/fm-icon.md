@@ -5,7 +5,7 @@ title: fm-icon
 Exclusive icons from formilk code.
 
 ```html preview
-<fm-grid>
+<fm-grid model="width(auto) autoFill(20px, 20px), width(420px) 420px">
     <fm-icon type="search"></fm-icon>
     <fm-icon type="eye"></fm-icon>
     <fm-icon type="check"></fm-icon>
