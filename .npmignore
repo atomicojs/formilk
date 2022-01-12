@@ -1,2 +1,10 @@
 /node_modules
 /*.xd
+/component-syntax-proposals.md
+/*.png
+/*.toml
+/*.html
+/vite.config.js
+/tsconfig.json
+/doc
+/src
