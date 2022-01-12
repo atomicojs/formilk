@@ -20,10 +20,28 @@ export const tokensSize = css`
         size-min: 2.5rem;
         @prop: defines the scale to use when defining size as small;
         size-small: 0.75;
-        @prop: defines the scale unit for the font;
+        @prop: default font size;
         size-font: 1rem;
+        @prop: default font size;
         size-font-small: 0.885em;
-        size-font-spacing: unset;
+        `}
+    }
+`;
+
+export const tokensFont = css`
+    :host {
+        ${tokenize`
+            @title: Font;
+            @type: size;
+            font-size: 1rem;
+            font-size-small: 0.885rem;
+            font-weight-regular: 400;
+            font-weight-light: 300;
+            font-weight-medium: 600;
+            font-weight-bold: 700;
+            font-line-height-heading: 1;
+            font-line-height-text: 1.6;
+            font-size-heading: 2rem;
         `}
     }
 `;
@@ -66,16 +84,25 @@ export const tokensSpace = css`
 export const tokensColor = css`
     :host {
         ${tokenize`
+        @title: Colors palette;
+        color-primary: rgb(44, 58, 65);
+        color-secondary: var(--color-primary);
+        color-neutral: var(--color-primary);
+        color-neutral-75: rgba(44, 58, 65, .75);
+        color-neutral-50: rgba(44, 58, 65, .5);
+        `}
+
+        ${tokenize`
         @title: Colors box;
         color-box-fill: #e7f3f1;
-        color-box-contrast: #2c3a41;
+        color-box-contrast: var(--color-primary);
         color-box-divide: rgba(255, 255, 255, 0.5);
         color-box-layer: #f3f9f8;
         `}
 
         ${tokenize`
         @title: Colors button;
-        color-button-fill: #2c3a41;
+        color-button-fill: var(--color-secondary);
         color-button-active: rgba(0, 0, 0, 0.25);
         color-button-hover: rgba(255, 255, 255, 0.25);
         color-button-contrast: #fff;

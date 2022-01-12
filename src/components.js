@@ -34,6 +34,8 @@ export { Tabs } from "./tabs/tabs";
 
 export { Label } from "./label/label";
 
+export { Text } from "./text/text";
+
 export {
     SelectDropdown,
     SelectDropdownOption,
