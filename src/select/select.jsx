@@ -11,6 +11,7 @@ import {
     tokensShadow,
     tokensOpacity,
     tokensTransition,
+    tokensFont,
 } from "../tokens";
 import { Icon } from "../icon/icon";
 import customElements from "../custom-elements";
@@ -93,6 +94,7 @@ select.props = {
 
 select.styles = [
     tokensSpace,
+    tokensFont,
     tokensSize,
     tokensBorder,
     tokensColor,
@@ -118,8 +120,8 @@ select.styles = [
             ---padding: 0
                 calc(var(---space-x) + var(--icon-size) + var(---space-between))
                 0px var(---space-x);
-            ---size-font: var(--size-font);
-            font-size: var(---size-font);
+            ---font-size: var(--font-size);
+            font-size: var(---font-size);
             display: inline-flex;
         }
         :host([shadow]) {
@@ -184,7 +186,7 @@ select.styles = [
             display: none;
         }
         :host([size="small"]) {
-            ---size-font: var(--size-font-small);
+            ---font-size: var(--font-size-small);
             ---height: calc(var(--size-min) * var(--size-small));
             ---space-x: calc(var(--space-x) * var(--size-small));
             ---space-between: calc(var(--space-between) * var(--size-small));

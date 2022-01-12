@@ -11,6 +11,7 @@ import {
     tokensSpace,
     tokensColor,
     tokensShadow,
+    tokensFont,
 } from "../tokens";
 import customElements from "../custom-elements";
 
@@ -162,6 +163,7 @@ button.props = {
 
 button.styles = [
     tokensSpace,
+    tokensFont,
     tokensSize,
     tokensBorder,
     tokensOpacity,
@@ -176,8 +178,8 @@ button.styles = [
             --color-hover: var(--color-button-hover);
             --shadow: var(--shadow-action);
             --space-outbox: calc(var(--space-x) / -2);
-            ---size-font: var(--size-font);
-            font-size: var(---size-font);
+            ---font-size: var(--font-size);
+            font-size: var(---font-size);
             display: inline-flex;
             min-height: var(--size-min);
         }
@@ -266,7 +268,7 @@ button.styles = [
         }
 
         :host([size="small"]) {
-            ---size-font: var(--size-font-small);
+            ---font-size: var(--font-size-small);
             align-items: center;
         }
 

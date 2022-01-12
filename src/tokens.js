@@ -20,10 +20,6 @@ export const tokensSize = css`
         size-min: 2.5rem;
         @prop: defines the scale to use when defining size as small;
         size-small: 0.75;
-        @prop: default font size;
-        size-font: 1rem;
-        @prop: default font size;
-        size-font-small: 0.885em;
         `}
     }
 `;

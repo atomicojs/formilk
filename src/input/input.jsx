@@ -10,6 +10,7 @@ import {
     tokensShadow,
     tokensOpacity,
     tokensTransition,
+    tokensFont,
 } from "../tokens";
 import { inputGenericProps } from "../props";
 import customElements from "../custom-elements";
@@ -125,6 +126,7 @@ input.props = {
 
 input.styles = [
     tokensSpace,
+    tokensFont,
     tokensSize,
     tokensBorder,
     tokensColor,
@@ -145,7 +147,7 @@ input.styles = [
             ---space-x: var(--space-x);
             ---padding: 0 var(---space-x);
             ---height: var(--size-min);
-            ---font-size: var(--size-font);
+            ---font-size: var(--font-size);
             font-size: var(---font-size);
         }
         :host([shadow]) {
@@ -204,7 +206,7 @@ input.styles = [
             display: none;
         }
         :host([size="small"]) {
-            ---font-size: var(--size-font-small);
+            ---font-size: var(--font-size-small);
             ---height: calc(var(--size-min) * var(--size-small));
             ---space-x: calc(var(--space-x) * var(--size-small));
         }
