@@ -19,3 +19,11 @@ Group the inputs of the inputs into one, forming a synchronized input pattern, o
     <fm-input type="number" min="0" max="50"></fm-input>
 </fm-input-pattern>
 ```
+
+## Input file
+
+```html
+<fm-input-file>
+    <fm-image slot="preview" />
+</fm-input-file>
+```
