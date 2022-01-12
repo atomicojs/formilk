@@ -41,6 +41,47 @@ Create a `button` with effect on forms that adapts according to the definition o
             <fm-icon slot="prefix" type="plus"></fm-icon>
         </fm-button>
     </fm-grid>
+    <h3>Outline buttons</h3>
+    <fm-grid model="autoFill(120px, 1fr)">
+        <fm-button outline>button</fm-button>
+        <fm-button outline status="info">button</fm-button>
+        <fm-button outline status="success">button</fm-button>
+        <fm-button outline status="warning">button</fm-button>
+        <fm-button outline status="danger">button</fm-button>
+        <fm-button outline disabled>button</fm-button>
+    </fm-grid>
+    <h3>Small outline buttons</h3>
+    <fm-grid model="autoFill(120px, 1fr)">
+        <fm-button size="small" outline>button</fm-button>
+        <fm-button size="small" outline status="info">button</fm-button>
+        <fm-button size="small" outline status="success">button</fm-button>
+        <fm-button size="small" outline status="warning">button</fm-button>
+        <fm-button size="small" outline status="danger">button</fm-button>
+        <fm-button size="small" outline disabled>button</fm-button>
+    </fm-grid>
+    <h3>Rounded</h3>
+    <fm-grid model="autoFill(120px, 1fr)">
+        <fm-button rounded>button</fm-button>
+        <fm-button rounded outline>button</fm-button>
+        <fm-button rounded outline>
+            <fm-icon slot="prefix"></fm-icon>
+        </fm-button>
+    </fm-grid>
+    <h3>Rounded and small</h3>
+    <fm-grid size="small" model="autoFill(120px, 1fr)">
+        <fm-button size="small" rounded>button</fm-button>
+        <fm-button size="small" rounded outline>button</fm-button>
+        <fm-button size="small" rounded outline>
+            <fm-icon slot="prefix"></fm-icon>
+        </fm-button>
+    </fm-grid>
+    <h3>Ghost</h3>
+    <fm-grid size="small" model="autoFill(120px, 1fr)">
+        <fm-button ghost size="small">button</fm-button>
+        <fm-button ghost size="small">
+            <fm-icon slot="prefix"></fm-icon>
+        </fm-button>
+    </fm-grid>
 </fm-grid>
 ```
 

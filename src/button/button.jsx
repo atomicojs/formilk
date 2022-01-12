@@ -75,7 +75,8 @@ function button({ type, name, value, status, href, tabIndex }) {
                 onmousedown={() => setActive(true)}
                 onmouseup={() => setActive(false)}
             >
-                <div class="button-layer"></div>
+                <div class="button-layer button-layer-bg"></div>
+                <div class="button-layer button-layer-fx"></div>
                 <div
                     class="button-row"
                     style={`--columns:${
@@ -138,6 +139,8 @@ button.props = {
     shape: GenericString,
     href: GenericString,
     color: GenericString,
+    outline: GenericBoolean,
+    rounded: GenericBoolean,
     tabIndex: {
         type: Number,
         value: 0,
@@ -161,7 +164,10 @@ button.styles = [
             --color-hover: var(--color-button-hover);
             --shadow: var(--shadow-action);
             --space-outbox: calc(var(--space-x) / -2);
+            ---color: var(--color-contrast, var(--color-box-contrast));
+            ---color-bg: var(--color-fill);
             ---font-size: var(--font-size);
+            ---border-width: var(--border-width);
             font-size: var(---font-size);
             display: inline-flex;
             min-height: var(--size-min);
@@ -173,7 +179,7 @@ button.styles = [
         }
 
         :host([shadow]) {
-            box-shadow: var(--shadow);
+            ---shadow: var(--shadow);
         }
 
         :host([circle]) {
@@ -186,15 +192,20 @@ button.styles = [
             min-height: var(--size-min);
             line-height: 1em;
             position: relative;
-            background: var(--color-fill);
-            color: var(--color-contrast, var(--color-box-contrast));
-            border-radius: var(--border-radius);
-            backdrop-filter: var(--backdrop);
+            color: var(---color);
             padding: var(--space-y) var(--space-x);
             box-sizing: border-box;
-            border: var(--border-width) solid var(--color-divide);
             cursor: pointer;
             letter-spacing: unset;
+            background: transparent;
+            border: none;
+        }
+
+        .button-layer-bg {
+            background: var(---color-bg);
+            backdrop-filter: var(--backdrop);
+            border: var(---border-width) solid var(--color-divide);
+            box-shadow: var(---shadow);
         }
 
         .button-layer {
@@ -203,8 +214,8 @@ button.styles = [
             position: absolute;
             top: 0;
             left: 0;
-            border-radius: calc(var(--border-radius) * 0.85);
-            background: transparent;
+            box-sizing: border-box;
+            border-radius: var(--border-radius);
         }
 
         .button-row {
@@ -216,11 +227,11 @@ button.styles = [
             position: relative;
         }
 
-        :host(:hover:not([ghost])) .button-layer {
+        :host(:hover:not([ghost])) .button-layer-fx {
             background: var(--color-hover);
         }
 
-        :host([active]:not([ghost])) .button-layer {
+        :host([active]:not([ghost])) .button-layer-fx {
             background: var(--color-active);
         }
 
@@ -244,8 +255,8 @@ button.styles = [
         }
 
         :host([ghost]) .button {
-            background: transparent;
-            border: none;
+            ---color-bg: transparent;
+            --border-width: 0;
             box-shadow: none;
             color: currentColor;
         }
@@ -263,6 +274,19 @@ button.styles = [
         :host([align="right"]) .button-row {
             justify-content: flex-end;
             text-align: right;
+        }
+
+        :host([outline]) {
+            --color-divide: var(--color-fill);
+            --color-active: transparent;
+            ---color-bg: transparent;
+            ---color: var(--color-fill);
+        }
+        :host([outline][active]) {
+            ---border-width: calc(var(--border-width) * 2);
+        }
+        :host([rounded]) {
+            --border-radius: 100vh;
         }
     `,
 ];
