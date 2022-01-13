@@ -19,7 +19,7 @@ import customElements from "../custom-elements";
  *
  * @param {import("atomico").Props<button.props>} props
  */
-function button({ type, name, value, status, href, tabIndex }) {
+function button({ type, name, value, status, href, tabIndex, color }) {
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
     const refSlotPrefixOutBox = useRef();
@@ -110,15 +110,14 @@ function button({ type, name, value, status, href, tabIndex }) {
                 </div>
             </button>
             <style>
-                {
-                    /*css*/ `
-
-                    :host([status]){
-                        --color-fill: var(--color-status-${status});
-                        --color-contrast: var(--color-status-contrast);
-                    }
-                `
-                }
+                {`:host([status]){
+                    --color-fill: var(--color-status-${status});
+                    --color-contrast: var(--color-status-contrast);
+                }`}
+                {`:host([color]){
+                    --color-fill: var(--color-${color});
+                    --color-contrast: var(--color-${color}-contrast);
+                }`}
             </style>
         </host>
     );
@@ -168,6 +167,8 @@ button.styles = [
             ---color-bg: var(--color-fill);
             ---font-size: var(--font-size);
             ---border-width: var(--border-width);
+            ---border-style: solid;
+            ---border-style-disabled: dashed;
             font-size: var(---font-size);
             display: inline-flex;
             min-height: var(--size-min);
@@ -204,7 +205,8 @@ button.styles = [
         .button-layer-bg {
             background: var(---color-bg);
             backdrop-filter: var(--backdrop);
-            border: var(---border-width) solid var(--color-divide);
+            border: var(---border-width) var(---border-style)
+                var(--color-divide);
             box-shadow: var(---shadow);
         }
 
@@ -284,6 +286,9 @@ button.styles = [
         }
         :host([outline][active]) {
             ---border-width: calc(var(--border-width) * 2);
+        }
+        :host([outline][disabled]) {
+            ---border-style: var(---border-style-disabled);
         }
         :host([rounded]) {
             --border-radius: 100vh;

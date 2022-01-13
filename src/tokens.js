@@ -82,7 +82,9 @@ export const tokensColor = css`
         ${tokenize`
         @title: Colors palette;
         color-primary: rgb(44, 58, 65);
+        color-primary-contrast: white;
         color-secondary: var(--color-primary);
+        color-secondary-contrast: var(--color-primary-contrast);
         color-neutral: var(--color-primary);
         color-neutral-75: rgba(44, 58, 65, .75);
         color-neutral-50: rgba(44, 58, 65, .5);
@@ -101,7 +103,7 @@ export const tokensColor = css`
         color-button-fill: var(--color-secondary);
         color-button-active: rgba(0, 0, 0, 0.25);
         color-button-hover: rgba(255, 255, 255, 0.25);
-        color-button-contrast: #fff;
+        color-button-contrast: var(--color-secondary-contrast);
         color-button-divide: transparent;
         color-button-layer: rgba(255, 255, 255, 0.25);
         `}
