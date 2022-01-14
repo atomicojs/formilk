@@ -12,7 +12,7 @@
     "dependencies": {
         "@atomico/hooks": "^3.25.1",
         "@uppercod/parse": "^0.4.0",
-        "atomico": "^1.37.1"
+        "atomico": "^1.38.0"
     },
     "devDependencies": {
         "@atomico/exports": "latest",
