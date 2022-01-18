@@ -6,20 +6,20 @@
     "scripts": {
         "start": "vite --force",
         "build": "vite build --outDir docs",
-        "exports": "exports  src/components.js src/options.js src/tokens.js \"src/*/*.jsx\" --types --exports --main components",
+        "exports": "exports  src/components.tsx src/options.tsx src/tokens.tsx \"src/*/*.tsxx\" --types --exports --main components",
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
         "@atomico/hooks": "^3.25.1",
-        "@uppercod/parse": "^0.4.0",
-        "atomico": "^1.38.0"
+        "@uppercod/parse": "^0.4.2",
+        "atomico": "^1.41.3"
     },
     "devDependencies": {
         "@atomico/exports": "latest",
         "@atomico/markdown": "latest",
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
-        "doc-elements": "^2.0.2",
+        "doc-elements": "^2.1.0",
         "typescript": "^4.2.4",
         "vite": "^2.6.13"
     },

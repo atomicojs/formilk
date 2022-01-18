@@ -1,4 +1,4 @@
-import { c, useProp, useRef, css } from "atomico";
+import { Props, c, useProp, useRef, css } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
@@ -11,8 +11,8 @@ import {
 } from "../tokens";
 import customElements from "../custom-elements";
 
-function color({ name }) {
-    const [value, setValue] = useProp("value");
+function color({ name }: Props<typeof color>) {
+    const [value, setValue] = useProp<string>("value");
     const refInput = useRef();
     const disabled = useDisabled();
 
@@ -20,7 +20,7 @@ function color({ name }) {
         () => (
             <input
                 ref={refInput}
-                oninput={({ target }) => setValue(target.value)}
+                oninput={({ currentTarget }) => setValue(currentTarget.value)}
                 name={name}
                 type="color"
                 value={value}

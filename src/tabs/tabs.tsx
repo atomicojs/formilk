@@ -1,26 +1,28 @@
-import { c, css, useRef, useUpdate } from "atomico";
+import { c, css, Props, useRef, useUpdate } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { Divide } from "../divide/divide";
 import customElements from "../custom-elements";
 
-function tabs({ active }) {
+function tabs({ active }: Props<typeof tabs>) {
     const refSlotTabs = useRef();
     const refTabs = useRef();
-    const slotTabs = useSlot(refSlotTabs);
+    const slotTabs = useSlot(refSlotTabs) as (HTMLElement & {
+        active: boolean;
+    })[];
     const update = useUpdate();
     useResizeObserverState(refTabs);
 
-    const [, ...tabs] = slotTabs.reduce(
+    const [, ...childTabs] = slotTabs.reduce(
         ([offset, ...tabs], target) => [
             target.clientWidth + offset,
             ...tabs,
             { offset, target },
         ],
-        [0]
+        [0] as any
     );
 
-    const currentTab = tabs.find(({ target }) => target.active);
+    const currentTab = childTabs.find(({ target }: any) => target.active);
     const currentActive = currentTab?.target?.value || active;
 
     return (
@@ -29,11 +31,7 @@ function tabs({ active }) {
                 <div className="tabs-items" ref={refTabs}>
                     <slot
                         onclick={Object.assign(
-                            /**
-                             *
-                             * @param {PointerEvent} event
-                             */
-                            (event) => {
+                            (event: Event) => {
                                 event.stopPropagation();
                                 slotTabs.map((slotTabs) => {
                                     slotTabs.active = slotTabs === event.target;

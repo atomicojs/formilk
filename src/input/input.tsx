@@ -1,8 +1,7 @@
-import { c, useRef, css, useUpdate, useProp } from "atomico";
+import { Props, c, useProp, useRef, css, useHost } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { InputGenericProps } from "../props";
 import {
     tokensSpace,
     tokensSize,
@@ -13,75 +12,104 @@ import {
     tokensTransition,
     tokensFont,
 } from "../tokens";
-import { Icon } from "../icon/icon";
+import { InputGenericProps } from "../props";
 import customElements from "../custom-elements";
-export { SelectOption } from "./select-option";
+import { serialize } from "../utils";
 
-/**
- *
- * @param {import("atomico").Props<select.props>} props
- */
-function select({ name, placeholder }) {
-    const refSlotOption = useRef();
-    const slotOption = useSlot(refSlotOption);
-    const disabled = useDisabled();
-    const update = useUpdate();
-    const [value, setValue] = useProp("value");
+function input({ type, status, ...props }: Props<typeof input>) {
+    const [, setValue] = useProp("value");
     const [, setFocus] = useProp("focused");
+    const refSlotLabel = useRef();
+    const refSlotPrefix = useRef();
+    const refSlotSuffix = useRef();
+    const host = useHost();
+
+    const refInput = useRef();
+    const slotLabel = useSlot(refSlotLabel).filter((el) =>
+        el instanceof Text ? el.textContent?.trim() : true
+    );
+    const slotPrefix = useSlot(refSlotPrefix);
+    const slotSuffix = useSlot(refSlotSuffix);
 
     useRender(() => (
-        <select
-            slot="input"
-            name={name}
-            disabled={disabled}
-            onchange={({ target: { value } }) => setValue(value)}
+        <input
             onfocus={() => setFocus(true)}
             onblur={() => setFocus(false)}
-        >
-            {placeholder && (
-                <option value="" disabled selected>
-                    {placeholder}
-                </option>
-            )}
-            {slotOption.map(function option(child) {
-                return child.options.length ? (
-                    <optgroup label={child.label}>
-                        {child.options.map(option)}
-                    </optgroup>
-                ) : (
-                    <option
-                        value={child.value}
-                        selected={value === child.value || child.selected}
-                    >
-                        {child.label || child.value}
-                    </option>
-                );
-            })}
-        </select>
+            type={type}
+            slot="input"
+            ref={refInput}
+            {...(props as any)}
+        />
     ));
 
-    return (
-        <host shadowDom onOptionChange={update}>
-            <slot name="option" ref={refSlotOption}></slot>
-            <div class="input">
-                <Icon
-                    class="input-icon"
-                    type="down"
-                    size="var(--icon-size)"
-                ></Icon>
+    useDisabled();
 
+    return (
+        <host
+            shadowDom
+            oninput={() => setValue(refInput.current.value)}
+            onclick={(event) => {
+                let { target } = event as { target: Element | null };
+                while (target && target != host.current) {
+                    if (target?.hasAttribute("focusable")) return;
+                    target = target.parentElement;
+                }
+                refInput.current.focus();
+            }}
+        >
+            <div class="input">
+                <slot
+                    ref={refSlotPrefix}
+                    name="prefix"
+                    class={serialize(!slotPrefix.length && "hidden")}
+                ></slot>
+                <slot
+                    ref={refSlotLabel}
+                    class={serialize(!slotLabel.length && "hidden")}
+                ></slot>
                 <slot name="input"></slot>
+                <slot
+                    ref={refSlotSuffix}
+                    name="suffix"
+                    class={serialize(!slotSuffix.length && "hidden")}
+                ></slot>
                 <div class="input-line">
                     <div class="input-line-fill"></div>
                 </div>
             </div>
+            <style>{`
+                :host {
+                    --columns-label: ${slotLabel.length};
+                    --columns: ${serialize(
+                        slotPrefix.length && "auto",
+                        slotLabel.length && "auto",
+                        "1fr",
+                        slotSuffix.length && "auto"
+                    )};
+                }
+                :host([status]) {
+                    --color-status: var(--color-status-${status});
+                }
+            `}</style>
         </host>
     );
 }
 
-select.props = {
+input.props = {
     ...InputGenericProps,
+    type: String,
+    list: String,
+    pattern: String,
+    min: Number,
+    max: Number,
+    minLength: Number,
+    maxLength: Number,
     placeholder: String,
+    checked: Boolean,
+    status: {
+        type: String,
+        reflect: true,
+    },
     narrow: {
         type: Boolean,
         reflect: true,
@@ -92,7 +120,7 @@ select.props = {
     },
 };
 
-select.styles = [
+input.styles = [
     tokensSpace,
     tokensFont,
     tokensSize,
@@ -109,20 +137,14 @@ select.styles = [
                 --color-current-contrast,
                 var(--color-input-contrast)
             );
+            --line-opacity: var(--opacity-disabled);
             --color-status: var(--color-input-status);
             --shadow: var(--shadow-action);
-            --icon-size: calc(1em * var(--size-small));
-            --line-opacity: var(--opacity-disabled);
-            --line-opacity: 0;
-            ---height: var(--size-min);
             ---space-x: var(--space-x);
-            ---space-between: var(--space-between);
-            ---padding: 0
-                calc(var(---space-x) + var(--icon-size) + var(---space-between))
-                0px var(---space-x);
+            ---padding: 0 var(---space-x);
+            ---height: var(--size-min);
             ---font-size: var(--font-size);
             font-size: var(---font-size);
-            display: inline-flex;
         }
         :host([shadow]) {
             box-shadow: var(--shadow);
@@ -132,6 +154,7 @@ select.styles = [
             min-width: 100%;
             min-height: var(---height);
             align-items: center;
+            padding: var(---padding);
             position: relative;
             background: var(--color-fill);
             color: var(--color-contrast);
@@ -139,6 +162,7 @@ select.styles = [
             border: var(--border-width) solid var(--color-divide);
             box-sizing: border-box;
             grid-gap: var(--space-between);
+            grid-template-columns: var(--columns);
         }
         ::slotted([slot="input"]) {
             width: 100%;
@@ -153,8 +177,6 @@ select.styles = [
             color: unset;
             outline: none;
             padding: 0px;
-            appearance: none;
-            padding: var(---padding);
             letter-spacing: unset;
         }
         .input-line {
@@ -176,12 +198,6 @@ select.styles = [
             border-radius: 1rem;
             background: var(--color-status);
         }
-        .input-icon {
-            position: absolute;
-            right: var(---space-x);
-            top: 50%;
-            transform: translateY(-50%);
-        }
         .hidden {
             display: none;
         }
@@ -189,20 +205,19 @@ select.styles = [
             ---font-size: var(--font-size-small);
             ---height: calc(var(--size-min) * var(--size-small));
             ---space-x: calc(var(--space-x) * var(--size-small));
-            ---space-between: calc(var(--space-between) * var(--size-small));
         }
         :host([narrow]) {
-            ---space-x: 0px;
-        }
-        :host([ghost]) {
-            --color-fill: transparent;
+            --space-x: 0;
         }
         :host([focused]) {
             --line-opacity: 1;
         }
+        :host([ghost]) {
+            --color-fill: transparent;
+        }
     `,
 ];
 
-export const Select = c(select);
+export const Input = c(input);
 
-customElements.define("select", Select);
+customElements.define("input", Input);

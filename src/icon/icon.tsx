@@ -1,25 +1,21 @@
 //@ts-check
-import { c, css, useHost } from "atomico";
+import { Props, c, css, useHost } from "atomico";
 import customElements from "../custom-elements";
 import { tokensColor } from "../tokens";
-import icons from "./icons";
+import { Icons, IconsKeys } from "./icons";
 
-/**
- *
- * @param {import("atomico").Props<typeof icon.props>} props
- * @returns
- */
-function icon({ type, size, status }) {
+function icon({ type, size, status }: Props<typeof icon>) {
     const {
         //@ts-ignore
         current: { constructor },
     } = useHost();
 
-    const Icon = constructor[type];
+    //@ts-ignore
+    const Icon = constructor[type] as any;
 
     return (
         <host shadowDom>
-            {<Icon cloneNode />}
+            <Icon cloneNode />
             <style>
                 {size && `:host{--size: ${size};}`}
                 {status &&
@@ -33,11 +29,7 @@ icon.props = {
     type: {
         type: String,
         reflect: true,
-        value:
-            /**
-             * @returns {keyof icons}
-             */
-            () => "check",
+        value: (): IconsKeys => "check",
     },
     size: {
         type: String,
@@ -77,6 +69,6 @@ icon.styles = [
     `,
 ];
 
-export const Icon = Object.assign(c(icon), icons);
+export const Icon = Object.assign(c(icon), Icons);
 
 customElements.define("icon", Icon);

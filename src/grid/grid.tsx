@@ -1,13 +1,10 @@
-import { c, css, useRef } from "atomico";
+import { Props, c, css, useRef } from "atomico";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";
 import customElements from "../custom-elements";
 
-/**
- *  @param {import("atomico").Props<grid.props>} props
- */
-function grid({ model }) {
+function grid({ model }: Props<typeof grid>) {
     const refSlot = useRef();
     const slot = useSlot(refSlot).filter((el) => el instanceof Element);
 

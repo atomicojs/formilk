@@ -1,4 +1,14 @@
-import { c, css, useRef, useHost, useProp, useState, useEffect } from "atomico";
+import {
+    Props,
+    c,
+    css,
+    useRef,
+    useHost,
+    useProp,
+    useState,
+    useEffect,
+    DOMEvent,
+} from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
 import {
@@ -9,11 +19,7 @@ import {
 } from "../tokens";
 import customElements from "../custom-elements";
 
-/**
- *
- * @param {import("atomico").Props<dropdown.props>} props
- */
-function dropdown({ width, showWithOver, offset }) {
+function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
     const host = useHost();
     const refSlot = useRef();
     const refSlotTooptip = useRef();
@@ -22,24 +28,26 @@ function dropdown({ width, showWithOver, offset }) {
     const [inside, setInside] = useState(false);
 
     useListener(
-        { current: window },
+        { current: document.createElement("div") },
         "click",
         show && !inside && (() => setShow(false))
     );
 
-    const [parentShowWithOver, setShowWithOver] = useChannel(
+    const [parentShowWithOver, setShowWithOver] = useChannel<boolean>(
         "DropdownShowWithOver"
     );
 
     showWithOver = parentShowWithOver || showWithOver;
 
-    useEffect(() => setShowWithOver(showWithOver), [showWithOver]);
+    useEffect(() => {
+        setShowWithOver(showWithOver);
+    }, [showWithOver]);
 
-    const handlerShow = (event) => {
-        let { target } = event;
+    const handlerShow = (event: DOMEvent) => {
+        let { target } = event as { target: Element | null };
 
         while (target) {
-            if (target.hasAttribute("dropdown-ignore")) {
+            if (target?.hasAttribute("dropdown-ignore")) {
                 return;
             }
             if (target === host.current) break;
@@ -84,7 +92,7 @@ function dropdown({ width, showWithOver, offset }) {
         >
             <slot
                 onclick={handlerShow}
-                onmouseover={showWithOver && handlerShow}
+                onmouseover={showWithOver ? handlerShow : null}
                 ref={refSlot}
                 name="action"
             ></slot>

@@ -1,4 +1,4 @@
-import { c, css, useHost } from "atomico";
+import { Props, c, css, useHost } from "atomico";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
@@ -13,7 +13,7 @@ import {
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 
-function checkbox({ tabIndex }) {
+function checkbox({ tabIndex }: Props<typeof checkbox>) {
     const host = useHost();
     const refInput = useCheckbox("checkbox");
     const disabled = useDisabled();
@@ -43,7 +43,9 @@ checkbox.props = {
         type: null,
         value: "on",
     },
+    tabIndex: { type: Number },
     checked: { type: Boolean, reflect: true },
+    id: String,
 };
 
 checkbox.styles = [

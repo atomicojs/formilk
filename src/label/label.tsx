@@ -1,15 +1,13 @@
-import { c, css, useRef } from "atomico";
+import { c, css, Props, Ref, useRef } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useCurrentValue } from "@atomico/hooks/use-current-value";
 import { tokensSize, tokensSpace } from "../tokens";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import customElements from "../custom-elements";
 
-/**
- *
- * @param {import("atomico").Props< label.props>} props
- */
-function label({ disableReflect }) {
+const RefEmpty: Ref = { current: null };
+
+function label({ disableReflect }: Props<typeof label>) {
     const refPrefix = useRef();
     const refAction = useRef();
     const refContent = useRef();
@@ -19,7 +17,11 @@ function label({ disableReflect }) {
 
     const refFirstAction = useCurrentValue(slotAction[0]);
 
-    useReflectEvent(refContent, !disableReflect && refFirstAction, "click");
+    useReflectEvent(
+        refContent,
+        disableReflect ? RefEmpty : refFirstAction,
+        "click"
+    );
 
     return (
         <host shadowDom>

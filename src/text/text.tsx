@@ -1,20 +1,14 @@
-import { c, css } from "atomico";
+import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { tokensBorder, tokensFont } from "../tokens";
-/**
- *
- * @param {import("atomico").Props<text.props>}
- */
-function text({ size, color, contrast }) {
+
+function text({ size, color }: Props<typeof text>) {
     return (
         <host shadowDom>
             <slot></slot>
             <style>
                 {size && `:host{---font-scale: ${size};}`}
-                {color &&
-                    `:host{--color: var(--color-${color}${
-                        contrast ? "-contrast" : ""
-                    });}`}
+                {color && `:host{--color: var(--color-${color});}`}
             </style>
         </host>
     );

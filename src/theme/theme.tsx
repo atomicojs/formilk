@@ -1,8 +1,8 @@
-import { c } from "atomico";
+import { Props, c } from "atomico";
 import customElements from "../custom-elements";
 import { tokens } from "../tokens";
 
-function theme({ select }) {
+function theme({ select }: Props<typeof theme>) {
     const filter = select ? select.split(/\s*,\s*/) : null;
     return (
         <host shadowDom>

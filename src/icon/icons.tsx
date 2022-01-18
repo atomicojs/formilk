@@ -1,6 +1,6 @@
 import { template } from "atomico";
 
-export default {
+export const Icons = {
     check: template(
         <svg viewBox="0 0 16 16">
             <path
@@ -214,3 +214,5 @@ export default {
         </svg>
     ),
 };
+
+export type IconsKeys = keyof typeof Icons;
