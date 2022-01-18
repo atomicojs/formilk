@@ -1,19 +1,20 @@
-import { c, useRef } from "atomico";
+import { Props, c, useRef, DOMEvent } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import customElements from "../custom-elements";
+import { Accordion } from "./accordion";
 
-/**
- *
- * @param {import("atomico").Props<accordionGroup.props>} props
- */
-function accordionGroup({ disableAutoToggle }) {
+function accordionGroup({ disableAutoToggle }: Props<typeof accordionGroup>) {
     const refSlot = useRef();
-    const slot = useSlot(refSlot).filter((el) => el instanceof HTMLElement);
+    const slot = useSlot(refSlot).filter(
+        (el) => el instanceof HTMLElement
+    ) as InstanceType<typeof Accordion>[];
+
     slot.forEach((el, index) => (el.split = index != slot.length - 1));
+
     return (
         <host
             shadowDom
-            onShow={({ target }) =>
+            onShow={({ target }: DOMEvent<"Show", typeof Accordion>) =>
                 !disableAutoToggle &&
                 target?.show &&
                 slot

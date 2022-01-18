@@ -1,4 +1,4 @@
-import { c, css, useRef, useProp } from "atomico";
+import { Props, c, css, useRef, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
@@ -15,11 +15,17 @@ import {
 } from "../tokens";
 import customElements from "../custom-elements";
 
-/**
- *
- * @param {import("atomico").Props<button.props>} props
- */
-function button({ type, name, value, status, href, tabIndex, color }) {
+const add = (value: any) => (value ? 1 : 0);
+
+function button({
+    type,
+    name,
+    value,
+    status,
+    href,
+    tabIndex,
+    color,
+}: Props<typeof button>) {
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
     const refSlotPrefixOutBox = useRef();
@@ -32,7 +38,7 @@ function button({ type, name, value, status, href, tabIndex, color }) {
     const slotPrefixOutBox = useSlot(refSlotPrefixOutBox);
     const slotSuffixOutBox = useSlot(refSlotSuffixOutBox);
     const slotContent = useSlot(refSlotContent).filter((el) =>
-        el.textContent.trim()
+        el?.textContent?.trim()
     );
     const disabled = useDisabled();
     const [, setActive] = useProp("active");
@@ -80,9 +86,9 @@ function button({ type, name, value, status, href, tabIndex, color }) {
                 <div
                     class="button-row"
                     style={`--columns:${
-                        !!slotPrefixOutBox.length +
+                        add(slotPrefixOutBox.length) +
                         1 +
-                        !!slotSuffixOutBox.length
+                        add(slotSuffixOutBox.length)
                     };${
                         slotPrefixOutBox.length
                             ? "margin-left: var(--space-outbox);"
@@ -97,9 +103,9 @@ function button({ type, name, value, status, href, tabIndex, color }) {
                     <div
                         class="button-row"
                         style={`--columns:${
-                            !!slotPrefix.length +
-                            !!slotContent.length +
-                            !!slotSuffix.length
+                            add(slotPrefix.length) +
+                            add(slotContent.length) +
+                            add(slotSuffix.length)
                         }`}
                     >
                         <slot ref={refSlotPrefix} name="prefix"></slot>
@@ -125,7 +131,6 @@ function button({ type, name, value, status, href, tabIndex, color }) {
 
 button.props = {
     ...InputGenericProps,
-    tokensColor,
     ghost: GenericBoolean,
     circle: GenericBoolean,
     active: GenericBoolean,

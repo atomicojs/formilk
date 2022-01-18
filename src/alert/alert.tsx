@@ -1,14 +1,10 @@
-import { c, css } from "atomico";
+import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { Label } from "../label/label";
 import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
 
-/**
- *
- * @param {import("atomico").Props<alert.props>} props
- */
-function alert({ status }) {
+function alert({ status }: Props<typeof alert>) {
     return (
         <host shadowDom>
             <Label disableReflect>

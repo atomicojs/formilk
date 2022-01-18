@@ -20,7 +20,7 @@
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
         "doc-elements": "^2.1.0",
-        "typescript": "^4.2.4",
+        "typescript": "^4.5.4",
         "vite": "^2.6.13"
     },
     "prettier": {

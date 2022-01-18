@@ -41,7 +41,8 @@ export {
     SelectDropdownOption,
 } from "./select-dropdown/select-dropdown";
 
-export { Accordion, AccordionGroup } from "./accordion/accordion";
+export { AccordionGroup } from "./accordion/accordion-group";
+export { Accordion } from "./accordion/accordion";
 
 export {
     Navigation,

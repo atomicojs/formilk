@@ -1,13 +1,9 @@
-import { c, css } from "atomico";
+import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { tokensSize, tokensBorder, tokensColor } from "../tokens";
 
-/**
- *
- * @param {import("atomico").Props<avatar.props>} props
- */
-function avatar({ src, size, transform }) {
+function avatar({ src, size, transform }: Props<typeof avatar>) {
     return (
         <host shadowDom>
             <button class="avatar-mask" part="avatar-mask">

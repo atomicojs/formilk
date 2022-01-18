@@ -4,6 +4,9 @@ import { Grid } from "../grid/grid";
 import { tokensShadow } from "../tokens";
 
 export class Box extends Grid {
+    /**
+     * @todo check in Atomico the type Sheets to allow these declarations in Typescript
+     */
     static get styles() {
         return [
             super.styles,

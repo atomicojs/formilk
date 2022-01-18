@@ -1,19 +1,13 @@
-import { c, css, useRef, useProp } from "atomico";
+import { c, css, useRef, useProp, Meta, DOMEvent } from "atomico";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { tokensColor, tokensSpace, tokensTransition } from "../tokens";
 import { Divide } from "../divide/divide";
-export { AccordionGroup } from "./accordion-group";
 import customElements from "../custom-elements";
 
-/**
- *
- * @param {import("atomico").Props<accordion.props>} props
- * @returns
- */
-function accordion() {
+function accordion(): Meta<DOMEvent<"Show">> {
     const refSlot = useRef();
     const rect = useResizeObserverState(refSlot);
-    const [show, setShow] = useProp("show");
+    const [show, setShow] = useProp<boolean>("show");
 
     return (
         <host shadowDom>
