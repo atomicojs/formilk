@@ -35,6 +35,7 @@ export const inputBaseStyle = [
             ---height: var(--size-min);
             ---font-size: var(--font-size);
             font-size: var(---font-size);
+            display: inline-flex;
         }
         :host([shadow]) {
             --shadow: var(--shadow-action);
@@ -77,6 +78,21 @@ export const inputBaseStyle = [
             height: 100%;
             border-radius: 1rem;
             background: var(--color-status);
+        }
+
+        :host([size="small"]) {
+            ---font-size: var(--font-size-small);
+            ---height: calc(var(--size-min) * var(--size-small));
+            ---space-x: calc(var(--space-x) * var(--size-small));
+        }
+        :host([narrow]) {
+            --space-x: 0;
+        }
+        :host([focused]) {
+            --line-opacity: 1;
+        }
+        :host([ghost]) {
+            --color-fill: transparent;
         }
     `,
 ];

@@ -134,20 +134,6 @@ input.styles = [
         .hidden {
             display: none;
         }
-        :host([size="small"]) {
-            ---font-size: var(--font-size-small);
-            ---height: calc(var(--size-min) * var(--size-small));
-            ---space-x: calc(var(--space-x) * var(--size-small));
-        }
-        :host([narrow]) {
-            --space-x: 0;
-        }
-        :host([focused]) {
-            --line-opacity: 1;
-        }
-        :host([ghost]) {
-            --color-fill: transparent;
-        }
     `,
 ];
 

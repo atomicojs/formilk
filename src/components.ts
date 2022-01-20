@@ -49,3 +49,5 @@ export {
     NavigationItem,
     NavigationDropdown,
 } from "./navigation/navigation";
+
+export { InputFile } from "./input-file/input-file";

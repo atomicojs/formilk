@@ -3,20 +3,11 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
-import {
-    tokensSpace,
-    tokensSize,
-    tokensBorder,
-    tokensColor,
-    tokensShadow,
-    tokensOpacity,
-    tokensTransition,
-    tokensFont,
-} from "../tokens";
 import { Icon } from "../icon/icon";
 import customElements from "../custom-elements";
 import { SelectOption } from "./select-option";
 export { SelectOption } from "./select-option";
+import { inputBaseStyle } from "../input/input-base-style";
 
 function select({ name, placeholder }: Props<typeof select>) {
     const refSlotOption = useRef();
@@ -63,15 +54,17 @@ function select({ name, placeholder }: Props<typeof select>) {
         <host shadowDom onOptionChange={update}>
             <slot name="option" ref={refSlotOption}></slot>
             <div class="input">
-                <Icon
-                    class="input-icon"
-                    type="down"
-                    size="var(--icon-size)"
-                ></Icon>
+                <div className="input-content">
+                    <Icon
+                        class="input-icon"
+                        type="down"
+                        size="var(--icon-size)"
+                    ></Icon>
 
-                <slot name="input"></slot>
-                <div class="input-line">
-                    <div class="input-line-fill"></div>
+                    <slot name="input"></slot>
+                    <div class="input-line">
+                        <div class="input-line-fill"></div>
+                    </div>
                 </div>
             </div>
         </host>
@@ -92,24 +85,9 @@ select.props = {
 };
 
 select.styles = [
-    tokensSpace,
-    tokensFont,
-    tokensSize,
-    tokensBorder,
-    tokensColor,
-    tokensShadow,
-    tokensOpacity,
-    tokensTransition,
+    inputBaseStyle,
     css`
         :host {
-            --color-fill: var(--color-current-layer, var(--color-input-fill));
-            --color-divide: var(--color-input-divide);
-            --color-contrast: var(
-                --color-current-contrast,
-                var(--color-input-contrast)
-            );
-            --color-status: var(--color-input-status);
-            --shadow: var(--shadow-action);
             --icon-size: calc(1em * var(--size-small));
             --line-opacity: var(--opacity-disabled);
             --line-opacity: 0;
@@ -120,24 +98,9 @@ select.styles = [
                 calc(var(---space-x) + var(--icon-size) + var(---space-between))
                 0px var(---space-x);
             ---font-size: var(--font-size);
-            font-size: var(---font-size);
-            display: inline-flex;
         }
-        :host([shadow]) {
-            box-shadow: var(--shadow);
-        }
-        .input {
-            display: grid;
-            min-width: 100%;
-            min-height: var(---height);
-            align-items: center;
-            position: relative;
-            background: var(--color-fill);
-            color: var(--color-contrast);
-            border-radius: var(--border-radius);
-            border: var(--border-width) solid var(--color-divide);
-            box-sizing: border-box;
-            grid-gap: var(--space-between);
+        .input-content {
+            padding: 0px;
         }
         ::slotted([slot="input"]) {
             width: 100%;
@@ -156,25 +119,6 @@ select.styles = [
             padding: var(---padding);
             letter-spacing: unset;
         }
-        .input-line {
-            width: 100%;
-            height: var(--border-width);
-            padding: 0 var(---space-x);
-            box-sizing: border-box;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            z-index: 3;
-            transform: translateY(100%);
-            opacity: var(--line-opacity);
-            transition: var(--transition-x0);
-        }
-        .input-line-fill {
-            width: 100%;
-            height: 100%;
-            border-radius: 1rem;
-            background: var(--color-status);
-        }
         .input-icon {
             position: absolute;
             right: var(---space-x);
@@ -185,19 +129,7 @@ select.styles = [
             display: none;
         }
         :host([size="small"]) {
-            ---font-size: var(--font-size-small);
-            ---height: calc(var(--size-min) * var(--size-small));
-            ---space-x: calc(var(--space-x) * var(--size-small));
             ---space-between: calc(var(--space-between) * var(--size-small));
-        }
-        :host([narrow]) {
-            ---space-x: 0px;
-        }
-        :host([ghost]) {
-            --color-fill: transparent;
-        }
-        :host([focused]) {
-            --line-opacity: 1;
         }
     `,
 ];

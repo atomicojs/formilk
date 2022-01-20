@@ -41,8 +41,6 @@ function button({
         el instanceof Text ? el.textContent?.trim() : true
     );
 
-    console.log(useSlot(refSlotContent));
-
     const disabled = useDisabled();
     const [, setActive] = useProp("active");
 
