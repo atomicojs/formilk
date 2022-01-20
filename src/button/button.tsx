@@ -38,8 +38,11 @@ function button({
     const slotPrefixOutBox = useSlot(refSlotPrefixOutBox);
     const slotSuffixOutBox = useSlot(refSlotSuffixOutBox);
     const slotContent = useSlot(refSlotContent).filter((el) =>
-        el?.textContent?.trim()
+        el instanceof Text ? el.textContent?.trim() : true
     );
+
+    console.log(useSlot(refSlotContent));
+
     const disabled = useDisabled();
     const [, setActive] = useProp("active");
 
@@ -120,7 +123,7 @@ function button({
                     --color-fill: var(--color-status-${status});
                     --color-contrast: var(--color-status-contrast);
                 }`}
-                {`:host([color]){
+                {`:host([color]:not([color="input"])){
                     --color-fill: var(--color-${color});
                     --color-contrast: var(--color-${color}-contrast);
                 }`}
@@ -149,6 +152,7 @@ button.props = {
         type: Number,
         value: 0,
     },
+    between: GenericBoolean,
 };
 
 button.styles = [
@@ -168,6 +172,8 @@ button.styles = [
             --color-hover: var(--color-button-hover);
             --shadow: var(--shadow-action);
             --space-outbox: calc(var(--space-x) / -2);
+            --justify-container: center;
+            --jusfify-content: center;
             ---color: var(--color-contrast, var(--color-box-contrast));
             ---color-bg: var(--color-fill);
             ---font-size: var(--font-size);
@@ -177,6 +183,15 @@ button.styles = [
             font-size: var(---font-size);
             display: inline-flex;
             min-height: var(--size-min);
+        }
+
+        :host([color="input"]) {
+            --color-fill: var(--color-current-layer, var(--color-input-fill));
+            --color-divide: var(--color-input-divide);
+            --color-contrast: var(
+                --color-current-contrast,
+                var(--color-input-contrast)
+            );
         }
 
         :host([disabled]) {
@@ -230,8 +245,12 @@ button.styles = [
             grid-gap: var(--space-between);
             grid-template-columns: repeat(var(--columns), auto);
             align-items: center;
-            justify-content: center;
+            justify-content: var(--justify-container);
             position: relative;
+        }
+
+        .button-row .button-row {
+            justify-content: var(--justify-content);
         }
 
         :host(:hover:not([ghost])) .button-layer-fx {
@@ -297,6 +316,10 @@ button.styles = [
         }
         :host([rounded]) {
             --border-radius: 100vh;
+        }
+        :host([between]) {
+            --justify-container: none;
+            --justify-content: space-between;
         }
     `,
 ];
