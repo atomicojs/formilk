@@ -213,6 +213,19 @@ export const Icons = {
             />
         </svg>
     ),
+    file: template(
+        <svg viewBox="0 0 16 16">
+            <path
+                d="M-72-531h-6a1,1,0,0,1-1-1v-6h1l6,6v1Z"
+                transform="translate(86 538.5)"
+            />
+            <path
+                d="M-69-523h-8a2,2,0,0,1-2-2v-11a2,2,0,0,1,2-2h3v2h-2.5a.5.5,0,0,0-.5.5v10a.5.5,0,0,0,.5.5h7a.5.5,0,0,0,.5-.5V-531h2v6A2,2,0,0,1-69-523Zm.054-15h-1.72L-69-538h.054Z"
+                transform="translate(81 538.499)"
+                opacity="0.75"
+            />
+        </svg>
+    ),
 };
 
 export type IconsKeys = keyof typeof Icons;
