@@ -2,14 +2,18 @@ import { c, css, Props, useProp, useRef } from "atomico";
 import customElements from "../custom-elements";
 import { useRender } from "@atomico/hooks/use-render";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
-import { Select } from "../select/select";
 import { Button } from "../button/button";
 import { Icon } from "../icon/icon";
 import { inputBaseStyle } from "../input/input-base-style";
+import { useSlot } from "@atomico/hooks/use-slot";
+import { InputFilePreview } from "./input-file-preview";
+import { InputGenericProps } from "../props";
 
-function inputFile() {
+function inputFile({ multiple }: Props<typeof inputFile>) {
     const refInput = useRef();
     const refLabel = useRef();
+    const refSlotPreview = useRef();
+    const [SlotPreview] = useSlot<typeof InputFilePreview>(refSlotPreview);
     const [files, setFiles] =
         useProp<Props<typeof inputFile>["files"]>("files");
 
@@ -18,9 +22,9 @@ function inputFile() {
             slot="input"
             type="file"
             ref={refInput}
-            multiple
+            multiple={multiple}
             onchange={(event) => {
-                if (event.currentTarget.files) {
+                if (event.currentTarget.files?.length) {
                     const files = Array.from(event.currentTarget.files);
                     setFiles(files);
                 }
@@ -32,25 +36,35 @@ function inputFile() {
 
     return (
         <host shadowDom>
+            <slot name="preview" ref={refSlotPreview} class="hidden"></slot>
             <div class="input">
-                <div ref={refLabel}>
-                    <Button class="input-file-button" ghost between>
-                        <slot></slot>
-                        <Icon
-                            slot="suffix"
-                            size="var(--icon-size)"
-                            type="plus"
-                        ></Icon>
-                    </Button>
+                <div class="input-file-header">
+                    <div class="input-file-item" ref={refLabel}>
+                        <div>
+                            <slot></slot>
+                        </div>
+                        <Button size="small" ghost>
+                            <Icon
+                                slot="prefix"
+                                size="var(--icon-size)"
+                                type="plus"
+                            ></Icon>
+                        </Button>
+                    </div>
+                    {!!files?.length && (
+                        <div class="input-line">
+                            <div class="input-line-fill"></div>
+                        </div>
+                    )}
                 </div>
                 {files?.map((file) => {
                     return (
-                        <div>
-                            {file.name}
-                            <Button size="small" ghost>
-                                <Icon
-                                    slot="prefix"
-                                    type="closed"
+                        <div class="input-file-row">
+                            <div class="input-file-item">
+                                <span class="input-file-name">{file.name}</span>
+                                <Button
+                                    size="small"
+                                    ghost
                                     onclick={() => {
                                         const data = new DataTransfer();
 
@@ -65,9 +79,19 @@ function inputFile() {
                                         setFiles(Array.from(data.files));
                                     }}
                                 >
-                                    Remove
-                                </Icon>
-                            </Button>
+                                    <Icon
+                                        slot="prefix"
+                                        size="var(--icon-size)"
+                                        type="closed"
+                                    ></Icon>
+                                </Button>
+                            </div>
+                            {SlotPreview && (
+                                <SlotPreview
+                                    cloneNode
+                                    file={file}
+                                ></SlotPreview>
+                            )}
                         </div>
                     );
                 })}
@@ -77,11 +101,15 @@ function inputFile() {
 }
 
 inputFile.props = {
+    ...InputGenericProps,
     files: {
         type: Array,
         value: (): File[] => [],
     },
-    placeholder: String,
+    multiple: {
+        type: Boolean,
+        reflect: true,
+    },
 };
 
 inputFile.styles = [
@@ -97,15 +125,30 @@ inputFile.styles = [
             --icon-size: calc(1em * var(--size-small));
         }
         .input-file-header {
+            display: grid;
             position: relative;
+            min-height: var(---height);
+        }
+        .input-file-item {
+            display: grid;
+            justify-content: space-between;
+            grid-template-columns: auto 30px;
+            grid-gap: var(--space-between);
+            padding: 0px calc(var(--space-x) / 2) 0px var(--space-x);
             align-items: center;
+        }
+        .input-file-name {
+            font-size: var(--font-size-small);
+            overflow: hidden;
+        }
+        .input-file-header + .input-file-row {
+            margin-top: calc(var(--space-y) / 2);
+        }
+        .hidden {
+            display: none;
         }
         .input {
-            font-size: unset;
-            align-items: center;
-        }
-        .input-file-button {
-            width: 100%;
+            overflow: hidden;
         }
     `,
 ];

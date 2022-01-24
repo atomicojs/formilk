@@ -131,6 +131,9 @@ select.styles = [
         :host([size="small"]) {
             ---space-between: calc(var(--space-between) * var(--size-small));
         }
+        :host([narrow]) {
+            ---space-x: 0px;
+        }
     `,
 ];
 

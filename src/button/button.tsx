@@ -14,6 +14,7 @@ import {
     tokensFont,
 } from "../tokens";
 import customElements from "../custom-elements";
+import { SchemaUnknown } from "atomico/types/schema";
 
 const add = (value: any) => (value ? 1 : 0);
 
@@ -178,9 +179,9 @@ button.styles = [
             ---border-width: var(--border-width);
             ---border-style: solid;
             ---border-style-disabled: dashed;
+            ---size-min: var(--size-min);
             font-size: var(---font-size);
             display: inline-flex;
-            min-height: var(--size-min);
         }
 
         :host([color="input"]) {
@@ -208,7 +209,7 @@ button.styles = [
         .button {
             font: unset;
             min-width: 100%;
-            min-height: var(--size-min);
+            min-height: var(---size-min);
             line-height: 1em;
             position: relative;
             color: var(---color);
@@ -264,10 +265,13 @@ button.styles = [
             min-width: var(--size-min);
         }
 
+        :host([size="small"]) {
+            ---size-min: calc(var(--size-min) * var(--size-small));
+        }
+
         :host([size="small"]) .button {
-            --current-size-small: calc(var(--size-min) * var(--size-small));
-            min-height: var(--current-size-small);
-            min-width: var(--current-size-small);
+            min-height: var(---size-min);
+            min-width: var(---size-min);
         }
 
         :host([size="small"]:not([shape="square"])) .button {
