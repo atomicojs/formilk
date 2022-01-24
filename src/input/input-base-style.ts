@@ -94,5 +94,9 @@ export const inputBaseStyle = [
         :host([ghost]) {
             --color-fill: transparent;
         }
+        :host([disabled]) {
+            opacity: var(--opacity-disabled);
+            pointer-events: none;
+        }
     `,
 ];

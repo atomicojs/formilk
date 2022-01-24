@@ -1,7 +1,7 @@
 {
     "name": "formilk",
     "description": "Design system created with Atomico",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "type": "module",
     "scripts": {
         "start": "vite --force",
@@ -12,7 +12,7 @@
     "dependencies": {
         "@atomico/hooks": "^3.26.4",
         "@uppercod/parse": "^0.4.2",
-        "atomico": "^1.42.0"
+        "atomico": "^1.44.0"
     },
     "devDependencies": {
         "@atomico/exports": "latest",

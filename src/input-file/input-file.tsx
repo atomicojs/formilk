@@ -8,8 +8,9 @@ import { inputBaseStyle } from "../input/input-base-style";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { InputFilePreview } from "./input-file-preview";
 import { InputGenericProps } from "../props";
+import { useDisabled } from "@atomico/hooks/use-disabled";
 
-function inputFile({ multiple }: Props<typeof inputFile>) {
+function inputFile({ multiple, accept }: Props<typeof inputFile>) {
     const refInput = useRef();
     const refLabel = useRef();
     const refSlotPreview = useRef();
@@ -17,12 +18,16 @@ function inputFile({ multiple }: Props<typeof inputFile>) {
     const [files, setFiles] =
         useProp<Props<typeof inputFile>["files"]>("files");
 
+    const disabled = useDisabled();
+
     useRender(() => (
         <input
             slot="input"
             type="file"
             ref={refInput}
             multiple={multiple}
+            disabled={disabled}
+            accept={accept}
             onchange={(event) => {
                 if (event.currentTarget.files?.length) {
                     const files = Array.from(event.currentTarget.files);
@@ -106,6 +111,7 @@ inputFile.props = {
         type: Array,
         value: (): File[] => [],
     },
+    accept: String,
     multiple: {
         type: Boolean,
         reflect: true,

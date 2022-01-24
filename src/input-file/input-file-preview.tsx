@@ -7,9 +7,11 @@ function inputFilePreview({ file }: Props<typeof inputFilePreview>) {
         <host shadowDom>
             {file &&
                 (/^video/.test(file.type) ? (
-                    <video class="media" src={src} controls></video>
+                    <video class="media" src={src} controls />
                 ) : /^image/.test(file.type) ? (
                     <img class="media" src={src} />
+                ) : /^audio/.test(file.type) ? (
+                    <audio class="media" src={src} controls />
                 ) : null)}
         </host>
     );
@@ -21,7 +23,7 @@ inputFilePreview.props = {
         reflect: true,
         value: "preview",
     },
-    file: null,
+    file: File,
 };
 
 inputFilePreview.styles = css`
