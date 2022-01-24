@@ -14,7 +14,6 @@ import {
     tokensFont,
 } from "../tokens";
 import customElements from "../custom-elements";
-import { SchemaUnknown } from "atomico/types/schema";
 
 const add = (value: any) => (value ? 1 : 0);
 
