@@ -27,6 +27,8 @@ Exclusive icons from formilk code.
     <fm-icon type="image"></fm-icon>
     <fm-icon type="video"></fm-icon>
     <fm-icon type="audio"></fm-icon>
+    <fm-icon type="drag"></fm-icon>
+    <fm-icon type="file"></fm-icon>
 </fm-grid>
 ```
 
