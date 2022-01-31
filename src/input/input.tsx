@@ -6,6 +6,7 @@ import { InputGenericProps } from "../props";
 import customElements from "../custom-elements";
 import { serialize } from "../utils";
 import { inputBaseStyle } from "./input-base-style";
+import { Icon } from "../components";
 
 function input({ type, status, ...props }: Props<typeof input>) {
     const [, setValue] = useProp("value");
@@ -55,16 +56,18 @@ function input({ type, status, ...props }: Props<typeof input>) {
                         name="prefix"
                         class={serialize(!slotPrefix.length && "hidden")}
                     ></slot>
-                    <slot
-                        ref={refSlotLabel}
-                        class={serialize(!slotLabel.length && "hidden")}
-                    ></slot>
+                    <div class={serialize(!slotLabel.length && "hidden")}>
+                        <slot ref={refSlotLabel}></slot>
+                    </div>
                     <slot name="input"></slot>
                     <slot
                         ref={refSlotSuffix}
                         name="suffix"
                         class={serialize(!slotSuffix.length && "hidden")}
                     ></slot>
+                    {props.required && (
+                        <Icon size=".65em" type="asterisk"></Icon>
+                    )}
                     <div class="input-line">
                         <div class="input-line-fill"></div>
                     </div>
@@ -77,7 +80,8 @@ function input({ type, status, ...props }: Props<typeof input>) {
                         slotPrefix.length && "auto",
                         slotLabel.length && "auto",
                         "1fr",
-                        slotSuffix.length && "auto"
+                        slotSuffix.length && "auto",
+                        props.required && "auto"
                     )};
                 }
                 :host([status]) {
@@ -116,6 +120,9 @@ input.props = {
 input.styles = [
     inputBaseStyle,
     css`
+        :host {
+            min-width: 100%;
+        }
         ::slotted([slot="input"]) {
             width: 100%;
             height: 100%;
@@ -133,6 +140,9 @@ input.styles = [
         }
         .hidden {
             display: none;
+        }
+        .input-suffix {
+            display: grid;
         }
     `,
 ];

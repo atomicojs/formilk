@@ -54,6 +54,10 @@ label.props = {
         type: Boolean,
         reflect: true,
     },
+    vetical: {
+        type: Boolean,
+        reflect: true,
+    },
 };
 
 label.styles = [
@@ -63,8 +67,9 @@ label.styles = [
         :host {
             width: 100%;
             display: grid;
+            --gap: var(--space-between);
             grid-template-columns: var(--columns);
-            grid-gap: var(--space-between);
+            grid-gap: var(--gap);
         }
 
         :host([reverse]) .label-action {
@@ -94,6 +99,10 @@ label.styles = [
         }
         ::slotted([slot="action"]) {
             cursor: pointer;
+        }
+        :host([vertical]) {
+            --columns: 1fr;
+            --gap: var(--space-y);
         }
     `,
 ];

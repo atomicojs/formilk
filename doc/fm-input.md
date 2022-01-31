@@ -5,22 +5,14 @@ title: fm-input
 Creates an `input` with effect on forms that adapts according to the definition of the slot.
 
 ```html preview
-<div>
+<fm-grid>
     <strong>Default</strong>
     <fm-input placeholder="Placeholder"> </fm-input>
     <strong>Status</strong>
-    <fm-input placeholder="Placeholder" status="info">
-        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
-    </fm-input>
-    <fm-input placeholder="Placeholder" status="warning">
-        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
-    </fm-input>
-    <fm-input placeholder="Placeholder" status="danger">
-        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
-    </fm-input>
-    <fm-input placeholder="Placeholder" status="success">
-        <fm-icon size="10px" slot="suffix" type="asterisk"></fm-icon>
-    </fm-input>
+    <fm-input placeholder="Placeholder" status="info" required> </fm-input>
+    <fm-input placeholder="Placeholder" status="warning" required> </fm-input>
+    <fm-input placeholder="Placeholder" status="danger" required> </fm-input>
+    <fm-input placeholder="Placeholder" status="success" required> </fm-input>
     <strong>Composition with other inputs</strong>
     <fm-input placeholder="Size" type="number">
         <fm-select
@@ -41,20 +33,20 @@ Creates an `input` with effect on forms that adapts according to the definition 
             <fm-icon slot="prefix" type="config"></fm-icon>
         </fm-button>
     </fm-input>
+    <strong>Inner label</strong>
+    <fm-input placeholder="Placeholder">
+        <span>Label:</span>
+    </fm-input>
+    <strong>label vertical</strong>
+    <fm-label vertical>
+        <span>Label user: bla bla bla..</span>
+        <fm-input slot="action" placeholder="Placeholder"> </fm-input>
+    </fm-label>
     <strong>Size small</strong>
     <fm-input size="small" placeholder="Placeholder"> </fm-input>
     <strong>Ghost and narrow style</strong>
     <fm-input placeholder="Placeholder" ghost narrow></fm-input>
-</div>
-<style>
-    fm-input {
-        margin: 1rem 0rem;
-    }
-    div {
-        display: flex;
-        flex-flow: column nowrap;
-    }
-</style>
+</fm-grid>
 ```
 
 ## Properties
