@@ -2,8 +2,6 @@
 title: fm-text(Experimental)
 ---
 
-Exclusive icons from formilk code.
-
 ```html preview
 <fm-grid>
     <header>

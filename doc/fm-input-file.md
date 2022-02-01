@@ -2,8 +2,6 @@
 title: fm-input-file(Experimental)
 ---
 
-create a container to group content based on tabs
-
 ```html preview
 <fm-grid model="width(280px)">
     <strong>Default</strong>

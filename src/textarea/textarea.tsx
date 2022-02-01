@@ -15,6 +15,7 @@ function textarea(props: Props<typeof textarea>) {
             slot="input"
             maxLength={props.maxLength}
             minLength={props.minLength}
+            required={props.required}
             value={props.value}
             name={props.name}
         />
@@ -32,6 +33,7 @@ function textarea(props: Props<typeof textarea>) {
                         .map((child) => (child === `\n` ? `${child} ` : child))
                         .join("")}
                 ></div>
+                <slot name="input"></slot>
                 <textarea
                     value={props.value}
                     rows={props.rows}
@@ -108,6 +110,16 @@ textarea.styles = [
             left: 0;
             min-height: 100%;
             max-height: 100%;
+        }
+
+        ::slotted([slot="input"]) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            border: none;
         }
     `,
 ];
