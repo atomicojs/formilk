@@ -179,6 +179,10 @@ button.styles = [
             ---border-style: solid;
             ---border-style-disabled: dashed;
             ---size-min: var(--size-min);
+            ---min-width: 100%;
+            ---min-height: var(---size-min);
+            ---padding: var(--space-y) var(--space-x);
+            ---gap: var(--space-between);
             font-size: var(---font-size);
             display: inline-flex;
         }
@@ -207,12 +211,12 @@ button.styles = [
 
         .button {
             font: unset;
-            min-width: 100%;
-            min-height: var(---size-min);
+            min-width: var(---min-width);
+            min-height: var(---min-height);
             line-height: 1em;
             position: relative;
             color: var(---color);
-            padding: var(--space-y) var(--space-x);
+            padding: var(---padding);
             box-sizing: border-box;
             cursor: pointer;
             letter-spacing: unset;
@@ -240,7 +244,7 @@ button.styles = [
 
         .button-row {
             display: grid;
-            grid-gap: var(--space-between);
+            grid-gap: var(--gap);
             grid-template-columns: repeat(var(--columns), auto);
             align-items: center;
             justify-content: var(--justify-container);
@@ -259,50 +263,34 @@ button.styles = [
             background: var(--color-active);
         }
 
-        :host([shape="square"]) .button {
-            padding: 0px;
-            min-width: var(--size-min);
+        :host([shape="square"]) {
+            ---padding: 0px;
+            ---min-width: var(--size-min);
         }
 
         :host([size="small"]) {
             ---size-min: calc(var(--size-min) * var(--size-small));
+            ---min-height: var(---size-min);
+            ---min-width: var(---size-min);
         }
 
-        :host([size="small"]) .button {
-            min-height: var(---size-min);
-            min-width: var(---size-min);
-        }
-
-        :host([size="small"]:not([shape="square"])) .button {
-            padding: 0 calc(var(--space-x) * var(--size-small));
-        }
-
-        :host([size="small"]) .button-row {
-            grid-gap: calc(var(--space-between) * var(--size-small));
-        }
-
-        :host([ghost]) .button {
-            ---color-bg: transparent;
-            --border-width: 0;
-            box-shadow: none;
-            color: currentColor;
+        :host([size="small"]:not([shape="square"])) {
+            ---padding: 0 calc(var(--space-x) * var(--size-small));
         }
 
         :host([size="small"]) {
+            ---gap: calc(var(--space-between) * var(--size-small));
+        }
+
+        :host([ghost]) {
+            ---color-bg: transparent;
+            --border-width: 0;
+            --shadow: none;
+            ---color: currentColor;
+        }
+        :host([size="small"]) {
             ---font-size: var(--font-size-small);
-            align-items: center;
         }
-
-        :host([align="left"]) .button-row {
-            justify-content: flex-start;
-            text-align: left;
-        }
-
-        :host([align="right"]) .button-row {
-            justify-content: flex-end;
-            text-align: right;
-        }
-
         :host([outline]) {
             --color-divide: var(--color-fill);
             --color-active: transparent;
@@ -319,8 +307,19 @@ button.styles = [
             --border-radius: 100vh;
         }
         :host([between]) {
+            ---min-width: 100%;
             --justify-container: none;
             --justify-content: space-between;
+        }
+
+        :host([align="left"]) .button-row {
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        :host([align="right"]) .button-row {
+            justify-content: flex-end;
+            text-align: right;
         }
     `,
 ];
