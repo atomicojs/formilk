@@ -54,7 +54,7 @@ label.props = {
         type: Boolean,
         reflect: true,
     },
-    vetical: {
+    vertical: {
         type: Boolean,
         reflect: true,
     },
