@@ -36,6 +36,8 @@ export { Label } from "./label/label";
 
 export { Text } from "./text/text";
 
+export { Textarea } from "./textarea/textarea";
+
 export {
     SelectDropdown,
     SelectDropdownOption,
