@@ -5,15 +5,16 @@ title: fm-label
 reflects the click event to the component defined as slot action
 
 ```html preview
-<fm-label>
-    Label
-    <fm-checkbox slot="action"></fm-checkbox>
-</fm-label>
-<style>
-    fm-label {
-        width: 200px;
-    }
-</style>
+<fm-grid>
+    <fm-label>
+        Horizontal label
+        <fm-checkbox slot="action"></fm-checkbox>
+    </fm-label>
+    <fm-label vertical>
+        Vertical label
+        <fm-input slot="action"></fm-input>
+    </fm-label>
+</fm-grid>
 ```
 
 ## Properties

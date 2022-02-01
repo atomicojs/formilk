@@ -82,6 +82,17 @@ Create a `button` with effect on forms that adapts according to the definition o
             <fm-icon slot="prefix"></fm-icon>
         </fm-button>
     </fm-grid>
+    <h3>between</h3>
+    <fm-grid size="small" model="cols(1fr 1fr)">
+        <fm-button between><fm-icon slot="prefix"></fm-icon> button</fm-button>
+        <fm-button between><fm-icon slot="suffix"></fm-icon> button</fm-button>
+        <fm-button between size="small"
+            ><fm-icon slot="prefix"></fm-icon> button</fm-button
+        >
+        <fm-button between size="small"
+            ><fm-icon slot="suffix"></fm-icon> button</fm-button
+        >
+    </fm-grid>
 </fm-grid>
 ```
 
