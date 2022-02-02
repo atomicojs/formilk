@@ -52,9 +52,10 @@ icon.styles = [
             display: inline-flex;
             align-items: center;
             justify-items: center;
+            --size: 1em;
         }
         svg {
-            width: var(--size, 1em);
+            width: var(--size);
             margin: auto;
         }
         path {
