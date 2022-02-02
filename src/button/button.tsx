@@ -172,15 +172,15 @@ button.styles = [
             --space-outbox: calc(var(--space-x) / -2);
             --justify-container: center;
             --jusfify-content: center;
+            --size: var(--size-min);
             ---color: var(--color-contrast, var(--color-box-contrast));
             ---color-bg: var(--color-fill);
             ---font-size: var(--font-size);
             ---border-width: var(--border-width);
             ---border-style: solid;
             ---border-style-disabled: dashed;
-            ---size-min: var(--size-min);
             ---min-width: 100%;
-            ---min-height: var(---size-min);
+            ---min-height: var(--size);
             ---padding: var(--space-y) var(--space-x);
             ---gap: var(--space-between);
             font-size: var(---font-size);
@@ -269,9 +269,9 @@ button.styles = [
         }
 
         :host([size="small"]) {
-            ---size-min: calc(var(--size-min) * var(--size-small));
-            ---min-height: var(---size-min);
-            ---min-width: var(---size-min);
+            --size: calc(var(--size-min) * var(--size-small));
+            ---min-height: var(--size);
+            ---min-width: var(--size);
         }
 
         :host([size="small"]:not([shape="square"])) {
