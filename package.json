@@ -1,7 +1,7 @@
 {
     "name": "formilk",
     "description": "Design system created with Atomico",
-    "version": "0.13.1",
+    "version": "0.13.2",
     "type": "module",
     "scripts": {
         "start": "vite --force",

@@ -79,6 +79,7 @@ textarea.styles = [
             --resize: vertical;
             ---line-size: calc(1em * var(--font-line-height-text));
             ---align-x: calc(((var(---height) - var(---line-size)) / 2));
+            min-width: 100%;
         }
         .input-content {
             overflow: hidden;
