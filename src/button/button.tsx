@@ -244,7 +244,7 @@ button.styles = [
 
         .button-row {
             display: grid;
-            grid-gap: var(--gap);
+            grid-gap: var(---gap);
             grid-template-columns: repeat(var(--columns), auto);
             align-items: center;
             justify-content: var(--justify-container);
