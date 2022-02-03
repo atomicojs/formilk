@@ -173,17 +173,17 @@ button.styles = [
             --justify-container: center;
             --jusfify-content: center;
             --size: var(--size-min);
-            ---color: var(--color-contrast, var(--color-box-contrast));
-            ---color-bg: var(--color-fill);
-            ---font-size: var(--font-size);
+            --font-size: var(--font-size);
+            --color: var(--color-contrast, var(--color-box-contrast));
+            --color-bg: var(--color-fill);
+            --padding: var(--space-y) var(--space-x);
+            --gap: var(--space-between);
             ---border-width: var(--border-width);
             ---border-style: solid;
             ---border-style-disabled: dashed;
             ---min-width: 100%;
             ---min-height: var(--size);
-            ---padding: var(--space-y) var(--space-x);
-            ---gap: var(--space-between);
-            font-size: var(---font-size);
+            font-size: var(--font-size);
             display: inline-flex;
         }
 
@@ -215,8 +215,8 @@ button.styles = [
             min-height: var(---min-height);
             line-height: 1em;
             position: relative;
-            color: var(---color);
-            padding: var(---padding);
+            color: var(--color);
+            padding: var(--padding);
             box-sizing: border-box;
             cursor: pointer;
             letter-spacing: unset;
@@ -225,7 +225,7 @@ button.styles = [
         }
 
         .button-layer-bg {
-            background: var(---color-bg);
+            background: var(--color-bg);
             backdrop-filter: var(--backdrop);
             border: var(---border-width) var(---border-style)
                 var(--color-divide);
@@ -244,7 +244,7 @@ button.styles = [
 
         .button-row {
             display: grid;
-            grid-gap: var(---gap);
+            grid-gap: var(--gap);
             grid-template-columns: repeat(var(--columns), auto);
             align-items: center;
             justify-content: var(--justify-container);
@@ -264,7 +264,7 @@ button.styles = [
         }
 
         :host([shape="square"]) {
-            ---padding: 0px;
+            --padding: 0px;
             ---min-width: var(--size-min);
         }
 
@@ -275,27 +275,27 @@ button.styles = [
         }
 
         :host([size="small"]:not([shape="square"])) {
-            ---padding: 0 calc(var(--space-x) * var(--size-small));
+            --padding: 0 calc(var(--space-x) * var(--size-small));
         }
 
         :host([size="small"]) {
-            ---gap: calc(var(--space-between) * var(--size-small));
+            --gap: calc(var(--space-between) * var(--size-small));
         }
 
         :host([ghost]) {
-            ---color-bg: transparent;
+            --color-bg: transparent;
             --border-width: 0;
             --shadow: none;
-            ---color: currentColor;
+            --color: currentColor;
         }
         :host([size="small"]) {
-            ---font-size: var(--font-size-small);
+            --font-size: var(--font-size-small);
         }
         :host([outline]) {
             --color-divide: var(--color-fill);
             --color-active: transparent;
-            ---color-bg: transparent;
-            ---color: var(--color-fill);
+            --color-bg: transparent;
+            --color: var(--color-fill);
         }
         :host([outline][active]) {
             ---border-width: calc(var(--border-width) * 2);
