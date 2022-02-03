@@ -33,8 +33,7 @@ export const inputBaseStyle = [
             ---space-x: var(--space-x);
             ---padding: 0 var(---space-x);
             ---height: var(--size-min);
-            ---font-size: var(--font-size);
-            font-size: var(---font-size);
+            font-size: var(--font-size);
             display: inline-flex;
         }
         :host([shadow]) {
@@ -81,7 +80,7 @@ export const inputBaseStyle = [
         }
 
         :host([size="small"]) {
-            ---font-size: var(--font-size-small);
+            --font-size: var(--font-size-small);
             ---height: calc(var(--size-min) * var(--size-small));
             ---space-x: calc(var(--space-x) * var(--size-small));
         }

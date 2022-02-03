@@ -52,6 +52,8 @@ icon.styles = [
             display: inline-flex;
             align-items: center;
             justify-items: center;
+        }
+        :host(:not([size])) {
             --size: 1em;
         }
         svg {

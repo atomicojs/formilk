@@ -173,7 +173,6 @@ button.styles = [
             --justify-container: center;
             --jusfify-content: center;
             --size: var(--size-min);
-            --font-size: var(--font-size);
             --color: var(--color-contrast, var(--color-box-contrast));
             --color-bg: var(--color-fill);
             --padding: var(--space-y) var(--space-x);
