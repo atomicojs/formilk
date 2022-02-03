@@ -12,9 +12,9 @@ import {
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
 import {
+    tokensBox,
     tokensColor,
     tokensShadow,
-    tokensSpace,
     tokensTransition,
 } from "../tokens";
 import customElements from "../custom-elements";
@@ -134,9 +134,9 @@ dropdown.props = {
 };
 
 dropdown.styles = [
+    tokensBox,
     tokensShadow,
     tokensColor,
-    tokensSpace,
     tokensTransition,
     css`
         :host {

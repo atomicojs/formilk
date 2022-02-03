@@ -11,6 +11,30 @@ export const tokens = cssTokens.tokens;
 
 export const tokenize = cssTokens.tokenize;
 
+export const tokensBox = css`
+    :host {
+        ${tokenize`
+            @title: Box;
+            scale: 1;
+            scale-small: .75;
+            space-y: 0.625rem;
+            space-x: 1.25rem;
+            space--y: calc( var(--space-y) * var(--scale) );
+            space--x: calc( var(--space-x) * var(--scale) );
+            space-around: 1rem;
+            space-between: 1rem;
+            space--between: calc(var(--space-between) * var(--scale));
+            size-line: 1.25rem;
+            size--line: calc( var(--size-line) * var(--scale) );
+            size-min: calc( var(--size-line) + var(--space-y) * 2 );
+            size--min: calc( (var(--size-line) + var(--space-y) * 2) * var(--scale) );
+            border-radius: 0.5rem;
+            border-width: 1px;
+            border-divide-width: 2px;
+        `}
+    }
+`;
+
 export const tokensSize = css`
     :host {
         ${tokenize`
@@ -18,6 +42,7 @@ export const tokensSize = css`
         @type: size;
         @prop: Defines the minimum size for actions (input, button and others);
         size-min: 2.5rem;
+        size-line: 1.25rem;
         @prop: defines the scale to use when defining size as small;
         size-small: 0.75;
         `}
@@ -61,18 +86,6 @@ export const tokensBorder = css`
         border-radius: 0.5rem;
         border-width: 1px;
         border-divide-width: 2px;
-        `}
-    }
-`;
-
-export const tokensSpace = css`
-    :host {
-        ${tokenize`
-        @title: Spaces & Sizes;
-        space-y: 0.625rem;
-        space-x: 1.25rem;
-        space-around: 1rem;
-        space-between: 1rem;
         `}
     }
 `;

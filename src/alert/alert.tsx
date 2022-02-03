@@ -2,14 +2,14 @@ import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { Label } from "../label/label";
-import { tokensBorder, tokensColor, tokensSpace } from "../tokens";
+import { tokensBorder, tokensBox, tokensColor, tokensSpace } from "../tokens";
 
 function alert({ status }: Props<typeof alert>) {
     return (
         <host shadowDom>
-            <Label disableReflect>
+            <Label disableReflect class="label">
                 <slot name="prefix" slot="prefix">
-                    <Icon size="1.5rem" type="alert"></Icon>
+                    <Icon type="alert"></Icon>
                 </slot>
                 <slot></slot>
                 <slot name="action" slot="action"></slot>
@@ -41,8 +41,7 @@ alert.props = {
 };
 
 alert.styles = [
-    tokensSpace,
-    tokensBorder,
+    tokensBox,
     tokensColor,
     css`
         :host {
@@ -73,6 +72,9 @@ alert.styles = [
 
         :host([outline]) [name="prefix"] {
             color: var(--color-fill);
+        }
+        .label {
+            --space-y: 0;
         }
     `,
 ];

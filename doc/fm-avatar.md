@@ -5,6 +5,7 @@ title: fm-avatar
 Create a container as an alert that adapts according to the definition of the slot
 
 ```html preview
+
 <fm-grid>
     <fm-grid model="cols(auto auto)">
         <fm-avatar></fm-avatar>
@@ -14,7 +15,7 @@ Create a container as an alert that adapts according to the definition of the sl
             />
         </fm-avatar>
     </fm-grid>
-    <fm-avatar size="calc(var(--size-min) * 2.5)" transform="scale(1.8) translate(-8%,5%)">
+    <fm-avatar size="6rem" transform="scale(1.8) translate(-8%,5%)">
         <video
             src="https://media.istockphoto.com/videos/smiling-confident-young-indian-ethnic-business-woman-professional-video-id1216650957"
             playsinline loop muted autoplay preload >

@@ -1,9 +1,7 @@
 import { css } from "atomico";
 import {
-    tokensSpace,
+    tokensBox,
     tokensFont,
-    tokensSize,
-    tokensBorder,
     tokensColor,
     tokensShadow,
     tokensOpacity,
@@ -11,10 +9,8 @@ import {
 } from "../tokens";
 
 export const inputBaseStyle = [
-    tokensSpace,
+    tokensBox,
     tokensFont,
-    tokensSize,
-    tokensBorder,
     tokensColor,
     tokensShadow,
     tokensOpacity,
@@ -30,10 +26,9 @@ export const inputBaseStyle = [
             --color-status: var(--color-input-status);
             --line-opacity: var(--opacity-disabled);
             --shadow: none;
-            ---space-x: var(--space-x);
-            ---padding: 0 var(---space-x);
-            ---height: var(--size-min);
+            --gap: var(--space--between);
             font-size: var(--font-size);
+            line-height: var(--size-line);
             display: inline-flex;
         }
         :host([shadow]) {
@@ -52,17 +47,17 @@ export const inputBaseStyle = [
         }
         .input-content {
             display: grid;
-            min-height: var(---height);
+            min-height: var(--size--min);
             align-items: center;
-            padding: var(---padding);
-            grid-gap: var(--space-between);
+            padding: 0 var(--space--x);
+            grid-gap: var(--gap);
             grid-template-columns: var(--columns);
             position: relative;
         }
         .input-line {
             width: 100%;
             height: var(--border-width);
-            padding: 0 var(---space-x);
+            padding: 0 var(--space--x);
             box-sizing: border-box;
             position: absolute;
             bottom: 0;
@@ -80,9 +75,8 @@ export const inputBaseStyle = [
         }
 
         :host([size="small"]) {
+            --scale: var(--scale-small);
             --font-size: var(--font-size-small);
-            ---height: calc(var(--size-min) * var(--size-small));
-            ---space-x: calc(var(--space-x) * var(--size-small));
         }
         :host([narrow]) {
             --space-x: 0;
@@ -96,6 +90,21 @@ export const inputBaseStyle = [
         :host([disabled]) {
             opacity: var(--opacity-disabled);
             pointer-events: none;
+        }
+        ::slotted([slot="input"].reset) {
+            width: 100%;
+            height: var(--size--line);
+            padding: var(--space--y) 0;
+            font-family: unset;
+            font-size: unset;
+            background: transparent;
+            border: none;
+            letter-spacing: unset;
+            color: unset;
+            outline: none;
+            position: relative;
+            z-index: 2;
+            line-height: unset;
         }
     `,
 ];

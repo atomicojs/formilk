@@ -5,13 +5,11 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps, GenericBoolean, GenericString } from "../props";
 import {
-    tokensBorder,
-    tokensOpacity,
-    tokensSize,
-    tokensSpace,
+    tokensBox,
+    tokensFont,
     tokensColor,
     tokensShadow,
-    tokensFont,
+    tokensOpacity,
 } from "../tokens";
 import customElements from "../custom-elements";
 
@@ -154,10 +152,8 @@ button.props = {
 };
 
 button.styles = [
-    tokensSpace,
+    tokensBox,
     tokensFont,
-    tokensSize,
-    tokensBorder,
     tokensOpacity,
     tokensColor,
     tokensShadow,
@@ -172,17 +168,18 @@ button.styles = [
             --space-outbox: calc(var(--space-x) / -2);
             --justify-container: center;
             --jusfify-content: center;
-            --size: var(--size-min);
+            --size: var(--size--min);
             --color: var(--color-contrast, var(--color-box-contrast));
             --color-bg: var(--color-fill);
-            --padding: var(--space-y) var(--space-x);
-            --gap: var(--space-between);
+            --padding: var(--space--y) var(--space--x);
+            --gap: var(--space--between);
             ---border-width: var(--border-width);
-            ---border-style: solid;
-            ---border-style-disabled: dashed;
+            --border-style: solid;
+            --border-style-disabled: dashed;
             ---min-width: 100%;
             ---min-height: var(--size);
             font-size: var(--font-size);
+            line-height: var(--size-line);
             display: inline-flex;
         }
 
@@ -226,8 +223,7 @@ button.styles = [
         .button-layer-bg {
             background: var(--color-bg);
             backdrop-filter: var(--backdrop);
-            border: var(---border-width) var(---border-style)
-                var(--color-divide);
+            border: var(---border-width) var(--border-style) var(--color-divide);
             box-shadow: var(---shadow);
         }
 
@@ -264,21 +260,15 @@ button.styles = [
 
         :host([shape="square"]) {
             --padding: 0px;
-            ---min-width: var(--size-min);
-        }
-
-        :host([size="small"]) {
-            --size: calc(var(--size-min) * var(--size-small));
-            ---min-height: var(--size);
-            ---min-width: var(--size);
+            ---min-width: var(--size--min);
         }
 
         :host([size="small"]:not([shape="square"])) {
-            --padding: 0 calc(var(--space-x) * var(--size-small));
         }
 
         :host([size="small"]) {
-            --gap: calc(var(--space-between) * var(--size-small));
+            --scale: var(--scale-small);
+            ---min-width: var(--size);
         }
 
         :host([ghost]) {
@@ -300,7 +290,7 @@ button.styles = [
             ---border-width: calc(var(--border-width) * 2);
         }
         :host([outline][disabled]) {
-            ---border-style: var(---border-style-disabled);
+            --border-style: var(--border-style-disabled);
         }
         :host([rounded]) {
             --border-radius: 100vh;

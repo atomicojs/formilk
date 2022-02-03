@@ -35,6 +35,17 @@ Create a `button` with effect on forms that adapts according to the definition o
             button
         </fm-button>
     </fm-grid>
+    <h3>Prefix and Suffix with label</h3>
+    <fm-grid model="autoFill(120px, 1fr)">
+        <fm-button size="small">
+            <fm-icon slot="prefix" type="plus"></fm-icon>
+            button
+        </fm-button>
+        <fm-button size="small">
+            <fm-icon slot="suffix" type="plus"></fm-icon>
+            button
+        </fm-button>
+    </fm-grid>
     <h3>Only prefix</h3>
     <fm-grid model="autoFill(120px, 1fr)">
         <fm-button>

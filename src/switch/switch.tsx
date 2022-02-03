@@ -28,6 +28,7 @@ inputSwitch.styles = css`
     :host([size="small"]) {
         --scale-state: 0.6;
     }
+
     .checkbox {
         --scale: 1.7;
         width: calc(var(--size) * var(--scale));

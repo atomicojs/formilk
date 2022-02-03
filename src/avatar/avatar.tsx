@@ -1,7 +1,7 @@
 import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
-import { tokensSize, tokensBorder, tokensColor } from "../tokens";
+import { tokensSize, tokensBorder, tokensColor, tokensBox } from "../tokens";
 
 function avatar({ src, size, transform }: Props<typeof avatar>) {
     return (
@@ -31,7 +31,6 @@ avatar.props = {
     size: {
         type: String,
         reflect: true,
-        value: "var(--size-min)",
     },
     transform: {
         type: String,
@@ -40,8 +39,7 @@ avatar.props = {
 };
 
 avatar.styles = [
-    tokensSize,
-    tokensBorder,
+    tokensBox,
     tokensColor,
     css`
         :host {
@@ -58,6 +56,9 @@ avatar.styles = [
             align-items: center;
             justify-items: center;
         }
+        :host(:not([size])) {
+            --size: var(--size-min);
+        }
         .avatar-mask {
             width: var(--size);
             height: var(--size);
@@ -67,6 +68,7 @@ avatar.styles = [
             background: var(--color-fill);
             padding: 0px;
             cursor: unset;
+            margin: auto;
         }
         .avatar-inner {
             width: 100%;

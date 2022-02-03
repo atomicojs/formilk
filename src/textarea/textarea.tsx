@@ -77,8 +77,6 @@ textarea.styles = [
     css`
         :host {
             --resize: vertical;
-            ---line-size: calc(1em * var(--font-line-height-text));
-            ---align-x: calc(((var(---height) - var(---line-size)) / 2));
             min-width: 100%;
         }
         .input-content {
@@ -97,8 +95,10 @@ textarea.styles = [
             background: none;
             border: none;
             font: unset;
+            line-height: var(--size-line);
             resize: var(--resize);
-            padding-top: var(---align-x);
+            padding-top: var(--space-y);
+            padding-bottom: var(--space-y);
             box-sizing: border-box;
             margin: 0px;
             outline: none;

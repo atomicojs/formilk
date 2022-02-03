@@ -29,6 +29,7 @@ function input({ type, status, ...props }: Props<typeof input>) {
             onblur={() => setFocus(false)}
             type={type}
             slot="input"
+            class="reset"
             ref={refInput}
             {...(props as any)}
         />
@@ -122,21 +123,6 @@ input.styles = [
     css`
         :host {
             min-width: 100%;
-        }
-        ::slotted([slot="input"]) {
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border: none;
-            font-family: unset;
-            font-size: unset;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-            color: unset;
-            outline: none;
-            padding: 0px;
-            letter-spacing: unset;
         }
         .hidden {
             display: none;

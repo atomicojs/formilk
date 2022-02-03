@@ -1,7 +1,8 @@
 import { c, css, Props, Ref, useRef } from "atomico";
+import { serialize } from "atomico/utils";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useCurrentValue } from "@atomico/hooks/use-current-value";
-import { tokensSize, tokensSpace } from "../tokens";
+import { tokensBox } from "../tokens";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import customElements from "../custom-elements";
 
@@ -11,9 +12,11 @@ function label({ disableReflect }: Props<typeof label>) {
     const refPrefix = useRef();
     const refAction = useRef();
     const refContent = useRef();
+    const refMessage = useRef();
     const refContentAction = useRef();
     const slotPrefix = useSlot(refPrefix);
     const slotAction = useSlot(refAction);
+    const slotMessage = useSlot(refMessage);
 
     const refFirstAction = useCurrentValue(slotAction[0]);
 
@@ -25,23 +28,43 @@ function label({ disableReflect }: Props<typeof label>) {
 
     return (
         <host shadowDom>
-            <div class={`label-prefix ${slotPrefix.length ? "" : "hidden"}`}>
-                <slot ref={refPrefix} name="prefix"></slot>
-            </div>
-            <div ref={refContent} class="label-content">
-                <slot></slot>
+            <div className="label-header">
+                <div class="label-row">
+                    <div
+                        class={`label-center label-prefix ${
+                            slotPrefix.length ? "" : "hidden"
+                        }`}
+                    >
+                        <slot ref={refPrefix} name="prefix"></slot>
+                    </div>
+                    <div ref={refContent} class="label-center label-content">
+                        <slot></slot>
+                    </div>
+                </div>
+                <div
+                    ref={refContentAction}
+                    class={serialize(
+                        "label-center label-action",
+                        !slotAction.length && "hidden"
+                    )}
+                >
+                    <slot ref={refAction} name="action"></slot>
+                </div>
+                <style>{
+                    /*css */ `:host{--columns-row: ${serialize(
+                        slotPrefix.length && "auto",
+                        "1fr"
+                    )}`
+                }</style>
             </div>
             <div
-                ref={refContentAction}
-                class={`label-action ${slotAction.length ? "" : "hidden"}`}
+                class={serialize(
+                    "label-footer",
+                    !slotMessage.length && "hidden"
+                )}
             >
-                <slot ref={refAction} name="action"></slot>
+                <slot name="message" ref={refMessage}></slot>
             </div>
-            <style>{
-                /*css */ `:host{--columns: ${
-                    slotPrefix.length ? "auto" : ""
-                } 1fr ${slotAction.length ? "auto" : ""} }`
-            }</style>
         </host>
     );
 }
@@ -61,15 +84,42 @@ label.props = {
 };
 
 label.styles = [
-    tokensSpace,
-    tokensSize,
+    tokensBox,
     css`
         :host {
             width: 100%;
             display: grid;
+            --columns: 1fr auto;
             --gap: var(--space-between);
-            grid-template-columns: var(--columns);
+            padding: var(--space-y) 0;
+            box-sizing: border-box;
+        }
+
+        :host,
+        .label-header,
+        .label-row {
+            display: grid;
             grid-gap: var(--gap);
+        }
+
+        .label-header {
+            grid-template-columns: var(--columns);
+            min-height: var(--size-min);
+        }
+
+        .label-row {
+            grid-template-columns: var(--columns-row);
+        }
+
+        .label-center {
+            display: flex;
+            align-items: center;
+            min-height: var(--size-min);
+        }
+
+        .label-prefix,
+        .label-action {
+            max-height: var(--size-min);
         }
 
         :host([reverse]) .label-action {
@@ -80,23 +130,10 @@ label.styles = [
             order: 1;
         }
 
-        .label-prefix {
-            display: flex;
-            align-items: center;
-            min-height: var(--size-min);
-            margin: 0px 0px auto;
-        }
-        .label-content {
-            display: flex;
-            align-items: center;
-        }
-        .label-action {
-            display: flex;
-            align-items: flex-start;
-        }
         .hidden {
             display: none;
         }
+
         ::slotted([slot="action"]) {
             cursor: pointer;
         }

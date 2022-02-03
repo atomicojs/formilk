@@ -9,6 +9,7 @@ import {
     tokensOpacity,
     tokensColor,
     tokensShadow,
+    tokensBox,
 } from "../tokens";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
@@ -49,8 +50,7 @@ checkbox.props = {
 };
 
 checkbox.styles = [
-    tokensSize,
-    tokensBorder,
+    tokensBox,
     tokensOpacity,
     tokensColor,
     tokensShadow,
@@ -61,9 +61,9 @@ checkbox.styles = [
             --color-contrast: var(--color-checkbox-contrast);
             --color-current-contrast: var(--color-contrast);
             --shadow: var(--shadow-action);
-            --scale: var(--size-small);
+            --scale: var(--scale-small);
             --scale-state: 0.8;
-            --size: calc(var(--size-min) * var(--scale));
+            --size: var(--size--min);
             align-items: center;
             display: inline-flex;
         }
@@ -124,7 +124,7 @@ checkbox.styles = [
         }
 
         :host([size="small"]) {
-            --scale: var(--size-small) * var(--size-small);
+            --scale: var(--scale-small) * var(--scale-small);
             --scale-state: 1;
         }
     `,

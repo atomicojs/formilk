@@ -2,13 +2,7 @@ import { c, css, useRef, useUpdate } from "atomico";
 import { Dropdown } from "../dropdown/dropdown";
 import customElements from "../custom-elements";
 import { useSlot } from "@atomico/hooks/use-slot";
-import {
-    tokensBorder,
-    tokensColor,
-    tokensShadow,
-    tokensSize,
-    tokensSpace,
-} from "../tokens";
+import { tokensBox, tokensColor, tokensShadow } from "../tokens";
 import { Button } from "../button/button";
 import { Icon } from "../icon/icon";
 import { InputGenericProps } from "../props";
@@ -94,11 +88,9 @@ selectDropdown.props = {
 };
 
 selectDropdown.styles = [
-    tokensSpace,
+    tokensBox,
     tokensColor,
-    tokensBorder,
     tokensShadow,
-    tokensSize,
     css`
         :host {
             --color-fill: var(--color-current-layer, var(--color-input-fill));

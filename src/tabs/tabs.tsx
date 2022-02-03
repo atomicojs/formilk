@@ -1,10 +1,10 @@
-import { c, css, Props, useRef, useUpdate } from "atomico";
+import { c, css, Props, useRef, useUpdate, Meta, DOMEvent } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { Divide } from "../divide/divide";
 import customElements from "../custom-elements";
 
-function tabs({ active }: Props<typeof tabs>) {
+function tabs({ active }: Props<typeof tabs>): Meta<DOMEvent<"ChangeTab">> {
     const refSlotTabs = useRef();
     const refTabs = useRef();
     const slotTabs = useSlot(refSlotTabs) as (HTMLElement & {

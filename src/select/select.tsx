@@ -22,6 +22,7 @@ function select({ name, placeholder }: Props<typeof select>) {
     useRender(() => (
         <select
             slot="input"
+            class="reset"
             name={name}
             disabled={disabled}
             onchange={({ currentTarget: { value } }) => setValue(value)}
@@ -88,48 +89,31 @@ select.styles = [
     inputBaseStyle,
     css`
         :host {
-            --icon-size: calc(1em * var(--size-small));
+            --icon-size: calc(1em * var(--scale-small));
             --line-opacity: var(--opacity-disabled);
             --line-opacity: 0;
-            ---height: var(--size-min);
-            ---space-x: var(--space-x);
-            ---space-between: var(--space-between);
-            ---padding: 0
-                calc(var(---space-x) + var(--icon-size) + var(---space-between))
-                0px var(---space-x);
-            ---font-size: var(--font-size);
+            --space-right: calc(
+                var(--space--x) + var(--gap) + var(--icon-size)
+            );
+            font-size: var(--font-size);
         }
         .input-content {
             padding: 0px;
         }
-        ::slotted([slot="input"]) {
+        ::slotted([slot="input"].reset) {
             width: 100%;
             height: 100%;
-            background: transparent;
-            border: none;
-            font-family: unset;
-            font-size: unset;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-            color: unset;
-            outline: none;
-            padding: 0px;
             appearance: none;
-            padding: var(---padding);
-            letter-spacing: unset;
+            padding: 0 var(--space-right) 0 var(--space--x);
         }
         .input-icon {
             position: absolute;
-            right: var(---space-x);
+            right: var(--space-x);
             top: 50%;
             transform: translateY(-50%);
         }
         .hidden {
             display: none;
-        }
-        :host([size="small"]) {
-            ---space-between: calc(var(--space-between) * var(--size-small));
         }
         :host([narrow]) {
             ---space-x: 0px;

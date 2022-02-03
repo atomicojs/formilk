@@ -1,10 +1,9 @@
 import { c, css } from "atomico";
 import customElements from "../custom-elements";
 import {
-    tokensBorder,
+    tokensBox,
     tokensColor,
     tokensOpacity,
-    tokensSpace,
     tokensTransition,
 } from "../tokens";
 
@@ -27,8 +26,7 @@ divide.props = {
 };
 
 divide.styles = [
-    tokensSpace,
-    tokensBorder,
+    tokensBox,
     tokensColor,
     tokensOpacity,
     tokensTransition,
