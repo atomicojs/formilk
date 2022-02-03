@@ -4,6 +4,7 @@ import {
     tokensFont,
     tokensColor,
     tokensShadow,
+    tokensBorder,
     tokensOpacity,
     tokensTransition,
 } from "../tokens";
@@ -13,6 +14,7 @@ export const inputBaseStyle = [
     tokensFont,
     tokensColor,
     tokensShadow,
+    tokensBorder,
     tokensOpacity,
     tokensTransition,
     css`

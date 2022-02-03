@@ -15,6 +15,7 @@ import {
     tokensBox,
     tokensColor,
     tokensShadow,
+    tokensBorder,
     tokensTransition,
 } from "../tokens";
 import customElements from "../custom-elements";
@@ -135,8 +136,9 @@ dropdown.props = {
 
 dropdown.styles = [
     tokensBox,
-    tokensShadow,
     tokensColor,
+    tokensShadow,
+    tokensBorder,
     tokensTransition,
     css`
         :host {
@@ -214,11 +216,11 @@ dropdown.styles = [
         }
 
         .dropdown {
-            width: var(--tooptip-width, auto);
             --dropdown-current-width: 100%;
+            width: var(--tooptip-width, auto);
             z-index: 1;
             background: var(--color-fill);
-            border-radius: 0.5rem;
+            border-radius: var(--border-radius);
             padding: var(--space-around);
             box-sizing: border-box;
             box-shadow: var(--shadow);

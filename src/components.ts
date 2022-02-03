@@ -38,10 +38,10 @@ export { Text } from "./text/text";
 
 export { Textarea } from "./textarea/textarea";
 
-export {
-    SelectDropdown,
-    SelectDropdownOption,
-} from "./select-dropdown/select-dropdown";
+// export {
+//     SelectDropdown,
+//     SelectDropdownOption,
+// } from "./select-dropdown/select-dropdown";
 
 export { AccordionGroup } from "./accordion/accordion-group";
 export { Accordion } from "./accordion/accordion";

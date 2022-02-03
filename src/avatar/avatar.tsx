@@ -1,7 +1,7 @@
 import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
-import { tokensSize, tokensBorder, tokensColor, tokensBox } from "../tokens";
+import { tokensBox, tokensColor, tokensBorder } from "../tokens";
 
 function avatar({ src, size, transform }: Props<typeof avatar>) {
     return (
@@ -41,6 +41,7 @@ avatar.props = {
 avatar.styles = [
     tokensBox,
     tokensColor,
+    tokensBorder,
     css`
         :host {
             --color-fill: var(--color-current-layer, var(--color-box-fill));

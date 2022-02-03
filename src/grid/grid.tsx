@@ -1,5 +1,5 @@
 import { Props, c, css, useRef } from "atomico";
-import { tokensBorder, tokensBox, tokensColor, tokensSpace } from "../tokens";
+import { tokensBox, tokensColor, tokensBorder } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";
 import customElements from "../custom-elements";
@@ -29,6 +29,7 @@ grid.props = {
 grid.styles = [
     tokensBox,
     tokensColor,
+    tokensBorder,
     css`
         :host {
             display: grid;

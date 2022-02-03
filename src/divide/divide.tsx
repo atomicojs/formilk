@@ -3,6 +3,7 @@ import customElements from "../custom-elements";
 import {
     tokensBox,
     tokensColor,
+    tokensBorder,
     tokensOpacity,
     tokensTransition,
 } from "../tokens";
@@ -28,6 +29,7 @@ divide.props = {
 divide.styles = [
     tokensBox,
     tokensColor,
+    tokensBorder,
     tokensOpacity,
     tokensTransition,
     css`

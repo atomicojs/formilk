@@ -4,12 +4,11 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
 import {
-    tokensSize,
-    tokensBorder,
-    tokensOpacity,
-    tokensColor,
-    tokensShadow,
     tokensBox,
+    tokensColor,
+    tokensBorder,
+    tokensShadow,
+    tokensOpacity,
 } from "../tokens";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
@@ -51,9 +50,10 @@ checkbox.props = {
 
 checkbox.styles = [
     tokensBox,
-    tokensOpacity,
     tokensColor,
+    tokensBorder,
     tokensShadow,
+    tokensOpacity,
     css`
         :host {
             --color-fill: var(--color-checkbox-fill);

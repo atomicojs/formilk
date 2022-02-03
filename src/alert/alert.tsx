@@ -2,7 +2,7 @@ import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { Label } from "../label/label";
-import { tokensBorder, tokensBox, tokensColor, tokensSpace } from "../tokens";
+import { tokensBox, tokensColor, tokensBorder } from "../tokens";
 
 function alert({ status }: Props<typeof alert>) {
     return (
@@ -43,6 +43,7 @@ alert.props = {
 alert.styles = [
     tokensBox,
     tokensColor,
+    tokensBorder,
     css`
         :host {
             --shadow: var(--shadow-layer);

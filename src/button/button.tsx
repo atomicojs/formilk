@@ -9,6 +9,7 @@ import {
     tokensFont,
     tokensColor,
     tokensShadow,
+    tokensBorder,
     tokensOpacity,
 } from "../tokens";
 import customElements from "../custom-elements";
@@ -154,9 +155,10 @@ button.props = {
 button.styles = [
     tokensBox,
     tokensFont,
-    tokensOpacity,
     tokensColor,
     tokensShadow,
+    tokensBorder,
+    tokensOpacity,
     css`
         :host {
             --color-fill: var(--color-button-fill);

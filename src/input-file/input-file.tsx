@@ -128,19 +128,19 @@ inputFile.styles = [
                 --color-current-contrast,
                 var(--color-input-contrast)
             );
-            --icon-size: calc(1em * var(--size-small));
+            --icon-size: calc(1em * var(--scale-small));
         }
         .input-file-header {
             display: grid;
             position: relative;
-            min-height: var(---height);
+            min-height: var(--size--min);
         }
         .input-file-item {
             display: grid;
             justify-content: space-between;
             grid-template-columns: auto 30px;
-            grid-gap: var(--space-between);
-            padding: 0px calc(var(--space-x) / 2) 0px var(--space-x);
+            grid-gap: var(--space--between);
+            padding: 0px calc(var(--space--x) / 2) 0px var(--space--x);
             align-items: center;
         }
         .input-file-name {
@@ -148,7 +148,7 @@ inputFile.styles = [
             overflow: hidden;
         }
         .input-file-header + .input-file-row {
-            margin-top: calc(var(--space-y) / 2);
+            margin-top: calc(var(--space--y) / 2);
         }
         .hidden {
             display: none;
