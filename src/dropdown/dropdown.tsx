@@ -29,7 +29,7 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
     const [inside, setInside] = useState(false);
 
     useListener(
-        { current: document.createElement("div") },
+        { current: window },
         "click",
         show && !inside && (() => setShow(false))
     );
