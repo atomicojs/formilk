@@ -116,6 +116,7 @@ input.props = {
         type: Boolean,
         reflect: true,
     },
+    step: Number,
 };
 
 input.styles = [

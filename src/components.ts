@@ -54,3 +54,5 @@ export {
 
 export { InputFilePreview } from "./input-file/input-file-preview";
 export { InputFile } from "./input-file/input-file";
+
+export { InputCounter } from "./input-counter/input-counter";

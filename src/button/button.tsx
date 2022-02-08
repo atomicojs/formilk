@@ -3,7 +3,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
-import { InputGenericProps, GenericBoolean, GenericString } from "../props";
+import { InputGenericProps } from "../props";
 import {
     tokensBox,
     tokensFont,
@@ -131,25 +131,26 @@ function button({
 
 button.props = {
     ...InputGenericProps,
-    ghost: GenericBoolean,
-    circle: GenericBoolean,
-    active: GenericBoolean,
+    ghost: { type: Boolean, reflect: true },
+    circle: { type: Boolean, reflect: true },
+    active: { type: Boolean, reflect: true },
     type: {
-        ...GenericString,
+        type: String,
+        reflect: true,
         value: "submit",
     },
-    align: GenericString,
-    status: GenericString,
-    shape: GenericString,
-    href: GenericString,
-    color: GenericString,
-    outline: GenericBoolean,
-    rounded: GenericBoolean,
+    align: { type: String, reflect: true },
+    status: { type: String, reflect: true },
+    shape: { type: String, reflect: true },
+    href: { type: String, reflect: true },
+    color: { type: String, reflect: true },
+    outline: { type: Boolean, reflect: true },
+    rounded: { type: Boolean, reflect: true },
     tabIndex: {
         type: Number,
         value: 0,
     },
-    between: GenericBoolean,
+    between: { type: Boolean, reflect: true },
 };
 
 button.styles = [

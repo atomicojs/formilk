@@ -29,6 +29,7 @@ export const inputBaseStyle = [
             --line-opacity: var(--opacity-disabled);
             --shadow: none;
             --gap: var(--space--between);
+            --text-align: left;
             font-size: var(--font-size);
             line-height: var(--size-line);
             display: inline-flex;
@@ -107,6 +108,7 @@ export const inputBaseStyle = [
             position: relative;
             z-index: 2;
             line-height: unset;
+            text-align: var(--text-align);
         }
     `,
 ];
