@@ -55,7 +55,7 @@ function counter({
             <Input
                 name={name}
                 type="number"
-                style="--text-align: center"
+                style="--text-align: center; --gap: 0px;"
                 value={value}
                 oninput={({ currentTarget }) => {
                     setValue(Number(currentTarget.value));
