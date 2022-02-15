@@ -2,12 +2,13 @@
     "name": "formilk",
     "description": "Design system created with Atomico",
     "version": "0.15.1",
-    "type": "module",
     "scripts": {
         "start": "vite --force",
         "build": "vite build --outDir docs",
         "exports": "exports  src/components.ts src/options.ts src/tokens.ts \"src/*/*.tsx\" --types --exports --main components",
-        "prepublishOnly": "npm run exports"
+        "prepublishOnly": "npm run exports",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
     },
     "dependencies": {
         "@atomico/hooks": "^3.29.0",
@@ -17,11 +18,16 @@
     "devDependencies": {
         "@atomico/exports": "latest",
         "@atomico/markdown": "latest",
-        "@uppercod/vite-meta-url": "latest",
-        "@uppercod/vite-meta-url-load-css": "latest",
-        "doc-elements": "^2.1.0",
         "typescript": "^4.5.4",
-        "vite": "^2.6.13"
+        "@babel/core": "^7.16.7",
+        "@babel/plugin-transform-react-jsx": "^7.16.7",
+        "@storybook/addon-actions": "^6.5.0-alpha.14",
+        "@storybook/addon-essentials": "^6.5.0-alpha.14",
+        "@storybook/addon-links": "^6.5.0-alpha.14",
+        "@storybook/builder-webpack5": "^6.5.0-alpha.14",
+        "@storybook/html": "^6.5.0-alpha.14",
+        "@storybook/manager-webpack5": "^6.5.0-alpha.14",
+        "babel-loader": "^8.2.3"
     },
     "prettier": {
         "tabWidth": 4,
