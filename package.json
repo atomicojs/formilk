@@ -6,8 +6,9 @@
         "start": "vite --force",
         "build": "vite build --outDir docs",
         "exports": "exports  src/components.ts src/options.ts src/tokens.ts \"src/*/*.tsx\" --types --exports --main components",
+        "new-story": "scaff template/story src",
         "prepublishOnly": "npm run exports",
-        "storybook": "start-storybook -p 6006",
+        "storybook": "start-storybook  -p 6006",
         "build-storybook": "build-storybook"
     },
     "dependencies": {
@@ -18,16 +19,17 @@
     "devDependencies": {
         "@atomico/exports": "latest",
         "@atomico/markdown": "latest",
-        "typescript": "^4.5.4",
+        "@atomico/scaffold": "^0.2.0",
         "@babel/core": "^7.16.7",
         "@babel/plugin-transform-react-jsx": "^7.16.7",
-        "@storybook/addon-actions": "^6.5.0-alpha.14",
-        "@storybook/addon-essentials": "^6.5.0-alpha.14",
-        "@storybook/addon-links": "^6.5.0-alpha.14",
-        "@storybook/builder-webpack5": "^6.5.0-alpha.14",
-        "@storybook/html": "^6.5.0-alpha.14",
-        "@storybook/manager-webpack5": "^6.5.0-alpha.14",
-        "babel-loader": "^8.2.3"
+        "@storybook/addon-essentials": "^6.4.19",
+        "@storybook/addon-links": "^6.4.19",
+        "@storybook/addon-storysource": "^6.4.19",
+        "@storybook/builder-webpack5": "^6.4.19",
+        "@storybook/html": "^6.4.19",
+        "@storybook/manager-webpack5": "^6.4.19",
+        "babel-loader": "^8.2.3",
+        "typescript": "^4.5.5"
     },
     "prettier": {
         "tabWidth": 4,

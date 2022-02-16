@@ -132,7 +132,6 @@ function button({
 button.props = {
     ...InputGenericProps,
     ghost: { type: Boolean, reflect: true },
-    circle: { type: Boolean, reflect: true },
     active: { type: Boolean, reflect: true },
     type: {
         type: String,

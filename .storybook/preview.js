@@ -1,4 +1,4 @@
-import "./disable-hot";
+import "./disable-hmr";
 
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },

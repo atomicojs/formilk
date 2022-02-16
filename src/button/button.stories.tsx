@@ -6,20 +6,19 @@ import { template } from "atomico";
 export default {
     title: "components/button",
     argTypes: {
+        shadow: {
+            control: "boolean",
+        },
         disabled: {
-            defaultValue: false,
             control: "boolean",
         },
         rounded: {
-            defaultValue: false,
             control: "boolean",
         },
         outline: {
-            defaultValue: false,
             control: "boolean",
         },
         size: {
-            defaultValue: "normal",
             options: ["small", "normal"],
             control: "radio",
         },
@@ -28,7 +27,7 @@ export default {
 
 export const Variants = (props: any) => {
     return template(
-        <Grid model="content(,center)">
+        <Grid>
             <Grid>
                 <h3>Button</h3>
                 <Grid model="width(280px) content(,left)">
@@ -90,4 +89,32 @@ export const Variants = (props: any) => {
             </Grid>
         </Grid>
     );
+};
+
+Variants.args = {
+    disabled: false,
+    rounded: false,
+    outline: false,
+    shadow: false,
+};
+
+export const Default = (props: any) =>
+    template(<Button {...props}>Button</Button>);
+
+Default.args = {
+    disabled: false,
+    rounded: false,
+    outline: false,
+    shadow: false,
+};
+
+export const Small = (props: any) =>
+    template(<Button {...props}>Button</Button>);
+
+Small.args = {
+    disabled: false,
+    rounded: false,
+    outline: false,
+    shadow: false,
+    size: "small",
 };
