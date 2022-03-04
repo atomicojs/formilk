@@ -2,188 +2,29 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Formilk</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <title>Atomico - Started</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
             rel="stylesheet"
         />
         <style>
-            html,
-            body {
-                margin: 0px;
+            html {
                 width: 100%;
                 height: 100%;
+                font-family: "Poppins", sans-serif;
+                font-size: 16px;
             }
             body {
-                font-family: "Poppins", sans-serif;
-            }
-            :root {
-                --doc--preview-background: #e0f1ee;
+                width: 100%;
+                height: 100%;
+                margin: 0px;
+                overflow: hidden auto;
             }
         </style>
-        <script type="module" src="./doc/doc.js"></script>
-        <script type="module" src="./src/components.ts"></script>
+        <script async type="module" src="./doc/load.tsx"></script>
     </head>
-    <body>
-        <doc-container>
-            <doc-header>
-                <img
-                    src="./doc/logo.svg"
-                    alt="logo"
-                    width="120px"
-                    slot="brand"
-                />
-                <a href="https://github.com/atomicojs/formilk" ignore>Github</a>
-                <a href="https://t.co/GOwj7XKrvy?amp=1" ignore>Discord</a>
-            </doc-header>
-            <doc-aside>
-                <doc-group label="Tutorial">
-                    <doc-source
-                        href="/"
-                        label="Welcome"
-                        src="/doc/welcome.md"
-                    ></doc-source>
-                    <doc-source
-                        href="/customization"
-                        label="Customization"
-                        src="/doc/customization.md"
-                    ></doc-source>
-                    <doc-source
-                        href="/tokens/tokens"
-                        label="Tokens"
-                        src="/doc/tokens.md"
-                    ></doc-source>
-                    <doc-source
-                        href="/inheritance"
-                        label="Inheritance"
-                        src="/doc/inheritance.md"
-                    ></doc-source>
-                </doc-group>
-                <doc-group label="Componentes">
-                    <doc-source
-                        label="fm-button"
-                        href="/components/fm-button"
-                        src="/doc/fm-button.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-input"
-                        href="/components/fm-input"
-                        src="/doc/fm-input.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-checkbox"
-                        href="/components/fm-checkbox"
-                        src="/doc/fm-checkbox.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-radio"
-                        href="/components/fm-radio"
-                        src="/doc/fm-radio.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-switch"
-                        href="/components/fm-switch"
-                        src="/doc/fm-switch.md"
-                    ></doc-source>
-
-                    <!-- <doc-source
-                            label="fm-input-color"
-                            href="/components/fm-input-color"
-                            src="/doc/fm-input-color.md"
-                        ></doc-source> -->
-                    <!-- <doc-source
-                        label="fm-card"
-                        href="/components/fm-card"
-                        src="/doc/fm-card.md"
-                    ></doc-source> -->
-                    <doc-source
-                        label="fm-select"
-                        href="/components/fm-select"
-                        src="/doc/fm-select.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-alert"
-                        href="/components/fm-alert"
-                        src="/doc/fm-alert.md"
-                    ></doc-source>
-                    <!-- <doc-source
-                        label="fm-navigation"
-                        href="/components/fm-navigation"
-                        src="/doc/fm-navigation.md"
-                    ></doc-source> -->
-                    <doc-source
-                        label="fm-accordion"
-                        href="/components/fm-accordion"
-                        src="/doc/fm-accordion.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-icon"
-                        href="/components/fm-icon"
-                        src="/doc/fm-icon.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-avatar"
-                        href="/components/fm-avatar"
-                        src="/doc/fm-avatar.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-tabs"
-                        href="/components/fm-tabs"
-                        src="/doc/fm-tabs.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-dropdown"
-                        href="/components/fm-dropdown"
-                        src="/doc/fm-dropdown.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-label"
-                        href="/components/fm-label"
-                        src="/doc/fm-label.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-grid & fm-box"
-                        href="/components/fm-grid"
-                        src="/doc/fm-grid.md"
-                    ></doc-source>
-                    <!-- <doc-source
-                        label="fm-select-dropdown(🧪)"
-                        href="/components/fm-select-dropdown"
-                        src="/doc/fm-select-dropdown.md"
-                    ></doc-source> -->
-                    <doc-source
-                        label="fm-text(🧪)"
-                        href="/components/fm-text"
-                        src="/doc/fm-text.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-input-file(🧪)"
-                        href="/components/fm-input-file"
-                        src="/doc/fm-input-file.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-textarea(🧪)"
-                        href="/components/fm-textarea"
-                        src="/doc/fm-textarea.md"
-                    ></doc-source>
-                    <doc-source
-                        label="fm-input-counter(🧪)"
-                        href="/components/fm-input-counter"
-                        src="/doc/fm-input-counter.md"
-                    ></doc-source>
-                </doc-group>
-                <doc-group label="Examples">
-                    <doc-source
-                        href="/examples/micro-app"
-                        label="Micro app"
-                        src="/doc/example-micro-app.md"
-                    ></doc-source>
-                </doc-group>
-            </doc-aside>
-            <doc-content></doc-content>
-        </doc-container>
-    </body>
+    <body></body>
 </html>

@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["src/**/*","example/**/*", "vite.config.js","types.d.ts"],
   "compilerOptions": {
     "strict": true,
     "jsx": "react-jsx",
