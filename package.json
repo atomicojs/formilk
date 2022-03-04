@@ -6,10 +6,7 @@
         "start": "vite --force",
         "build": "vite build --outDir docs",
         "exports": "exports  src/components.ts src/options.ts src/tokens.ts \"src/*/*.tsx\" --types --exports --main components",
-        "new-story": "scaff template/story src",
-        "prepublishOnly": "npm run exports",
-        "storybook": "start-storybook  -p 6006",
-        "build-storybook": "build-storybook"
+        "prepublishOnly": "npm run exports"
     },
     "dependencies": {
         "@atomico/hooks": "^3.29.0",
@@ -20,16 +17,10 @@
         "@atomico/exports": "latest",
         "@atomico/markdown": "latest",
         "@atomico/scaffold": "^0.2.0",
-        "@babel/core": "^7.16.7",
-        "@babel/plugin-transform-react-jsx": "^7.16.7",
-        "@storybook/addon-essentials": "^6.4.19",
-        "@storybook/addon-links": "^6.4.19",
-        "@storybook/addon-storysource": "^6.4.19",
-        "@storybook/builder-webpack5": "^6.4.19",
-        "@storybook/html": "^6.4.19",
-        "@storybook/manager-webpack5": "^6.4.19",
-        "babel-loader": "^8.2.3",
-        "typescript": "^4.5.5"
+        "typescript": "^4.5.5",
+        "@uppercod/vite-meta-url": "latest",
+        "@uppercod/vite-meta-url-load-css": "latest",
+        "vite": "latest"
     },
     "prettier": {
         "tabWidth": 4,
