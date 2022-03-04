@@ -1,5 +1,6 @@
 import { template } from "atomico";
 import { Checkbox } from "./checkbox";
+import { Grid } from "../grid/grid";
 // More on default export: https://storybook.js.org/docs/web-components/writing-stories/introduction#default-export
 export default {
     title: "components/checkbox",
@@ -12,7 +13,13 @@ export default {
     },
 };
 
-export const Story = (props:any) =>template(<Checkbox {...props}/>);
+export const Story = (props: any) =>
+    template(
+        <Grid>
+            <Checkbox {...props} />
+            <Checkbox {...props} checked={!props.checked} />
+        </Grid>
+    );
 
 Story.args = {
     color: "black",
