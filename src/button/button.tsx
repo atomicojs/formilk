@@ -203,10 +203,6 @@ button.styles = [
             ---shadow: var(--shadow);
         }
 
-        :host([circle]) {
-            --border-radius: 100px;
-        }
-
         .button {
             font: unset;
             min-width: var(---min-width);

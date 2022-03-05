@@ -1,5 +1,6 @@
 import { render } from "atomico";
 import { Doc, ModuloPage } from "@atomico/stories";
+import logo from "./logo-contrast.svg";
 
 const modules = Object.values(
     //@ts-ignore
@@ -14,7 +15,9 @@ const modules = Object.values(
 
 render(
     <host>
-        <Doc modules={modules}></Doc>
+        <Doc modules={modules}>
+            <img src={logo} alt="Logo" slot="brand" height="32px" />
+        </Doc>
     </host>,
     document.body
 );

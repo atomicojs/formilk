@@ -1,102 +1,85 @@
-import { md, Stories, Story } from "@atomico/stories";
+import { md } from "@atomico/stories";
+import { Button, Grid, Input, Icon } from "../../src/components";
 
 export const meta = {
-    title: "My story component",
+    title: "Welcome",
     path: "/",
 };
 
 export default md`
-# My story ${(<br />)} component
+# Welcome
 
-> et est sit ipsum occaecat id do excepteur ullamco labore non labore consequat deserunt veniam anim fugiat tempor non proident dolore proident commodo incididunt amet tempor pariatur ullamco qui voluptate minim tempor exercitation nisi voluptate sit laboris adipisicing officia velit qui ut commodo proident in ea laborum
+> Design system designed and created by [UpperCod](https://twitter.com/uppercod) with the aim of having a unique aesthetic, formilk was created to be used without complexity and interaction limitations.
 
-et est sit ipsum occaecat id do excepteur ullamco labore non labore consequat deserunt veniam anim fugiat tempor non proident dolore proident commodo incididunt amet tempor pariatur ullamco qui voluptate minim tempor exercitation nisi voluptate sit laboris adipisicing officia velit qui ut commodo proident in ea laborum
+Formilk does not leverage typography (titles and texts), it is a stack of utility components that are managed through custom-properties, so creating variations is really easy.
 
-~~~jsx
-import { md } from "@atomico/stories";
+## Installation
 
-export const meta = {
-  title: "welcome!",
-  path: "/"
-};
-
-export default md\`
-# Title...
-
-Content...
-
-\${<button onclick={console.log}>I am JSX</button>}
-
-\`;
+~~~text tab(setup, Npm)
+# NPM
+npm install formilk
 ~~~
 
-~~~html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atomico - Started</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      html {
-        width: 100%;
-        height: 100%;
-        font-family: "Poppins", sans-serif;
-        font-size: 16px;
-      }
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        overflow: hidden auto;
-      }
-    </style>
-    <script async type="module" src="./example/load.tsx"></script>
-  </head>
-  <body></body>
-</html>
-
+~~~js tab(setup, Js)
+import "formilk";
 ~~~
 
+~~~js tab(setup, React)
+import "formilk";
+~~~
 
+## Usage
 
-Con ~@atomico/stories~ podras documentar  tus webcomponents y crear storias reactivas, ejemplo:
+~~~html tab(usage,HTML)
+<fm-button>Button</fm-button>
+~~~
+
+~~~tsx tab(usage,Atomico JS)
+import { html } from "atomico";
+import "formilk";
+
+function component() {
+    return html\`<host>
+        <fm-button>Button</fm-button>
+    </host>\`;
+}
+~~~
+
+~~~tsx tab(usage,Atomico Jsx)
+import { Button } from "formilk";
+
+function component() {
+    return (
+        <host>
+            <Button>Button</Button>
+        </host>
+    );
+}
+~~~
+
+~~~tsx tab(usage,React)
+import { Button } from "formilk/react";
+
+function component() {
+    return (
+        <>
+            <Button>Button</Button>
+        </>
+    );
+}
+~~~
+
+## Example
 
 ${(
-    <Stories
-        props={{
-            disabled: {
-                type: "switch",
-                description: "my prop...",
-            },
-            size: {
-                type: "select",
-                description: "my prop...",
-                options: ["small", "large"],
-            },
-            label: {
-                type: "text",
-                description: "Write content...",
-            },
-        }}
-    >
-        <Story
-            label="I am story 1"
-            render={(props) => (
-                <button style="background: black; color: white; height: 40px;width:180px;border:none;border-radius:.5rem;font-size: unset;font-family:unset;">
-                    {props.label || "button"}
-                </button>
-            )}
-        ></Story>
-        <Story label="I am story 2">
-            <button>hola - 2</button>
-        </Story>
-    </Stories>
+    <Grid model="width(280px)">
+        <Input type="text" placeholder="Username">
+            <Icon slot="prefix" type="avatar"></Icon>
+        </Input>
+        <Input type="text" placeholder="Password">
+            <Icon slot="prefix" type="lock"></Icon>
+        </Input>
+        <Button>Login</Button>
+    </Grid>
 )}
 `;

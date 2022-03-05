@@ -1,8 +1,25 @@
-import { Props, c, css } from "atomico";
+import { Props, c, css, Component } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { Label } from "../label/label";
 import { tokensBox, tokensColor, tokensBorder } from "../tokens";
+
+const a: Component<{ name: string; reference: HTMLElement }> = (props) => {
+    return <host shadowDom></host>;
+};
+
+a.props = {
+    name: String,
+    reference: HTMLElement,
+};
+
+a.styles = css`
+    :host {
+        width: 200px;
+    }
+`;
+
+const A = c(a);
 
 function alert({ status }: Props<typeof alert>) {
     return (
