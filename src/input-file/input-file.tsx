@@ -7,6 +7,7 @@ import { Icon } from "../icon/icon";
 import { inputBaseStyle } from "../input/input-base-style";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { InputFilePreview } from "./input-file-preview";
+export { InputFilePreview } from "./input-file-preview";
 import { InputGenericProps } from "../props";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 
