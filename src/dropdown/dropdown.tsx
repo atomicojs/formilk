@@ -8,6 +8,7 @@ import {
     useState,
     useEffect,
     DOMEvent,
+    DOMListener,
 } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
@@ -44,7 +45,7 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
         setShowWithOver(showWithOver);
     }, [showWithOver]);
 
-    const handlerShow = (event: DOMEvent) => {
+    const listenerShow: DOMListener<DOMEvent> = (event) => {
         let { target } = event as { target: Element | null };
 
         while (target) {
@@ -80,7 +81,7 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
         );
     };
 
-    handlerShow.capture = true;
+    listenerShow.capture = true;
 
     return (
         <host
@@ -92,8 +93,8 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
             }}
         >
             <slot
-                onclick={handlerShow}
-                onmouseover={showWithOver ? handlerShow : null}
+                onclick={listenerShow}
+                onmouseover={showWithOver ? listenerShow : null}
                 ref={refSlot}
                 name="action"
             ></slot>
