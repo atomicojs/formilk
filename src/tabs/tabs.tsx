@@ -82,6 +82,7 @@ tabs.props = {
 
 tabs.styles = css`
     :host {
+        min-width: 100%;
         display: flex;
         flex-flow: column nowrap;
         min-height: 100%;

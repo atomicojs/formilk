@@ -1,9 +1,8 @@
-import { Label } from "./label";
-import { Switch } from "../switch/switch";
+import { Textarea } from "./textarea";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Label",
+    path: "/Components/Textarea",
 };
 
 export default md`
@@ -18,10 +17,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Label>
-                <span>Welmcome</span>
-                <Switch slot="action"></Switch>
-            </Label>
+            <Textarea placeholder="random..."></Textarea>
         </Story>
     </Stories>
 )}
