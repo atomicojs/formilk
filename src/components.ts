@@ -52,7 +52,6 @@ export {
     NavigationDropdown,
 } from "./navigation/navigation";
 
-export { InputFilePreview } from "./input-file/input-file-preview";
-export { InputFile } from "./input-file/input-file";
+export { InputFile, InputFilePreview } from "./input-file/input-file";
 
 export { InputCounter } from "./input-counter/input-counter";
