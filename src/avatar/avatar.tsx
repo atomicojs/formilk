@@ -17,11 +17,10 @@ function avatar({ src, size, transform }: Props<typeof avatar>) {
                     </slot>
                 </div>
             </button>
-            <style>{
-                /*css*/ `:host{--size:${size};${
-                    transform ? `--transform:${transform}` : ""
-                }}`
-            }</style>
+            <style>
+                {!!size && `:host{--size:${size};}`}
+                {!!transform && `:host{--transform:${transform};}`}
+            </style>
         </host>
     );
 }
@@ -61,8 +60,8 @@ avatar.styles = [
             --size: var(--size-min);
         }
         .avatar-mask {
-            width: var(--size);
-            height: var(--size);
+            width: var(--size, var(--size-min));
+            height: var(--size, var(--size-min));
             overflow: hidden;
             border-radius: var(--border-radius);
             border: calc(var(--border-width) * 2) solid var(--color-divide);
