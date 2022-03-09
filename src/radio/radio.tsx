@@ -1,4 +1,4 @@
-import { c, css, Props, useHost } from "atomico";
+import { c, css, Meta, Props, useHost, DOMEvent } from "atomico";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { Checkbox } from "../checkbox/checkbox";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
@@ -22,13 +22,10 @@ function radio({ value }: Props<typeof Checkbox>) {
 }
 
 radio.styles = css`
-    :host,
-    :host([size="small"]) {
-        --scale-state: 0.6 !important;
-    }
-    .checkbox,
-    .checkbox-state {
-        border-radius: 100%;
+    :host {
+        --radius: 100%;
+        ---state-size: var(--size-s);
+        ---state-radius: 100%;
     }
 `;
 

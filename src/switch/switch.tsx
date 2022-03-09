@@ -24,35 +24,19 @@ function inputSwitch() {
 }
 
 inputSwitch.styles = css`
-    :host,
-    :host([size="small"]) {
-        --scale-state: 0.6;
+    :host {
+        --radius: 100px;
+        ---state-opacity: 0.25;
+        ---width: calc((var(--size-s) * 2) + (var(--size-m) - var(--size-s)));
+        ---state-size: var(--size-s);
+        ---state-radius: 100%;
+        ---state-transform: translateX(-50%);
     }
-
+    :host([checked]) {
+        ---state-transform: translateX(50%);
+    }
     .checkbox {
-        --scale: 1.7;
-        width: calc(var(--size) * var(--scale));
-        border-radius: 10vh;
-    }
-
-    .checkbox-state {
-        --x: calc((var(--size) * var(--scale) - var(--size)) / 2);
-        border-radius: 10vh;
-        position: relative;
-        transform: translateX(calc(var(--x) * -1));
-        opacity: var(--opacity-switch-off);
-        transform-origin: left center;
-    }
-
-    :host([checked]) .checkbox {
-        background: var(--color-divide);
-    }
-
-    :host([checked]) .checkbox-state {
-        opacity: 1;
-        transform: translateX(var(--x));
-        transform-origin: right center;
-        background: var(--color-contrast);
+        width: var(---width);
     }
 `;
 

@@ -15,7 +15,8 @@ export const tokensBox = css`
     :host {
         ${tokenize`
             @title: Box;
-            scale: 1;
+            scale: .25rem;
+            radius: .5em;
             scale-small: .75;
             space-y: 0.625rem;
             space-x: 1.25rem;
@@ -28,6 +29,28 @@ export const tokensBox = css`
             size--line: calc( var(--size-line) * var(--scale) );
             size-min: calc( var(--size-line) + var(--space-y) * 2 );
             size--min: calc( (var(--size-line) + var(--space-y) * 2) * var(--scale) );
+            size-xl: calc(var(--scale) * 10);
+            size-l: calc(var(--scale) * 8);
+            size-m: calc(var(--scale) * 7);
+            size-s: calc(var(--scale) * 5);
+        `}
+    }
+    :host([size="small"]) {
+        --size-xl: calc(var(--scale) * 8);
+        --size-l: calc(var(--scale) * 7);
+        --size-m: calc(var(--scale) * 5);
+        --size-s: calc(var(--scale) * 3.5);
+    }
+`;
+
+export const tokensInput = css`
+    :host {
+        ${tokenize`
+            @title: Input;
+            input-border: 1px;
+            input-color-fill: white;
+            input-color-divide: currentColor;
+            input-color-contrast: currentColor;
         `}
     }
 `;

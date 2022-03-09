@@ -9,6 +9,8 @@ import {
     tokensBorder,
     tokensShadow,
     tokensOpacity,
+    tokensInput,
+    tokensTransition,
 } from "../tokens";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
@@ -28,9 +30,7 @@ function checkbox({ tabIndex }: Props<typeof checkbox>) {
                 tabIndex={disabled ? -1 : tabIndex}
             >
                 <div class="checkbox-state">
-                    <slot name="icon">
-                        <Icon size="1em" type="check"></Icon>
-                    </slot>
+                    <Icon size="1em" type="check"></Icon>
                 </div>
             </button>
         </host>
@@ -50,26 +50,17 @@ checkbox.props = {
 
 checkbox.styles = [
     tokensBox,
+    tokensInput,
     tokensColor,
     tokensBorder,
     tokensShadow,
     tokensOpacity,
+    tokensTransition,
     css`
         :host {
-            --color-fill: var(--color-checkbox-fill);
-            --color-divide: var(--color-checkbox-divide);
-            --color-contrast: var(--color-checkbox-contrast);
-            --color-current-contrast: var(--color-contrast);
-            --shadow: var(--shadow-action);
-            --scale: var(--scale-small);
-            --scale-state: 0.8;
-            --size: var(--size--min);
-            align-items: center;
-            display: inline-flex;
-        }
-
-        :host([shadow]) {
-            box-shadow: var(--shadow);
+            ---state-opacity: 0;
+            ---state-size: 100%;
+            cursor: pointer;
         }
 
         :host([disabled]) {
@@ -77,55 +68,40 @@ checkbox.styles = [
             pointer-events: none;
         }
 
-        :host([checked]) .checkbox-state {
-            opacity: 1;
+        :host([checked]) {
+            ---state-opacity: 1;
         }
 
         .checkbox {
-            width: var(--size);
-            height: var(--size);
-            padding: 0px;
-            background: var(--color-fill);
-            border-radius: var(--border-radius);
-            backdrop-filter: var(--backdrop);
-            border: var(--border-width) solid var(--color-divide);
+            width: var(--size-m);
+            height: var(--size-m);
+            padding: 0;
+            background: var(--input-color-fill);
+            border-radius: var(--radius);
+            border: var(--input-border) solid var(--input-color-divide);
+            overflow: hidden;
             cursor: unset;
-        }
-
-        ::slotted([slot="icon"]),
-        svg {
-            color: var(--color-contrast);
-        }
-
-        slot[name="icon"] {
-            width: 100%;
-            height: 100%;
+            font: unset;
             display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .checkbox-state {
-            --state-size: calc((var(--size) * var(--scale-state)));
-            --state-max-size: calc(var(--size) - (var(--border-width) * 2));
-            width: var(--state-size);
-            height: var(--state-size);
-            max-width: var(--state-max-size);
-            max-height: var(--state-max-size);
+            width: var(---state-size);
+            height: var(---state-size);
+            background: var(--input-color-divide);
+            opacity: var(---state-opacity);
             margin: auto;
-            border-radius: calc(var(--border-radius) * 0.75);
-            background: var(--color-divide);
-            opacity: 0;
+            border-radius: var(---state-radius);
+            transform: var(---state-transform);
+        }
+
+        .checkbox-state * {
+            color: var(--input-color-fill);
         }
 
         .checkbox,
         .checkbox-state {
-            transition: 0.3s ease all;
-        }
-
-        :host([size="small"]) {
-            --scale: var(--scale-small) * var(--scale-small);
-            --scale-state: 1;
+            transition: var(--transition-s0);
         }
     `,
 ];
