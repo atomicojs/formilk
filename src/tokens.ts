@@ -33,6 +33,7 @@ export const tokensBox = css`
             size-l: calc(var(--scale) * 8);
             size-m: calc(var(--scale) * 7);
             size-s: calc(var(--scale) * 5);
+            size-xs: calc(var(--scale) * 3);
         `}
     }
     :host([size="small"]) {
@@ -49,8 +50,11 @@ export const tokensInput = css`
             @title: Input;
             input-border: 1px;
             input-color-fill: white;
-            input-color-divide: currentColor;
+            input-color-divide: transparent;
             input-color-contrast: currentColor;
+            input-opacity-unselect: .25;
+            input-opacity-disabled: .5;
+            input-transition: .2s ease all;
         `}
     }
 `;

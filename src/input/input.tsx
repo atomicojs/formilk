@@ -50,8 +50,17 @@ function input({ type, status, ...props }: Props<typeof input>) {
                 refInput.current.focus();
             }}
         >
-            <div class="input">
-                <div class="input-content">
+            <div class="input-row input">
+                <div
+                    class="input-row"
+                    style={`--columns:${serialize(
+                        slotPrefix.length && "auto",
+                        slotLabel.length && "auto",
+                        "1fr",
+                        slotSuffix.length && "auto",
+                        props.required && "auto"
+                    )}`}
+                >
                     <slot
                         ref={refSlotPrefix}
                         name="prefix"
@@ -74,21 +83,6 @@ function input({ type, status, ...props }: Props<typeof input>) {
                     </div>
                 </div>
             </div>
-            <style>{`
-                :host {
-                    --columns-label: ${slotLabel.length};
-                    --columns: ${serialize(
-                        slotPrefix.length && "auto",
-                        slotLabel.length && "auto",
-                        "1fr",
-                        slotSuffix.length && "auto",
-                        props.required && "auto"
-                    )};
-                }
-                :host([status]) {
-                    --color-status: var(--color-status-${status});
-                }
-            `}</style>
         </host>
     );
 }
@@ -122,14 +116,8 @@ input.props = {
 input.styles = [
     inputBaseStyle,
     css`
-        :host {
-            min-width: 100%;
-        }
         .hidden {
             display: none;
-        }
-        .input-suffix {
-            display: grid;
         }
     `,
 ];

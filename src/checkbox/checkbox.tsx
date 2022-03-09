@@ -51,11 +51,6 @@ checkbox.props = {
 checkbox.styles = [
     tokensBox,
     tokensInput,
-    tokensColor,
-    tokensBorder,
-    tokensShadow,
-    tokensOpacity,
-    tokensTransition,
     css`
         :host {
             ---state-opacity: 0;
@@ -78,7 +73,7 @@ checkbox.styles = [
             padding: 0;
             background: var(--input-color-fill);
             border-radius: var(--radius);
-            border: var(--input-border) solid var(--input-color-divide);
+            border: var(--input-border) solid var(--input-color-contrast);
             overflow: hidden;
             cursor: unset;
             font: unset;
@@ -88,7 +83,7 @@ checkbox.styles = [
         .checkbox-state {
             width: var(---state-size);
             height: var(---state-size);
-            background: var(--input-color-divide);
+            background: var(--input-color-contrast);
             opacity: var(---state-opacity);
             margin: auto;
             border-radius: var(---state-radius);
@@ -101,7 +96,7 @@ checkbox.styles = [
 
         .checkbox,
         .checkbox-state {
-            transition: var(--transition-s0);
+            transition: var(--input-transition);
         }
     `,
 ];
