@@ -12,30 +12,19 @@ export const tokens = cssTokens.tokens;
 
 export const tokenize = cssTokens.tokenize;
 
-export const tokensBox = css`
+export const cssBase = css`
     :host {
-        ${tokenize`
-            @title: Box;
+        ${system.cssProps(`
             scale: .25rem;
             radius: .5em;
             scale-small: .75;
-            space-y: 0.625rem;
-            space-x: 1.25rem;
-            space--y: calc( var(--space-y) * var(--scale) );
-            space--x: calc( var(--space-x) * var(--scale) );
-            space-around: 1rem;
-            space-between: 1rem;
-            space--between: calc(var(--space-between) * var(--scale));
-            size-line: 1.25rem;
-            size--line: calc( var(--size-line) * var(--scale) );
-            size-min: calc( var(--size-line) + var(--space-y) * 2 );
-            size--min: calc( (var(--size-line) + var(--space-y) * 2) * var(--scale) );
             size-xl: calc(var(--scale) * 10);
             size-l: calc(var(--scale) * 8);
             size-m: calc(var(--scale) * 7);
             size-s: calc(var(--scale) * 5);
             size-xs: calc(var(--scale) * 4);
-        `}
+            size-xxs: calc(var(--scale) * 3);
+        `)}
     }
     :host([size="small"]) {
         --size-xl: calc(var(--scale) * 8);
@@ -82,6 +71,7 @@ export const cssStatusColors = css`
 `;
 
 export const cssInput = [
+    cssBase,
     cssBaseColors,
     cssStatusColors,
     css`

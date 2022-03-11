@@ -2,7 +2,7 @@ import { Props, c, css, Component } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 import { Label } from "../label/label";
-import { tokensBox, tokensColor, tokensBorder } from "../tokens";
+import { cssBase, tokensColor, tokensBorder } from "../tokens";
 
 const a: Component<{ name: string; reference: HTMLElement }> = (props) => {
     return <host shadowDom></host>;
@@ -58,7 +58,7 @@ alert.props = {
 };
 
 alert.styles = [
-    tokensBox,
+    cssBase,
     tokensColor,
     tokensBorder,
     css`

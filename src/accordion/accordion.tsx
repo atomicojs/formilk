@@ -1,6 +1,6 @@
 import { c, css, useRef, useProp, Meta, DOMEvent } from "atomico";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
-import { tokensColor, tokensBox, tokensTransition } from "../tokens";
+import { tokensColor, cssBase, tokensTransition } from "../tokens";
 import { Divide } from "../divide/divide";
 import customElements from "../custom-elements";
 
@@ -54,7 +54,7 @@ accordion.props = {
 };
 
 accordion.styles = [
-    tokensBox,
+    cssBase,
     tokensColor,
     tokensTransition,
     css`

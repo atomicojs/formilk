@@ -1,7 +1,7 @@
 import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
-import { tokensBox, tokensColor, tokensBorder } from "../tokens";
+import { cssBase, tokensColor, tokensBorder } from "../tokens";
 
 function avatar({ src, size, transform }: Props<typeof avatar>) {
     return (
@@ -38,7 +38,7 @@ avatar.props = {
 };
 
 avatar.styles = [
-    tokensBox,
+    cssBase,
     tokensColor,
     tokensBorder,
     css`

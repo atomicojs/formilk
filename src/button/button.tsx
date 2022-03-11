@@ -4,8 +4,8 @@ import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
-import system from "../system";
-import { tokensBox, cssInput, cssButton } from "../tokens";
+import customElements from "../system";
+import { cssButton } from "../tokens";
 
 const add = (value: any) => (value ? 1 : 0);
 
@@ -104,28 +104,32 @@ button.props = {
 };
 
 button.styles = [
-    tokensBox,
-    cssInput,
     cssButton,
     css`
         :host {
-            display: inline-flex;
             --width: auto;
+            --padding: 0 var(--size-s);
+            display: inline-flex;
             min-height: var(--size-xl);
             color: var(--color-button-10);
-            --padding: 0 var(--size-s);
         }
 
         :host([disabled]) {
             opacity: var(--input-opacity-disabled);
             pointer-events: none;
         }
+
         :host([rounded]) {
             --radius: 100px;
         }
+
         :host([shape="square"]) {
             --padding: 0;
             --width: var(--size-xl);
+        }
+
+        :host([ghost]) {
+            --color-button-60: transparent;
         }
 
         .button {
@@ -167,4 +171,4 @@ button.styles = [
 
 export const Button = c(button);
 
-system.define("button", Button);
+customElements.define("button", Button);

@@ -3,8 +3,8 @@ import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
-import { tokensBox, cssInput } from "../tokens";
-import customElements from "../custom-elements";
+import { cssBase, cssInput } from "../tokens";
+import customElements from "../system";
 import { Icon } from "../icon/icon";
 
 function checkbox({ tabIndex }: Props<typeof checkbox>) {
@@ -41,7 +41,7 @@ checkbox.props = {
 };
 
 checkbox.styles = [
-    tokensBox,
+    cssBase,
     cssInput,
     css`
         :host {

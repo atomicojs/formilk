@@ -2,7 +2,7 @@ import { Props, c, css, useProp, useRef, useEvent } from "atomico";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { Icon } from "../icon/icon";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { useCssLightDom } from "@atomico/hooks/use-css-light-dom";
 import { useClickPress } from "@atomico/hooks/use-click-press";
 import { InputGenericProps } from "../props";
@@ -73,6 +73,7 @@ function counter({
                     ghost
                     ref={refDecrement}
                     onclick={(event) => event.preventDefault()}
+                    size="small"
                 >
                     <Icon slot="prefix" type="dash"></Icon>
                 </Button>
@@ -82,6 +83,7 @@ function counter({
                     ghost
                     ref={refIncrement}
                     onclick={(event) => event.preventDefault()}
+                    size="small"
                 >
                     <Icon slot="prefix" type="plus"></Icon>
                 </Button>

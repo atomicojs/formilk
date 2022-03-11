@@ -1,16 +1,15 @@
 import { css } from "atomico";
-import { tokensBox, cssInput } from "../tokens";
+import { cssInput } from "../tokens";
 
 export const inputBaseStyle = [
-    tokensBox,
     cssInput,
     css`
         :host {
             width: 100%;
-            height: var(--size-xl);
+            min-height: var(--size-xl);
             display: block;
             ---line-opacity: var(--input-opacity-unfocus);
-            ---space-x: var(--size-s);
+            --space-x: var(--size-s);
         }
 
         .input-row {
@@ -40,22 +39,14 @@ export const inputBaseStyle = [
             height: 100%;
             border: var(--input-border);
             border-radius: var(--radius);
-            padding: 0 var(---space-x);
+            padding: 0 var(--space-x);
             background: var(--color-input-60);
             box-sizing: border-box;
             position: relative;
         }
 
-        :host([narrow]) {
-            ---space-x: 0;
-        }
-
         :host([focused]) {
             ---line-opacity: 1;
-        }
-
-        :host([ghost]) {
-            --color-input-fill: transparent;
         }
 
         :host([disabled]) {

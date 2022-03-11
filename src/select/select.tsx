@@ -87,7 +87,7 @@ select.styles = [
             position: absolute;
             top: 0;
             left: 0;
-            padding: 0 var(---space-x);
+            padding: 0 var(--space-x);
             appearance: none;
         }
         .input-row {

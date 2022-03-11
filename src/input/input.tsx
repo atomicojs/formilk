@@ -6,7 +6,7 @@ import { InputGenericProps } from "../props";
 import { serialize } from "../utils";
 import { inputBaseStyle } from "./input-base-style";
 import { Icon } from "../components";
-import system from "../system";
+import customElements from "../system";
 
 function input({ type, status, ...props }: Props<typeof input>) {
     const [, setValue] = useProp("value");
@@ -128,4 +128,4 @@ input.styles = [
 
 export const Input = c(input);
 
-system.define("input", Input);
+customElements.define("input", Input);

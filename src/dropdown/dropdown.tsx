@@ -13,7 +13,7 @@ import {
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
 import {
-    tokensBox,
+    cssBase,
     tokensColor,
     tokensShadow,
     tokensBorder,
@@ -136,7 +136,7 @@ dropdown.props = {
 };
 
 dropdown.styles = [
-    tokensBox,
+    cssBase,
     tokensColor,
     tokensShadow,
     tokensBorder,

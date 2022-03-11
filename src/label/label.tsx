@@ -2,7 +2,7 @@ import { c, css, Props, Ref, useRef } from "atomico";
 import { serialize } from "atomico/utils";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useCurrentValue } from "@atomico/hooks/use-current-value";
-import { tokensBox } from "../tokens";
+import { cssBase } from "../tokens";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import customElements from "../custom-elements";
 
@@ -84,7 +84,7 @@ label.props = {
 };
 
 label.styles = [
-    tokensBox,
+    cssBase,
     css`
         :host {
             width: 100%;
