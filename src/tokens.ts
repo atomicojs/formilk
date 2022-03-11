@@ -1,6 +1,7 @@
 import { css } from "atomico";
 import { createParseCssTokens } from "@uppercod/parse/parse-css-tokens";
 import options from "./options";
+import system, { cssProps } from "./system";
 
 const cssTokens = createParseCssTokens({
     ...options,
@@ -33,7 +34,7 @@ export const tokensBox = css`
             size-l: calc(var(--scale) * 8);
             size-m: calc(var(--scale) * 7);
             size-s: calc(var(--scale) * 5);
-            size-xs: calc(var(--scale) * 3);
+            size-xs: calc(var(--scale) * 4);
         `}
     }
     :host([size="small"]) {
@@ -44,20 +45,76 @@ export const tokensBox = css`
     }
 `;
 
-export const tokensInput = css`
+export const cssBaseColors = css`
     :host {
-        ${tokenize`
-            @title: Input;
-            input-border: 1px;
-            input-color-fill: white;
-            input-color-divide: transparent;
-            input-color-contrast: currentColor;
-            input-opacity-unselect: .25;
-            input-opacity-disabled: .5;
-            input-transition: .2s ease all;
-        `}
+        ${system.cssProps(`
+        color-primary-60: white;
+        color-primary-30: transparent;
+        color-primary-10: black;
+
+        color-layer-60: #f1f1f1;
+        color-layer-30: transparent;
+        color-layer-10: var(--color-primary-10);
+        `)}
     }
 `;
+
+export const cssStatusColors = css`
+    :host {
+        ${system.cssProps(`
+        color-success-60: teal;
+        color-success-30: transparent;
+        color-success-10: white;
+
+        color-info-60: teal;
+        color-info-30: transparent;
+        color-info-10: white;
+
+        color-warning-60: teal;
+        color-warning-30: transparent;
+        color-warning-10: white;
+
+        color-danger-60: teal;
+        color-danger-30: transparent;
+        color-danger-10: white;
+        `)}
+    }
+`;
+
+export const cssInput = [
+    cssBaseColors,
+    cssStatusColors,
+    css`
+        :host {
+            ${system.cssProps(`
+            input-border-width: 1px;
+            input-border-style: solid;
+            input-border: var(--input-border-width) var(--input-border-style) var(--color-input-30);
+            input-opacity-unselect: .25;
+            input-opacity-unfocus: .5;
+            input-opacity-disabled: .5;
+            input-transition: .2s ease all;
+            color-input-60: var(--color-layer-60);
+            color-input-30: var(--color-layer-30);
+            color-input-10: var(--color-layer-10);
+            `)}
+        }
+    `,
+];
+
+export const cssButton = [
+    cssInput,
+    css`
+        :host {
+            ${system.cssProps(`
+            button-border: var(--input-border-width) var(--input-border-style) var(--color-button-30);
+            color-button-60: var(--color-layer-60);
+            color-button-30: var(--color-layer-30);
+            color-button-10: var(--color-layer-10);
+            `)}
+        }
+    `,
+];
 
 export const tokensFont = css`
     :host {
@@ -160,6 +217,28 @@ export const tokensColor = css`
         color-status-warning: #f9aa33;
         color-status-danger: #ff5b5b;
         `}
+
+${cssProps(`
+            color-primary-60: #f1f1f1;
+            color-primary-30: currentColor;
+            color-primary-10: currentColor;
+
+            color-info-60: #0080ff;
+            color-info-30: var(--color-info-60);
+            color-info-10: white;
+
+            color-success-60: #18d47c;
+            color-success-30: var(--color-success-60);
+            color-success-10: white;
+
+            color-warning-60: #f9aa33;
+            color-warning-30: var(--color-warning-60);
+            color-warning-10: white;
+
+            color-danger-60: #ff5b5b;
+            color-danger-30: var(--color-danger-60);
+            color-danger-10: white;
+        `)}
     }
 `;
 

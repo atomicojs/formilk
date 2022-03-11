@@ -1,30 +1,15 @@
 import { css } from "atomico";
-import {
-    tokensBox,
-    tokensFont,
-    tokensColor,
-    tokensShadow,
-    tokensBorder,
-    tokensOpacity,
-    tokensTransition,
-    tokensInput,
-} from "../tokens";
+import { tokensBox, cssInput } from "../tokens";
 
 export const inputBaseStyle = [
     tokensBox,
-    tokensFont,
-    tokensColor,
-    tokensInput,
-    tokensShadow,
-    tokensBorder,
-    tokensOpacity,
-    tokensTransition,
+    cssInput,
     css`
         :host {
             width: 100%;
             height: var(--size-xl);
             display: block;
-            ---line-opacity: var(--input-opacity-unselect);
+            ---line-opacity: var(--input-opacity-unfocus);
             ---space-x: var(--size-s);
         }
 
@@ -41,11 +26,11 @@ export const inputBaseStyle = [
 
         .input-line {
             width: 100%;
-            height: var(--input-border);
+            height: var(--input-border-width);
             position: absolute;
-            bottom: calc(var(--input-border) * -1);
+            bottom: calc(var(--input-border-width) * -1);
             left: 0px;
-            background: var(--input-color-contrast);
+            background: var(--color-input-10);
             opacity: var(---line-opacity);
             transition: var(--input-transition);
         }
@@ -53,10 +38,12 @@ export const inputBaseStyle = [
         .input {
             width: 100%;
             height: 100%;
-            border: var(--input-border) solid var(--input-color-divide);
+            border: var(--input-border);
             border-radius: var(--radius);
             padding: 0 var(---space-x);
-            background: var(--input-color-fill);
+            background: var(--color-input-60);
+            box-sizing: border-box;
+            position: relative;
         }
 
         :host([narrow]) {
@@ -68,7 +55,7 @@ export const inputBaseStyle = [
         }
 
         :host([ghost]) {
-            --input-color-fill: transparent;
+            --color-input-fill: transparent;
         }
 
         :host([disabled]) {

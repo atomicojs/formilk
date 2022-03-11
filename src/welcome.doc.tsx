@@ -1,5 +1,5 @@
 import { md } from "@atomico/stories";
-import { Button, Grid, Input, Icon } from "./components";
+import { Button, Input, Icon } from "./components";
 
 export const meta = {
     title: "Welcome",
@@ -68,18 +68,4 @@ function component() {
     );
 }
 ~~~
-
-## Example
-
-${(
-    <Grid model="width(280px)">
-        <Input type="text" placeholder="Username">
-            <Icon slot="prefix" type="avatar"></Icon>
-        </Input>
-        <Input type="text" placeholder="Password">
-            <Icon slot="prefix" type="lock"></Icon>
-        </Input>
-        <Button>Login</Button>
-    </Grid>
-)}
 `;

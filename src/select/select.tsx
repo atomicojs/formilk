@@ -55,14 +55,9 @@ function select({ name, placeholder }: Props<typeof select>) {
         <host shadowDom onOptionChange={update}>
             <slot name="option" ref={refSlotOption}></slot>
             <div class="input">
-                <div className="input-content">
-                    <Icon
-                        class="input-icon"
-                        type="down"
-                        size="var(--icon-size)"
-                    ></Icon>
-
-                    <slot name="input"></slot>
+                <slot name="input"></slot>
+                <div className="input-row">
+                    <Icon size=".75em" type="down"></Icon>
                     <div class="input-line">
                         <div class="input-line-fill"></div>
                     </div>
@@ -88,35 +83,15 @@ select.props = {
 select.styles = [
     inputBaseStyle,
     css`
-        :host {
-            --icon-size: calc(1em * var(--scale-small));
-            --line-opacity: var(--opacity-disabled);
-            --line-opacity: 0;
-            --space-right: calc(
-                var(--space--x) + var(--gap) + var(--icon-size)
-            );
-            font-size: var(--font-size);
-        }
-        .input-content {
-            padding: 0px;
-        }
-        ::slotted([slot="input"].reset) {
-            width: 100%;
-            height: 100%;
-            appearance: none;
-            padding: 0 var(--space-right) 0 var(--space--x);
-        }
-        .input-icon {
+        ::slotted([slot="input"]) {
             position: absolute;
-            right: var(--space-x);
-            top: 50%;
-            transform: translateY(-50%);
+            top: 0;
+            left: 0;
+            padding: 0 var(---space-x);
+            appearance: none;
         }
-        .hidden {
-            display: none;
-        }
-        :host([narrow]) {
-            ---space-x: 0px;
+        .input-row {
+            justify-content: end;
         }
     `,
 ];

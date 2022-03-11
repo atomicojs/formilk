@@ -3,15 +3,7 @@ import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
-import {
-    tokensBox,
-    tokensColor,
-    tokensBorder,
-    tokensShadow,
-    tokensOpacity,
-    tokensInput,
-    tokensTransition,
-} from "../tokens";
+import { tokensBox, cssInput } from "../tokens";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 
@@ -50,9 +42,10 @@ checkbox.props = {
 
 checkbox.styles = [
     tokensBox,
-    tokensInput,
+    cssInput,
     css`
         :host {
+            --color-input-30: var(--color-input-10);
             ---state-opacity: 0;
             ---state-size: 100%;
             cursor: pointer;
@@ -71,9 +64,9 @@ checkbox.styles = [
             width: var(--size-m);
             height: var(--size-m);
             padding: 0;
-            background: var(--input-color-fill);
+            background: var(--color-input-60);
             border-radius: var(--radius);
-            border: var(--input-border) solid var(--input-color-contrast);
+            border: var(--input-border);
             overflow: hidden;
             cursor: unset;
             font: unset;
@@ -83,7 +76,7 @@ checkbox.styles = [
         .checkbox-state {
             width: var(---state-size);
             height: var(---state-size);
-            background: var(--input-color-contrast);
+            background: var(--color-input-10);
             opacity: var(---state-opacity);
             margin: auto;
             border-radius: var(---state-radius);
@@ -91,7 +84,7 @@ checkbox.styles = [
         }
 
         .checkbox-state * {
-            color: var(--input-color-fill);
+            color: var(--color-input-60);
         }
 
         .checkbox,

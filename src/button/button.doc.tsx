@@ -1,4 +1,5 @@
 import { Button } from "./button";
+import { Icon } from "../icon/icon";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -21,9 +22,9 @@ ${(
             shadow: {
                 type: "toggle",
             },
-            status: {
+            color: {
                 type: "radio-groups",
-                options: ["normal", "success", "warning", "danger", "info"],
+                options: ["primary", "success", "warning", "danger", "info"],
             },
             rounded: {
                 type: "toggle",
@@ -31,10 +32,26 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Button>Button</Button>
+            <Button>
+                <span>Button</span>
+            </Button>
         </Story>
-        <Story label="Outline" content="center">
-            <Button outline>Button</Button>
+        <Story label="Prefix" content="center">
+            <Button>
+                <Icon slot="prefix"></Icon>
+                <span>Button</span>
+            </Button>
+        </Story>
+        <Story label="Suffix" content="center">
+            <Button>
+                <Icon slot="suffix"></Icon>
+                <span>Button</span>
+            </Button>
+        </Story>
+        <Story label="Square" content="center">
+            <Button>
+                <Icon slot="prefix"></Icon>
+            </Button>
         </Story>
     </Stories>
 )}

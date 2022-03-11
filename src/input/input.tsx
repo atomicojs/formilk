@@ -3,10 +3,10 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
-import customElements from "../custom-elements";
 import { serialize } from "../utils";
 import { inputBaseStyle } from "./input-base-style";
 import { Icon } from "../components";
+import system from "../system";
 
 function input({ type, status, ...props }: Props<typeof input>) {
     const [, setValue] = useProp("value");
@@ -83,6 +83,7 @@ function input({ type, status, ...props }: Props<typeof input>) {
                     </div>
                 </div>
             </div>
+            <style></style>
         </host>
     );
 }
@@ -111,6 +112,9 @@ input.props = {
         reflect: true,
     },
     step: Number,
+    color: {
+        type: String,
+    },
 };
 
 input.styles = [
@@ -124,4 +128,4 @@ input.styles = [
 
 export const Input = c(input);
 
-customElements.define("input", Input);
+system.define("input", Input);
