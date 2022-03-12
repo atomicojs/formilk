@@ -57,7 +57,7 @@ function select({ name, placeholder }: Props<typeof select>) {
             <div class="input">
                 <slot name="input"></slot>
                 <div className="input-row">
-                    <Icon size=".75em" type="down"></Icon>
+                    <Icon size="var(--size-xxs)" type="down"></Icon>
                     <div class="input-line">
                         <div class="input-line-fill"></div>
                     </div>

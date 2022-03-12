@@ -1,7 +1,7 @@
 import { Props, c, css } from "atomico";
 import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
-import { cssBase, tokensColor, tokensBorder } from "../tokens";
+import { cssBase, cssBaseColors } from "../tokens";
 
 function avatar({ src, size, transform }: Props<typeof avatar>) {
     return (
@@ -39,33 +39,17 @@ avatar.props = {
 
 avatar.styles = [
     cssBase,
-    tokensColor,
-    tokensBorder,
+    cssBaseColors,
     css`
         :host {
-            --color-fill: var(--color-current-layer, var(--color-box-fill));
-            --color-divide: var(
-                --color-current-divide,
-                var(--color-box-divide)
-            );
-            --color-contrast: var(
-                --color-current-contrast,
-                var(--color-box-contrast)
-            );
-            display: inline-flex;
-            align-items: center;
-            justify-items: center;
-        }
-        :host(:not([size])) {
-            --size: var(--size-min);
         }
         .avatar-mask {
-            width: var(--size, var(--size-min));
-            height: var(--size, var(--size-min));
+            width: var(--size-xl);
+            height: var(--size-xl);
             overflow: hidden;
-            border-radius: var(--border-radius);
-            border: calc(var(--border-width) * 2) solid var(--color-divide);
-            background: var(--color-fill);
+            border-radius: var(--radius);
+            background: var(--color-layer-60);
+            border: none;
             padding: 0px;
             cursor: unset;
             margin: auto;
@@ -74,8 +58,7 @@ avatar.styles = [
             width: 100%;
             height: 100%;
             transform: var(--transform);
-            align-items: center;
-            justify-items: center;
+            place-content: center;
             display: flex;
         }
         ::slotted(*),

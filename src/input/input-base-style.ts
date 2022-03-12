@@ -6,7 +6,7 @@ export const inputBaseStyle = [
     css`
         :host {
             width: 100%;
-            min-height: var(--size-xl);
+
             display: block;
             ---line-opacity: var(--input-opacity-unfocus);
             --space-x: var(--size-s);
@@ -21,6 +21,7 @@ export const inputBaseStyle = [
             position: relative;
             box-sizing: border-box;
             gap: var(--size-xs);
+            min-height: var(--size-xl);
         }
 
         .input-line {
@@ -43,6 +44,7 @@ export const inputBaseStyle = [
             background: var(--color-input-60);
             box-sizing: border-box;
             position: relative;
+            min-height: var(--size-xl);
         }
 
         :host([focused]) {
