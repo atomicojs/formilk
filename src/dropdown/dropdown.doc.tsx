@@ -19,17 +19,33 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Dropdown width="200px">
-                <Button slot="action">Click</Button>
-                <Button ghost align="left">
-                    <Icon size=".8rem" slot="prefix"></Icon> Add
+            <Dropdown width="100px">
+                <Button justify="start" slot="action">
+                    Click
                 </Button>
-                <Button ghost align="left">
-                    <Icon size=".8rem" slot="prefix"></Icon> Add
+                <Button size="small" justify="start" ghost>
+                    <Icon size="var(--size-xxs)" slot="prefix"></Icon> Edit
                 </Button>
-                <Button ghost align="left">
-                    <Icon size=".8rem" slot="prefix"></Icon> Add
+                <Button size="small" justify="start" ghost>
+                    <Icon size="var(--size-xxs)" slot="prefix"></Icon> Cut
                 </Button>
+                <Button size="small" justify="start" ghost>
+                    <Icon size="var(--size-xxs)" slot="prefix"></Icon> Copy
+                </Button>
+                <Dropdown>
+                    <Button justify="start" slot="action">
+                        Click
+                    </Button>
+                    <Button size="small" justify="start" ghost>
+                        <Icon size="var(--size-xxs)" slot="prefix"></Icon> Edit
+                    </Button>
+                    <Button size="small" justify="start" ghost>
+                        <Icon size="var(--size-xxs)" slot="prefix"></Icon> Cut
+                    </Button>
+                    <Button size="small" justify="start" ghost>
+                        <Icon size="var(--size-xxs)" slot="prefix"></Icon> Copy
+                    </Button>
+                </Dropdown>
             </Dropdown>
         </Story>
     </Stories>

@@ -23,7 +23,7 @@ function radio({ value }: Props<typeof Checkbox>) {
 
 radio.styles = css`
     :host {
-        --radius: 100%;
+        --border-radius: 100%;
         ---state-size: var(--size-s);
         ---state-radius: 100%;
     }

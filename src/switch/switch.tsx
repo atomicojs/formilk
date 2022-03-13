@@ -25,7 +25,7 @@ function inputSwitch() {
 
 inputSwitch.styles = css`
     :host {
-        --radius: 100px;
+        --border-radius: 100px;
         ---state-opacity: 0.25;
         ---width: calc((var(--size-s) * 2) + (var(--size-m) - var(--size-s)));
         ---state-size: var(--size-s);

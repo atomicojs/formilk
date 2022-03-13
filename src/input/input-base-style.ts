@@ -39,7 +39,7 @@ export const inputBaseStyle = [
             width: 100%;
             height: 100%;
             border: var(--input-border);
-            border-radius: var(--radius);
+            border-radius: var(--border-radius);
             padding: 0 var(--space-x);
             background: var(--color-input-60);
             box-sizing: border-box;

@@ -14,9 +14,11 @@ export const tokenize = cssTokens.tokenize;
 
 export const cssBase = css`
     :host {
+        font-size: 1rem;
         ${system.cssProps(`
             scale: .25rem;
-            radius: .5em;
+            border-radius: .5em;
+            border-width: 1px;
             scale-small: .75;
             size-xl: calc(var(--scale) * 10);
             size-l: calc(var(--scale) * 8);
@@ -27,6 +29,7 @@ export const cssBase = css`
         `)}
     }
     :host([size="small"]) {
+        font-size: 0.875rem;
         --size-xl: calc(var(--scale) * 8);
         --size-l: calc(var(--scale) * 7);
         --size-m: calc(var(--scale) * 5);
@@ -41,7 +44,11 @@ export const cssBaseColors = css`
         color-primary-30: transparent;
         color-primary-10: black;
 
-        color-layer-60: #f1f1f1;
+        color-action-60: #f1f1f1;
+        color-action-30: transparent;
+        color-action-10: var(--color-primary-10);
+
+        color-layer-60: #fff;
         color-layer-30: transparent;
         color-layer-10: var(--color-primary-10);
         `)}
@@ -77,16 +84,16 @@ export const cssInput = [
     css`
         :host {
             ${system.cssProps(`
-            input-border-width: 1px;
+            input-border-width: var(--border-width);
             input-border-style: solid;
             input-border: var(--input-border-width) var(--input-border-style) var(--color-input-30);
             input-opacity-unselect: .25;
             input-opacity-unfocus: .5;
             input-opacity-disabled: .5;
             input-transition: .2s ease all;
-            color-input-60: var(--color-layer-60);
-            color-input-30: var(--color-layer-30);
-            color-input-10: var(--color-layer-10);
+            color-input-60: var(--color-action-60);
+            color-input-30: var(--color-action-30);
+            color-input-10: var(--color-action-10);
             `)}
         }
     `,
@@ -98,9 +105,9 @@ export const cssButton = [
         :host {
             ${system.cssProps(`
             button-border: var(--input-border-width) var(--input-border-style) var(--color-button-30);
-            color-button-60: var(--color-layer-60);
-            color-button-30: var(--color-layer-30);
-            color-button-10: var(--color-layer-10);
+            color-button-60: var(--color-action-60);
+            color-button-30: var(--color-action-30);
+            color-button-10: var(--color-action-10);
             `)}
         }
     `,

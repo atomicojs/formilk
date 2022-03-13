@@ -47,7 +47,7 @@ avatar.styles = [
             width: var(--size-xl);
             height: var(--size-xl);
             overflow: hidden;
-            border-radius: var(--radius);
+            border-radius: var(--border-radius);
             background: var(--color-layer-60);
             border: none;
             padding: 0px;

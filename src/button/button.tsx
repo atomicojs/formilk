@@ -9,7 +9,14 @@ import { cssButton } from "../tokens";
 
 const add = (value: any) => (value ? 1 : 0);
 
-function button({ type, name, value, href, tabIndex }: Props<typeof button>) {
+function button({
+    type,
+    name,
+    value,
+    href,
+    tabIndex,
+    justify,
+}: Props<typeof button>) {
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
     const refSlotContent = useRef();
@@ -61,6 +68,7 @@ function button({ type, name, value, href, tabIndex }: Props<typeof button>) {
                 class="button"
                 onmousedown={() => setActive(true)}
                 onmouseup={() => setActive(false)}
+                style={justify ? `--justify:${justify}` : ""}
             >
                 <div class="button-bg">
                     <slot name="background"></slot>
@@ -91,7 +99,7 @@ button.props = {
         reflect: true,
         value: "submit",
     },
-    align: { type: String, reflect: true },
+    justify: { type: String, reflect: true },
     status: { type: String, reflect: true },
     shape: { type: String, reflect: true },
     href: { type: String, reflect: true },
@@ -108,7 +116,9 @@ button.styles = [
     css`
         :host {
             --width: auto;
+            --min-width: auto;
             --padding: 0 var(--size-s);
+            --justify: center;
             display: inline-flex;
             min-height: var(--size-xl);
             color: var(--color-button-10);
@@ -120,7 +130,7 @@ button.styles = [
         }
 
         :host([rounded]) {
-            --radius: 100px;
+            --border-radius: 100px;
         }
 
         :host([shape="square"]) {
@@ -132,11 +142,14 @@ button.styles = [
             --color-button-60: transparent;
         }
 
+        :host([justify]) {
+            --min-width: 100%;
+        }
+
         .button {
             width: var(--width);
-            border-radius: var(--radius);
-            display: grid;
-            place-content: center;
+            min-width: var(--min-width);
+            border-radius: var(--border-radius);
             padding: var(--padding);
             box-sizing: border-box;
             font: unset;
@@ -148,11 +161,12 @@ button.styles = [
         }
         .button-row {
             display: grid;
-            place-content: center;
+            place-content: center var(--justify);
             grid-template-columns: repeat(var(--columns), auto);
             gap: var(--size-xs);
             position: relative;
             z-index: 1;
+            min-height: 100%;
         }
         .button-bg {
             width: 100%;
@@ -161,7 +175,7 @@ button.styles = [
             top: 0;
             left: 0;
             border: var(--button-border);
-            border-radius: var(--radius);
+            border-radius: var(--border-radius);
             box-sizing: border-box;
             transition: var(--input-transition);
             background: var(--color-button-60);

@@ -65,7 +65,7 @@ checkbox.styles = [
             height: var(--size-m);
             padding: 0;
             background: var(--color-input-60);
-            border-radius: var(--radius);
+            border-radius: var(--border-radius);
             border: var(--input-border);
             overflow: hidden;
             cursor: unset;

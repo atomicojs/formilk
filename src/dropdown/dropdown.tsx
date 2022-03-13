@@ -18,6 +18,7 @@ import {
     tokensShadow,
     tokensBorder,
     tokensTransition,
+    cssBaseColors,
 } from "../tokens";
 import customElements from "../custom-elements";
 
@@ -104,7 +105,8 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
                 </div>
             </div>
             <style>
-                {width && `:host{--tooptip-width:${width}};`}
+                {width &&
+                    `:host{--tooptip-width:var(--tooptip-parent-width,${width})};`}
                 {offset && `:host{--tooptip-offset:${offset}};`}
             </style>
         </host>
@@ -137,97 +139,58 @@ dropdown.props = {
 
 dropdown.styles = [
     cssBase,
-    tokensColor,
-    tokensShadow,
-    tokensBorder,
-    tokensTransition,
+    cssBaseColors,
     css`
         :host {
-            --color-fill: var(--color-current-layer, var(--color-box-layer));
-            --color-contrast: var(
-                --color-current-contrast,
-                var(--color-box-contrast)
-            );
-            --shadow: var(--shadow-layer);
+            --transform: none;
+            --left: auto;
+            --top: auto;
+            --bottom: auto;
+            --visibility: hidden;
+            --dir: 1;
+            --transition: 0.25s ease all;
             position: relative;
-            display: inline-flex;
         }
-
+        :host([position*="center"]) {
+            --left: 50%;
+            --transform: translateX(-50%);
+        }
+        :host([position*="top"]) {
+            --bottom: 100%;
+            --dir: -1;
+        }
+        :host([position*="bottom"]) {
+            --top: 100%;
+        }
+        :host([show]) {
+            --visibility: visible;
+        }
         .dropdown-mask {
+            transform: var(--transform);
+            left: var(--left);
+            top: var(--top);
+            bottom: var(--bottom);
             position: absolute;
-            transform: scale(0);
-            z-index: 1;
-            transition-delay: var(--transition-s0);
-            padding: var(--tooptip-offset) 0px;
-        }
-
-        :host([show]) .dropdown-mask {
-            transform: scale(1);
-            transition-delay: 0s;
-        }
-
-        :host([width-full]) .dropdown-mask {
-            min-width: 100%;
-        }
-
-        :host([position~="top"]) .dropdown-mask {
-            bottom: 100%;
-        }
-
-        :host([position~="bottom"]) .dropdown-mask {
-            top: 100%;
-        }
-
-        :host([position~="center"]) .dropdown-mask {
-            left: 50%;
-            transform: translateX(-50%) scale(0);
-        }
-
-        :host([show][position~="center"]) .dropdown-mask {
-            transform: translateX(-50%);
-        }
-
-        :host([position~="right"]) .dropdown-mask {
-            right: 0px;
-        }
-
-        ::slotted([slot="action"]:not([disabled])) {
-            cursor: pointer;
-        }
-
-        ::slotted(*) {
-            min-width: var(--dropdown-current-width);
-        }
-
-        ::slotted(:not([slot="action"])) {
-            min-width: 100%;
-        }
-
-        :host([position~="top"]) {
-            --move-y: 10%;
-        }
-
-        :host([position~="bottom"]) {
-            --move-y: -10%;
-        }
-
-        :host([show]) .dropdown {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .dropdown {
-            --dropdown-current-width: 100%;
-            width: var(--tooptip-width, auto);
-            z-index: 1;
-            background: var(--color-fill);
-            border-radius: var(--border-radius);
-            padding: var(--space-around);
+            visibility: var(--visibility);
+            padding: var(--scale) 0;
             box-sizing: border-box;
-            box-shadow: var(--shadow);
+        }
+        .dropdown {
+            --tooptip-parent-width: var(--tooptip-width);
+            width: var(--tooptip-width);
+            display: grid;
+            background: var(--color-layer-60);
+            border-radius: var(--border-radius);
+            padding: var(--scale) 0;
+            box-sizing: border-box;
+            transform: translateY(calc(var(--size-xxs) * var(--dir)));
+            transition: var(--transition);
             opacity: 0;
-            transition: var(--transition-x0);
-            transform: translateY(var(--move-y));
+            border: var(--border-width) solid var(--color-layer-30);
+        }
+        :host([show]) .dropdown {
+            transform: translateY(0px);
+            opacity: 1;
         }
     `,
 ];
