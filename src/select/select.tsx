@@ -56,10 +56,12 @@ function select({ name, placeholder }: Props<typeof select>) {
             <slot name="option" ref={refSlotOption}></slot>
             <div class="input">
                 <slot name="input"></slot>
-                <div className="input-row">
-                    <Icon size="var(--size-xxs)" type="down"></Icon>
-                    <div class="input-line">
-                        <div class="input-line-fill"></div>
+                <div class="input-space">
+                    <div className="input-row">
+                        <Icon size="var(--size-xxs)" type="down"></Icon>
+                        <div class="input-line">
+                            <div class="input-line-fill"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,14 +86,27 @@ select.styles = [
     inputBaseStyle,
     css`
         ::slotted([slot="input"]) {
+            height: var(--size-xl);
+            position: relative;
+            padding: 0 calc(var(--space-x) + var(--size-xxs) + var(--size-xs)) 0
+                var(--space-x);
+            appearance: none;
+            z-index: 1;
+        }
+        .input-space {
+            width: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            padding: 0 var(--space-x);
-            appearance: none;
+            padding: 0 var(--size-s);
+            box-sizing: border-box;
+            z-index: 0;
         }
         .input-row {
             justify-content: end;
+        }
+        .input {
+            padding: 0;
         }
     `,
 ];

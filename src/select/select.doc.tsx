@@ -29,13 +29,19 @@ ${(
             },
         }}
     >
-        <Story label="Default" content="center">
-            <Select placeholder="Select item">
-                <SelectOption value="1" label="Item 1"></SelectOption>
-                <SelectOption value="2" label="Item 2"></SelectOption>
-                <SelectOption value="3" label="Item 3"></SelectOption>
-            </Select>
-        </Story>
+        <Story
+            label="Default"
+            content="center"
+            render={(props) => (
+                <div>
+                    <Select placeholder="Select item" {...props}>
+                        <SelectOption value="1" label="Item 1"></SelectOption>
+                        <SelectOption value="2" label="Item 2"></SelectOption>
+                        <SelectOption value="3" label="Item 3"></SelectOption>
+                    </Select>
+                </div>
+            )}
+        ></Story>
     </Stories>
 )}
 
