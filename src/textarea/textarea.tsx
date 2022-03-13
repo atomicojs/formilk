@@ -49,8 +49,10 @@ function textarea(props: Props<typeof textarea>) {
                     }
                     onkeydown={(event) => disabled && event.preventDefault()}
                 ></textarea>
-                <div class="input-line">
-                    <div class="input-line-fill"></div>
+                <div class="input-group">
+                    <div class="input-line">
+                        <div class="input-line-fill"></div>
+                    </div>
                 </div>
             </div>
         </host>
@@ -111,6 +113,22 @@ textarea.styles = [
             left: 0;
             min-height: 100%;
             max-height: 100%;
+            z-index: 1;
+            padding: 0 var(--size-s);
+        }
+
+        .input-group {
+            width: 100%;
+            position: bottom;
+            padding: 0 var(--space-x);
+            box-sizing: border-box;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+        }
+
+        .input-line {
+            position: relative;
         }
 
         ::slotted([slot="input"]) {
