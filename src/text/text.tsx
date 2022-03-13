@@ -1,5 +1,5 @@
 import { Props, c, css } from "atomico";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { tokensBorder, tokensFont } from "../tokens";
 
 function text({ size, color }: Props<typeof text>) {

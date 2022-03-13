@@ -1,6 +1,6 @@
 import { Props, c, css, useProp, useRef } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { inputBaseStyle } from "../input/input-base-style";
 import { InputGenericProps } from "../props";
 import { useDisabled } from "@atomico/hooks/use-disabled";

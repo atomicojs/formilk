@@ -1,5 +1,5 @@
 import { c, css } from "atomico";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import {
     cssBase,
     tokensColor,

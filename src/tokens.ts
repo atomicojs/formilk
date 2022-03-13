@@ -14,19 +14,19 @@ export const tokenize = cssTokens.tokenize;
 
 export const cssBase = css`
     :host {
-        font-size: 1rem;
         ${system.cssProps(`
             scale: .25rem;
             border-radius: .5em;
             border-width: 1px;
             scale-small: .75;
-            size-xl: calc(var(--scale) * 10);
-            size-l: calc(var(--scale) * 8);
-            size-m: calc(var(--scale) * 7);
-            size-s: calc(var(--scale) * 5);
-            size-xs: calc(var(--scale) * 4);
-            size-xxs: calc(var(--scale) * 3);
         `)}
+        font-size: 1rem;
+        --size-xl: calc(var(--scale) * 10);
+        --size-l: calc(var(--scale) * 8);
+        --size-m: calc(var(--scale) * 7);
+        --size-s: calc(var(--scale) * 5);
+        --size-xs: calc(var(--scale) * 4);
+        --size-xxs: calc(var(--scale) * 3);
     }
     :host([size="small"]) {
         font-size: 0.875rem;
@@ -131,15 +131,11 @@ export const tokensFont = css`
     }
 `;
 
-export const tokensShadow = css`
+export const cssShadow = css`
     :host {
-        ${tokenize`
-        @title: Box shadow;
-        @type: shadow;
-        shadow-box: 0px 22px 44px -22px rgb(0, 0, 0, 0.33);
-        shadow-action: 0px 12px 12px -12px rgb(0, 0, 0, 0.33);
-        shadow-layer: 0px 12px 40px -20px rgb(0, 0, 0, 0.33);
-        `}
+        ${system.cssProps(`
+        shadow-layer: 0px 12px 22px rgba(0,0,0 ,.05);
+        `)}
     }
 `;
 

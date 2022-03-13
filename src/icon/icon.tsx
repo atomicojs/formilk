@@ -1,6 +1,6 @@
 //@ts-check
 import { Props, c, css, useHost } from "atomico";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { tokensColor } from "../tokens";
 import { Icons, IconsKeys } from "./icons";
 

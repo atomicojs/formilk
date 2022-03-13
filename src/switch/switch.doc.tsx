@@ -2,7 +2,7 @@ import { Switch } from "./switch";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Swtich",
+    path: "/Components/Switch",
 };
 
 export default md`

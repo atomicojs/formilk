@@ -1,6 +1,6 @@
 import { useSlot } from "@atomico/hooks/use-slot";
 import { c, useRef, Meta, DOMEvent } from "atomico";
-import customElements from "../custom-elements";
+import customElements from "../system";
 
 function selectOption(): Meta<DOMEvent<"OptionChange">> {
     const refSlotOption = useRef();

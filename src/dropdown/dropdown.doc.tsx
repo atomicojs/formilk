@@ -32,20 +32,6 @@ ${(
                 <Button size="small" justify="start" ghost>
                     <Icon size="var(--size-xxs)" slot="prefix"></Icon> Copy
                 </Button>
-                <Dropdown>
-                    <Button justify="start" slot="action">
-                        Click
-                    </Button>
-                    <Button size="small" justify="start" ghost>
-                        <Icon size="var(--size-xxs)" slot="prefix"></Icon> Edit
-                    </Button>
-                    <Button size="small" justify="start" ghost>
-                        <Icon size="var(--size-xxs)" slot="prefix"></Icon> Cut
-                    </Button>
-                    <Button size="small" justify="start" ghost>
-                        <Icon size="var(--size-xxs)" slot="prefix"></Icon> Copy
-                    </Button>
-                </Dropdown>
             </Dropdown>
         </Story>
     </Stories>

@@ -1,5 +1,5 @@
 import { Props, c, css } from "atomico";
-import customElements from "../custom-elements";
+import customElements from "../system";
 
 function inputFilePreview({ file }: Props<typeof inputFilePreview>) {
     const src = file && URL.createObjectURL(file);

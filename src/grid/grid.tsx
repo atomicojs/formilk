@@ -2,7 +2,7 @@ import { Props, c, css, useRef } from "atomico";
 import { cssBase, tokensColor, tokensBorder } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";
-import customElements from "../custom-elements";
+import customElements from "../system";
 
 function grid({ model }: Props<typeof grid>) {
     const refSlot = useRef();

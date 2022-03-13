@@ -1,7 +1,7 @@
 import { css } from "atomico";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { Grid } from "../grid/grid";
-import { tokensShadow } from "../tokens";
+import { cssShadow } from "../tokens";
 
 export class Box extends Grid {
     /**
@@ -10,7 +10,7 @@ export class Box extends Grid {
     static get styles() {
         return [
             super.styles,
-            tokensShadow,
+            cssShadow,
             css`
                 :host {
                     --color-fill: var(--color-box-fill);

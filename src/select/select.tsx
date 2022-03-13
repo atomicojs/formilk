@@ -4,7 +4,7 @@ import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
 import { Icon } from "../icon/icon";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { SelectOption } from "./select-option";
 export { SelectOption } from "./select-option";
 import { inputBaseStyle } from "../input/input-base-style";

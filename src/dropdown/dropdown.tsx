@@ -12,15 +12,8 @@ import {
 } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
-import {
-    cssBase,
-    tokensColor,
-    tokensShadow,
-    tokensBorder,
-    tokensTransition,
-    cssBaseColors,
-} from "../tokens";
-import customElements from "../custom-elements";
+import { cssBase, cssShadow, cssBaseColors } from "../tokens";
+import customElements from "../system";
 
 function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
     const host = useHost();
@@ -101,6 +94,7 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
             ></slot>
             <div class="dropdown-mask">
                 <div class="dropdown" ref={refSlotTooptip}>
+                    <div class="dropdown-dir"></div>
                     <slot></slot>
                 </div>
             </div>
@@ -140,6 +134,7 @@ dropdown.props = {
 dropdown.styles = [
     cssBase,
     cssBaseColors,
+    cssShadow,
     css`
         :host {
             --transform: none;
@@ -172,7 +167,7 @@ dropdown.styles = [
             bottom: var(--bottom);
             position: absolute;
             visibility: var(--visibility);
-            padding: var(--scale) 0;
+            padding: var(--size-xxs) 0;
             box-sizing: border-box;
         }
         .dropdown {
@@ -187,10 +182,24 @@ dropdown.styles = [
             transition: var(--transition);
             opacity: 0;
             border: var(--border-width) solid var(--color-layer-30);
+            box-shadow: var(--shadow-layer);
         }
         :host([show]) .dropdown {
             transform: translateY(0px);
             opacity: 1;
+        }
+        .dropdown-dir {
+            width: var(--size-xxs);
+            height: var(--size-xxs);
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: var(--color-layer-60);
+            border: var(--border-width) solid var(--color-layer-30);
+            border-bottom: none;
+            border-right: none;
+            margin-top: calc(var(--border-width) * -1);
         }
     `,
 ];

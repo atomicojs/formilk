@@ -1,5 +1,5 @@
 import { Props, c } from "atomico";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { tokens } from "../tokens";
 
 function theme({ select }: Props<typeof theme>) {

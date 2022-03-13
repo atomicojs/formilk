@@ -1,6 +1,6 @@
 import { Props, c, useRef, DOMEvent } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { Accordion } from "./accordion";
 
 function accordionGroup({ disableAutoToggle }: Props<typeof accordionGroup>) {

@@ -2,7 +2,7 @@ import { c, css, useRef, useProp, Meta, DOMEvent } from "atomico";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { tokensColor, cssBase, tokensTransition } from "../tokens";
 import { Divide } from "../divide/divide";
-import customElements from "../custom-elements";
+import customElements from "../system";
 
 function accordion(): Meta<DOMEvent<"Show">> {
     const refSlot = useRef();

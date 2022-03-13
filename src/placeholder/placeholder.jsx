@@ -4,7 +4,7 @@ import { Icon } from "../icon/icon";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { addListener } from "@atomico/hooks/use-listener";
 import { useResponsiveState } from "@atomico/hooks/use-responsive-state";
-import customElements from "../custom-elements";
+import customElements from "../system";
 
 /**
  *
