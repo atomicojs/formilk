@@ -79,11 +79,16 @@ textarea.styles = [
     css`
         :host {
             --resize: vertical;
+            --space-top: 0.25em;
             min-width: 100%;
+        }
+        :host([size="small"]) {
+            --space-top: 0;
         }
         .input-content {
             overflow: hidden;
             grid-gap: 0;
+            padding-top: var(--space-top);
         }
 
         .input-proxy {
@@ -97,10 +102,7 @@ textarea.styles = [
             background: none;
             border: none;
             font: unset;
-            line-height: var(--size-line);
             resize: var(--resize);
-            padding-top: var(--space-y);
-            padding-bottom: var(--space-y);
             box-sizing: border-box;
             margin: 0px;
             outline: none;
@@ -114,7 +116,8 @@ textarea.styles = [
             min-height: 100%;
             max-height: 100%;
             z-index: 1;
-            padding: 0 var(--size-s);
+            padding-left: var(--space-x);
+            padding-right: var(--space-x);
         }
 
         .input-group {

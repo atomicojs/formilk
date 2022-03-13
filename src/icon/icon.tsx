@@ -1,7 +1,7 @@
 //@ts-check
 import { Props, c, css, useHost } from "atomico";
 import customElements from "../system";
-import { tokensColor } from "../tokens";
+import { cssBaseColors } from "../tokens";
 import { Icons, IconsKeys } from "./icons";
 
 function icon({ type, size, status }: Props<typeof icon>) {
@@ -46,7 +46,7 @@ icon.props = {
 };
 
 icon.styles = [
-    tokensColor,
+    cssBaseColors,
     css`
         :host {
             display: inline-flex;

@@ -1,5 +1,5 @@
 import { c, css, useProp, useRef, useEffect } from "atomico";
-import { tokensColor, tokensTransition } from "../tokens";
+import { cssBaseColors, tokensTransition } from "../tokens";
 import { Icon } from "../icon/icon";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { addListener } from "@atomico/hooks/use-listener";
@@ -70,7 +70,7 @@ placeholder.props = {
 };
 
 placeholder.styles = [
-    tokensColor,
+    cssBaseColors,
     tokensTransition,
     css`
         :host {

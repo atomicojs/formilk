@@ -1,6 +1,6 @@
 // export { Theme } from "./theme/theme";
 
-// export { Grid } from "./grid/grid";
+export { Grid } from "./grid/grid";
 
 // export { Box } from "./box/box";
 

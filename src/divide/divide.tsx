@@ -2,7 +2,7 @@ import { c, css } from "atomico";
 import customElements from "../system";
 import {
     cssBase,
-    tokensColor,
+    cssBaseColors,
     tokensBorder,
     tokensOpacity,
     tokensTransition,
@@ -28,7 +28,7 @@ divide.props = {
 
 divide.styles = [
     cssBase,
-    tokensColor,
+    cssBaseColors,
     tokensBorder,
     tokensOpacity,
     tokensTransition,
