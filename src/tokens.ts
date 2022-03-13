@@ -44,7 +44,7 @@ export const cssBaseColors = css`
         color-primary-30: transparent;
         color-primary-10: black;
 
-        color-action-60: #f1f1f1;
+        color-action-60: #fff;
         color-action-30: transparent;
         color-action-10: var(--color-primary-10);
 

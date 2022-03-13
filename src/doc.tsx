@@ -15,6 +15,12 @@ const modules = Object.values(
 
 render(
     <host>
+        <style>
+            {`:root{
+                --doc--bg-color-story: #e4eaeb;
+                --doc--shadow-embed: none;
+            }`}
+        </style>
         <Doc modules={modules}>
             <img src={logo} alt="Logo" slot="brand" height="32px" />
         </Doc>
