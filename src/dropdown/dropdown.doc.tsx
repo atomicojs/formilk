@@ -23,14 +23,14 @@ ${(
                 <Button justify="start" slot="action">
                     Click
                 </Button>
-                <Button size="small" justify="start" ghost>
-                    <Icon size="var(--size-xxs)" slot="prefix"></Icon> Edit
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="copy"></Icon> Copy
                 </Button>
-                <Button size="small" justify="start" ghost>
-                    <Icon size="var(--size-xxs)" slot="prefix"></Icon> Cut
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="drag"></Icon> Move
                 </Button>
-                <Button size="small" justify="start" ghost>
-                    <Icon size="var(--size-xxs)" slot="prefix"></Icon> Copy
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="config"></Icon> Config
                 </Button>
             </Dropdown>
         </Story>

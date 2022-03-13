@@ -50,11 +50,7 @@ function inputFile({ multiple, accept }: Props<typeof inputFile>) {
                             <slot></slot>
                         </div>
                         <Button size="small" ghost>
-                            <Icon
-                                slot="prefix"
-                                size="var(--size-xxs)"
-                                type="plus"
-                            ></Icon>
+                            <Icon slot="prefix" type="plus"></Icon>
                         </Button>
                         {!!files?.length && (
                             <div class="input-line">
@@ -85,11 +81,7 @@ function inputFile({ multiple, accept }: Props<typeof inputFile>) {
                                         setFiles(Array.from(data.files));
                                     }}
                                 >
-                                    <Icon
-                                        slot="prefix"
-                                        size="var(--size-xxs)"
-                                        type="closed"
-                                    ></Icon>
+                                    <Icon slot="prefix" type="closed"></Icon>
                                 </Button>
                             </div>
                             {SlotPreview && (

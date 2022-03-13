@@ -12,13 +12,13 @@ function avatar({ src, size, transform }: Props<typeof avatar>) {
                         {src ? (
                             <img class="avatar-img" src={src} />
                         ) : (
-                            <Icon type="avatar" size="50%" />
+                            <Icon type="avatar" />
                         )}
                     </slot>
                 </div>
             </button>
             <style>
-                {!!size && `:host{--size:${size};}`}
+                {!!size && `:host{--size:var(--size-${size});}`}
                 {!!transform && `:host{--transform:${transform};}`}
             </style>
         </host>

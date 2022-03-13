@@ -19,10 +19,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Grid model="width(520px) cols(1fr 1fr)">
-                <Textarea size="small" placeholder="random..."></Textarea>
-                <Input size="small"></Input>
-            </Grid>
+            <Textarea placeholder="random..."></Textarea>
         </Story>
     </Stories>
 )}

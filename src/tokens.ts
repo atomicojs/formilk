@@ -1,7 +1,7 @@
 import { css } from "atomico";
 import { createParseCssTokens } from "@uppercod/parse/parse-css-tokens";
 import options from "./options";
-import system, { cssProps } from "./system";
+import system from "./system";
 
 const cssTokens = createParseCssTokens({
     ...options,
@@ -40,17 +40,21 @@ export const cssBase = css`
 export const cssBaseColors = css`
     :host {
         ${system.cssProps(`
-        color-primary-60: white;
+        color-primary-60: #404040;
         color-primary-30: transparent;
-        color-primary-10: black;
+        color-primary-10: white;
 
         color-action-60: #fff;
         color-action-30: transparent;
-        color-action-10: var(--color-primary-10);
+        color-action-10: #2C3A41;
+
+        color-toggle-60: var(--color-primary-60);
+        color-toggle-30: var(--color-primary-30);
+        color-toggle-10: var(--color-primary-10);
 
         color-layer-60: #fff;
         color-layer-30: transparent;
-        color-layer-10: var(--color-primary-10);
+        color-layer-10: #2C3A41;
         `)}
     }
 `;

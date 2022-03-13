@@ -5,7 +5,7 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
 import customElements from "../system";
-import { cssButton } from "../tokens";
+import { cssBaseColors, cssButton } from "../tokens";
 
 const add = (value: any) => (value ? 1 : 0);
 
@@ -16,6 +16,7 @@ function button({
     href,
     tabIndex,
     justify,
+    color,
 }: Props<typeof button>) {
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
@@ -86,6 +87,25 @@ function button({
                     <slot ref={refSlotSuffix} name="suffix"></slot>
                 </div>
             </button>
+            <style>
+                {color &&
+                    `
+                    :host{
+                        --color-button-60: ${customElements.cssProp(
+                            `color-${color}-60`,
+                            `var(--color-${color}-60)`
+                        )}!important;
+                        --color-button-30: ${customElements.cssProp(
+                            `color-${color}-30`,
+                            `var(--color-${color}-30)`
+                        )}!important;
+                        --color-button-10: ${customElements.cssProp(
+                            `color-${color}-10`,
+                            `var(--color-${color}-10)`
+                        )}!important;
+                    }
+                `}
+            </style>
         </host>
     );
 }
@@ -108,10 +128,14 @@ button.props = {
         type: Number,
         value: 0,
     },
-    between: { type: Boolean, reflect: true },
+    color: {
+        type: String,
+        reflect: true,
+    },
 };
 
 button.styles = [
+    cssBaseColors,
     cssButton,
     css`
         :host {
@@ -119,6 +143,7 @@ button.styles = [
             --min-width: auto;
             --padding: 0 var(--size-s);
             --justify: center;
+            width: var(--width);
             display: inline-flex;
             min-height: var(--size-xl);
             color: var(--color-button-10);
@@ -138,11 +163,12 @@ button.styles = [
             --width: var(--size-xl);
         }
 
-        :host([ghost]) {
+        :host([ghost]:not([color])) {
             --color-button-60: transparent;
         }
 
         :host([justify]) {
+            --width: 100%;
             --min-width: 100%;
         }
 
