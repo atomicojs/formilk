@@ -22,7 +22,7 @@ function checkbox({ tabIndex }: Props<typeof checkbox>) {
                 tabIndex={disabled ? -1 : tabIndex}
             >
                 <div class="checkbox-state">
-                    <Icon size="1em" type="check"></Icon>
+                    <Icon type="check"></Icon>
                 </div>
             </button>
         </host>
@@ -81,6 +81,8 @@ checkbox.styles = [
             margin: auto;
             border-radius: var(---state-radius);
             transform: var(---state-transform);
+            display: flex;
+            place-content: center;
         }
 
         .checkbox-state * {

@@ -1,10 +1,4 @@
-// export { Theme } from "./theme/theme";
-
 export { Grid } from "./grid/grid";
-
-// export { Placeholder } from "./placeholder/placeholder";
-
-// export { Divide } from "./divide/divide";
 
 export { Input } from "./input/input";
 
@@ -14,13 +8,9 @@ export { Switch } from "./switch/switch";
 
 export { Radio } from "./radio/radio";
 
-// export { InputColor } from "./input-color/input-color";
-
 export { Select, SelectOption } from "./select/select";
 
 export { Button } from "./button/button";
-
-// export { Alert } from "./alert/alert";
 
 export { Icon } from "./icon/icon";
 
@@ -32,18 +22,7 @@ export { Tabs } from "./tabs/tabs";
 
 export { Label } from "./label/label";
 
-export { Text } from "./text/text";
-
 export { Textarea } from "./textarea/textarea";
-
-// export { AccordionGroup } from "./accordion/accordion-group";
-// export { Accordion } from "./accordion/accordion";
-
-// export {
-//     Navigation,
-//     NavigationItem,
-//     NavigationDropdown,
-// } from "./navigation/navigation";
 
 export { InputFile, InputFilePreview } from "./input-file/input-file";
 
