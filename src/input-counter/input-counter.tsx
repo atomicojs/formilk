@@ -9,6 +9,9 @@ import { InputGenericProps } from "../props";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 
 const sheet = css`
+    :host {
+        display: block;
+    }
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
