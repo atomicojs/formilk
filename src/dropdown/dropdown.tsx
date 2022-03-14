@@ -176,7 +176,7 @@ dropdown.styles = [
             display: grid;
             background: var(--color-layer-60);
             border-radius: var(--border-radius);
-            padding: var(--scale) 0;
+            padding: var(--size) 0;
             box-sizing: border-box;
             transform: translateY(calc(var(--size-xxs) * var(--dir)));
             transition: var(--transition);

@@ -21,19 +21,19 @@ export const cssBase = css`
             scale-small: .75;
         `)}
         font-size: 1rem;
-        --size-xl: calc(var(--scale) * 10);
-        --size-l: calc(var(--scale) * 8);
-        --size-m: calc(var(--scale) * 7);
-        --size-s: calc(var(--scale) * 5);
-        --size-xs: calc(var(--scale) * 4);
-        --size-xxs: calc(var(--scale) * 3);
+        --size-xl: calc(var(--size) * 10);
+        --size-l: calc(var(--size) * 8);
+        --size-m: calc(var(--size) * 7);
+        --size-s: calc(var(--size) * 5);
+        --size-xs: calc(var(--size) * 4);
+        --size-xxs: calc(var(--size) * 3);
     }
     :host([size="small"]) {
         font-size: 0.875rem;
-        --size-xl: calc(var(--scale) * 8);
-        --size-l: calc(var(--scale) * 7);
-        --size-m: calc(var(--scale) * 5);
-        --size-s: calc(var(--scale) * 3.5);
+        --size-xl: calc(var(--size) * 8);
+        --size-l: calc(var(--size) * 7);
+        --size-m: calc(var(--size) * 5);
+        --size-s: calc(var(--size) * 3.5);
     }
 `;
 

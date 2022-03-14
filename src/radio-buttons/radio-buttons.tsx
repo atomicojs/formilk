@@ -80,9 +80,9 @@ radioButtons.styles = [
             align-items: center;
             flex-flow: var(--flow);
             border-radius: var(--border-radius);
-            padding: var(--scale);
+            padding: var(--size);
             box-sizing: border-box;
-            gap: var(--scale);
+            gap: var(--size);
             overflow: auto hidden;
         }
         :host([vertical]) {

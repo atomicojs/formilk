@@ -13,9 +13,9 @@ export default md`
 ${(
     <Stories>
         <Story label="Default">
-            <Grid model="autoFit(30px, 60px) width(100%) gap(3, 1)">
+            <Grid model="width(100%) gap(s) cols(1fr 1fr 1fr 1fr) content(center)">
                 {Object.keys(Icons).map((type) => (
-                    <Grid title={type} model="content(center, center)">
+                    <Grid title={type} model="gap(xxs) content(center)">
                         <small>{type}</small>
                         <Icon type={type}></Icon>
                     </Grid>
