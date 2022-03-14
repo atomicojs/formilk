@@ -11,8 +11,9 @@ export default md`
 ${(
     <Stories
         props={{
-            showWithOver: {
-                type: "toggle",
+            size: {
+                type: "radio-groups",
+                options: ["normal", "small"],
             },
         }}
     >

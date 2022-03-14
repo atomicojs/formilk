@@ -1,6 +1,5 @@
 import { Tabs } from "./tabs";
 import { Button } from "../button/button";
-import { Grid } from "../grid/grid";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -13,31 +12,27 @@ export default md`
 ${(
     <Stories
         props={{
-            showWithOver: {
-                type: "toggle",
+            position: {
+                type: "radio-groups",
+                options: ["top", "bottom", "left", "right"],
             },
         }}
     >
         <Story label="Default" content="center">
-            <Tabs>
-                <Button slot="tab" ghost value="home" active>
+            <Tabs value="1">
+                <Button size="small" ghost value="1" active>
                     Home
                 </Button>
-                <Button slot="tab" ghost value="config">
+                <Button size="small" ghost value="2" active>
+                    Profile
+                </Button>
+                <Button size="small" ghost value="3">
                     Config
                 </Button>
-                <Grid slot="home" model="padding ">
-                    est consectetur aliqua nostrud fugiat et in consequat
-                    exercitation reprehenderit commodo occaecat velit amet
-                    commodo occaecat ullamco nisi magna ex reprehenderit ullamco
-                    consequat laboris proident non exercitation culpa occaecat
-                    dolore tempor qui tempor fugiat pariatur nulla eu in eiusmod
-                    anim voluptate velit ut elit sint dolor cupidatat elit
-                    pariatur sint non et elit do et
-                </Grid>
-                <Grid slot="config" model="padding">
-                    Content config
-                </Grid>
+                <Button size="small" ghost value="4">
+                    Logout
+                </Button>
+                <style slot="out"></style>
             </Tabs>
         </Story>
     </Stories>

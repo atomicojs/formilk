@@ -1,6 +1,6 @@
 import { Props, c, css } from "atomico";
 import customElements from "../system";
-import { tokensBorder, tokensFont } from "../tokens";
+import { tokensFont } from "../tokens";
 
 function text({ size, color }: Props<typeof text>) {
     return (
@@ -30,7 +30,6 @@ text.props = {
 
 text.styles = [
     tokensFont,
-    tokensBorder,
     css`
         :host {
             line-height: var(---line-height, var(--font-line-height-text));

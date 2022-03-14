@@ -116,6 +116,7 @@ inputFile.styles = [
     css`
         .input {
             padding: 0;
+            overflow: hidden;
         }
 
         .input-file-header,
