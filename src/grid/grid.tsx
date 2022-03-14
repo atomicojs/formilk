@@ -13,7 +13,7 @@ function grid({ model }: Props<typeof grid>) {
             <slot ref={refSlot} />
             <style>
                 {`:host{--items: ${slot.length}}`}
-                {getUtils(model, ":host")}
+                {model && getUtils(model, ":host")}
             </style>
         </host>
     );
@@ -31,7 +31,7 @@ grid.styles = [
     cssBaseColors,
     css`
         :host {
-            display: var(--display, grid);
+            display: var(----display, grid);
         }
     `,
 ];

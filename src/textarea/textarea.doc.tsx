@@ -1,6 +1,4 @@
 import { Textarea } from "./textarea";
-import { Grid } from "../grid/grid";
-import { Input } from "../input/input";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -8,7 +6,9 @@ export const meta = {
 };
 
 export default md`
-# Dropdown
+# Textarea
+
+Create an input textarea whose size and height changes as the text scales.
 
 ${(
     <Stories

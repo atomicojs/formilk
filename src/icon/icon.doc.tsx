@@ -15,7 +15,10 @@ ${(
         <Story label="Default">
             <Grid model="width(100%) gap(s) cols(1fr 1fr 1fr 1fr) content(center)">
                 {Object.keys(Icons).map((type) => (
-                    <Grid title={type} model="gap(xxs) content(center)">
+                    <Grid
+                        title={type}
+                        model="gap slot(*,margin:auto) padding(xxs)"
+                    >
                         <small>{type}</small>
                         <Icon type={type}></Icon>
                     </Grid>
