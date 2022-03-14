@@ -19,7 +19,7 @@ ${(
     >
         <Story label="Default" content="center">
             <Label>
-                <span>Welmcome</span>
+                <span>Click me</span>
                 <Switch slot="action"></Switch>
             </Label>
         </Story>

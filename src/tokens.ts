@@ -15,7 +15,7 @@ export const tokenize = cssTokens.tokenize;
 export const cssBase = css`
     :host {
         ${system.cssProps(`
-            scale: .25rem;
+            size: .25rem;
             border-radius: .5em;
             border-width: 1px;
             scale-small: .75;

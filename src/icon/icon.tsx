@@ -17,7 +17,7 @@ function icon({ type, size, status }: Props<typeof icon>) {
         <host shadowDom>
             <Icon cloneNode />
             <style>
-                {size && `:host{--size: var(--size-${size});}`}
+                {size && `:host{--width: var(--size-${size});}`}
                 {status &&
                     `:host{--color-status: var(--color-status-${status});}`}
             </style>
@@ -51,13 +51,10 @@ icon.styles = [
     cssBaseColors,
     css`
         :host {
-            width: var(--size);
+            width: var(--width);
             display: inline-flex;
             align-items: center;
             justify-items: center;
-        }
-        :host(:not([size])) {
-            --size: 1em;
         }
         svg {
             width: 100%;

@@ -1,4 +1,4 @@
-import { Props, c, css, useRef, useLayoutEffect } from "atomico";
+import { Props, c, css, useRef } from "atomico";
 import { cssBase, cssBaseColors } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";
