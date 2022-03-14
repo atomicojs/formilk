@@ -90,8 +90,8 @@ label.styles = [
             width: 100%;
             display: grid;
             --columns: 1fr auto;
-            --gap: var(--space-between);
-            padding: var(--space-y) 0;
+            --gap: var(--size-xs);
+            min-height: var(--size-xl);
             box-sizing: border-box;
         }
 

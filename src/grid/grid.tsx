@@ -32,6 +32,7 @@ grid.styles = [
     css`
         :host {
             display: var(----display, grid);
+            box-sizing: border-box;
         }
     `,
 ];

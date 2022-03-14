@@ -1,4 +1,5 @@
 import { InputFile, InputFilePreview } from "./input-file";
+import { Grid } from "../grid/grid";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -17,18 +18,38 @@ ${(
             },
         }}
     >
-        <Story label="Default" content="center">
-            <InputFile>Add file</InputFile>
-        </Story>
-        <Story label="Multiple" content="center">
-            <InputFile multiple>Add file</InputFile>
-        </Story>
-        <Story label="Preview" content="center">
-            <InputFile>
-                Add file
-                <InputFilePreview></InputFilePreview>
-            </InputFile>
-        </Story>
+        <Story
+            label="Default"
+            content="center"
+            render={(props) => (
+                <Grid model="width(280px)">
+                    <InputFile {...props}>Add file</InputFile>
+                </Grid>
+            )}
+        ></Story>
+        <Story
+            label="Multiple"
+            content="center"
+            render={(props) => (
+                <Grid model="width(280px)">
+                    <InputFile {...props} multiple>
+                        Add file
+                    </InputFile>
+                </Grid>
+            )}
+        ></Story>
+        <Story
+            label="Preview"
+            content="center"
+            render={(props) => (
+                <Grid model="width(280px)">
+                    <InputFile {...props}>
+                        Add file
+                        <InputFilePreview></InputFilePreview>
+                    </InputFile>
+                </Grid>
+            )}
+        ></Story>
     </Stories>
 )}
 

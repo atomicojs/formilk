@@ -1,5 +1,5 @@
 import { md } from "@atomico/stories";
-import { Button, Input, Icon } from "./components";
+import { Button, Input, Icon, Grid, Switch, Label } from "./components";
 
 export const meta = {
     title: "Welcome",
@@ -21,10 +21,6 @@ npm install formilk
 ~~~
 
 ~~~js tab(setup, Js)
-import "formilk";
-~~~
-
-~~~js tab(setup, React)
 import "formilk";
 ~~~
 
@@ -57,15 +53,27 @@ function component() {
 }
 ~~~
 
-~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+## Example
 
-function component() {
-    return (
-        <>
-            <Button>Button</Button>
-        </>
-    );
-}
-~~~
+${(
+    <Grid model="width(100%) height(500px) content(center) radius  bgcolor(lavender)">
+        <Grid model="width(200px) gap">
+            <h3>Login</h3>
+            <Input placeholder="User">
+                <Icon slot="prefix" type="avatar"></Icon>
+            </Input>
+            <Input placeholder="Password">
+                <Icon slot="prefix" type="lock"></Icon>
+            </Input>
+            <Label>
+                Remember
+                <Switch size="small" slot="action"></Switch>
+            </Label>
+            <Grid model="gap cols(auto auto)">
+                <Button color="primary">Login</Button>
+                <Button ghost>Register</Button>
+            </Grid>
+        </Grid>
+    </Grid>
+)}
 `;

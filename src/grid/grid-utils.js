@@ -1,11 +1,13 @@
+import { cssProp } from "../system";
+
 export const width = (width, minWidth, maxWidth) => ({
     width,
     minWidth,
     maxWidth,
 });
 
-export const height = (width, minHeight, maxHeight) => ({
-    width,
+export const height = (height, minHeight, maxHeight) => ({
+    height,
     minHeight,
     maxHeight,
 });
@@ -24,7 +26,9 @@ export const padding = (paddingY = "s", paddingX = paddingY) => ({
     padding: `var(--size-${paddingY}) var(--size-${paddingX})`,
 });
 
-export const radius = (radius = "var(--border-radius)") => ({ radius });
+export const radius = (borderRadius = "var(--border-radius)") => ({
+    borderRadius,
+});
 
 export const cols = (gridTemplateColumns) => ({ gridTemplateColumns });
 
@@ -43,4 +47,8 @@ export const show = (display = "grid") => ({ "----display": display });
 export const slot = (selector, cssText) => ({
     selector: `::slotted(${selector})`,
     cssText,
+});
+
+export const bgcolor = (color) => ({
+    background: cssProp(`${color}-60`, `var(--color-${color}-60, ${color})`),
 });

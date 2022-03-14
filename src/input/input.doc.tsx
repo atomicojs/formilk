@@ -30,7 +30,7 @@ ${(
             render={(props) => (
                 <div>
                     <Input {...props} placeholder="input">
-                        <Icon size=".8em" slot="prefix" type="avatar"></Icon>
+                        <Icon slot="prefix" type="avatar"></Icon>
                     </Input>
                 </div>
             )}
@@ -41,7 +41,7 @@ ${(
             render={(props) => (
                 <div>
                     <Input {...props} placeholder="input">
-                        <Icon size=".8em" slot="suffix" type="avatar"></Icon>
+                        <Icon slot="suffix" type="avatar"></Icon>
                     </Input>
                 </div>
             )}

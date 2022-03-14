@@ -18,10 +18,12 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Label>
-                <span>Click me</span>
-                <Switch slot="action"></Switch>
-            </Label>
+            <div>
+                <Label>
+                    <span>Click me</span>
+                    <Switch slot="action"></Switch>
+                </Label>
+            </div>
         </Story>
     </Stories>
 )}
