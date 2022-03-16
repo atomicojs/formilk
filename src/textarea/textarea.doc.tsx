@@ -17,6 +17,27 @@ ${(
                 type: "radio-groups",
                 options: ["normal", "small"],
             },
+            required: {
+                type: "toggle",
+            },
+            disabled: {
+                type: "toggle",
+            },
+            name: {
+                type: "text",
+            },
+            value: {
+                type: "text",
+            },
+            placeholder: {
+                type: "text",
+            },
+            minLength: {
+                type: "number",
+            },
+            maxLength: {
+                type: "number",
+            },
         }}
     >
         <Story label="Default" content="center">
@@ -28,7 +49,10 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-textarea
+    name="field"
+    value="content..."
+></fm-textarea>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -37,30 +61,39 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-textarea
+            name="field"
+            value="content..."
+        ></fm-textarea>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { Textarea } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <Textarea
+                name="field"
+                value="content..."
+            ></Textarea>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { Textarea } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Button>Button</Button>
+            <Textarea
+                name="field"
+                value="content..."
+            ></Textarea>
         </>
     );
 }

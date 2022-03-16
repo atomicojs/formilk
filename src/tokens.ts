@@ -1,16 +1,6 @@
 import { css } from "atomico";
 import { createParseCssTokens } from "@uppercod/parse/parse-css-tokens";
-import options from "./options";
 import system from "./system";
-
-const cssTokens = createParseCssTokens({
-    ...options,
-    prefix: options.prefix + "--",
-});
-
-export const tokens = cssTokens.tokens;
-
-export const tokenize = cssTokens.tokenize;
 
 export const cssBase = css`
     :host {
@@ -119,7 +109,7 @@ export const cssButton = [
 
 export const tokensFont = css`
     :host {
-        ${tokenize`
+        ${system.cssProp(`
             @title: Font;
             @type: size;
             font-size: 1rem;
@@ -131,7 +121,7 @@ export const tokensFont = css`
             font-line-height-heading: 1;
             font-line-height-text: 1.6;
             font-size-heading: 2rem;
-        `}
+        `)}
     }
 `;
 

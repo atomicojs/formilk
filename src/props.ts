@@ -7,7 +7,6 @@ export const InputGenericProps = {
     required: GenericBoolean,
     disabled: GenericBoolean,
     value: null,
-    shadow: GenericBoolean,
     size: GenericString,
     focused: GenericBoolean,
     focusable: {
