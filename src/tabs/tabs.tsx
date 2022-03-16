@@ -1,13 +1,16 @@
 import { Props, Meta, DOMEvent, c, css, useRef, useProp } from "atomico";
 import { Button } from "../button/button";
-import { useSlot, useProxySlot } from "@atomico/hooks/use-slot";
+import { useProxySlot } from "@atomico/hooks/use-slot";
 import customElements from "../system";
 import { Tab } from "./tab";
 
-function tabs({ position }: Props<typeof tabs>): Meta<DOMEvent<"ChangeTab">> {
+function tabs({ position }: Props<typeof tabs>): Meta<DOMEvent<"change">> {
     const [value, setValue] = useProp<string>("value");
     const refSlots = useRef();
     const slots = useProxySlot<InstanceType<typeof Button>>(refSlots);
+
+    slots.forEach((el) => (el.ghost = true));
+
     return (
         <host shadowDom>
             <slot ref={refSlots}></slot>
@@ -28,7 +31,12 @@ function tabs({ position }: Props<typeof tabs>): Meta<DOMEvent<"ChangeTab">> {
 
 tabs.props = {
     name: String,
-    value: String,
+    value: {
+        type: String,
+        event: {
+            type: "change",
+        },
+    },
     position: {
         type: String,
         reflect: true,

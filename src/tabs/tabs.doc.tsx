@@ -16,23 +16,24 @@ ${(
                 type: "radio-groups",
                 options: ["top", "bottom", "left", "right"],
             },
+            name: {
+                type: "text",
+            },
+            value: {
+                type: "text",
+            },
         }}
     >
         <Story label="Default" content="center">
             <Tabs value="1">
-                <Button size="small" ghost value="1" active>
+                <Button value="1" active>
                     Home
                 </Button>
-                <Button size="small" ghost value="2" active>
+                <Button value="2" active>
                     Profile
                 </Button>
-                <Button size="small" ghost value="3">
-                    Config
-                </Button>
-                <Button size="small" ghost value="4">
-                    Logout
-                </Button>
-                <style slot="out"></style>
+                <Button value="3">Config</Button>
+                <Button value="4">Logout</Button>
             </Tabs>
         </Story>
     </Stories>
@@ -41,7 +42,20 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-tabs value="1">
+    <fm-buttons value="1" active>
+        Home
+    </fm-buttons>
+    <fm-buttons value="2" active>
+        Profile
+    </fm-buttons>
+    <fm-buttons value="3">
+        Config
+    </fm-buttons>
+    <fm-buttons value="4">
+        Logout
+    </fm-buttons>
+</fm-tabs>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -50,30 +64,61 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-tabs value="1">
+            <fm-buttons value="1" active>
+                Home
+            </fm-buttons>
+            <fm-buttons value="2" active>
+                Profile
+            </fm-buttons>
+            <fm-buttons value="3">
+                Config
+            </fm-buttons>
+            <fm-buttons value="4">
+                Logout
+            </fm-buttons>
+        </fm-tabs>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { Tabs, Button } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <Tabs value="1">
+                <Button value="1" active>
+                    Home
+                </Button>
+                <Button value="2" active>
+                    Profile
+                </Button>
+                <Button value="3">Config</Button>
+                <Button value="4">Logout</Button>
+            </Tabs>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { Tabs, Button } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Button>Button</Button>
+            <Tabs value="1">
+                <Button value="1" active>
+                    Home
+                </Button>
+                <Button value="2" active>
+                    Profile
+                </Button>
+                <Button value="3">Config</Button>
+                <Button value="4">Logout</Button>
+            </Tabs>
         </>
     );
 }
