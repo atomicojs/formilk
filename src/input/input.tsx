@@ -75,9 +75,7 @@ function input({ type, status, ...props }: Props<typeof input>) {
                         name="suffix"
                         class={serialize(!slotSuffix.length && "hidden")}
                     ></slot>
-                    {props.required && (
-                        <Icon size=".65em" type="asterisk"></Icon>
-                    )}
+                    {/* {props.required && <Icon type="asterisk"></Icon>} */}
                     <div class="input-line">
                         <div class="input-line-fill"></div>
                     </div>

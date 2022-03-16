@@ -13,13 +13,14 @@ Create an input textarea whose size and height changes as the text scales.
 ${(
     <Stories
         props={{
-            showWithOver: {
-                type: "toggle",
+            size: {
+                type: "radio-groups",
+                options: ["normal", "small"],
             },
         }}
     >
         <Story label="Default" content="center">
-            <Textarea placeholder="random..."></Textarea>
+            <Textarea placeholder="Write content..."></Textarea>
         </Story>
     </Stories>
 )}

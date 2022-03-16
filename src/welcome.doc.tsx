@@ -57,23 +57,25 @@ function component() {
 
 ${(
     <Grid model="width(100%) height(500px) content(center) radius  bgcolor(lavender)">
-        <Grid model="width(200px) gap">
-            <h3>Login</h3>
-            <Input placeholder="User">
-                <Icon slot="prefix" type="avatar"></Icon>
-            </Input>
-            <Input placeholder="Password">
-                <Icon slot="prefix" type="lock"></Icon>
-            </Input>
-            <Label>
-                Remember
-                <Switch size="small" slot="action"></Switch>
-            </Label>
-            <Grid model="gap cols(auto auto)">
-                <Button color="primary">Login</Button>
-                <Button ghost>Register</Button>
+        <form>
+            <Grid model="width(200px) gap">
+                <h3>Login</h3>
+                <Input placeholder="User" required>
+                    <Icon slot="prefix" type="avatar"></Icon>
+                </Input>
+                <Input placeholder="Password" required>
+                    <Icon slot="prefix" type="lock"></Icon>
+                </Input>
+                <Label>
+                    Remember
+                    <Switch size="small" slot="action"></Switch>
+                </Label>
+                <Grid model="gap cols(auto auto)">
+                    <Button color="primary">Login</Button>
+                    <Button ghost>Register</Button>
+                </Grid>
             </Grid>
-        </Grid>
+        </form>
     </Grid>
 )}
 `;
