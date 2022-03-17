@@ -12,7 +12,7 @@
         "@atomico/hooks": "^3.32.0",
         "@atomico/stories": "^0.2.0",
         "@uppercod/parse": "^0.4.2",
-        "atomico": "^1.48.0"
+        "atomico": "^1.49.1"
     },
     "devDependencies": {
         "@atomico/exports": "latest",

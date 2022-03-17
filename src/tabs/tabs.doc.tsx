@@ -39,6 +39,10 @@ ${(
     </Stories>
 )}
 
+## Events
+
+**change**: This event is dispatched every time the value property is modified.
+
 ## Usage
 
 ~~~html tab(usage,HTML)

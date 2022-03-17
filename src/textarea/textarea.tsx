@@ -1,11 +1,13 @@
-import { Props, c, css, useProp, useRef } from "atomico";
+import { Props, c, css, useProp, MetaEvents, DOMEvent } from "atomico";
 import { useRender } from "@atomico/hooks/use-render";
 import customElements from "../system";
 import { inputBaseStyle } from "../input/input-base-style";
 import { InputGenericProps } from "../props";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 
-function textarea(props: Props<typeof textarea>) {
+function textarea(
+    props: Props<typeof textarea>
+): MetaEvents<DOMEvent<"change"> & DOMEvent<"input">> {
     const [value, setValue] = useProp<string>("value");
     const [, setFocus] = useProp("focused");
 
