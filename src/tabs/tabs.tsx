@@ -4,9 +4,7 @@ import { useProxySlot } from "@atomico/hooks/use-slot";
 import customElements from "../system";
 import { Tab } from "./tab";
 
-function tabs({
-    position,
-}: Props<typeof tabs>): Meta<DOMEvent<"change"> & DOMEvent<"Wor">> {
+function tabs({ position }: Props<typeof tabs>): Meta<DOMEvent<"change">> {
     const [value, setValue] = useProp<string>("value");
     const refSlots = useRef();
     const slots = useProxySlot<InstanceType<typeof Button>>(refSlots);
