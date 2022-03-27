@@ -1,4 +1,3 @@
-//@ts-check
 import { Props, c, css, useHost } from "atomico";
 import customElements from "../system";
 import { cssBase, cssBaseColors } from "../tokens";
@@ -6,11 +5,10 @@ import { Icons, IconsKeys } from "./icons";
 
 function icon({ type, size, status }: Props<typeof icon>) {
     const {
-        //@ts-ignore
         current: { constructor },
     } = useHost();
 
-    //@ts-ignore
+    // @ts-ignore
     const Icon = constructor[type] as any;
 
     return (

@@ -5,7 +5,6 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
 import { serialize } from "../utils";
 import { inputBaseStyle } from "./input-base-style";
-import { Icon } from "../components";
 import customElements from "../system";
 
 function input({ type, status, ...props }: Props<typeof input>) {

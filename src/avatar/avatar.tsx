@@ -1,4 +1,4 @@
-import { Props, c, css } from "atomico";
+import { Type, Props, c, css } from "atomico";
 import customElements from "../system";
 import { Icon } from "../icon/icon";
 import { cssBase, cssBaseColors } from "../tokens";
@@ -28,7 +28,7 @@ function avatar({ src, size, transform }: Props<typeof avatar>) {
 avatar.props = {
     src: String,
     size: {
-        type: String,
+        type: String as Type<"small">,
         reflect: true,
     },
     transform: {

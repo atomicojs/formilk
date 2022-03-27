@@ -1,9 +1,9 @@
-import { c, css, useRef, useProp, MetaEvents, DOMEvent } from "atomico";
+import { c, css, useRef, useProp, Host } from "atomico";
 import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
 import { cssBaseColors, cssBase } from "../tokens";
 import customElements from "../system";
 
-function accordion(): MetaEvents<DOMEvent<"Show">> {
+function accordion(): Host<{ onshow: Event }> {
     const refSlot = useRef();
     const rect = useResizeObserverState(refSlot);
     const [show, setShow] = useProp<boolean>("show");
@@ -19,7 +19,6 @@ function accordion(): MetaEvents<DOMEvent<"Show">> {
                         <slot name="header"></slot>
                     </div>
                 </button>
-                <Divide class="accordion-split"></Divide>
             </div>
             <div
                 class="accordion-mask"
@@ -38,7 +37,7 @@ accordion.props = {
         type: Boolean,
         reflect: true,
         event: {
-            type: "Show",
+            type: "show",
             bubbles: true,
         },
     },

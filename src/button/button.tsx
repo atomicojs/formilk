@@ -43,7 +43,7 @@ function button({
                 ></a>
             ) : (
                 <button
-                    type="submit"
+                    type={type || "submit"}
                     name={name}
                     value={value}
                     ref={refButtonLightDom}
