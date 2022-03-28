@@ -25,10 +25,7 @@ function buttonActive(): Host<{ setEvent(event: MouseEvent): void }> {
                         : ""
                 }
                 class={state?.pending ? "show" : ""}
-                onanimationend={(event) => {
-                    console.log(event);
-                    setState({});
-                }}
+                onanimationend={() => setState({})}
             ></div>
         </host>
     );
