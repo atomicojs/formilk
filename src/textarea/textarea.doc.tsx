@@ -38,6 +38,12 @@ ${(
             maxLength: {
                 type: "number",
             },
+            rows: {
+                type: "number",
+            },
+            cols: {
+                type: "number",
+            },
         }}
     >
         <Story label="Default" content="center">
@@ -86,6 +92,21 @@ function component() {
 
 ~~~tsx tab(usage,React)
 import { Textarea } from "formilk/react";
+
+function component() {
+    return (
+        <>
+            <Textarea
+                name="field"
+                value="content..."
+            ></Textarea>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,Preact)
+import { Textarea } from "formilk/preact";
 
 function component() {
     return (

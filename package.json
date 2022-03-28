@@ -9,7 +9,7 @@
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
-        "@atomico/hooks": "^3.33.2",
+        "@atomico/hooks": "^3.33.3",
         "@atomico/stories": "^0.2.0",
         "@uppercod/parse": "^0.4.2",
         "atomico": "^1.51.0"

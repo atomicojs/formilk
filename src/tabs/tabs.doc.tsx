@@ -7,7 +7,7 @@ export const meta = {
 };
 
 export default md`
-# Dropdown
+# Tabs
 
 ${(
     <Stories

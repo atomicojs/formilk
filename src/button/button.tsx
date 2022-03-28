@@ -6,6 +6,7 @@ import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
 import customElements from "../system";
 import { cssBaseColors, cssButton } from "../tokens";
+import { ButtonActive } from "./button-active";
 
 const add = (value: any) => (value ? 1 : 0);
 
@@ -18,6 +19,7 @@ function button({
     justify,
     color,
 }: Props<typeof button>) {
+    const refButtonActive = useRef<typeof ButtonActive>();
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
     const refSlotContent = useRef();
@@ -62,6 +64,11 @@ function button({
             shadowDom
             shape={slotPrefix.length && !slotContent.length ? "square" : null}
             ref={refButtonShadowDom}
+            onclick={(event) => {
+                if (refButtonActive.current?.setEvent) {
+                    refButtonActive.current.setEvent(event);
+                }
+            }}
         >
             <button
                 disabled={disabled}
@@ -72,7 +79,12 @@ function button({
                 style={justify ? `--justify:${justify}` : ""}
             >
                 <div class="button-bg">
-                    <slot name="background"></slot>
+                    <slot name="background">
+                        <ButtonActive
+                            class="button-fx"
+                            ref={refButtonActive}
+                        ></ButtonActive>
+                    </slot>
                 </div>
                 <div
                     class="button-row"
@@ -205,6 +217,9 @@ button.styles = [
             box-sizing: border-box;
             transition: var(--input-transition);
             background: var(--color-button-60);
+        }
+        .button-fx {
+            border-radius: var(--border-radius);
         }
     `,
 ];
