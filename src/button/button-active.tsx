@@ -19,7 +19,11 @@ function buttonActive(): Host<{ setEvent(event: MouseEvent): void }> {
             }}
         >
             <div
-                style={`--x:${state?.offset?.x}px; --y:${state?.offset?.y}px`}
+                style={
+                    state?.offset
+                        ? `--x:${state?.offset?.x}px; --y:${state?.offset?.y}px`
+                        : ""
+                }
                 class={state?.pending ? "show" : ""}
                 onanimationend={(event) => {
                     console.log(event);

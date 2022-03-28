@@ -50,8 +50,6 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
             target = target.parentElement;
         }
 
-        event.stopPropagation();
-
         const { x, y } = host.current.getBoundingClientRect();
 
         const {
