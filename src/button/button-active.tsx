@@ -46,8 +46,8 @@ buttonActive.styles = css`
         width: 10px;
         height: 10px;
         position: absolute;
-        top: var(--y);
-        left: var(--x);
+        top: calc(var(--y) - 5px);
+        left: calc(var(--x) - 5px);
         opacity: 0;
         background: var(--background);
         border-radius: 100%;
