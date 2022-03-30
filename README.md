@@ -15,8 +15,3 @@ Design system created by UpperCod with the aim of achieving a unique aesthetic. 
 ## Contribute
 
 Formilk seeks to be an extensible and utilitarian design system, I invite you to contribute with your vision of component design or development, you can leave an issue or comment via [Discord](https://discord.gg/7z3rNhmkNE)
-
-## Todo
-
--   [ ] centralize repeating props for better code compression, example button component
--   [ ] develop the input file, chequear fomilk.xd tablero proposal.
