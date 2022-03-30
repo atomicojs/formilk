@@ -1,9 +1,9 @@
 {
     "name": "formilk",
     "description": "Design system created with Atomico",
-    "version": "0.15.1",
+    "version": "1.0.0",
     "scripts": {
-        "start": "vite --force",
+        "start": "vite",
         "build": "vite build --outDir docs",
         "exports": "exports  src/components.ts src/options.ts src/tokens.ts \"src/*/*.tsx\" --types --exports --main components",
         "prepublishOnly": "npm run exports"
@@ -16,7 +16,6 @@
     },
     "devDependencies": {
         "@atomico/exports": "latest",
-        "@atomico/markdown": "latest",
         "@atomico/scaffold": "^0.2.0",
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
