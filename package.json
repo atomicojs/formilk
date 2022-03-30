@@ -15,7 +15,7 @@
         "atomico": "^1.51.0"
     },
     "devDependencies": {
-        "@atomico/exports": "latest",
+        "@atomico/exports": "^0.26.2",
         "@atomico/scaffold": "^0.2.0",
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
