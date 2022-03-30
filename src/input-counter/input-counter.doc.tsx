@@ -1,4 +1,5 @@
 import { InputCounter } from "./input-counter";
+import { Grid } from "../grid/grid";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -18,9 +19,9 @@ ${(
             label="Default"
             content="center"
             render={(props) => (
-                <div>
+                <Grid model="width(220px)">
                     <InputCounter {...props}></InputCounter>
-                </div>
+                </Grid>
             )}
         ></Story>
     </Stories>

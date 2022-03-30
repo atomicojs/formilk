@@ -28,6 +28,7 @@ function counter({
     min,
     max,
     step,
+    size,
 }: Props<typeof counter>) {
     useCssLightDom(sheet);
 
@@ -69,6 +70,7 @@ function counter({
                 min={min}
                 max={max}
                 step={step}
+                size={size}
             >
                 <Button
                     disabled={disabled}

@@ -1,4 +1,5 @@
 import { Textarea } from "./input-textarea";
+import { Grid } from "../grid/grid";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -46,9 +47,18 @@ ${(
             },
         }}
     >
-        <Story label="Default" content="center">
-            <Textarea placeholder="Write content..."></Textarea>
-        </Story>
+        <Story
+            label="Default"
+            content="center"
+            render={(props) => (
+                <Grid model="width(220px)">
+                    <Textarea
+                        {...props}
+                        placeholder="Write content..."
+                    ></Textarea>
+                </Grid>
+            )}
+        ></Story>
     </Stories>
 )}
 

@@ -13,6 +13,27 @@ ${(
     <Stories
         props={{
             size: { type: "radio-groups", options: ["normal", "small"] },
+            required: {
+                type: "toggle",
+            },
+            disabled: {
+                type: "toggle",
+            },
+            name: {
+                type: "text",
+            },
+            value: {
+                type: "text",
+            },
+            placeholder: {
+                type: "text",
+            },
+            minLength: {
+                type: "number",
+            },
+            maxLength: {
+                type: "number",
+            },
         }}
     >
         <Story
