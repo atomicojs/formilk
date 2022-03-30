@@ -1,14 +1,15 @@
 import { c, css, Props, useProp, useRef } from "atomico";
-import customElements from "../custom-elements";
 import { useRender } from "@atomico/hooks/use-render";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
+import { useDisabled } from "@atomico/hooks/use-disabled";
+import { useSlot } from "@atomico/hooks/use-slot";
 import { Button } from "../button/button";
 import { Icon } from "../icon/icon";
 import { inputBaseStyle } from "../input/input-base-style";
-import { useSlot } from "@atomico/hooks/use-slot";
 import { InputFilePreview } from "./input-file-preview";
+export { InputFilePreview } from "./input-file-preview";
 import { InputGenericProps } from "../props";
-import { useDisabled } from "@atomico/hooks/use-disabled";
+import customElements from "../system";
 
 function inputFile({ multiple, accept }: Props<typeof inputFile>) {
     const refInput = useRef();
@@ -49,18 +50,14 @@ function inputFile({ multiple, accept }: Props<typeof inputFile>) {
                             <slot></slot>
                         </div>
                         <Button size="small" ghost>
-                            <Icon
-                                slot="prefix"
-                                size="var(--icon-size)"
-                                type="plus"
-                            ></Icon>
+                            <Icon slot="prefix" type="plus"></Icon>
                         </Button>
+                        {!!files?.length && (
+                            <div class="input-line">
+                                <div class="input-line-fill"></div>
+                            </div>
+                        )}
                     </div>
-                    {!!files?.length && (
-                        <div class="input-line">
-                            <div class="input-line-fill"></div>
-                        </div>
-                    )}
                 </div>
                 {files?.map((file) => {
                     return (
@@ -84,11 +81,7 @@ function inputFile({ multiple, accept }: Props<typeof inputFile>) {
                                         setFiles(Array.from(data.files));
                                     }}
                                 >
-                                    <Icon
-                                        slot="prefix"
-                                        size="var(--icon-size)"
-                                        type="closed"
-                                    ></Icon>
+                                    <Icon slot="prefix" type="closed"></Icon>
                                 </Button>
                             </div>
                             {SlotPreview && (
@@ -121,40 +114,22 @@ inputFile.props = {
 inputFile.styles = [
     inputBaseStyle,
     css`
-        :host {
-            --color-fill: var(--color-current-layer, var(--color-input-fill));
-            --color-divide: var(--color-input-divide);
-            --color-contrast: var(
-                --color-current-contrast,
-                var(--color-input-contrast)
-            );
-            --icon-size: calc(1em * var(--scale-small));
-        }
-        .input-file-header {
-            display: grid;
-            position: relative;
-            min-height: var(--size--min);
-        }
-        .input-file-item {
-            display: grid;
-            justify-content: space-between;
-            grid-template-columns: auto 30px;
-            grid-gap: var(--space--between);
-            padding: 0px calc(var(--space--x) / 2) 0px var(--space--x);
-            align-items: center;
-        }
-        .input-file-name {
-            font-size: var(--font-size-small);
-            overflow: hidden;
-        }
-        .input-file-header + .input-file-row {
-            margin-top: calc(var(--space--y) / 2);
-        }
-        .hidden {
-            display: none;
-        }
         .input {
+            padding: 0;
             overflow: hidden;
+        }
+
+        .input-file-header,
+        .input-file-row .input-file-item {
+            padding: 0 var(--space-x);
+        }
+
+        .input-file-item {
+            min-height: var(--size-xl);
+            display: grid;
+            grid-template-columns: auto auto;
+            place-content: center space-between;
+            position: relative;
         }
     `,
 ];

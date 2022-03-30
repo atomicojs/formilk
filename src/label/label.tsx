@@ -2,9 +2,9 @@ import { c, css, Props, Ref, useRef } from "atomico";
 import { serialize } from "atomico/utils";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useCurrentValue } from "@atomico/hooks/use-current-value";
-import { tokensBox } from "../tokens";
+import { cssBase } from "../tokens";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
-import customElements from "../custom-elements";
+import customElements from "../system";
 
 const RefEmpty: Ref = { current: null };
 
@@ -84,14 +84,14 @@ label.props = {
 };
 
 label.styles = [
-    tokensBox,
+    cssBase,
     css`
         :host {
             width: 100%;
             display: grid;
             --columns: 1fr auto;
-            --gap: var(--space-between);
-            padding: var(--space-y) 0;
+            --gap: var(--size-xs);
+            min-height: var(--size-xl);
             box-sizing: border-box;
         }
 

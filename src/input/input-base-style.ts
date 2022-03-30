@@ -1,114 +1,76 @@
 import { css } from "atomico";
-import {
-    tokensBox,
-    tokensFont,
-    tokensColor,
-    tokensShadow,
-    tokensBorder,
-    tokensOpacity,
-    tokensTransition,
-} from "../tokens";
+import { cssInput } from "../tokens";
 
 export const inputBaseStyle = [
-    tokensBox,
-    tokensFont,
-    tokensColor,
-    tokensShadow,
-    tokensBorder,
-    tokensOpacity,
-    tokensTransition,
+    cssInput,
     css`
         :host {
-            --color-fill: var(--color-current-layer, var(--color-input-fill));
-            --color-divide: var(--color-input-divide);
-            --color-contrast: var(
-                --color-current-contrast,
-                var(--color-input-contrast)
-            );
-            --color-status: var(--color-input-status);
-            --line-opacity: var(--opacity-disabled);
-            --shadow: none;
-            --gap: var(--space--between);
-            --text-align: left;
-            font-size: var(--font-size);
-            line-height: var(--size-line);
-            display: inline-flex;
-        }
-        :host([shadow]) {
-            --shadow: var(--shadow-action);
-        }
-        .input {
-            display: grid;
-            min-width: 100%;
-            background: var(--color-fill);
-            color: var(--color-contrast);
-            position: relative;
-            border-radius: var(--border-radius);
-            border: var(--border-width) solid var(--color-divide);
-            box-sizing: border-box;
-            box-shadow: var(--shadow);
-        }
-        .input-content {
-            display: grid;
-            min-height: var(--size--min);
-            align-items: center;
-            padding: 0 var(--space--x);
-            grid-gap: var(--gap);
-            grid-template-columns: var(--columns);
-            position: relative;
-        }
-        .input-line {
             width: 100%;
-            height: var(--border-width);
-            padding: 0 var(--space--x);
-            box-sizing: border-box;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            z-index: 3;
-            transform: translateY(100%);
-            opacity: var(--line-opacity);
-            transition: var(--transition-x0);
-        }
-        .input-line-fill {
-            width: 100%;
-            height: 100%;
-            border-radius: 1rem;
-            background: var(--color-status);
+
+            display: block;
+            ---line-opacity: var(--input-opacity-unfocus);
+            --space-x: var(--size-s);
         }
 
-        :host([size="small"]) {
-            --scale: var(--scale-small);
-            --font-size: var(--font-size-small);
+        .input-row {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: var(--columns);
+            position: relative;
+            box-sizing: border-box;
+            gap: var(--size-xs);
+            min-height: var(--size-xl);
         }
-        :host([narrow]) {
-            --space-x: 0;
+
+        .input-line {
+            width: 100%;
+            height: var(--input-border-width);
+            position: absolute;
+            bottom: calc(var(--input-border-width) * -1);
+            left: 0px;
+            background: var(--color-input-10);
+            opacity: var(---line-opacity);
+            transition: var(--input-transition);
         }
+
+        .input {
+            width: 100%;
+            height: 100%;
+            border: var(--input-border);
+            border-radius: var(--border-radius);
+            padding: 0 var(--space-x);
+            background: var(--color-input-60);
+            box-sizing: border-box;
+            position: relative;
+            min-height: var(--size-xl);
+        }
+
         :host([focused]) {
-            --line-opacity: 1;
+            ---line-opacity: 1;
         }
-        :host([ghost]) {
-            --color-fill: transparent;
-        }
+
         :host([disabled]) {
-            opacity: var(--opacity-disabled);
+            opacity: var(--input-opacity-disabled);
             pointer-events: none;
         }
-        ::slotted([slot="input"].reset) {
+
+        ::slotted([slot="input"]) {
             width: 100%;
-            height: var(--size--line);
-            padding: var(--space--y) 0;
-            font-family: unset;
-            font-size: unset;
+            height: 100%;
+            font: unset;
             background: transparent;
             border: none;
             letter-spacing: unset;
             color: unset;
             outline: none;
             position: relative;
-            z-index: 2;
+            z-index: 1;
             line-height: unset;
             text-align: var(--text-align);
+            border: none;
+            padding: 0;
         }
     `,
 ];

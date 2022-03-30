@@ -1,8 +1,8 @@
 import { Props, c, css, useRef } from "atomico";
-import { tokensBox, tokensColor, tokensBorder } from "../tokens";
+import { cssBase, cssBaseColors } from "../tokens";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { getUtils } from "./utils";
-import customElements from "../custom-elements";
+import customElements from "../system";
 
 function grid({ model }: Props<typeof grid>) {
     const refSlot = useRef();
@@ -27,20 +27,12 @@ grid.props = {
 };
 
 grid.styles = [
-    tokensBox,
-    tokensColor,
-    tokensBorder,
+    cssBase,
+    cssBaseColors,
     css`
         :host {
-            display: grid;
-            grid-gap: var(--space-between);
-        }
-        :host(:not([model*="gap"])) {
-            --grid-gap: var(--space-between);
-        }
-
-        ::slotted(*) {
-            margin: 0px;
+            display: var(----display, grid);
+            box-sizing: border-box;
         }
     `,
 ];

@@ -1,17 +1,15 @@
-export const GenericBoolean = { type: Boolean, reflect: true };
-
-export const GenericString = { type: String, reflect: true };
+import { Type } from "atomico";
 
 export const InputGenericProps = {
-    name: GenericString,
-    required: GenericBoolean,
-    disabled: GenericBoolean,
+    name: { type: String, reflect: true },
+    required: { type: Boolean, reflect: true },
+    disabled: { type: Boolean, reflect: true },
     value: null,
-    shadow: GenericBoolean,
-    size: GenericString,
-    focused: GenericBoolean,
+    size: { type: String as Type<"small">, reflect: true },
+    focused: { type: Boolean, reflect: true },
     focusable: {
-        ...GenericBoolean,
+        type: Boolean,
+        reflect: true,
         value: true,
     },
 };

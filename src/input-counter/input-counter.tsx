@@ -2,13 +2,16 @@ import { Props, c, css, useProp, useRef, useEvent } from "atomico";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { Icon } from "../icon/icon";
-import customElements from "../custom-elements";
+import customElements from "../system";
 import { useCssLightDom } from "@atomico/hooks/use-css-light-dom";
 import { useClickPress } from "@atomico/hooks/use-click-press";
 import { InputGenericProps } from "../props";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 
 const sheet = css`
+    :host {
+        display: block;
+    }
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -25,6 +28,7 @@ function counter({
     min,
     max,
     step,
+    size,
 }: Props<typeof counter>) {
     useCssLightDom(sheet);
 
@@ -37,7 +41,7 @@ function counter({
 
     let calc = (mode: 1 | -1) => {
         setValue((value) => {
-            let next = value + currentStep * mode;
+            let next = (value || 0) + currentStep * mode;
             next = min != null ? (next > min ? next : min) : next;
             next = max != null ? (next > max ? max : next) : next;
             return next;
@@ -66,6 +70,7 @@ function counter({
                 min={min}
                 max={max}
                 step={step}
+                size={size}
             >
                 <Button
                     disabled={disabled}
@@ -73,6 +78,7 @@ function counter({
                     ghost
                     ref={refDecrement}
                     onclick={(event) => event.preventDefault()}
+                    size="small"
                 >
                     <Icon slot="prefix" type="dash"></Icon>
                 </Button>
@@ -82,6 +88,7 @@ function counter({
                     ghost
                     ref={refIncrement}
                     onclick={(event) => event.preventDefault()}
+                    size="small"
                 >
                     <Icon slot="prefix" type="plus"></Icon>
                 </Button>

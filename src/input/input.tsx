@@ -3,10 +3,9 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
-import customElements from "../custom-elements";
 import { serialize } from "../utils";
 import { inputBaseStyle } from "./input-base-style";
-import { Icon } from "../components";
+import customElements from "../system";
 
 function input({ type, status, ...props }: Props<typeof input>) {
     const [, setValue] = useProp("value");
@@ -50,8 +49,17 @@ function input({ type, status, ...props }: Props<typeof input>) {
                 refInput.current.focus();
             }}
         >
-            <div class="input">
-                <div class="input-content">
+            <div class="input-row input">
+                <div
+                    class="input-row"
+                    style={`--columns:${serialize(
+                        slotPrefix.length && "auto",
+                        slotLabel.length && "auto",
+                        "1fr",
+                        slotSuffix.length && "auto",
+                        props.required && "auto"
+                    )}`}
+                >
                     <slot
                         ref={refSlotPrefix}
                         name="prefix"
@@ -66,29 +74,13 @@ function input({ type, status, ...props }: Props<typeof input>) {
                         name="suffix"
                         class={serialize(!slotSuffix.length && "hidden")}
                     ></slot>
-                    {props.required && (
-                        <Icon size=".65em" type="asterisk"></Icon>
-                    )}
+                    {/* {props.required && <Icon type="asterisk"></Icon>} */}
                     <div class="input-line">
                         <div class="input-line-fill"></div>
                     </div>
                 </div>
             </div>
-            <style>{`
-                :host {
-                    --columns-label: ${slotLabel.length};
-                    --columns: ${serialize(
-                        slotPrefix.length && "auto",
-                        slotLabel.length && "auto",
-                        "1fr",
-                        slotSuffix.length && "auto",
-                        props.required && "auto"
-                    )};
-                }
-                :host([status]) {
-                    --color-status: var(--color-status-${status});
-                }
-            `}</style>
+            <style></style>
         </host>
     );
 }
@@ -117,19 +109,16 @@ input.props = {
         reflect: true,
     },
     step: Number,
+    color: {
+        type: String,
+    },
 };
 
 input.styles = [
     inputBaseStyle,
     css`
-        :host {
-            min-width: 100%;
-        }
         .hidden {
             display: none;
-        }
-        .input-suffix {
-            display: grid;
         }
     `,
 ];

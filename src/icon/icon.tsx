@@ -1,23 +1,21 @@
-//@ts-check
 import { Props, c, css, useHost } from "atomico";
-import customElements from "../custom-elements";
-import { tokensColor } from "../tokens";
+import customElements from "../system";
+import { cssBase, cssBaseColors } from "../tokens";
 import { Icons, IconsKeys } from "./icons";
 
 function icon({ type, size, status }: Props<typeof icon>) {
     const {
-        //@ts-ignore
         current: { constructor },
     } = useHost();
 
-    //@ts-ignore
+    // @ts-ignore
     const Icon = constructor[type] as any;
 
     return (
         <host shadowDom>
             <Icon cloneNode />
             <style>
-                {size && `:host{--size: ${size};}`}
+                {size && `:host{--width: var(--size-${size});}`}
                 {status &&
                     `:host{--color-status: var(--color-status-${status});}`}
             </style>
@@ -34,6 +32,7 @@ icon.props = {
     size: {
         type: String,
         reflect: true,
+        value: "xxs",
     },
     define: {
         type: String,
@@ -46,18 +45,17 @@ icon.props = {
 };
 
 icon.styles = [
-    tokensColor,
+    cssBase,
+    cssBaseColors,
     css`
         :host {
+            width: var(--width);
             display: inline-flex;
             align-items: center;
             justify-items: center;
         }
-        :host(:not([size])) {
-            --size: 1em;
-        }
         svg {
-            width: var(--size);
+            width: 100%;
             margin: auto;
         }
         path {

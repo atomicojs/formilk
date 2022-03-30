@@ -1,7 +1,7 @@
-import { Props, c, css } from "atomico";
-import customElements from "../custom-elements";
+import { Type, Props, c, css } from "atomico";
+import customElements from "../system";
 import { Icon } from "../icon/icon";
-import { tokensBox, tokensColor, tokensBorder } from "../tokens";
+import { cssBase, cssBaseColors } from "../tokens";
 
 function avatar({ src, size, transform }: Props<typeof avatar>) {
     return (
@@ -12,16 +12,15 @@ function avatar({ src, size, transform }: Props<typeof avatar>) {
                         {src ? (
                             <img class="avatar-img" src={src} />
                         ) : (
-                            <Icon type="avatar" size="50%" />
+                            <Icon type="avatar" />
                         )}
                     </slot>
                 </div>
             </button>
-            <style>{
-                /*css*/ `:host{--size:${size};${
-                    transform ? `--transform:${transform}` : ""
-                }}`
-            }</style>
+            <style>
+                {!!size && `:host{--size:var(--size-${size});}`}
+                {!!transform && `:host{--transform:${transform};}`}
+            </style>
         </host>
     );
 }
@@ -29,7 +28,7 @@ function avatar({ src, size, transform }: Props<typeof avatar>) {
 avatar.props = {
     src: String,
     size: {
-        type: String,
+        type: String as Type<"small">,
         reflect: true,
     },
     transform: {
@@ -39,34 +38,18 @@ avatar.props = {
 };
 
 avatar.styles = [
-    tokensBox,
-    tokensColor,
-    tokensBorder,
+    cssBase,
+    cssBaseColors,
     css`
         :host {
-            --color-fill: var(--color-current-layer, var(--color-box-fill));
-            --color-divide: var(
-                --color-current-divide,
-                var(--color-box-divide)
-            );
-            --color-contrast: var(
-                --color-current-contrast,
-                var(--color-box-contrast)
-            );
-            display: inline-flex;
-            align-items: center;
-            justify-items: center;
-        }
-        :host(:not([size])) {
-            --size: var(--size-min);
         }
         .avatar-mask {
-            width: var(--size);
-            height: var(--size);
+            width: var(--size-xl);
+            height: var(--size-xl);
             overflow: hidden;
             border-radius: var(--border-radius);
-            border: calc(var(--border-width) * 2) solid var(--color-divide);
-            background: var(--color-fill);
+            background: var(--color-layer-60);
+            border: none;
             padding: 0px;
             cursor: unset;
             margin: auto;
@@ -75,8 +58,7 @@ avatar.styles = [
             width: 100%;
             height: 100%;
             transform: var(--transform);
-            align-items: center;
-            justify-items: center;
+            place-content: center;
             display: flex;
         }
         ::slotted(*),

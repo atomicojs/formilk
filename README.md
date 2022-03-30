@@ -1,6 +1,6 @@
 # Formilk (...Project in progress)
 
-![logo](./doc/logo-contrast.svg)
+![logo](./src/logo.svg)
 
 Design system created by UpperCod with the aim of achieving a unique aesthetic. Formilk was created to be used without complexity and interaction limitations.
 

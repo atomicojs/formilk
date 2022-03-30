@@ -1,115 +1,64 @@
-import { c, css, Props, useRef, useUpdate, Meta, DOMEvent } from "atomico";
-import { useSlot } from "@atomico/hooks/use-slot";
-import { useResizeObserverState } from "@atomico/hooks/use-resize-observer";
-import { Divide } from "../divide/divide";
-import customElements from "../custom-elements";
+import { Host, Type, Props, c, css, useRef, useProp } from "atomico";
+import { Button } from "../button/button";
+import { useProxySlot } from "@atomico/hooks/use-slot";
+import customElements from "../system";
+import { Tab } from "./tab";
 
-function tabs({ active }: Props<typeof tabs>): Meta<DOMEvent<"ChangeTab">> {
-    const refSlotTabs = useRef();
-    const refTabs = useRef();
-    const slotTabs = useSlot(refSlotTabs) as (HTMLElement & {
-        active: boolean;
-    })[];
-    const update = useUpdate();
-    useResizeObserverState(refTabs);
+function tabs({ position }: Props<typeof tabs>): Host<{ onchange: Event }> {
+    const [value, setValue] = useProp<string>("value");
+    const refSlots = useRef();
+    const slots = useProxySlot<InstanceType<typeof Button>>(refSlots);
 
-    const [, ...childTabs] = slotTabs.reduce(
-        ([offset, ...tabs], target) => [
-            target.clientWidth + offset,
-            ...tabs,
-            { offset, target },
-        ],
-        [0] as any
-    );
-
-    const currentTab = childTabs.find(({ target }: any) => target.active);
-    const currentActive = currentTab?.target?.value || active;
+    slots.forEach((el) => (el.ghost = true));
 
     return (
-        <host shadowDom active={currentActive} currentTab={currentTab?.target}>
-            <div class="tabs-header">
-                <div className="tabs-items" ref={refTabs}>
-                    <slot
-                        onclick={Object.assign(
-                            (event: Event) => {
-                                event.stopPropagation();
-                                slotTabs.map((slotTabs) => {
-                                    slotTabs.active = slotTabs === event.target;
-                                });
-                                update();
-                            },
-                            {
-                                capture: true,
-                            }
-                        )}
-                        ref={refSlotTabs}
-                        name="tab"
-                    ></slot>
-                </div>
-                <Divide
-                    class="tabs-divide  "
-                    style={
-                        currentTab
-                            ? `--mark-width: ${currentTab.target.clientWidth}px; --mark-offset: ${currentTab.offset}px;`
-                            : ""
-                    }
-                ></Divide>
+        <host shadowDom>
+            <slot ref={refSlots}></slot>
+            <div class="tabs">
+                {slots.map((el, index) => (
+                    <Tab
+                        active={el.value === value}
+                        position={position}
+                        onclick={() => setValue(el.value)}
+                    >
+                        <slot name={(el.slot = `tab-${index}`)}></slot>
+                    </Tab>
+                ))}
             </div>
-            {currentTab && <slot name={currentTab.target.value}></slot>}
         </host>
     );
 }
 
 tabs.props = {
-    positionDivide: {
+    name: String,
+    value: {
         type: String,
-        reflect: true,
+        event: {
+            type: "change",
+        },
     },
     position: {
-        type: String,
+        type: String as Type<"top" | "left">,
         reflect: true,
-    },
-    active: {
-        type: String,
-        reflect: true,
-    },
-    currentTab: {
-        event: {
-            type: "ChangeTab",
-        },
     },
 };
 
-tabs.styles = css`
-    :host {
+tabs.styles = css`'
+    :host{
+        --flow: row nowrap;
+    }
+    :host([position="left"]),
+    :host([position="right"]){
+        --flow: column;
+    }
+    [name="mark"] {
+        display: none;
+    }
+    .tabs {
         display: flex;
-        flex-flow: column nowrap;
-        min-height: 100%;
+        flex-flow: var(--flow);
     }
 
-    :host([position-divide="top"]) .tabs-divide {
-        order: -1;
-    }
-
-    :host([position="bottom"]) {
-        flex-flow: column-reverse nowrap;
-    }
-
-    .tabs-items {
-        display: flex;
-        overflow-x: auto;
-    }
-
-    .tabs-header {
-        width: 100%;
-        position: relative;
-        display: flex;
-        flex-flow: column nowrap;
-    }
-    ::slotted(:not([slot="tab"])) {
-        height: 100%;
-        overflow: auto;
-    }
 `;
 
 export const Tabs = c(tabs);
