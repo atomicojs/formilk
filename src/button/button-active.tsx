@@ -1,6 +1,6 @@
 import { Host, c, css, useState } from "atomico";
 import { getCoordinates } from "@atomico/hooks/use-click-coordinates";
-import customElement from "../system";
+import customElements from "../system";
 
 function buttonActive(): Host<{ setEvent(event: MouseEvent): void }> {
     const [state, setState] = useState<{
@@ -74,4 +74,4 @@ buttonActive.styles = css`
 
 export const ButtonActive = c(buttonActive);
 
-customElement.define("button-active", ButtonActive);
+customElements.define("button-active", ButtonActive);
