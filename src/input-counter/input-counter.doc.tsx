@@ -2,7 +2,7 @@ import { InputCounter } from "./input-counter";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Input counter",
+    path: "/Components/Input/Counter",
 };
 
 export default md`

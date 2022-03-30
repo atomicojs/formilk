@@ -1,12 +1,12 @@
-import { Checkbox } from "./checkbox";
+import { InputCheckbox } from "./checkbox";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Checkbox",
+    path: "/Components/Input/Checkbox",
 };
 
 export default md`
-# Checkbox
+# InputCheckbox
 
 ${(
     <Stories
@@ -27,7 +27,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Checkbox></Checkbox>
+            <InputCheckbox />
         </Story>
     </Stories>
 )}
@@ -55,7 +55,7 @@ import { InputCheckbox } from "formilk";
 function component() {
     return (
         <host>
-            <InputCheckbox></InputCheckbox>
+            <InputCheckbox/>
         </host>
     );
 }
@@ -67,7 +67,7 @@ import { InputCheckbox } from "formilk/react";
 function component() {
     return (
         <>
-            <InputCheckbox></InputCheckbox>
+            <InputCheckbox/>
         </>
     );
 }
@@ -79,7 +79,7 @@ import { InputCheckbox } from "formilk/preact";
 function component() {
     return (
         <>
-            <InputCheckbox></InputCheckbox>
+            <InputCheckbox/>
         </>
     );
 }

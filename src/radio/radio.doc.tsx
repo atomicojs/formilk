@@ -1,4 +1,4 @@
-import { Radio } from "./radio";
+import { InputRadio } from "./radio";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -6,7 +6,7 @@ export const meta = {
 };
 
 export default md`
-# Radio
+# InputRadio
 
 ${(
     <Stories
@@ -27,7 +27,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Radio></Radio>
+            <InputRadio></InputRadio>
         </Story>
     </Stories>
 )}
@@ -35,7 +35,7 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-input-radio></fm-input-radio>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -44,18 +44,18 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-input-radio></fm-input-radio>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { InputRadio } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <InputRadio/>
         </host>
     );
 }
@@ -67,7 +67,19 @@ import { Button } from "formilk/react";
 function component() {
     return (
         <>
-            <Button>Button</Button>
+        <InputRadio/>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,preact)
+import { Button } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+        <InputRadio/>
         </>
     );
 }

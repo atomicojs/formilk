@@ -1,4 +1,4 @@
-import { Switch } from "./switch";
+import { InputSwitch } from "./switch";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -6,7 +6,7 @@ export const meta = {
 };
 
 export default md`
-# Switch
+# InputSwitch
 
 ${(
     <Stories
@@ -27,7 +27,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Switch></Switch>
+            <InputSwitch></InputSwitch>
         </Story>
     </Stories>
 )}

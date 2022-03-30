@@ -1,5 +1,5 @@
 import { Label } from "./label";
-import { Switch } from "../switch/switch";
+import { InputSwitch } from "../switch/switch";
 import { Input } from "../input/input";
 import { md, Stories, Story } from "@atomico/stories";
 
@@ -22,7 +22,7 @@ ${(
             <div>
                 <Label>
                     <span>Click me</span>
-                    <Switch slot="action"></Switch>
+                    <InputSwitch slot="action" />
                 </Label>
             </div>
         </Story>

@@ -1,5 +1,5 @@
 import { md } from "@atomico/stories";
-import { Button, Input, Icon, Grid, Switch, Label } from "./components";
+import { Button, Input, Icon, Grid, InputSwitch, Label } from "./components";
 
 export const meta = {
     title: "Welcome",
@@ -68,7 +68,7 @@ ${(
                 </Input>
                 <Label>
                     Remember
-                    <Switch size="small" slot="action"></Switch>
+                    <InputSwitch size="small" slot="action" />
                 </Label>
                 <Grid model="gap cols(auto auto)">
                     <Button color="primary">Login</Button>

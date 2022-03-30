@@ -40,7 +40,7 @@ function counter({
 
     let calc = (mode: 1 | -1) => {
         setValue((value) => {
-            let next = value + currentStep * mode;
+            let next = (value || 0) + currentStep * mode;
             next = min != null ? (next > min ? next : min) : next;
             next = max != null ? (next > max ? max : next) : next;
             return next;

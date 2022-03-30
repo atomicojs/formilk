@@ -96,6 +96,6 @@ checkbox.styles = [
     `,
 ];
 
-export const Checkbox = c(checkbox);
+export const InputCheckbox = c(checkbox);
 
-customElements.define("checkbox", Checkbox);
+customElements.define("input-checkbox", InputCheckbox);
