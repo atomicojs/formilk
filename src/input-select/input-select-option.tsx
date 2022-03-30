@@ -1,8 +1,8 @@
 import { useSlot } from "@atomico/hooks/use-slot";
-import { c, useRef, Meta, DOMEvent } from "atomico";
+import { Host, c, useRef, DOMEvent } from "atomico";
 import customElements from "../system";
 
-function selectOption(): Meta<DOMEvent<"OptionChange">> {
+function selectOption(): Host<{ onOptionChange: Event }> {
     const refSlotOption = useRef();
     const slotOption = useSlot(refSlotOption);
     return (
@@ -35,6 +35,6 @@ selectOption.props = {
     selected: Boolean,
 };
 
-export const SelectOption = c(selectOption);
+export const InputSelectOption = c(selectOption);
 
-customElements.define("select-option", SelectOption);
+customElements.define("input-select-option", InputSelectOption);

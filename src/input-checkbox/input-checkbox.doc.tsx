@@ -1,12 +1,12 @@
-import { InputRadio } from "./radio";
+import { InputCheckbox } from "./input-checkbox";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Radio",
+    path: "/Components/Input/Checkbox",
 };
 
 export default md`
-# InputRadio
+# InputCheckbox
 
 ${(
     <Stories
@@ -27,7 +27,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <InputRadio></InputRadio>
+            <InputCheckbox />
         </Story>
     </Stories>
 )}
@@ -35,7 +35,7 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-input-radio></fm-input-radio>
+<fm-input-checkbox></fm-input-checkbox>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -44,42 +44,42 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-input-radio></fm-input-radio>
+        <fm-input-checkbox></fm-input-checkbox>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { InputRadio } from "formilk";
+import { InputCheckbox } from "formilk";
 
 function component() {
     return (
         <host>
-            <InputRadio/>
+            <InputCheckbox/>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { InputCheckbox } from "formilk/react";
 
 function component() {
     return (
         <>
-        <InputRadio/>
+            <InputCheckbox/>
         </>
     );
 }
 ~~~
 
-~~~tsx tab(usage,preact)
-import { Button } from "formilk/preact";
+~~~tsx tab(usage,Preact)
+import { InputCheckbox } from "formilk/preact";
 
 function component() {
     return (
         <>
-        <InputRadio/>
+            <InputCheckbox/>
         </>
     );
 }

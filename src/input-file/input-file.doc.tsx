@@ -3,11 +3,11 @@ import { Grid } from "../grid/grid";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Input file",
+    path: "/Components/Input/File",
 };
 
 export default md`
-# Dropdown
+# InputFile
 
 ${(
     <Stories
@@ -56,7 +56,7 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-input-file></fm-input-file>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -65,30 +65,42 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-input-file></fm-input-file>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { InputFile } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <InputFile/>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { InputFile } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Button>Button</Button>
+            <InputFile/>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,Preact)
+import { InputFile } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+            <InputFile/>
         </>
     );
 }

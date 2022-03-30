@@ -1,5 +1,5 @@
 import { Label } from "./label";
-import { InputSwitch } from "../switch/switch";
+import { InputSwitch } from "../input-switch/input-switch";
 import { Input } from "../input/input";
 import { md, Stories, Story } from "@atomico/stories";
 

@@ -8,13 +8,19 @@ export const meta = {
 };
 
 export default md`
-# Radio
+# RadioButtons
 
 ${(
     <Stories
         props={{
             vertical: {
                 type: "toggle",
+            },
+            name: {
+                type: "text",
+            },
+            value: {
+                type: "text",
             },
         }}
     >

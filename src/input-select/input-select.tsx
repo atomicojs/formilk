@@ -5,14 +5,14 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
 import { Icon } from "../icon/icon";
 import customElements from "../system";
-import { SelectOption } from "./select-option";
-export { SelectOption } from "./select-option";
+import { InputSelectOption } from "./input-select-option";
+export { InputSelectOption } from "./input-select-option";
 import { inputBaseStyle } from "../input/input-base-style";
 
 function select({ name, placeholder }: Props<typeof select>) {
     const refSlotOption = useRef();
     const slotOption = useSlot(refSlotOption) as InstanceType<
-        typeof SelectOption
+        typeof InputSelectOption
     >[];
     const disabled = useDisabled();
     const update = useUpdate();
@@ -111,6 +111,6 @@ select.styles = [
     `,
 ];
 
-export const Select = c(select);
+export const InputSelect = c(select);
 
-customElements.define("select", Select);
+customElements.define("input-select", InputSelect);

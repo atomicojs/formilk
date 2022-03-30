@@ -1,12 +1,12 @@
-import { Select, SelectOption } from "./select";
+import { InputSelect, InputSelectOption } from "./input-select";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Select",
+    path: "/Components/Input/Select",
 };
 
 export default md`
-# Select
+# InputSelect
 
 ${(
     <Stories
@@ -34,11 +34,11 @@ ${(
             content="center"
             render={(props) => (
                 <div>
-                    <Select placeholder="Select item" {...props}>
-                        <SelectOption value="1" label="Item 1"></SelectOption>
-                        <SelectOption value="2" label="Item 2"></SelectOption>
-                        <SelectOption value="3" label="Item 3"></SelectOption>
-                    </Select>
+                    <InputSelect placeholder="Select item" {...props}>
+                        <InputSelectOption value="1" label="Item 1" />
+                        <InputSelectOption value="2" label="Item 2" />
+                        <InputSelectOption value="3" label="Item 3" />
+                    </InputSelect>
                 </div>
             )}
         ></Story>

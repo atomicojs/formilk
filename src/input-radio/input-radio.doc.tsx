@@ -1,12 +1,12 @@
-import { InputSwitch } from "./switch";
+import { InputRadio } from "./input-radio";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Switch",
+    path: "/Components/Input/Radio",
 };
 
 export default md`
-# InputSwitch
+# InputRadio
 
 ${(
     <Stories
@@ -27,7 +27,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <InputSwitch></InputSwitch>
+            <InputRadio></InputRadio>
         </Story>
     </Stories>
 )}
@@ -35,7 +35,7 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-input-switch></fm-input-switch>
+<fm-input-radio></fm-input-radio>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -44,42 +44,42 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-input-switch></fm-input-switch>
+        <fm-input-radio></fm-input-radio>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { InputSwitch } from "formilk";
+import { InputRadio } from "formilk";
 
 function component() {
     return (
         <host>
-            <InputSwitch></InputSwitch>
+            <InputRadio/>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { InputSwitch } from "formilk/react";
+import { Button } from "formilk/react";
 
 function component() {
     return (
         <>
-            <InputSwitch></InputSwitch>
+        <InputRadio/>
         </>
     );
 }
 ~~~
 
-~~~tsx tab(usage,Preact)
-import { InputSwitch } from "formilk/preact";
+~~~tsx tab(usage,preact)
+import { Button } from "formilk/preact";
 
 function component() {
     return (
         <>
-            <InputSwitch></InputSwitch>
+        <InputRadio/>
         </>
     );
 }

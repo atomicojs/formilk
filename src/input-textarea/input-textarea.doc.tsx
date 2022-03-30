@@ -1,12 +1,12 @@
-import { Textarea } from "./textarea";
+import { Textarea } from "./input-textarea";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Textarea",
+    path: "/Components/Input/Textarea",
 };
 
 export default md`
-# Textarea
+# InputTextarea
 
 Create an input textarea whose size and height changes as the text scales.
 
@@ -84,7 +84,7 @@ function component() {
             <InputTextarea
                 name="field"
                 value="content..."
-            ></InputTextarea>
+            />
         </host>
     );
 }
@@ -99,7 +99,7 @@ function component() {
             <InputTextarea
                 name="field"
                 value="content..."
-            ></InputTextarea>
+            />
         </>
     );
 }
@@ -114,7 +114,7 @@ function component() {
             <InputTextarea
                 name="field"
                 value="content..."
-            ></InputTextarea>
+            />
         </>
     );
 }

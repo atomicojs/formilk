@@ -2,13 +2,13 @@ export * from "./grid/grid";
 
 export * from "./input/input";
 
-export * from "./checkbox/checkbox";
+export * from "./input-checkbox/input-checkbox";
 
-export * from "./switch/switch";
+export * from "./input-switch/input-switch";
 
-export * from "./radio/radio";
+export * from "./input-radio/input-radio";
 
-export * from "./select/select";
+export * from "./input-select/input-select";
 
 export * from "./button/button";
 
@@ -22,7 +22,7 @@ export * from "./tabs/tabs";
 
 export * from "./label/label";
 
-export * from "./textarea/textarea";
+export * from "./input-textarea/input-textarea";
 
 export * from "./input-file/input-file";
 

@@ -1,6 +1,6 @@
 import { c, css, Props, useHost } from "atomico";
 import { useDisabled } from "@atomico/hooks/use-disabled";
-import { InputCheckbox } from "../checkbox/checkbox";
+import { InputCheckbox } from "../input-checkbox/input-checkbox";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { useFormInputRadio } from "@atomico/hooks/use-form";
 import customElements from "../system";

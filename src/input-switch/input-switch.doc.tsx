@@ -1,12 +1,12 @@
-import { InputCheckbox } from "./checkbox";
+import { InputSwitch } from "./input-switch";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Input/Checkbox",
+    path: "/Components/Input/Switch",
 };
 
 export default md`
-# InputCheckbox
+# InputSwitch
 
 ${(
     <Stories
@@ -27,7 +27,7 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <InputCheckbox />
+            <InputSwitch></InputSwitch>
         </Story>
     </Stories>
 )}
@@ -35,7 +35,7 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-input-checkbox></fm-input-checkbox>
+<fm-input-switch></fm-input-switch>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -44,42 +44,42 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-input-checkbox></fm-input-checkbox>
+        <fm-input-switch></fm-input-switch>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { InputCheckbox } from "formilk";
+import { InputSwitch } from "formilk";
 
 function component() {
     return (
         <host>
-            <InputCheckbox/>
+            <InputSwitch></InputSwitch>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { InputCheckbox } from "formilk/react";
+import { InputSwitch } from "formilk/react";
 
 function component() {
     return (
         <>
-            <InputCheckbox/>
+            <InputSwitch></InputSwitch>
         </>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,Preact)
-import { InputCheckbox } from "formilk/preact";
+import { InputSwitch } from "formilk/preact";
 
 function component() {
     return (
         <>
-            <InputCheckbox/>
+            <InputSwitch></InputSwitch>
         </>
     );
 }

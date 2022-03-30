@@ -2,7 +2,7 @@ import { c, css, useHost } from "atomico";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { useCheckbox } from "../hooks/use-checkbox";
-import { InputCheckbox } from "../checkbox/checkbox";
+import { InputCheckbox } from "../input-checkbox/input-checkbox";
 import customElements from "../system";
 
 function inputSwitch() {

@@ -1,6 +1,6 @@
 import {
     Props,
-    Meta,
+    Host,
     DOMEvent,
     c,
     css,
@@ -18,7 +18,7 @@ import { useFormInputHidden } from "@atomico/hooks/use-form";
 function radioButtons({
     name,
     vertical,
-}: Props<typeof radioButtons>): Meta<DOMEvent<"change">> {
+}: Props<typeof radioButtons>): Host<{ change: Event }> {
     const [value, setValue] = useProp<"string">("value");
     const refSlot = useRef();
     const slots = useSlot<InstanceType<typeof Button>>(refSlot).filter(
@@ -42,10 +42,10 @@ function radioButtons({
         if (!el.hasAttribute("data-justify")) {
             el.setAttribute("data-justify", el.justify || "start");
         }
-        el.justify = vertical ? el.getAttribute("data-justify") : null;
+        el.justify = vertical ? (el.getAttribute("data-justify") as any) : null;
     });
 
-    useFormInputHidden(name || "", value);
+    useFormInputHidden(name || "", value || "");
 
     return (
         <host shadowDom>
