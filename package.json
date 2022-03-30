@@ -5,7 +5,7 @@
     "scripts": {
         "start": "vite",
         "build": "vite build --outDir docs",
-        "exports": "exports  src/components.ts src/options.ts src/tokens.ts \"src/*/*.tsx\" --types --exports --main components",
+        "exports": "exports  src/components.ts src/options.ts src/tokens.ts \"src/*/*.tsx\" --types --exports --analyzer --main components",
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
@@ -19,7 +19,7 @@
         "@atomico/scaffold": "^0.2.0",
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
-        "typescript": "^4.5.5",
+        "typescript": "^4.6.3",
         "vite": "latest"
     },
     "prettier": {
