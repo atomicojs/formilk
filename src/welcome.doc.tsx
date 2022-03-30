@@ -15,13 +15,8 @@ Formilk does not leverage typography (titles and texts), it is a stack of utilit
 
 ## Installation
 
-~~~text tab(setup, Npm)
-# NPM
+~~~text
 npm install formilk
-~~~
-
-~~~js tab(setup, Js)
-import "formilk";
 ~~~
 
 ## Usage
@@ -49,6 +44,30 @@ function component() {
         <host>
             <Button>Button</Button>
         </host>
+    );
+}
+~~~
+
+~~~tsx tab(usage, React)
+import { Button } from "formilk/react";
+
+function component() {
+    return (
+        <>
+            <Button>Button</Button>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage, Preact)
+import { Button } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+            <Button>Button</Button>
+        </>
     );
 }
 ~~~

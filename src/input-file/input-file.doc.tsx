@@ -22,7 +22,7 @@ ${(
             label="Default"
             content="center"
             render={(props) => (
-                <Grid model="width(280px)">
+                <Grid model="width(220px)">
                     <InputFile {...props}>Add file</InputFile>
                 </Grid>
             )}
@@ -31,7 +31,7 @@ ${(
             label="Multiple"
             content="center"
             render={(props) => (
-                <Grid model="width(280px)">
+                <Grid model="width(220px)">
                     <InputFile {...props} multiple>
                         Add file
                     </InputFile>
@@ -42,7 +42,7 @@ ${(
             label="Preview"
             content="center"
             render={(props) => (
-                <Grid model="width(280px)">
+                <Grid model="width(220px)">
                     <InputFile {...props}>
                         Add file
                         <InputFilePreview></InputFilePreview>

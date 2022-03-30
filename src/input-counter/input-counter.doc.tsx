@@ -7,7 +7,7 @@ export const meta = {
 };
 
 export default md`
-# Icon counter
+# IconCounter
 
 ${(
     <Stories
