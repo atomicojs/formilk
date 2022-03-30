@@ -18,13 +18,13 @@ ${(
             checked: {
                 type: "toggle",
             },
-            shadow: {
-                type: "toggle",
-            },
             name: {
                 type: "text",
             },
             value: {
+                type: "text",
+            },
+            placeholder: {
                 type: "text",
             },
         }}
@@ -48,7 +48,11 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-input-select>
+    <fm-input-select-option value="1" label="Item 1"></fm-input-select-option>
+    <fm-input-select-option value="2" label="Item 2"></fm-input-select-option>
+    <fm-input-select-option value="3" label="Item 3"></fm-input-select-option>
+</fm-input-select>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -57,30 +61,58 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-input-select>
+            <fm-input-select-option value="1" label="Item 1"></fm-input-select-option>
+            <fm-input-select-option value="2" label="Item 2"></fm-input-select-option>
+            <fm-input-select-option value="3" label="Item 3"></fm-input-select-option>
+        </fm-input-select>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { InputSelect, InputSelectOption } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <InputSelect>
+                <InputSelectOption value="1" label="Item 1"/>
+                <InputSelectOption value="2" label="Item 2"/>
+                <InputSelectOption value="3" label="Item 3"/>
+            </InputSelect>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { InputSelect, InputSelectOption } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Button>Button</Button>
+            <InputSelect>
+                <InputSelectOption value="1" label="Item 1"/>
+                <InputSelectOption value="2" label="Item 2"/>
+                <InputSelectOption value="3" label="Item 3"/>
+            </InputSelect>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,Preact)
+import { InputSelect, InputSelectOption } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+            <InputSelect>
+                <InputSelectOption value="1" label="Item 1"/>
+                <InputSelectOption value="2" label="Item 2"/>
+                <InputSelectOption value="3" label="Item 3"/>
+            </InputSelect>
         </>
     );
 }

@@ -18,9 +18,6 @@ ${(
             checked: {
                 type: "toggle",
             },
-            shadow: {
-                type: "toggle",
-            },
             name: {
                 type: "text",
             },
@@ -38,7 +35,7 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-input-switch></fm-input-switch>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -47,30 +44,42 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-input-switch></fm-input-switch>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { InputSwitch } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <InputSwitch></InputSwitch>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { InputSwitch } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Button>Button</Button>
+            <InputSwitch></InputSwitch>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,Preact)
+import { InputSwitch } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+            <InputSwitch></InputSwitch>
         </>
     );
 }

@@ -55,10 +55,10 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-textarea
+<fm-input-textarea
     name="field"
     value="content..."
-></fm-textarea>
+></fm-input-textarea>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -67,54 +67,54 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-textarea
+        <fm-input-textarea
             name="field"
             value="content..."
-        ></fm-textarea>
+        ></fm-input-textarea>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Textarea } from "formilk";
+import { InputTextarea } from "formilk";
 
 function component() {
     return (
         <host>
-            <Textarea
+            <InputTextarea
                 name="field"
                 value="content..."
-            ></Textarea>
+            ></InputTextarea>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Textarea } from "formilk/react";
+import { InputTextarea } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Textarea
+            <InputTextarea
                 name="field"
                 value="content..."
-            ></Textarea>
+            ></InputTextarea>
         </>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,Preact)
-import { Textarea } from "formilk/preact";
+import { InputTextarea } from "formilk/preact";
 
 function component() {
     return (
         <>
-            <Textarea
+            <InputTextarea
                 name="field"
                 value="content..."
-            ></Textarea>
+            ></InputTextarea>
         </>
     );
 }

@@ -19,8 +19,15 @@ ${(
             ghost: {
                 type: "toggle",
             },
-            shadow: {
-                type: "toggle",
+            justify: {
+                type: "radio-groups",
+                options: ["left", "right", "center", "space-between"],
+                description:
+                    "define a width of 100% and a justify-content according to the justify prop",
+            },
+            href: {
+                type: "text",
+                description: "associate the link functionality to the button",
             },
             color: {
                 type: "radio-groups",
@@ -87,6 +94,18 @@ function component() {
 
 ~~~tsx tab(usage,React)
 import { Button } from "formilk/react";
+
+function component() {
+    return (
+        <>
+            <Button>Button</Button>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,Preact)
+import { Button } from "formilk/preact";
 
 function component() {
     return (

@@ -1,4 +1,4 @@
-import { Props, c, css, useRef, useProp } from "atomico";
+import { Type, Props, c, css, useRef, useProp } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
@@ -54,7 +54,7 @@ function button({
                     disabled={disabled}
                 ></button>
             ),
-        [type, name, value]
+        [type, name, value, href]
     );
 
     useReflectEvent(refButtonShadowDom, refButtonLightDom, "click");
@@ -127,11 +127,14 @@ button.props = {
     ghost: { type: Boolean, reflect: true },
     active: { type: Boolean, reflect: true },
     type: {
-        type: String,
+        type: String as Type<"submit" | "button" | "reset">,
         reflect: true,
         value: "submit",
     },
-    justify: { type: String, reflect: true },
+    justify: {
+        type: String as Type<"left" | "right" | "center" | "space-between">,
+        reflect: true,
+    },
     status: { type: String, reflect: true },
     shape: { type: String, reflect: true },
     href: { type: String, reflect: true },

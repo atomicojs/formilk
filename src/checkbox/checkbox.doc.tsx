@@ -18,9 +18,6 @@ ${(
             checked: {
                 type: "toggle",
             },
-            shadow: {
-                type: "toggle",
-            },
             name: {
                 type: "text",
             },
@@ -38,7 +35,7 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-input-checkbox></fm-input-checkbox>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -47,30 +44,42 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-input-checkbox></fm-input-checkbox>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { InputCheckbox } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <InputCheckbox></InputCheckbox>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { InputCheckbox } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Button>Button</Button>
+            <InputCheckbox></InputCheckbox>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,Preact)
+import { InputCheckbox } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+            <InputCheckbox></InputCheckbox>
         </>
     );
 }

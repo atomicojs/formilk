@@ -1,4 +1,4 @@
-import { c, css, Meta, Props, useHost, DOMEvent } from "atomico";
+import { c, css, Props, useHost } from "atomico";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { Checkbox } from "../checkbox/checkbox";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";

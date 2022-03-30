@@ -127,4 +127,25 @@ function component() {
     );
 }
 ~~~
+
+~~~tsx tab(usage,Preact)
+import { Tabs, Button } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+            <Tabs value="1">
+                <Button value="1" active>
+                    Home
+                </Button>
+                <Button value="2" active>
+                    Profile
+                </Button>
+                <Button value="3">Config</Button>
+                <Button value="4">Logout</Button>
+            </Tabs>
+        </>
+    );
+}
+~~~
 `;

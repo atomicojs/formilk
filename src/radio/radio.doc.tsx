@@ -18,9 +18,6 @@ ${(
             checked: {
                 type: "toggle",
             },
-            shadow: {
-                type: "toggle",
-            },
             name: {
                 type: "text",
             },
