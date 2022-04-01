@@ -1,17 +1,16 @@
-# Formilk (...Project in progress)
+![logo](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/logo.svg)
 
-![logo](./src/logo.svg)
-
-Design system created by UpperCod with the aim of achieving a unique aesthetic. Formilk was created to be used without complexity and interaction limitations.
-
-## Kits
-
-1. [Adobe XD](./formilk-ui.xd)
+Design system created by [UpperCod](https://twitter.com/uppercod)
+ready to be used in any library or Framework
+thanks to the power of [AtomicoJs](http://github.com/atomicojs/atomico)
 
 ## Preview
 
-![preview](./preview.png)
+![preview](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/example.svg)
 
 ## Contribute
 
-Formilk seeks to be an extensible and utilitarian design system, I invite you to contribute with your vision of component design or development, you can leave an issue or comment via [Discord](https://discord.gg/7z3rNhmkNE)
+We invite you to be part of this project, proposing new components and examples, for this we invite you to work with figma and then share your constructions with us.
+
+-   [**Figma**](https://www.figma.com/community/file/1091744563513186455)
+-   [**Discord**](https://discord.gg/7z3rNhmkNE)
