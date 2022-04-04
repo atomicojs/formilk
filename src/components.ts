@@ -27,3 +27,5 @@ export * from "./input-textarea/input-textarea";
 export * from "./input-file/input-file";
 
 export * from "./input-counter/input-counter";
+
+export * from "./scroll/scroll";

@@ -19,8 +19,8 @@ ${(
         }}
     >
         <Story label="Default" content="center">
-            <Dropdown width="100px">
-                <Button justify="start" slot="action">
+            <Dropdown width="100px" style="margin: auto">
+                <Button justify="left" slot="action">
                     Click
                 </Button>
                 <Button size="small" justify="space-between" ghost>

@@ -1,5 +1,4 @@
 import { css } from "atomico";
-import { createParseCssTokens } from "@uppercod/parse/parse-css-tokens";
 import system from "./system";
 
 export const cssBase = css`
@@ -45,6 +44,10 @@ export const cssBaseColors = css`
         color-layer-60: #fff;
         color-layer-30: transparent;
         color-layer-10: #2C3A41;
+
+        color-scroll-60: transparent;
+        color-scroll-30: transparent;
+        color-scroll-10: red;
         `)}
     }
 `;

@@ -1,7 +1,7 @@
 {
     "name": "formilk",
     "description": "Design system created with Atomico",
-    "version": "0.16.0",
+    "version": "0.17.0",
     "scripts": {
         "start": "vite",
         "build": "vite build --outDir docs",
@@ -10,13 +10,15 @@
     },
     "dependencies": {
         "@atomico/hooks": "^3.33.4",
-        "@atomico/stories": "^0.2.0",
+        "@floating-ui/dom": "^0.4.4",
         "@uppercod/parse": "^0.4.2",
-        "atomico": "^1.51.0"
+        "atomico": "^1.51.0",
+        "scrollable-component": "^1.2.1"
     },
     "devDependencies": {
         "@atomico/exports": "^0.27.0",
         "@atomico/scaffold": "^0.2.0",
+        "@atomico/stories": "^0.2.0",
         "@uppercod/vite-meta-url": "latest",
         "@uppercod/vite-meta-url-load-css": "latest",
         "typescript": "^4.6.3",

@@ -12,15 +12,16 @@ import {
 } from "atomico";
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
+import { computePosition, flip, shift } from "@floating-ui/dom";
 import { cssBase, cssShadow, cssBaseColors } from "../tokens";
 import customElements from "../system";
 
-function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
+function dropdown({ width, showWithOver }: Props<typeof dropdown>) {
     const host = useHost();
     const refSlot = useRef();
+    const refMask = useRef();
     const refSlotTooptip = useRef();
     const [show, setShow] = useProp("show");
-    const [, setPosition] = useProp("position");
     const [inside, setInside] = useState(false);
 
     useListener(
@@ -50,27 +51,18 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
             target = target.parentElement;
         }
 
-        const { x, y } = host.current.getBoundingClientRect();
-
-        const {
-            current: { clientWidth, clientHeight },
-        } = refSlotTooptip;
-
-        const { innerWidth, innerHeight } = window;
-
-        const w2 = clientWidth / 2;
+        computePosition(host.current, refMask.current, {
+            middleware: [
+                flip({
+                    fallbackPlacements: ["top", "bottom"],
+                }),
+                shift(),
+            ],
+        }).then(({ x, y }) => {
+            refMask.current.style = `--left: ${x}px; --top:${y}px`;
+        });
 
         setShow(true);
-
-        setPosition(
-            (clientWidth + x > innerWidth
-                ? "right"
-                : x - w2 > w2
-                ? "center"
-                : "left") +
-                " " +
-                (innerHeight > clientHeight + y ? "bottom" : "top")
-        );
     };
 
     listenerShow.capture = true;
@@ -90,16 +82,14 @@ function dropdown({ width, showWithOver, offset }: Props<typeof dropdown>) {
                 ref={refSlot}
                 name="action"
             ></slot>
-            <div class="dropdown-mask">
+            <div class="dropdown-mask" ref={refMask}>
                 <div class="dropdown" ref={refSlotTooptip}>
-                    <div class="dropdown-dir"></div>
                     <slot></slot>
                 </div>
             </div>
             <style>
                 {width &&
                     `:host{--tooptip-width:var(--tooptip-parent-width,${width})};`}
-                {offset && `:host{--tooptip-offset:${offset}};`}
             </style>
         </host>
     );
@@ -114,18 +104,10 @@ dropdown.props = {
         type: Boolean,
         reflect: true,
     },
-    position: {
-        type: String,
-        reflect: true,
-    },
     width: String,
     widthFull: {
         type: Boolean,
         reflect: true,
-    },
-    offset: {
-        type: String,
-        value: "0px",
     },
 };
 
@@ -140,20 +122,9 @@ dropdown.styles = [
             --top: auto;
             --bottom: auto;
             --visibility: hidden;
-            --dir: 1;
             --transition: 0.25s ease all;
             position: relative;
-        }
-        :host([position*="center"]) {
-            --left: 50%;
-            --transform: translateX(-50%);
-        }
-        :host([position*="top"]) {
-            --bottom: 100%;
-            --dir: -1;
-        }
-        :host([position*="bottom"]) {
-            --top: 100%;
+            z-index: 2;
         }
         :host([show]) {
             --visibility: visible;
@@ -185,19 +156,6 @@ dropdown.styles = [
         :host([show]) .dropdown {
             transform: translateY(0px);
             opacity: 1;
-        }
-        .dropdown-dir {
-            width: var(--size-xxs);
-            height: var(--size-xxs);
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, -50%) rotate(45deg);
-            background: var(--color-layer-60);
-            border: var(--border-width) solid var(--color-layer-30);
-            border-bottom: none;
-            border-right: none;
-            margin-top: calc(var(--border-width) * -1);
         }
     `,
 ];
