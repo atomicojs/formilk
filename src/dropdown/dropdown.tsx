@@ -13,7 +13,7 @@ import {
 import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
 import { computePosition, flip, shift } from "@floating-ui/dom";
-import { cssBase, cssShadow, cssBaseColors } from "../tokens";
+import tokens from "../tokens";
 import customElements from "../system";
 
 function dropdown({ width, showWithOver }: Props<typeof dropdown>) {
@@ -112,9 +112,7 @@ dropdown.props = {
 };
 
 dropdown.styles = [
-    cssBase,
-    cssBaseColors,
-    cssShadow,
+    tokens,
     css`
         :host {
             --transform: none;
