@@ -39,6 +39,11 @@ export const tokens = {
             30: "transparent",
             10: "transparent",
         },
+        button: {
+            60: "var(--color-action-60)",
+            30: "var(--color-action-30)",
+            10: "var(--color-action-10)",
+        },
     },
     input: {
         border: {
@@ -47,10 +52,12 @@ export const tokens = {
     },
     variation: {
         [`size=small`]: {
-            xl: "32px",
-            l: "28px",
-            m: "20px",
-            s: "14px",
+            size: {
+                xl: "32px",
+                l: "28px",
+                m: "20px",
+                s: "14px",
+            },
         },
     },
 };

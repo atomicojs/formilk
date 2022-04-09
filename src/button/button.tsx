@@ -6,6 +6,7 @@ import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
 import customElements from "../system";
 import { cssBaseColors, cssButton } from "../tokens";
+import tokens from "../tokens";
 import { ButtonActive } from "./button-active";
 
 const add = (value: any) => (value ? 1 : 0);
@@ -150,8 +151,7 @@ button.props = {
 };
 
 button.styles = [
-    cssBaseColors,
-    cssButton,
+    tokens,
     css`
         :host {
             --width: auto;
