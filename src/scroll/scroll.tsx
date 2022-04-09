@@ -1,6 +1,6 @@
 import { Props, c, css } from "atomico";
 import { ScrollableComponentElement } from "scrollable-component";
-import { cssBase, cssBaseColors } from "../tokens";
+import tokens from "../tokens";
 import customElements from "../system";
 
 function scroll({ width, height }: Props<typeof scroll>) {
@@ -24,8 +24,7 @@ scroll.props = {
 };
 
 scroll.styles = [
-    cssBase,
-    cssBaseColors,
+    tokens,
     css`
         :host {
             width: var(--width, 100%);

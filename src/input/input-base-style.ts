@@ -31,7 +31,7 @@ export const inputBaseStyle = [
             left: 0px;
             background: var(--color-input-10);
             opacity: var(---line-opacity);
-            transition: var(--input-transition);
+            transition: var(--transition-action);
         }
 
         .input {

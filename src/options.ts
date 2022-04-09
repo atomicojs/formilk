@@ -21,14 +21,14 @@ export const tokens = {
     },
     color: {
         primary: {
-            60: "#404040",
+            60: "#2C3A41",
             30: "transparent",
-            10: "white",
+            10: "#fff",
         },
         action: {
             60: "#fff",
             30: "transparent",
-            10: "#2C3A41",
+            10: "var(--color-primary-60)",
         },
         toggle: {
             60: "var(--color-primary-60)",
@@ -38,12 +38,12 @@ export const tokens = {
         layer: {
             60: "#fff",
             30: "transparent",
-            10: "#2C3A41",
+            10: "var(--color-primary-60)",
         },
         scroll: {
             60: "transparent",
             30: "transparent",
-            10: "transparent",
+            10: "var(--color-neutral-10)",
         },
         input: {
             60: "var(--color-action-60)",
@@ -55,6 +55,31 @@ export const tokens = {
             30: "var(--color-action-30)",
             10: "var(--color-action-10)",
         },
+        success: {
+            60: "#18D47C",
+            30: "transparent",
+            10: "#fff",
+        },
+        info: {
+            60: "#0080FF",
+            30: "transparent",
+            10: "#fff",
+        },
+        warning: {
+            60: "#F9AA33",
+            30: "transparent",
+            10: "#fff",
+        },
+        danger: {
+            60: "#FF5B5B",
+            30: "transparent",
+            10: "#fff",
+        },
+        neutral: {
+            60: "#D8E2EA",
+            30: "transparent",
+            10: "var(--color-primary-60)",
+        },
     },
     input: {
         border: {
@@ -62,6 +87,12 @@ export const tokens = {
             style: "solid",
             "": "var(--input-border-width) var(--input-border-style) var(--color-input-30)",
         },
+    },
+    transition: {
+        action: ".2s ease all",
+    },
+    shadow: {
+        layer: "0px 12px 22px rgba(0,0,0 ,.05)",
     },
     variation: {
         [`size=small`]: {

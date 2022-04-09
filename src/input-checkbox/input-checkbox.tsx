@@ -90,7 +90,7 @@ checkbox.styles = [
 
         .checkbox,
         .checkbox-state {
-            transition: var(--input-transition);
+            transition: var(--transition-action);
         }
     `,
 ];

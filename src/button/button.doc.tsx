@@ -31,7 +31,14 @@ ${(
             },
             color: {
                 type: "radio-groups",
-                options: ["primary", "success", "warning", "danger", "info"],
+                options: [
+                    "primary",
+                    "success",
+                    "warning",
+                    "danger",
+                    "info",
+                    "neutral",
+                ],
             },
             rounded: {
                 type: "toggle",

@@ -5,7 +5,6 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
 import customElements from "../system";
-import { cssBaseColors, cssButton } from "../tokens";
 import tokens from "../tokens";
 import { ButtonActive } from "./button-active";
 
@@ -218,7 +217,7 @@ button.styles = [
             border: var(--button-border);
             border-radius: var(--border-radius);
             box-sizing: border-box;
-            transition: var(--input-transition);
+            transition: var(--transition-action);
             background: var(--color-button-60);
         }
         .button-fx {

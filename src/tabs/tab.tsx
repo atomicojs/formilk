@@ -1,6 +1,6 @@
 import { c, css } from "atomico";
 import customElements from "../system";
-import { cssBase, cssBaseColors } from "../tokens";
+import tokens from "../tokens";
 
 function tab() {
     return (
@@ -28,8 +28,7 @@ tab.props = {
 };
 
 tab.styles = [
-    cssBase,
-    cssBaseColors,
+    tokens,
     css`
         :host {
             ${customElements.cssProps(`
