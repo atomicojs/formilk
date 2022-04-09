@@ -1,7 +1,8 @@
 import { Type, Props, c, css } from "atomico";
 import customElements from "../system";
 import { Icon } from "../icon/icon";
-import { cssBase, cssBaseColors } from "../tokens";
+// import { cssBase, cssBaseColors } from "../tokens";
+import tokens from "../tokens";
 
 function avatar({ src, size, transform }: Props<typeof avatar>) {
     return (
@@ -38,11 +39,8 @@ avatar.props = {
 };
 
 avatar.styles = [
-    cssBase,
-    cssBaseColors,
+    tokens,
     css`
-        :host {
-        }
         .avatar-mask {
             width: var(--size-xl);
             height: var(--size-xl);

@@ -1,5 +1,9 @@
 import { css } from "atomico";
+import { composed, tokens } from "@atomico/design-tokens";
+import * as options from "./options";
 import system from "./system";
+
+export default composed(tokens(options.tokens, options.prefix))(css``);
 
 export const cssBase = css`
     :host {
