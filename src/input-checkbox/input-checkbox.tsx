@@ -3,7 +3,7 @@ import { useCheckbox } from "../hooks/use-checkbox";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
-import { cssBase, cssInput } from "../tokens";
+import tokens from "../tokens";
 import customElements from "../system";
 import { Icon } from "../icon/icon";
 
@@ -41,8 +41,7 @@ checkbox.props = {
 };
 
 checkbox.styles = [
-    cssBase,
-    cssInput,
+    tokens,
     css`
         :host {
             --color-input-30: var(--color-input-10);
