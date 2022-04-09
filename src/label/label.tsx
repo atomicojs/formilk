@@ -4,7 +4,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useCurrentValue } from "@atomico/hooks/use-current-value";
 import tokens from "../tokens";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
-import customElements from "../system";
+import customElements from "../custom-elements";
 
 const RefEmpty: Ref = { current: null };
 

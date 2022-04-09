@@ -9,7 +9,7 @@ import { inputBaseStyle } from "../input/input-base-style";
 import { InputFilePreview } from "./input-file-preview";
 export { InputFilePreview } from "./input-file-preview";
 import { InputGenericProps } from "../props";
-import customElements from "../system";
+import customElements from "../custom-elements";
 
 function inputFile({ multiple, accept }: Props<typeof inputFile>) {
     const refInput = useRef();

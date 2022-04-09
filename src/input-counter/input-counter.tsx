@@ -2,7 +2,7 @@ import { Props, c, css, useProp, useRef, useEvent } from "atomico";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { Icon } from "../icon/icon";
-import customElements from "../system";
+import customElements from "../custom-elements";
 import { useCssLightDom } from "@atomico/hooks/use-css-light-dom";
 import { useClickPress } from "@atomico/hooks/use-click-press";
 import { InputGenericProps } from "../props";

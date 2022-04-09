@@ -1,5 +1,3 @@
-import { cssProp } from "../system";
-
 export const width = (width, minWidth, maxWidth) => ({
     width,
     minWidth,
@@ -47,8 +45,4 @@ export const show = (display = "grid") => ({ "----display": display });
 export const slot = (selector, cssText) => ({
     selector: `::slotted(${selector})`,
     cssText,
-});
-
-export const bgcolor = (color) => ({
-    background: cssProp(`${color}-60`, `var(--color-${color}-60, ${color})`),
 });

@@ -10,7 +10,7 @@ import {
 } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { addListener } from "@atomico/hooks/use-listener";
-import customElements from "../system";
+import customElements from "../custom-elements";
 import { Button } from "../button/button";
 import tokens from "../tokens";
 import { useFormInputHidden } from "@atomico/hooks/use-form";

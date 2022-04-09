@@ -9,9 +9,7 @@ export const meta = {
 export default md`
 # Welcome
 
-> Design system designed and created by [UpperCod](https://twitter.com/uppercod) with the aim of having a unique aesthetic, formilk was created to be used without complexity and interaction limitations.
-
-Formilk does not leverage typography (titles and texts), it is a stack of utility components that are managed through custom-properties, so creating variations is really easy.
+Formilk is a system of configurable components created by [UpperCod](https://twitter.com/uppercod), with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
 
 ## Installation
 
@@ -75,7 +73,7 @@ function component() {
 ## Example
 
 ${(
-    <Grid model="width(100%) height(500px) content(center) radius  bgcolor(lavender)">
+    <Grid model="width(100%) height(500px) content(center) radius">
         <form>
             <Grid model="width(200px) gap">
                 <h3>Login</h3>

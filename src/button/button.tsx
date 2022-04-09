@@ -4,7 +4,7 @@ import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { InputGenericProps } from "../props";
-import customElements from "../system";
+import customElements from "../custom-elements";
 import tokens from "../tokens";
 import { ButtonActive } from "./button-active";
 
@@ -103,18 +103,9 @@ function button({
                 {color &&
                     `
                     :host{
-                        --color-button-60: ${customElements.cssProp(
-                            `color-${color}-60`,
-                            `var(--color-${color}-60)`
-                        )}!important;
-                        --color-button-30: ${customElements.cssProp(
-                            `color-${color}-30`,
-                            `var(--color-${color}-30)`
-                        )}!important;
-                        --color-button-10: ${customElements.cssProp(
-                            `color-${color}-10`,
-                            `var(--color-${color}-10)`
-                        )}!important;
+                        --color-button-60: var(--color-${color}-60) !important;
+                        --color-button-30: var(--color-${color}-30) !important;
+                        --color-button-10: var(--color-${color}-10) !important;
                     }
                 `}
             </style>

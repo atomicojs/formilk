@@ -1,7 +1,7 @@
 import { Props, c, css } from "atomico";
 import { ScrollableComponentElement } from "scrollable-component";
 import tokens from "../tokens";
-import customElements from "../system";
+import customElements from "../custom-elements";
 
 function scroll({ width, height }: Props<typeof scroll>) {
     return (

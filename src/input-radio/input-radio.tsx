@@ -3,7 +3,7 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputCheckbox } from "../input-checkbox/input-checkbox";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { useFormInputRadio } from "@atomico/hooks/use-form";
-import customElements from "../system";
+import customElements from "../custom-elements";
 
 function radio({ value }: Props<typeof InputCheckbox>) {
     const host = useHost();

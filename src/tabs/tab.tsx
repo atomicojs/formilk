@@ -1,5 +1,5 @@
 import { c, css } from "atomico";
-import customElements from "../system";
+import customElements from "../custom-elements";
 import tokens from "../tokens";
 
 function tab() {
@@ -31,11 +31,6 @@ tab.styles = [
     tokens,
     css`
         :host {
-            ${customElements.cssProps(`
-                tab-width: 100%;
-                tab-height: 100%;
-                tab-radius: 100px;
-            `)}
             --mark-opacity: 0;
             --template: "tab" auto "mark" 2px / auto;
             display: grid;
@@ -45,9 +40,6 @@ tab.styles = [
         }
         :host([position="top"]),
         :host([position="bottom"]) {
-            ${customElements.cssProps(`
-                tab-width: calc(100% - var(--size-s));
-            `)}
         }
         :host([position="top"]) {
             --template: "mark" 2px "tab" auto / auto;

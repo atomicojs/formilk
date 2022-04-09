@@ -1,7 +1,7 @@
 import { Host, Type, Props, c, css, useRef, useProp } from "atomico";
 import { Button } from "../button/button";
 import { useProxySlot } from "@atomico/hooks/use-slot";
-import customElements from "../system";
+import customElements from "../custom-elements";
 import { Tab } from "./tab";
 
 function tabs({ position }: Props<typeof tabs>): Host<{ onchange: Event }> {

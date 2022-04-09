@@ -1,6 +1,6 @@
 import { useSlot } from "@atomico/hooks/use-slot";
 import { Host, c, useRef, DOMEvent } from "atomico";
-import customElements from "../system";
+import customElements from "../custom-elements";
 
 function selectOption(): Host<{ onOptionChange: Event }> {
     const refSlotOption = useRef();

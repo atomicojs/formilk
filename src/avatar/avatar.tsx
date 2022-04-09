@@ -1,5 +1,5 @@
 import { Type, Props, c, css } from "atomico";
-import customElements from "../system";
+import customElements from "../custom-elements";
 import { Icon } from "../icon/icon";
 // import { cssBase, cssBaseColors } from "../tokens";
 import tokens from "../tokens";

@@ -1,6 +1,10 @@
 export const prefix = "fm";
 
 export const tokens = {
+    font: {
+        size: "1rem",
+        family: "unset",
+    },
     border: {
         radius: ".5rem",
         width: "1px",
@@ -88,6 +92,11 @@ export const tokens = {
             "": "var(--input-border-width) var(--input-border-style) var(--color-input-30)",
         },
     },
+    tab: {
+        width: "100%",
+        height: "100%",
+        radius: "100px",
+    },
     transition: {
         action: ".2s ease all",
     },
@@ -96,6 +105,9 @@ export const tokens = {
     },
     variation: {
         [`size=small`]: {
+            font: {
+                size: "0.875rem",
+            },
             size: {
                 xl: "calc(var(--size) * 8)",
                 l: "calc(var(--size) * 7)",

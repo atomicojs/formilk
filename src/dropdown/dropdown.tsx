@@ -14,7 +14,7 @@ import { useListener } from "@atomico/hooks/use-listener";
 import { useChannel } from "@atomico/hooks/use-channel";
 import { computePosition, flip, shift } from "@floating-ui/dom";
 import tokens from "../tokens";
-import customElements from "../system";
+import customElements from "../custom-elements";
 
 function dropdown({ width, showWithOver }: Props<typeof dropdown>) {
     const host = useHost();

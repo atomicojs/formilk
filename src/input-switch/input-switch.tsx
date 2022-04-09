@@ -3,7 +3,7 @@ import { useDisabled } from "@atomico/hooks/use-disabled";
 import { useReflectEvent } from "@atomico/hooks/use-reflect-event";
 import { useCheckbox } from "../hooks/use-checkbox";
 import { InputCheckbox } from "../input-checkbox/input-checkbox";
-import customElements from "../system";
+import customElements from "../custom-elements";
 
 function inputSwitch() {
     const host = useHost();

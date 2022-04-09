@@ -1,8 +1,6 @@
 ![logo](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/logo.svg)
 
-Design system created by [UpperCod](https://twitter.com/uppercod)
-ready to be used in any library or Framework
-thanks to the power of [AtomicoJs](http://github.com/atomicojs/atomico)
+Formilk is a system of configurable components created by UpperCod, with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties,
 
 ## Preview
 

@@ -1,5 +1,5 @@
 import { Props, c, css, useHost } from "atomico";
-import customElements from "../system";
+import customElements from "../custom-elements";
 import tokens from "../tokens";
 import { Icons, IconsKeys } from "./icons";
 
