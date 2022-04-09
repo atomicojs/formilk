@@ -32,7 +32,7 @@ icon.props = {
     size: {
         type: String,
         reflect: true,
-        value: "xxs",
+        value: "xs",
     },
     define: {
         type: String,
