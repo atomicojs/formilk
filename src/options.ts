@@ -11,12 +11,13 @@ export const tokens = {
         disabled: ".5",
     },
     size: {
-        xl: "40px",
-        l: "32px",
-        m: "28px",
-        s: "20px",
-        xs: "16px",
-        xxs: "12px",
+        "": "4px",
+        xl: "calc(var(--size) * 10)",
+        l: "calc(var(--size) * 8)",
+        m: "calc(var(--size) * 7)",
+        s: "calc(var(--size) * 5)",
+        xs: "calc(var(--size) * 4)",
+        xxs: "calc(var(--size) * 3)",
     },
     color: {
         primary: {
@@ -65,10 +66,10 @@ export const tokens = {
     variation: {
         [`size=small`]: {
             size: {
-                xl: "32px",
-                l: "28px",
-                m: "20px",
-                s: "14px",
+                xl: "calc(var(--size) * 8)",
+                l: "calc(var(--size) * 7)",
+                m: "calc(var(--size) * 5)",
+                s: "calc(var(--size) * 3.5)",
             },
         },
     },
