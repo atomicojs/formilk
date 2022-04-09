@@ -12,7 +12,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { addListener } from "@atomico/hooks/use-listener";
 import customElements from "../system";
 import { Button } from "../button/button";
-import { cssInput } from "../tokens";
+import tokens from "../tokens";
 import { useFormInputHidden } from "@atomico/hooks/use-form";
 
 function radioButtons({
@@ -69,7 +69,7 @@ radioButtons.props = {
 };
 
 radioButtons.styles = [
-    cssInput,
+    tokens,
     css`
         :host {
             --flow: row nowrap;

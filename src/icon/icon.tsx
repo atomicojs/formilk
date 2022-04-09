@@ -1,6 +1,6 @@
 import { Props, c, css, useHost } from "atomico";
 import customElements from "../system";
-import { cssBase, cssBaseColors } from "../tokens";
+import tokens from "../tokens";
 import { Icons, IconsKeys } from "./icons";
 
 function icon({ type, size, status }: Props<typeof icon>) {
@@ -45,8 +45,7 @@ icon.props = {
 };
 
 icon.styles = [
-    cssBase,
-    cssBaseColors,
+    tokens,
     css`
         :host {
             width: var(--width);
