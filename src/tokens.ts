@@ -3,7 +3,12 @@ import { composed, tokens } from "@atomico/design-tokens";
 import * as options from "./options";
 import system from "./system";
 
-export default composed(tokens(options.tokens, options.prefix))(css``);
+export default composed(tokens(options.tokens, options.prefix))(css`
+    :host([disabled]) {
+        opacity: var(--opacity-disabled);
+        pointer-events: none;
+    }
+`);
 
 export const cssBase = css`
     :host {

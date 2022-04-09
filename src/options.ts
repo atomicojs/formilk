@@ -5,6 +5,11 @@ export const tokens = {
         radius: ".5rem",
         width: "1px",
     },
+    opacity: {
+        unselect: ".25",
+        unfocus: ".5",
+        disabled: ".5",
+    },
     size: {
         xl: "40px",
         l: "32px",
@@ -39,6 +44,11 @@ export const tokens = {
             30: "transparent",
             10: "transparent",
         },
+        input: {
+            60: "var(--color-action-60)",
+            30: "var(--color-action-30)",
+            10: "var(--color-action-10)",
+        },
         button: {
             60: "var(--color-action-60)",
             30: "var(--color-action-30)",
@@ -48,6 +58,8 @@ export const tokens = {
     input: {
         border: {
             width: "var(--border-width)",
+            style: "solid",
+            "": "var(--input-border-width) var(--input-border-style) var(--color-input-30)",
         },
     },
     variation: {

@@ -1,8 +1,7 @@
 import { css } from "atomico";
-import { cssInput } from "../tokens";
-
+import tokens from "../tokens";
 export const inputBaseStyle = [
-    cssInput,
+    tokens,
     css`
         :host {
             width: 100%;
@@ -49,11 +48,6 @@ export const inputBaseStyle = [
 
         :host([focused]) {
             ---line-opacity: 1;
-        }
-
-        :host([disabled]) {
-            opacity: var(--input-opacity-disabled);
-            pointer-events: none;
         }
 
         ::slotted([slot="input"]) {

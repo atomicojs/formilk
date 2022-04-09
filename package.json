@@ -3,13 +3,13 @@
     "description": "Design system created with Atomico",
     "version": "0.17.0",
     "scripts": {
-        "start": "vite",
+        "start": "vite --force",
         "build": "vite build --outDir docs",
         "exports": "exports  src/components.ts src/options.ts src/tokens.ts \"src/*/*.tsx\" --types --exports --analyzer --main components",
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
-        "@atomico/design-tokens": "^1.0.1",
+        "@atomico/design-tokens": "^1.1.1",
         "@atomico/hooks": "^3.33.4",
         "@floating-ui/dom": "^0.4.4",
         "@uppercod/parse": "^0.4.2",
