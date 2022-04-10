@@ -9,7 +9,7 @@
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
-        "@atomico/design-tokens": "^1.1.1",
+        "@atomico/design-tokens": "^1.1.2",
         "@atomico/hooks": "^3.33.4",
         "@floating-ui/dom": "^0.4.4",
         "atomico": "^1.51.0",
