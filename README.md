@@ -1,11 +1,15 @@
 ![logo](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/logo.svg)
 
-Formilk is a system of configurable webcomponents designed by UpperCod and created with Atomico, formilk fue diseñádo para:
+Formilk is a system of configurable webcomponents designed by [UpperCod](https://twitter.com/uppercod) and created with [Atomico](http://github.com/atomicojs/atomico), Formilk is created to:
 
 1. offer a series of useful webcomponents when creating design systems.
 2. Configurable through a token system represented by custom properties.
 3. Be agnostically friendly with third party libraries, eg Html, React, Preact and others.
 4. Communicate states to forms, Whether formilk webcomponents can be used inside a `<form>` tag.
+
+## Preview
+
+![preview](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/example.svg)
 
 ## Formilk is agnostically friendly
 
@@ -17,13 +21,8 @@ Thanks to Atomico formilk natively transcends React in the use of webcomponents,
 
 ![react](./assets/react.png)
 
-## Preview
-
-![preview](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/example.svg)
-
-## Contribute
+## Contribute and share
 
 We invite you to be part of this project, proposing new components and examples, for this we invite you to work with figma and then share your constructions with us.
 
--   [**Figma**](https://www.figma.com/community/file/1091744563513186455)
--   [**Discord**](https://discord.gg/7z3rNhmkNE)
+[![doc](https://raw.githubusercontent.com/atomicojs/atomico/brand/link-to-doc.svg)](https://formilk.netlify.app/) [![Discord](https://raw.githubusercontent.com/atomicojs/atomico/brand/link-to-discord.svg)](https://discord.gg/7z3rNhmkNE) [![Figma](https://raw.githubusercontent.com/atomicojs/atomico/brand/link-to-figma.svg)](https://www.figma.com/community/file/1091744563513186455)
