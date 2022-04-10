@@ -33,6 +33,7 @@ tab.styles = [
         :host {
             --mark-opacity: 0;
             --template: "tab" auto "mark" 2px / auto;
+            --padding: 0 var(--size-s);
             display: grid;
             align-items: center;
             position: relative;
@@ -50,6 +51,12 @@ tab.styles = [
         :host([position="left"]) {
             --template: "mark tab" auto/ 2px auto;
         }
+
+        :host([position="left"]),
+        :host([position="right"]) {
+            --padding: calc(var(--size) * 2) 0;
+        }
+
         :host([active]) {
             --mark-opacity: 1;
         }
@@ -62,6 +69,9 @@ tab.styles = [
             grid-area: mark;
             box-sizing: border-box;
             position: relative;
+            padding: var(--padding);
+            display: flex;
+            place-content: center;
         }
         .tab-mark-solid {
             width: var(--tab-width);
@@ -70,10 +80,6 @@ tab.styles = [
             transition: 0.3s ease all;
             border-radius: var(--tab-radius);
             opacity: var(--mark-opacity);
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
         }
     `,
 ];

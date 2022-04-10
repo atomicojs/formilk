@@ -1,7 +1,7 @@
 {
     "name": "formilk",
     "description": "Formilk is a system of configurable components created with Atomicojs",
-    "version": "0.19.0",
+    "version": "0.19.1",
     "scripts": {
         "start": "vite --force",
         "build": "vite build --outDir docs",
@@ -9,7 +9,7 @@
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
-        "@atomico/design-tokens": "^1.1.2",
+        "@atomico/design-tokens": "^1.2.0",
         "@atomico/hooks": "^3.33.4",
         "@floating-ui/dom": "^0.4.4",
         "atomico": "^1.51.0",

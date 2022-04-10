@@ -1,8 +1,8 @@
 import { css } from "atomico";
-import { composed, tokens } from "@atomico/design-tokens";
+import { compose, tokens } from "@atomico/design-tokens";
 import * as options from "./options";
 
-export default composed(tokens(options.tokens, options.prefix))(css`
+export default compose(tokens(options.tokens, options.prefix))(css`
     :host {
         font-size: var(--font-size);
         font-family: var(--font-family);
