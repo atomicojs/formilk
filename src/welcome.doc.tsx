@@ -1,5 +1,13 @@
 import { md } from "@atomico/stories";
-import { Button, Input, Icon, InputSwitch, Label, Theme } from "./components";
+import {
+    Formilk,
+    Button,
+    Input,
+    Icon,
+    InputSwitch,
+    Label,
+    Theme,
+} from "./components";
 
 export const meta = {
     title: "👋 Welcome",
