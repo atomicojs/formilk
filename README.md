@@ -1,6 +1,21 @@
 ![logo](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/logo.svg)
 
-Formilk is a system of configurable components created by UpperCod, with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
+Formilk is a system of configurable webcomponents designed by UpperCod and created with Atomico, formilk fue diseñádo para:
+
+1. offer a series of useful webcomponents when creating design systems.
+2. Configurable through a token system represented by custom properties.
+3. Be agnostically friendly with third party libraries, eg Html, React, Preact and others.
+4. Communicate states to forms, Whether formilk webcomponents can be used inside a `<form>` tag.
+
+## Formilk is agnostically friendly
+
+Thanks to Atomico formilk natively transcends React in the use of webcomponents, example:
+
+![html](./assets/html.png)
+
+![atomico](./assets/atomico.png)
+
+![react](./assets/react.png)
 
 ## Preview
 
