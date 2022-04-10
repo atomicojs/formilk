@@ -1,6 +1,6 @@
 ![logo](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/logo.svg)
 
-Formilk is a system of configurable components created by UpperCod, with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties,
+Formilk is a system of configurable components created by UpperCod, with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
 
 ## Preview
 

@@ -28,4 +28,6 @@ export * from "./input-file/input-file";
 
 export * from "./input-counter/input-counter";
 
+export * from "./calendar/calendar";
+
 export * from "./scroll/scroll";

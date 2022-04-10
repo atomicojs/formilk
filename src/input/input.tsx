@@ -3,7 +3,7 @@ import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
 import { InputGenericProps } from "../props";
-import { serialize } from "../utils";
+import { serialize } from "atomico/utils";
 import { inputBaseStyle } from "./input-base-style";
 import customElements from "../custom-elements";
 
