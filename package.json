@@ -12,7 +12,6 @@
         "@atomico/design-tokens": "^1.1.1",
         "@atomico/hooks": "^3.33.4",
         "@floating-ui/dom": "^0.4.4",
-        "@uppercod/parse": "^0.4.2",
         "atomico": "^1.51.0",
         "scrollable-component": "^1.2.1"
     },

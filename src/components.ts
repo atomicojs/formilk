@@ -1,4 +1,4 @@
-export * from "./grid/grid";
+export * from "./theme/theme";
 
 export * from "./input/input";
 

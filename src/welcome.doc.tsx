@@ -1,5 +1,5 @@
 import { md } from "@atomico/stories";
-import { Button, Input, Icon, Grid, InputSwitch, Label } from "./components";
+import { Button, Input, Icon, InputSwitch, Label, Theme } from "./components";
 
 export const meta = {
     title: "Welcome",
@@ -10,6 +10,7 @@ export default md`
 # Welcome
 
 Formilk is a system of configurable components created by [UpperCod](https://twitter.com/uppercod), with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
+
 
 ## Installation
 
@@ -73,9 +74,23 @@ function component() {
 ## Example
 
 ${(
-    <Grid model="width(100%) height(500px) content(center) radius">
+    <Theme>
+        <style>
+            {`
+            .form{
+                width: 100%;
+                height: 500px;
+                display: grid;
+                gap: var(--size-s);
+                padding: var(--size-s);
+                place-content: center;
+                background: lavender;
+                border-radius:var(--border-radius);
+            }
+            `}
+        </style>
         <form>
-            <Grid model="width(200px) gap">
+            <div class="form">
                 <h3>Login</h3>
                 <Input placeholder="User" required>
                     <Icon slot="prefix" type="avatar"></Icon>
@@ -87,12 +102,12 @@ ${(
                     Remember
                     <InputSwitch size="small" slot="action" />
                 </Label>
-                <Grid model="gap cols(auto auto)">
+                <div>
                     <Button color="primary">Login</Button>
                     <Button ghost>Register</Button>
-                </Grid>
-            </Grid>
+                </div>
+            </div>
         </form>
-    </Grid>
+    </Theme>
 )}
 `;

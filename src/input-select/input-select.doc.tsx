@@ -1,5 +1,4 @@
 import { InputSelect, InputSelectOption } from "./input-select";
-import { Grid } from "../grid/grid";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -34,13 +33,15 @@ ${(
             label="Default"
             content="center"
             render={(props) => (
-                <Grid model="width(220px)">
-                    <InputSelect placeholder="Select item" {...props}>
-                        <InputSelectOption value="1" label="Item 1" />
-                        <InputSelectOption value="2" label="Item 2" />
-                        <InputSelectOption value="3" label="Item 3" />
-                    </InputSelect>
-                </Grid>
+                <InputSelect
+                    style="width: 220px"
+                    placeholder="Select item"
+                    {...props}
+                >
+                    <InputSelectOption value="1" label="Item 1" />
+                    <InputSelectOption value="2" label="Item 2" />
+                    <InputSelectOption value="3" label="Item 3" />
+                </InputSelect>
             )}
         ></Story>
     </Stories>

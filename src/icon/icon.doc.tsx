@@ -1,6 +1,6 @@
 import { Icon } from "./icon";
 import { Icons } from "./icons";
-import { Grid } from "../grid/grid";
+import { Theme } from "../theme/theme";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
@@ -13,17 +13,29 @@ export default md`
 ${(
     <Stories>
         <Story label="Default">
-            <Grid model="width(100%) gap(s) cols(1fr 1fr 1fr 1fr) content(center)">
+            <Theme class="grid">
+                <style>
+                    {`
+                    .grid{
+                        display: grid;
+                        width: 100%;
+                        gap: var(--size-s);
+                        grid-template-columns: repeat(auto-fit,minmax(80px, 1fr));
+                    }
+                    .grid_item{
+                        display: grid;
+                        gap: var(--size-s);
+                        justify-items: center;
+                    }
+                    `}
+                </style>
                 {Object.keys(Icons).map((type) => (
-                    <Grid
-                        title={type}
-                        model="gap slot(*,margin:auto) padding(xxs)"
-                    >
+                    <div title={type} class="grid_item">
                         <small>{type}</small>
                         <Icon type={type}></Icon>
-                    </Grid>
+                    </div>
                 ))}
-            </Grid>
+            </Theme>
         </Story>
     </Stories>
 )}
