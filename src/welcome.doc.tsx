@@ -1,6 +1,6 @@
 import { md } from "@atomico/stories";
 import { Icon } from "./components";
-
+import { App } from "./doc/examples/app";
 export const meta = {
     title: "Welcome",
     icon: <Icon type="home"></Icon>,
@@ -10,21 +10,13 @@ export const meta = {
 export default md`
 # Welcome
 
-Formilk is a system of configurable components created by [UpperCod](https://twitter.com/uppercod), with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
+Formilk is a system of configurable **webcomponents** created by [UpperCod](https://twitter.com/uppercod), with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
 
 
 
-## Example
+## Usage example
 
-${(
-    <iframe
-        width="100%"
-        height="820px"
-        loading="lazy"
-        src="https://stackblitz.com/edit/formilk-example-contact-app?embed=1&file=src/app.tsx&hideExplorer=1&view=preview"
-        frameborder="0"
-    ></iframe>
-)}
+${(<App></App>)}
 
 
 ## Installation

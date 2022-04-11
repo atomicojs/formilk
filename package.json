@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@atomico/design-tokens": "^1.2.0",
-        "@atomico/hooks": "^3.33.4",
+        "@atomico/hooks": "^3.33.5",
         "@floating-ui/dom": "^0.4.4",
         "atomico": "^1.51.0",
         "scrollable-component": "^1.2.1"

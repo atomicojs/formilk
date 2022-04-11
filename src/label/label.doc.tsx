@@ -40,7 +40,10 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-label>
+    Checkbox
+    <fm-input-checkbox slot="action"></fm-input-checkbox>
+</fm-label>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -49,30 +52,54 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-label>
+            Checkbox
+            <fm-input-checkbox slot="action"></fm-input-checkbox>
+        </fm-label>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { Label, InputCheckbox } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <Label>
+                Checkbox
+                <InputCheckbox slot="action"/>
+            </Label>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { Label, InputCheckbox } from "formilk/react";
 
 function component() {
     return (
         <>
-            <Button>Button</Button>
+            <Label>
+                Checkbox
+                <InputCheckbox slot="action"/>
+            </Label>
+        </>
+    );
+}
+~~~
+
+~~~tsx tab(usage,Preact)
+import { Label, InputCheckbox } from "formilk/preact";
+
+function component() {
+    return (
+        <>
+            <Label>
+                Checkbox
+                <InputCheckbox slot="action"/>
+            </Label>
         </>
     );
 }

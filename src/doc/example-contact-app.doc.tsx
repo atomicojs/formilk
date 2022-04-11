@@ -1,5 +1,5 @@
 import { md } from "@atomico/stories";
-
+import { App } from "./examples/app";
 export const meta = {
     path: "/examples/Contact app",
 };
@@ -7,14 +7,10 @@ export const meta = {
 export default md`
 # Example Contacts app
 
-${(
-    <iframe
-        width="100%"
-        height="820px"
-        loading="lazy"
-        src="https://stackblitz.com/edit/formilk-example-contact-app?embed=1&file=src/app.tsx&hideExplorer=1&view=preview"
-        frameborder="0"
-    ></iframe>
-)}
+${(<App></App>)}
 
+## Sources
+
+1. TSX [stackblitz.com](https://stackblitz.com/edit/formilk-example-contact-app?file=src%2Fapp.tsx)
+2. JSX [webcomponents.dev](https://webcomponents.dev/edit/collection/FnaPy15Ple9r6IJKNYDx/kmPhuXMrvAl1vLM8ytB7/src/index.jsx?p=stories)
 `;

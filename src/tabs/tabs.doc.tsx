@@ -50,7 +50,7 @@ ${(
     <fm-buttons value="1" active>
         Home
     </fm-buttons>
-    <fm-buttons value="2" active>
+    <fm-buttons value="2">
         Profile
     </fm-buttons>
     <fm-buttons value="3">
@@ -72,7 +72,7 @@ function component() {
             <fm-buttons value="1" active>
                 Home
             </fm-buttons>
-            <fm-buttons value="2" active>
+            <fm-buttons value="2">
                 Profile
             </fm-buttons>
             <fm-buttons value="3">
@@ -96,7 +96,7 @@ function component() {
                 <Button value="1" active>
                     Home
                 </Button>
-                <Button value="2" active>
+                <Button value="2">
                     Profile
                 </Button>
                 <Button value="3">Config</Button>
@@ -117,7 +117,7 @@ function component() {
                 <Button value="1" active>
                     Home
                 </Button>
-                <Button value="2" active>
+                <Button value="2">
                     Profile
                 </Button>
                 <Button value="3">Config</Button>
@@ -138,7 +138,7 @@ function component() {
                 <Button value="1" active>
                     Home
                 </Button>
-                <Button value="2" active>
+                <Button value="2">
                     Profile
                 </Button>
                 <Button value="3">Config</Button>

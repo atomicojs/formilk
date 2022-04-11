@@ -2,11 +2,11 @@ import { Calendar } from "./calendar";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
-    path: "/Components/Input/Calendar 🧪",
+    path: "/Components/Input/Calendar",
 };
 
 export default md`
-# InputCalendar
+# InputCalendar(working...)
 
 ${(
     <Stories props={{}}>
