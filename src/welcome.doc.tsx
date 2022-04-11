@@ -1,7 +1,7 @@
 import { md } from "@atomico/stories";
 import { Icon, Theme } from "./components";
 import { App } from "./_doc/examples/app";
-
+import imageEssential from "./_doc/essential.svg";
 export const meta = {
     title: "Welcome",
     icon: <Icon type="home"></Icon>,
@@ -9,7 +9,9 @@ export const meta = {
 };
 
 export default md`
-# Welcome
+
+${(<img src={imageEssential} style="object-fit: cover;height: 300px;" />)}
+
 
 Formilk is a system of configurable **webcomponents** created by [UpperCod](https://twitter.com/uppercod), with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
 
