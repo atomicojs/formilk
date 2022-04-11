@@ -10,7 +10,7 @@ export default md`
 
 ${(<App></App>)}
 
-## Sources
+## Example with
 
 1. Atomico TSX [stackblitz.com](https://stackblitz.com/edit/formilk-example-contact-app?file=src%2Fapp.tsx)
 2. Atomico JSX [webcomponents.dev](https://webcomponents.dev/edit/collection/FnaPy15Ple9r6IJKNYDx/kmPhuXMrvAl1vLM8ytB7/src/index.jsx?p=stories)
