@@ -173,6 +173,12 @@ app.styles = [
             display: grid;
             grid-template-columns: auto 140px;
         }
+
+        @media (max-width: 420px) {
+            .app {
+                width: 100%;
+            }
+        }
     `,
 ];
 
