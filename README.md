@@ -11,7 +11,7 @@ Formilk is a system of configurable webcomponents designed by [UpperCod](https:/
 
 ## Usage example
 
-[![Usage example](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/contact-app.png)](https://formilk.netlify.app//examples/contact-app)
+[![Usage example](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/contact-app.png)](https://formilk.netlify.app/examples/contact-app)
 
 ## Figma preview
 
