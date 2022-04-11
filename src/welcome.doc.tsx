@@ -1,16 +1,9 @@
 import { md } from "@atomico/stories";
-import {
-    Formilk,
-    Button,
-    Input,
-    Icon,
-    InputSwitch,
-    Label,
-    Theme,
-} from "./components";
+import { Icon } from "./components";
 
 export const meta = {
-    title: "👋 Welcome",
+    title: "Welcome",
+    icon: <Icon type="home"></Icon>,
     path: "/",
 };
 
@@ -18,6 +11,20 @@ export default md`
 # Welcome
 
 Formilk is a system of configurable components created by [UpperCod](https://twitter.com/uppercod), with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
+
+
+
+## Example
+
+${(
+    <iframe
+        width="100%"
+        height="820px"
+        loading="lazy"
+        src="https://stackblitz.com/edit/formilk-example-contact-app?embed=1&file=src/app.tsx&hideExplorer=1&view=preview"
+        frameborder="0"
+    ></iframe>
+)}
 
 
 ## Installation
@@ -78,44 +85,4 @@ function component() {
     );
 }
 ~~~
-
-## Example
-
-${(
-    <Theme>
-        <style>
-            {`
-            .form{
-                width: 100%;
-                height: 500px;
-                display: grid;
-                gap: var(--size-s);
-                padding: var(--size-s);
-                place-content: center;
-                background: lavender;
-                border-radius:var(--border-radius);
-            }
-            `}
-        </style>
-        <form>
-            <div class="form">
-                <h3>Login</h3>
-                <Input placeholder="User" required>
-                    <Icon slot="prefix" type="avatar"></Icon>
-                </Input>
-                <Input placeholder="Password" required>
-                    <Icon slot="prefix" type="lock"></Icon>
-                </Input>
-                <Label>
-                    Remember
-                    <InputSwitch size="small" slot="action" />
-                </Label>
-                <div>
-                    <Button color="primary">Login</Button>
-                    <Button ghost>Register</Button>
-                </div>
-            </div>
-        </form>
-    </Theme>
-)}
 `;

@@ -40,7 +40,15 @@ ${(
 ## Usage
 
 ~~~html tab(usage,HTML)
-<fm-button>Button</fm-button>
+<fm-dropdown>
+    <fm-button slot="action">Button</fm-button>
+    <fm-button size="small" justify="space-between" ghost>
+        <fm-icon slot="suffix" type="copy"></fm-icon> Copy
+    </fm-button>
+    <fm-button size="small" justify="space-between" ghost>
+        <fm-icon slot="suffix" type="drag"></fm-icon> Move
+    </fm-button>
+</fm-dropdown>
 ~~~
 
 ~~~tsx tab(usage,Atomico JS)
@@ -49,30 +57,90 @@ import "formilk";
 
 function component() {
     return html\`<host>
-        <fm-button>Button</fm-button>
+        <fm-dropdown>
+            <fm-button slot="action">Button</fm-button>
+            <fm-button size="small" justify="space-between" ghost>
+                <fm-icon slot="suffix" type="copy"></fm-icon> Copy
+            </fm-button>
+            <fm-button size="small" justify="space-between" ghost>
+                <fm-icon slot="suffix" type="drag"></fm-icon> Move
+            </fm-button>
+        </fm-dropdown>
     </host>\`;
 }
 ~~~
 
 ~~~tsx tab(usage,Atomico Jsx)
-import { Button } from "formilk";
+import { Dropdown, Button, Icon } from "formilk";
 
 function component() {
     return (
         <host>
-            <Button>Button</Button>
+            <Dropdown width="100px" style="margin: auto">
+                <Button justify="left" slot="action">
+                    Click
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="copy"></Icon> Copy
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="drag"></Icon> Move
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="config"></Icon> Config
+                </Button>
+            </Dropdown>
         </host>
     );
 }
 ~~~
 
 ~~~tsx tab(usage,React)
-import { Button } from "formilk/react";
+import { Dropdown, Button, Icon } from "formilk/react";
 
-function component() {
+export function App() {
     return (
         <>
-            <Button>Button</Button>
+            <Dropdown width="100px" style="margin: auto">
+                <Button justify="left" slot="action">
+                    Click
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="copy"></Icon> Copy
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="drag"></Icon> Move
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="config"></Icon> Config
+                </Button>
+            </Dropdown>
+        </>
+    );
+}
+~~~
+
+
+~~~tsx tab(usage,Preact)
+import { Dropdown, Button, Icon } from "formilk/preact";
+
+export function App() {
+    return (
+        <>
+            <Dropdown width="100px" style="margin: auto">
+                <Button justify="left" slot="action">
+                    Click
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="copy"></Icon> Copy
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="drag"></Icon> Move
+                </Button>
+                <Button size="small" justify="space-between" ghost>
+                    <Icon slot="suffix" type="config"></Icon> Config
+                </Button>
+            </Dropdown>
         </>
     );
 }

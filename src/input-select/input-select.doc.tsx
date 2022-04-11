@@ -1,7 +1,9 @@
 import { InputSelect, InputSelectOption } from "./input-select";
+import { Icon } from "../icon/icon";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
+    icon: <Icon type="dropdown"></Icon>,
     path: "/Components/Input/Select",
 };
 

@@ -1,7 +1,9 @@
 import { InputRadio } from "./input-radio";
+import { Icon } from "../icon/icon";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
+    icon: <Icon type="circle"></Icon>,
     path: "/Components/Input/Radio",
 };
 

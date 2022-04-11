@@ -1,7 +1,9 @@
 import { InputSwitch } from "./input-switch";
+import { Icon } from "../icon/icon";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
+    icon: <Icon type="switch"></Icon>,
     path: "/Components/Input/Switch",
 };
 

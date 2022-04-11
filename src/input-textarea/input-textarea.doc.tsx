@@ -1,7 +1,9 @@
 import { Textarea } from "./input-textarea";
+import { Icon } from "../icon/icon";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
+    icon: <Icon type="textarea"></Icon>,
     path: "/Components/Input/Textarea",
 };
 

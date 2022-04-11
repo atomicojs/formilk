@@ -1,7 +1,9 @@
 import { InputFile, InputFilePreview } from "./input-file";
+import { Icon } from "../icon/icon";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
+    icon: <Icon type="file"></Icon>,
     path: "/Components/Input/File",
 };
 

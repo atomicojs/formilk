@@ -1,7 +1,9 @@
 import { InputCheckbox } from "./input-checkbox";
+import { Icon } from "../icon/icon";
 import { md, Stories, Story } from "@atomico/stories";
 
 export const meta = {
+    icon: <Icon type="checkbox"></Icon>,
     path: "/Components/Input/Checkbox",
 };
 
