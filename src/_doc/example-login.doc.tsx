@@ -2,7 +2,7 @@ import { md } from "@atomico/stories";
 import { Button, Input, Icon, InputSwitch, Label, Theme } from "../components";
 
 export const meta = {
-    path: "/examples/Login",
+    path: "/Examples/Login",
 };
 
 export default md`

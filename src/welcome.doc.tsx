@@ -1,6 +1,7 @@
 import { md } from "@atomico/stories";
-import { Icon } from "./components";
-import { App } from "./doc/examples/app";
+import { Icon, Theme } from "./components";
+import { App } from "./_doc/examples/app";
+
 export const meta = {
     title: "Welcome",
     icon: <Icon type="home"></Icon>,
@@ -12,7 +13,47 @@ export default md`
 
 Formilk is a system of configurable **webcomponents** created by [UpperCod](https://twitter.com/uppercod), with formilk you can speed up your design system creation process, associating your design tokens to formilk using custom-properties.
 
-
+${(
+    <Theme>
+        <style>
+            {`
+            .row{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: var(--size-xl);
+            }
+            .row > *{
+                padding: var(--size-s);
+                box-sizing: border-box;
+                background: white;
+                border-radius: var(--border-radius);
+            }
+            `}
+        </style>
+        <div class="row">
+            <div>
+                <h3>Form friendly</h3>
+                <p>
+                    There are no limits to its use, our webcomponents work
+                    inside any form tag
+                </p>
+            </div>
+            <div>
+                <h3>Fully configurable</h3>
+                <p>
+                    thanks to a highly scalable{" "}
+                    <a
+                        target="_blank"
+                        href="https://github.com/atomicojs/formilk/blob/master/src/options.ts"
+                    >
+                        token system
+                    </a>{" "}
+                    you can completely modify the appearance of formilk
+                </p>
+            </div>
+        </div>
+    </Theme>
+)}
 
 ## Usage example
 

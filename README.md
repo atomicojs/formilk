@@ -9,9 +9,13 @@ Formilk is a system of configurable webcomponents designed by [UpperCod](https:/
 3. Be agnostically friendly with third party libraries, eg Html, React, Preact and others.
 4. Communicate states to forms, Whether formilk webcomponents can be used inside a `<form>` tag.
 
-## Preview
+## Usage example
 
-![preview](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/example.svg)
+[![Usage example](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/contact-app.png)](https://formilk.netlify.app//examples/contact-app)
+
+## Figma preview
+
+[![Figma preview](https://raw.githubusercontent.com/atomicojs/formilk/master/assets/example.svg)](https://www.figma.com/community/file/1091744563513186455)
 
 ## Formilk is agnostically friendly
 

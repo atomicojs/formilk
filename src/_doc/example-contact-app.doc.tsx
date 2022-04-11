@@ -1,7 +1,8 @@
 import { md } from "@atomico/stories";
 import { App } from "./examples/app";
+
 export const meta = {
-    path: "/examples/Contact app",
+    path: "/Examples/Contact app",
 };
 
 export default md`
