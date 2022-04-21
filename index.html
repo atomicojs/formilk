@@ -24,6 +24,17 @@
                 overflow: hidden auto;
             }
         </style>
+        <script>
+            try {
+                new CSSStyleSheet();
+            } catch (e) {
+                const script = document.createElement("script");
+                const { currentScript } = document;
+                script.src =
+                    "https://unpkg.com/construct-style-sheets-polyfill";
+                currentScript.parentElement.replaceChild(script, currentScript);
+            }
+        </script>
         <script async type="module" src="./src/doc.tsx"></script>
     </head>
     <body></body>
