@@ -1,6 +1,7 @@
 import { render } from "atomico";
 import { Doc, ModuloPage } from "@atomico/stories";
 import logo from "./logo.svg";
+import "@fontsource/nunito-sans";
 
 const modules = Object.values(
     //@ts-ignore
