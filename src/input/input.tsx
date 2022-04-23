@@ -2,20 +2,22 @@ import { Props, c, useProp, useRef, css, useHost } from "atomico";
 import { useSlot } from "@atomico/hooks/use-slot";
 import { useRender } from "@atomico/hooks/use-render";
 import { useDisabled } from "@atomico/hooks/use-disabled";
+import { usePropProxy } from "@atomico/hooks/use-prop-proxy";
 import { InputGenericProps } from "../props";
 import { serialize } from "atomico/utils";
 import { inputBaseStyle } from "./input-base-style";
 import customElements from "../custom-elements";
 
 function input({ type, status, ...props }: Props<typeof input>) {
-    const [, setValue] = useProp("value");
+    const [, setValue] = useProp<string>("value");
     const [, setFocus] = useProp("focused");
+
+    const host = useHost();
     const refSlotLabel = useRef();
     const refSlotPrefix = useRef();
     const refSlotSuffix = useRef();
-    const host = useHost();
+    const refInput = useRef<HTMLInputElement>();
 
-    const refInput = useRef();
     const slotLabel = useSlot(refSlotLabel).filter((el) =>
         el instanceof Text ? el.textContent?.trim() : true
     );
@@ -36,17 +38,23 @@ function input({ type, status, ...props }: Props<typeof input>) {
 
     useDisabled();
 
+    usePropProxy("value", {
+        get() {
+            return refInput.current?.value;
+        },
+    });
+
     return (
         <host
             shadowDom
-            oninput={() => setValue(refInput.current.value)}
+            oninput={() => setValue(refInput.current?.value)}
             onclick={(event) => {
                 let { target } = event as { target: Element | null };
                 while (target && target != host.current) {
                     if (target?.hasAttribute("focusable")) return;
                     target = target.parentElement;
                 }
-                refInput.current.focus();
+                refInput.current?.focus();
             }}
         >
             <div class="input-row input">
