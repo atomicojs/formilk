@@ -16,12 +16,12 @@ export const tokens = {
     },
     size: {
         "": "4px",
-        xl: "calc(var(--size) * 10)",
-        l: "calc(var(--size) * 8)",
-        m: "calc(var(--size) * 7)",
-        s: "calc(var(--size) * 5)",
-        xs: "calc(var(--size) * 4)",
-        xxs: "calc(var(--size) * 3)",
+        xl: "calc(@size * 10)",
+        l: "calc(@size * 8)",
+        m: "calc(@size * 7)",
+        s: "calc(@size * 5)",
+        xs: "calc(@size * 4)",
+        xxs: "calc(@size * 3)",
     },
     color: {
         primary: {
@@ -32,32 +32,32 @@ export const tokens = {
         action: {
             60: "#fff",
             30: "transparent",
-            10: "var(--color-primary-60)",
+            10: "@color.primary.60",
         },
         toggle: {
-            60: "var(--color-primary-60)",
-            30: "var(--color-primary-30)",
-            10: "var(--color-primary-10)",
+            60: "@color.primary.60",
+            30: "@color.primary.30",
+            10: "@color.primary.10",
         },
         layer: {
             60: "#fff",
             30: "transparent",
-            10: "var(--color-primary-60)",
+            10: "@color.primary.60",
         },
         scroll: {
             60: "transparent",
             30: "transparent",
-            10: "var(--color-neutral-10)",
+            10: "@color.neutral.10",
         },
         input: {
-            60: "var(--color-action-60)",
-            30: "var(--color-action-30)",
-            10: "var(--color-action-10)",
+            60: "@color.action.60",
+            30: "@color.action.30",
+            10: "@color.action.10",
         },
         button: {
-            60: "var(--color-action-60)",
-            30: "var(--color-action-30)",
-            10: "var(--color-action-10)",
+            60: "@color.action.60",
+            30: "@color.action.30",
+            10: "@color.action.10",
         },
         success: {
             60: "#18D47C",
@@ -82,14 +82,14 @@ export const tokens = {
         neutral: {
             60: "#D8E2EA",
             30: "transparent",
-            10: "var(--color-primary-60)",
+            10: "@color.primary.60",
         },
     },
     input: {
         border: {
-            width: "var(--border-width)",
+            width: "@border.width",
             style: "solid",
-            "": "var(--input-border-width) var(--input-border-style) var(--color-input-30)",
+            color: "@color.input.30",
         },
     },
     tab: {
@@ -109,10 +109,10 @@ export const tokens = {
                 size: "0.875rem",
             },
             size: {
-                xl: "calc(var(--size) * 8)",
-                l: "calc(var(--size) * 7)",
-                m: "calc(var(--size) * 5)",
-                s: "calc(var(--size) * 3.5)",
+                xl: "calc(@size * 8)",
+                l: "calc(@size * 7)",
+                m: "calc(@size * 5)",
+                s: "calc(@size * 3.5)",
             },
         },
     },

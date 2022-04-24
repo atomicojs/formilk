@@ -37,7 +37,8 @@ export const inputBaseStyle = [
         .input {
             width: 100%;
             height: 100%;
-            border: var(--input-border);
+            border: var(--input-border-width) var(--input-border-style)
+                var(--color-input-30);
             border-radius: var(--border-radius);
             padding: 0 var(--space-x);
             background: var(--color-input-60);
