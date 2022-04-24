@@ -18,7 +18,8 @@
                 overflow: hidden auto;
             }
         </style>
-        <script async type="module" src="./src/doc.tsx"></script>
+        <link rel="preload" as="script" href="./src/doc.tsx" />
+        <script type="module" src="./src/doc.tsx"></script>
     </head>
     <body></body>
 </html>
