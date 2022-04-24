@@ -2,6 +2,7 @@
     "name": "formilk",
     "description": "Formilk is a system of configurable components created with Atomicojs",
     "version": "0.20.1",
+    "type": "module",
     "scripts": {
         "start": "vite --force",
         "build": "vite build --outDir docs",
@@ -18,6 +19,7 @@
     },
     "devDependencies": {
         "@atomico/exports": "^0.27.0",
+        "@atomico/plugin-vite": "^1.1.1",
         "@atomico/scaffold": "^0.2.0",
         "@atomico/stories": "^0.3.0",
         "@uppercod/calendar": "^0.0.0",
