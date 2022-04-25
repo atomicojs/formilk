@@ -43,12 +43,12 @@ tabs.props = {
     },
 };
 
-tabs.styles = css`'
-    :host{
+tabs.styles = css`
+    :host {
         --flow: row nowrap;
     }
     :host([position="left"]),
-    :host([position="right"]){
+    :host([position="right"]) {
         --flow: column;
     }
     [name="mark"] {
@@ -58,7 +58,6 @@ tabs.styles = css`'
         display: flex;
         flex-flow: var(--flow);
     }
-
 `;
 
 export const Tabs = c(tabs);
