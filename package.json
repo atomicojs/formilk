@@ -23,8 +23,6 @@
         "@atomico/scaffold": "^0.2.0",
         "@atomico/stories": "^0.3.0",
         "@uppercod/calendar": "^0.0.0",
-        "@uppercod/vite-meta-url": "latest",
-        "@uppercod/vite-meta-url-load-css": "latest",
         "typescript": "^4.6.3",
         "vite": "latest"
     },
