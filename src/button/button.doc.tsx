@@ -19,6 +19,9 @@ ${(
             ghost: {
                 type: "toggle",
             },
+            disabled: {
+                type: "toggle",
+            },
             justify: {
                 type: "radio-groups",
                 options: ["left", "right", "center", "space-between"],

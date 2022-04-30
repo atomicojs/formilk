@@ -1,8 +1,7 @@
 import { css } from "atomico";
-import { compose, tokens } from "@atomico/design-tokens";
-import * as options from "./options";
 
-export default compose(tokens(options.tokens, options.prefix))(css`
+export default css`
+    @import "./tokens.json" (prefix: "fm");
     :host {
         font-size: var(--font-size);
         font-family: var(--font-family);
@@ -11,4 +10,4 @@ export default compose(tokens(options.tokens, options.prefix))(css`
         opacity: var(--opacity-disabled);
         pointer-events: none;
     }
-`);
+`;

@@ -5,5 +5,5 @@ export default defineConfig({
     build: {
         target: "esnext",
     },
-    plugins: [atomico({ cssLiterals: { minify: true } })],
+    plugins: [atomico({ cssLiterals: { minify: true, postcss: true } })],
 });

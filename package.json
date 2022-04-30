@@ -20,14 +20,21 @@
     "devDependencies": {
         "@atomico/exports": "^0.29.1",
         "@atomico/plugin-vite": "^1.2.1",
+        "@atomico/postcss-tokens": "^1.1.2",
         "@atomico/scaffold": "^0.2.0",
         "@atomico/stories": "^0.3.0",
         "@uppercod/calendar": "^0.0.0",
+        "postcss": "^8.4.13",
         "typescript": "^4.6.3",
         "vite": "latest"
     },
     "prettier": {
         "tabWidth": 4,
         "singleQuote": false
+    },
+    "postcss": {
+        "plugins": {
+            "@atomico/postcss-tokens": {}
+        }
     }
 }

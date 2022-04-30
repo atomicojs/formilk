@@ -154,11 +154,6 @@ button.styles = [
             color: var(--color-button-10);
         }
 
-        :host([disabled]) {
-            opacity: var(--input-opacity-disabled);
-            pointer-events: none;
-        }
-
         :host([rounded]) {
             --border-radius: 100px;
         }
