@@ -17,7 +17,7 @@
         "scrollable-component": "^1.2.1"
     },
     "devDependencies": {
-        "@atomico/exports": "^0.29.1",
+        "@atomico/exports": "^0.30.0",
         "@atomico/plugin-vite": "^1.2.1",
         "@atomico/postcss-tokens": "^1.1.2",
         "@atomico/scaffold": "^0.2.0",
