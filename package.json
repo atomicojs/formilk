@@ -10,10 +10,10 @@
         "prepublishOnly": "npm run exports"
     },
     "dependencies": {
-        "@atomico/hooks": "^3.35.1",
+        "@atomico/hooks": "^3.41.0",
         "@floating-ui/dom": "^0.4.4",
         "@fontsource/nunito-sans": "^4.5.6",
-        "atomico": "^1.54.0",
+        "atomico": "^1.59.0",
         "scrollable-component": "^1.2.1"
     },
     "devDependencies": {
